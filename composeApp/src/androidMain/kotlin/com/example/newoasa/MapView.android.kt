@@ -40,7 +40,7 @@ actual fun MapView(
         Configuration.getInstance().userAgentValue = context.packageName
     }
 
-    // CartoDB Voyager Tile Source
+    // Light Mode: CartoDB Voyager
     val voyagerTileSource = remember {
         XYTileSource(
             "CartoDBVoyager",
@@ -50,6 +50,20 @@ actual fun MapView(
                 "https://b.basemaps.cartocdn.com/rastertiles/voyager/",
                 "https://c.basemaps.cartocdn.com/rastertiles/voyager/",
                 "https://d.basemaps.cartocdn.com/rastertiles/voyager/"
+            )
+        )
+    }
+
+    // Dark Mode: CartoDB Dark Matter
+    val darkTileSource = remember {
+        XYTileSource(
+            "CartoDBDarkMatter",
+            0, 19, 256, ".png",
+            arrayOf(
+                "https://a.basemaps.cartocdn.com/rastertiles/dark_all/",
+                "https://b.basemaps.cartocdn.com/rastertiles/dark_all/",
+                "https://c.basemaps.cartocdn.com/rastertiles/dark_all/",
+                "https://d.basemaps.cartocdn.com/rastertiles/dark_all/"
             )
         )
     }
@@ -65,18 +79,17 @@ actual fun MapView(
             
             controller.setZoom(12.0)
             controller.setCenter(GeoPoint(37.9838, 23.7275)) // Athens
-            setTileSource(voyagerTileSource)
         }
     }
 
-    // Apply Grayscale Filter if isDark is true
+    // Switch Tile Source based on Theme
     LaunchedEffect(isDark) {
         if (isDark) {
-            val matrix = ColorMatrix()
-            matrix.setSaturation(0f) // Grayscale
-            val filter = ColorMatrixColorFilter(matrix)
-            mapView.overlayManager.tilesOverlay.setColorFilter(filter)
+            mapView.setTileSource(darkTileSource)
+            // Ensure filter is removed if we had one, or add one if we want to tint Dark Matter
+            mapView.overlayManager.tilesOverlay.setColorFilter(null) 
         } else {
+            mapView.setTileSource(voyagerTileSource)
             mapView.overlayManager.tilesOverlay.setColorFilter(null)
         }
         mapView.invalidate()
