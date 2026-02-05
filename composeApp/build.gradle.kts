@@ -44,7 +44,11 @@ kotlin {
             implementation("org.jetbrains.androidx.navigation:navigation-compose:2.7.0-alpha07")
             implementation("org.jetbrains.compose.material:material-icons-extended:1.6.0")
             
-            // Removed maplibre-compose
+            // MapLibre Compose for multiplatform map support
+            implementation("org.maplibre.compose:maplibre-compose:0.0.1-alpha05")
+            
+            // GeoJSON parsing library for Kotlin Multiplatform
+            implementation("io.github.elcolto.geokjson:geojson:0.3.1")
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
