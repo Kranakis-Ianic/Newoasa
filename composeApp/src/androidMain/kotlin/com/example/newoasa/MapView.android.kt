@@ -82,11 +82,11 @@ actual fun MapView(
                             .build()
                         
                         // Disable default UI to use custom buttons
-                        map.uiSettings.isLogoEnabled = false 
+                        map.uiSettings.isLogoEnabled = true
                         map.uiSettings.isAttributionEnabled = true
-                        map.uiSettings.isCompassEnabled = false
+                        map.uiSettings.isCompassEnabled = true
                         map.uiSettings.isRotateGesturesEnabled = true
-                        map.uiSettings.isTiltGesturesEnabled = true
+                        map.uiSettings.isTiltGesturesEnabled = false
                         
                         // Set initial style
                         map.setStyle(if (isDark) darkStyle else lightStyle)
