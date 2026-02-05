@@ -6,6 +6,10 @@ import androidx.compose.material3.darkColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
+enum class AppThemeMode {
+    Light, Dark, Auto
+}
+
 // We define a single, fixed color scheme that ignores system light/dark mode for the UI.
 // The UI will ALWAYS be Deep Blue with White text.
 private val OasaFixedColors = darkColorScheme(
