@@ -3,45 +3,38 @@ package com.example.newoasa
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
-import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
-private val LightColors = lightColorScheme(
-    primary = Color.002e67,
-    onPrimary = Color.White,
-    primaryContainer = Color.002e67,
-    onPrimaryContainer = Color.002e67,
-    secondary = Color.002e67,
-    onSecondary = Color.White
-)
-
-private val DarkColors = darkColorScheme(
-    primary = Color.,
-    onPrimary = Color.Blue,
-    primaryContainer = Color.Blue,
-    onPrimaryContainer = Color.Blue,
-    secondary = Color.Blue,
-    onSecondary = Color.Blue,
-    background = Color.Blue,
-    surface = Color.Blue,
-    onBackground = Color.White,
-    onSurface = Color.White
+// We define a single, fixed color scheme that ignores system light/dark mode for the UI.
+// The UI will ALWAYS be Deep Blue with White text.
+private val OasaFixedColors = darkColorScheme(
+    primary = OasaDeepBlue,
+    onPrimary = OasaWhite,
+    primaryContainer = OasaDeepBlue,
+    onPrimaryContainer = OasaWhite,
+    
+    secondary = OasaAccentBlue,
+    onSecondary = OasaWhite,
+    
+    background = OasaDeepBlue,
+    onBackground = OasaWhite,
+    
+    surface = OasaDeepBlue,
+    onSurface = OasaWhite,
+    
+    surfaceVariant = OasaDeepBlue,
+    onSurfaceVariant = OasaWhiteTransparent
 )
 
 @Composable
 fun NewOasaTheme(
-    useDarkTheme: Boolean = isSystemInDarkTheme(),
+    useDarkTheme: Boolean = isSystemInDarkTheme(), // Parameter kept for compatibility but ignored for colors
     content: @Composable () -> Unit
 ) {
-    val colorScheme = if (useDarkTheme) {
-        DarkColors
-    } else {
-        LightColors
-    }
-
+    // We always use the fixed scheme for the UI
     MaterialTheme(
-        colorScheme = colorScheme,
+        colorScheme = OasaFixedColors,
         content = content
     )
 }
