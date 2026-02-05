@@ -1,0 +1,8 @@
+# GeoJSON Files Directory
+
+Place your GeoJSON files in this directory. These files will be accessible as multiplatform resources.
+
+Example usage:
+```kotlin
+val geojsonData = Res.readBytes("files/geojson/your-file.geojson")
+```
