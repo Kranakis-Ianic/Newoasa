@@ -12,10 +12,8 @@ fun MapView(
 ) {
     val styleUrl = if (isDark) "https://tiles.openfreemap.org/styles/dark" else "https://tiles.openfreemap.org/styles/positron"
 
-    // Based on snippet 165 "__base__ Style", testing parameter name 'base'
-    // If this fails, I'll try positional args (modifier first, then style?)
     MaplibreMap(
         modifier = modifier.fillMaxSize()
-        // properties commented out to debug signature in next step if this fails
+        // removed style parameter until I verify the name from source
     )
 }
