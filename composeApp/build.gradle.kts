@@ -22,9 +22,6 @@ kotlin {
         iosTarget.binaries.framework {
             baseName = "ComposeApp"
             isStatic = true
-            // MapLibre iOS dependency is likely transitive via the compose wrapper or needs Pods/SPM.
-            // But usually KMP wrappers include the native binary or expect you to link it.
-            // For now let's just add the common dependency.
         }
     }
     
@@ -32,7 +29,6 @@ kotlin {
         androidMain.dependencies {
             implementation(libs.compose.uiToolingPreview)
             implementation(libs.androidx.activity.compose)
-            // Removed direct Android SDK, will rely on common wrapper
         }
         commonMain.dependencies {
             implementation(libs.compose.runtime)
@@ -46,14 +42,8 @@ kotlin {
             implementation("org.jetbrains.androidx.navigation:navigation-compose:2.7.0-alpha07")
             implementation("org.jetbrains.compose.material:material-icons-extended:1.6.0")
             
-            // MapLibre Compose Multiplatform
-            implementation("org.maplibre.compose:maplibre-compose:0.6.0") 
-            // Note: Search said 0.12.1 exists but sometimes newer versions have breaking changes or require newer Kotlin. 
-            // Let's try 0.6.0 first as it's often more stable in tutorials, or actually 0.4.1 is very common.
-            // Wait, the search result explicitly mentioned v0.11.1 and v0.12.1. Let's use 0.6.0 to be safe or 0.12.1?
-            // Let's go with 0.6.0 which is definitely stable for basic things. 
-            // Actually, let's use the one from the search result "0.12.1" to get latest features.
-            implementation("org.maplibre.compose:maplibre-compose:0.6.1")
+            // MapLibre Compose (Official)
+            implementation("org.maplibre.compose:maplibre-compose:0.12.1")
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
