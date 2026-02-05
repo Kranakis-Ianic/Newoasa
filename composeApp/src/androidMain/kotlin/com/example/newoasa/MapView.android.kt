@@ -40,9 +40,9 @@ actual fun MapView(
         MapLibre.getInstance(context)
     }
 
-    // Styles for OpenFreeMap
-    val lightStyle = "https://tiles.openfreemap.org/styles/positron/style.json"
-    val darkStyle = "https://tiles.openfreemap.org/styles/dark/style.json"
+    // Styles for OpenFreeMap (Correct URLs without /style.json)
+    val lightStyle = "https://tiles.openfreemap.org/styles/positron"
+    val darkStyle = "https://tiles.openfreemap.org/styles/dark"
     
     // Keep reference to the map object to update style
     val mapRef = remember { mutableStateOf<MapLibreMap?>(null) }
