@@ -29,8 +29,8 @@ kotlin {
         androidMain.dependencies {
             implementation(libs.compose.uiToolingPreview)
             implementation(libs.androidx.activity.compose)
-            // OpenStreetMap (osmdroid)
-            implementation("org.osmdroid:osmdroid-android:6.1.18")
+            // MapLibre Native for Android (Vector Tiles)
+            implementation("org.maplibre.gl:android-sdk:11.5.1")
         }
         commonMain.dependencies {
             implementation(libs.compose.runtime)
