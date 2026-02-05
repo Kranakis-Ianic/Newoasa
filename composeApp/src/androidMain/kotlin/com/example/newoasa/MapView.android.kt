@@ -20,19 +20,29 @@ actual fun MapView(modifier: Modifier) {
         Configuration.getInstance().userAgentValue = context.packageName
     }
 
-    // Define Public Transport Tile Source (ÖPNVKarte)
-    val transportTileSource = remember {
+    // Define CartoDB Voyager Tile Source (Simple, Modern, Clean)
+    val voyagerTileSource = remember {
         XYTileSource(
-            "PublicTransport",
-            0, 18, 256, ".png",
-            arrayOf("https://tileserver.memomaps.de/tilegen/")
+            "CartoDBVoyager",
+            0, 19, 256, ".png",
+            arrayOf(
+                "https://a.basemaps.cartocdn.com/rastertiles/voyager/",
+                "https://b.basemaps.cartocdn.com/rastertiles/voyager/",
+                "https://c.basemaps.cartocdn.com/rastertiles/voyager/",
+                "https://d.basemaps.cartocdn.com/rastertiles/voyager/"
+            )
         )
     }
 
     val mapView = remember {
         MapView(context).apply {
-            setTileSource(transportTileSource)
+            setTileSource(voyagerTileSource)
             setMultiTouchControls(true)
+            
+            // Clean up the UI
+            isTilesScaledToDpi = true
+            minZoomLevel = 10.0
+            
             controller.setZoom(12.0)
             controller.setCenter(GeoPoint(37.9838, 23.7275)) // Athens
         }
