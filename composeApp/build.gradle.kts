@@ -42,8 +42,8 @@ kotlin {
             implementation("org.jetbrains.androidx.navigation:navigation-compose:2.7.0-alpha07")
             implementation("org.jetbrains.compose.material:material-icons-extended:1.6.0")
             
-            // MapLibre Compose (Official)
-            implementation("org.maplibre.compose:maplibre-compose:0.12.1")
+            // Switch to dev.sargunv artifact which is known to work
+            implementation("dev.sargunv.maplibre-compose:maplibre-compose:0.10.0")
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
