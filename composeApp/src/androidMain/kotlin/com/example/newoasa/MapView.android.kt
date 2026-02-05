@@ -19,6 +19,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import org.maplibre.android.MapLibre
 import org.maplibre.android.camera.CameraPosition
@@ -81,8 +82,8 @@ actual fun MapView(
                             .build()
                         
                         // Disable default UI to use custom buttons
-                        map.uiSettings.isLogoEnabled = false // OpenFreeMap doesn't strictly require logo like Google
-                        map.uiSettings.isAttributionEnabled = true // Keep attribution
+                        map.uiSettings.isLogoEnabled = false 
+                        map.uiSettings.isAttributionEnabled = true
                         map.uiSettings.isCompassEnabled = false
                         map.uiSettings.isRotateGesturesEnabled = true
                         map.uiSettings.isTiltGesturesEnabled = true
@@ -95,7 +96,7 @@ actual fun MapView(
             modifier = Modifier.fillMaxSize()
         )
         
-        // Custom Zoom Controls (Reusable from previous step)
+        // Custom Zoom Controls
         Column(
             modifier = Modifier
                 .align(Alignment.BottomEnd)
@@ -104,7 +105,6 @@ actual fun MapView(
         ) {
             SmallFloatingActionButton(
                 onClick = { 
-                     // mapRef.value?.cameraPosition?.zoom (getter) -> animateCamera
                      val currentZoom = mapRef.value?.cameraPosition?.zoom ?: 12.0
                      mapRef.value?.animateCamera(
                          org.maplibre.android.camera.CameraUpdateFactory.newLatLngZoom(
