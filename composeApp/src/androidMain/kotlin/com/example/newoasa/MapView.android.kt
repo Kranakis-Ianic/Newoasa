@@ -20,7 +20,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import org.osmdroid.config.Configuration
@@ -30,9 +29,11 @@ import org.osmdroid.views.CustomZoomButtonsController
 import org.osmdroid.views.MapView
 
 @Composable
-actual fun MapView(modifier: Modifier) {
+actual fun MapView(
+    modifier: Modifier,
+    isDark: Boolean
+) {
     val context = LocalContext.current
-    val isDark = isSystemInDarkTheme()
     
     // Initialize OSMDroid configuration
     remember {
@@ -68,17 +69,11 @@ actual fun MapView(modifier: Modifier) {
         }
     }
 
-    // Apply Grayscale Filter in Dark Mode to make map "Grey"
+    // Apply Grayscale Filter if isDark is true
     LaunchedEffect(isDark) {
         if (isDark) {
             val matrix = ColorMatrix()
-            matrix.setSaturation(0f) // Make it grayscale (Grey)
-            
-            // Optional: Invert it to make it dark grey? 
-            // The user asked for "Grey" after finding "Dark Matter" too dark.
-            // A simple Grayscale Voyager is a nice light/mid-grey.
-            // If they want "Dark Grey", we could invert, but let's stick to "Grey".
-            
+            matrix.setSaturation(0f) // Grayscale
             val filter = ColorMatrixColorFilter(matrix)
             mapView.overlayManager.tilesOverlay.setColorFilter(filter)
         } else {
