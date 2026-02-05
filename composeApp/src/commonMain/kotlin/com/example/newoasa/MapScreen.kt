@@ -28,15 +28,20 @@ fun MapScreen(
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
 
+    // Handle Back Press to close drawer if open
+    BackHandler(enabled = drawerState.isOpen) {
+        scope.launch { drawerState.close() }
+    }
+
     ModalNavigationDrawer(
         drawerState = drawerState,
-        gesturesEnabled = false, // Sidebar cannot be opened by sliding
+        // Allow gestures (sliding) ONLY when the drawer is already open (to close it)
+        gesturesEnabled = drawerState.isOpen,
         drawerContent = {
             AppDrawer(
                 currentThemeMode = currentThemeMode,
                 onThemeChange = { 
                     onThemeChange(it)
-                    // Optional: Close drawer on selection? Maybe not, user might want to toggle back.
                 }
             )
         }
