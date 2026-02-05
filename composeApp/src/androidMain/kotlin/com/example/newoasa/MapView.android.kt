@@ -7,7 +7,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.viewinterop.AndroidView
 import org.osmdroid.config.Configuration
-import org.osmdroid.tileprovider.tilesource.TileSourceFactory
+import org.osmdroid.tileprovider.tilesource.XYTileSource
 import org.osmdroid.util.GeoPoint
 import org.osmdroid.views.MapView
 
@@ -16,15 +16,22 @@ actual fun MapView(modifier: Modifier) {
     val context = LocalContext.current
     
     // Initialize OSMDroid configuration
-    // In a real app, this should be done in Application class or MainActivity onCreate
-    // but for this component it ensures the user agent is set
     remember {
         Configuration.getInstance().userAgentValue = context.packageName
     }
 
+    // Define Public Transport Tile Source (ÖPNVKarte)
+    val transportTileSource = remember {
+        XYTileSource(
+            "PublicTransport",
+            0, 18, 256, ".png",
+            arrayOf("https://tileserver.memomaps.de/tilegen/")
+        )
+    }
+
     val mapView = remember {
         MapView(context).apply {
-            setTileSource(TileSourceFactory.MAPNIK)
+            setTileSource(transportTileSource)
             setMultiTouchControls(true)
             controller.setZoom(12.0)
             controller.setCenter(GeoPoint(37.9838, 23.7275)) // Athens
