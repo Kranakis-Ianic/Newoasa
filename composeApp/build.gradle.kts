@@ -42,8 +42,10 @@ kotlin {
             implementation("org.jetbrains.androidx.navigation:navigation-compose:2.7.0-alpha07")
             implementation("org.jetbrains.compose.material:material-icons-extended:1.6.0")
             
-            // Switch to dev.sargunv artifact which is known to work
-            implementation("dev.sargunv.maplibre-compose:maplibre-compose:0.10.0")
+            // Update to 0.10.4 which is confirmed in snippets
+            implementation("dev.sargunv.maplibre-compose:maplibre-compose:0.10.4")
+            // Add expressions just in case, though likely transitive
+            // implementation("dev.sargunv.maplibre-compose:maplibre-compose-expressions:0.10.4") 
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
