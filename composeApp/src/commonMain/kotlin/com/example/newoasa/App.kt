@@ -13,9 +13,12 @@ val OasaBlue = Color(0xFF0054A6)
 val OasaBlueContainer = Color(0xFFD6E4F7)
 val OasaOnBlueContainer = Color(0xFF001C3D)
 
-// Dark Theme Colors (Lighter blue for contrast against dark background)
-val OasaBlueDark = Color(0xFFA8C8FF)
-val OasaBlueContainerDark = Color(0xFF004085)
+// Dark Theme Colors
+// Primary is lighter for visibility on dark backgrounds
+val OasaBlueDark = Color(0xFF64B5F6) 
+// Deep Midnight Blue for Background (requested "Dark Blue" app color)
+val DeepMidnightBlue = Color(0xFF0A1A2F)
+val DarkSurfaceBlue = Color(0xFF112240)
 
 private val LightColors = lightColorScheme(
     primary = OasaBlue,
@@ -29,12 +32,14 @@ private val LightColors = lightColorScheme(
 private val DarkColors = darkColorScheme(
     primary = OasaBlueDark,
     onPrimary = Color(0xFF002B5E),
-    primaryContainer = OasaBlueContainerDark,
+    primaryContainer = Color(0xFF004085),
     onPrimaryContainer = Color(0xFFD6E4F7),
     secondary = OasaBlueDark,
     onSecondary = Color(0xFF002B5E),
-    background = Color(0xFF1A1C1E),
-    surface = Color(0xFF1A1C1E)
+    background = DeepMidnightBlue, // Dark Blue background
+    surface = DarkSurfaceBlue,     // Slightly lighter blue for cards/sheets
+    onBackground = Color.White,
+    onSurface = Color.White
 )
 
 @Composable
