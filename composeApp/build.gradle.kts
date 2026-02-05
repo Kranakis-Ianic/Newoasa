@@ -22,7 +22,6 @@ kotlin {
         iosTarget.binaries.framework {
             baseName = "ComposeApp"
             isStatic = true
-            // Link GoogleMaps for iOS if using CocoaPods, otherwise handled in Xcode
         }
     }
     
@@ -30,9 +29,8 @@ kotlin {
         androidMain.dependencies {
             implementation(libs.compose.uiToolingPreview)
             implementation(libs.androidx.activity.compose)
-            // Google Maps Compose for Android
-            implementation("com.google.maps.android:maps-compose:4.3.0")
-            implementation("com.google.android.gms:play-services-maps:18.2.0")
+            // OpenStreetMap (osmdroid)
+            implementation("org.osmdroid:osmdroid-android:6.1.18")
         }
         commonMain.dependencies {
             implementation(libs.compose.runtime)
