@@ -42,8 +42,8 @@ kotlin {
             implementation("org.jetbrains.androidx.navigation:navigation-compose:2.7.0-alpha07")
             implementation("org.jetbrains.compose.material:material-icons-extended:1.6.0")
             
-            // Switch to io.github.dellisd:maplibre-compose:0.6.0 (Stable, known API)
-            implementation("io.github.dellisd.maplibre:maplibre-compose:0.6.0")
+            // Use correct official artifact
+            implementation("org.maplibre.compose:maplibre-compose:0.12.1")
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
