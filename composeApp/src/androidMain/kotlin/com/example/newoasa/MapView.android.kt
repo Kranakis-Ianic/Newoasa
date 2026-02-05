@@ -16,6 +16,8 @@ import org.osmdroid.views.MapView
 @Composable
 actual fun MapView(modifier: Modifier) {
     val context = LocalContext.current
+    // We keep the theme check if we want to add overlay adjustments later,
+    // but for the base map, we'll stick to the lighter Voyager style as requested.
     val isDark = isSystemInDarkTheme()
     
     // Initialize OSMDroid configuration
@@ -23,8 +25,8 @@ actual fun MapView(modifier: Modifier) {
         Configuration.getInstance().userAgentValue = context.packageName
     }
 
-    // Light Mode: CartoDB Voyager
-    val lightTileSource = remember {
+    // CartoDB Voyager (Clean, pastel, readable) - Used for BOTH modes now
+    val voyagerTileSource = remember {
         XYTileSource(
             "CartoDBVoyager",
             0, 19, 256, ".png",
@@ -37,20 +39,6 @@ actual fun MapView(modifier: Modifier) {
         )
     }
 
-    // Dark Mode: CartoDB Dark Matter
-    val darkTileSource = remember {
-        XYTileSource(
-            "CartoDBDarkMatter",
-            0, 19, 256, ".png",
-            arrayOf(
-                "https://a.basemaps.cartocdn.com/rastertiles/dark_all/",
-                "https://b.basemaps.cartocdn.com/rastertiles/dark_all/",
-                "https://c.basemaps.cartocdn.com/rastertiles/dark_all/",
-                "https://d.basemaps.cartocdn.com/rastertiles/dark_all/"
-            )
-        )
-    }
-
     val mapView = remember {
         MapView(context).apply {
             setMultiTouchControls(true)
@@ -58,13 +46,8 @@ actual fun MapView(modifier: Modifier) {
             minZoomLevel = 10.0
             controller.setZoom(12.0)
             controller.setCenter(GeoPoint(37.9838, 23.7275)) // Athens
+            setTileSource(voyagerTileSource)
         }
-    }
-
-    // Update tiles when theme changes
-    LaunchedEffect(isDark) {
-        mapView.setTileSource(if (isDark) darkTileSource else lightTileSource)
-        mapView.invalidate() // Redraw
     }
 
     DisposableEffect(mapView) {
