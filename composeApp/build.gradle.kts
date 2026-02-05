@@ -22,6 +22,7 @@ kotlin {
         iosTarget.binaries.framework {
             baseName = "ComposeApp"
             isStatic = true
+            // Link GoogleMaps for iOS if using CocoaPods, otherwise handled in Xcode
         }
     }
     
@@ -29,6 +30,9 @@ kotlin {
         androidMain.dependencies {
             implementation(libs.compose.uiToolingPreview)
             implementation(libs.androidx.activity.compose)
+            // Google Maps Compose for Android
+            implementation("com.google.maps.android:maps-compose:4.3.0")
+            implementation("com.google.android.gms:play-services-maps:18.2.0")
         }
         commonMain.dependencies {
             implementation(libs.compose.runtime)
@@ -39,6 +43,10 @@ kotlin {
             implementation(libs.compose.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodelCompose)
             implementation(libs.androidx.lifecycle.runtimeCompose)
+            // Navigation
+            implementation("org.jetbrains.androidx.navigation:navigation-compose:2.7.0-alpha07")
+            // Icons
+            implementation("org.jetbrains.compose.material:material-icons-extended:1.6.0")
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -76,4 +84,3 @@ android {
 dependencies {
     debugImplementation(libs.compose.uiTooling)
 }
-
