@@ -54,7 +54,7 @@ actual fun MapView(
     }
 
     // Styles for OpenFreeMap
-    val lightStyle = "https://tiles.openfreemap.org/styles/positron"
+    val lightStyle = "https://tiles.openfreemap.org/styles/bright"
     val darkStyle = "https://tiles.openfreemap.org/styles/dark"
 
     fun hasLocationPermission(): Boolean {
