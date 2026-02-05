@@ -16,14 +16,19 @@ actual fun MapView(modifier: Modifier) {
         position = CameraPosition.fromLatLngZoom(athens, 12f)
     }
     
-    // Enable traffic layer which is the closest to "transport" layer in SDK
     val mapProperties = MapProperties(
-        isTrafficEnabled = true,
-        isMyLocationEnabled = false // Need permission check for true
+        isTrafficEnabled = false, // Removed traffic as requested
+        isMyLocationEnabled = false
     )
     
+    // Explicitly enable gestures to ensure interaction works well
     val mapUiSettings = MapUiSettings(
-        myLocationButtonEnabled = false // Need permission check for true
+        myLocationButtonEnabled = false,
+        scrollGesturesEnabled = true,
+        zoomGesturesEnabled = true,
+        tiltGesturesEnabled = true,
+        rotationGesturesEnabled = true,
+        zoomControlsEnabled = false // Hide default zoom buttons for cleaner UI
     )
 
     GoogleMap(
