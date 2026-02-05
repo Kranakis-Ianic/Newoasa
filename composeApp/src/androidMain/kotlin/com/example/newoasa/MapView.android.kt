@@ -1,7 +1,5 @@
 package com.example.newoasa
 
-import android.graphics.ColorMatrix
-import android.graphics.ColorMatrixColorFilter
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -16,17 +14,18 @@ import androidx.compose.material3.SmallFloatingActionButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
-import org.osmdroid.config.Configuration
-import org.osmdroid.tileprovider.tilesource.XYTileSource
-import org.osmdroid.util.GeoPoint
-import org.osmdroid.views.CustomZoomButtonsController
-import org.osmdroid.views.MapView
+import org.maplibre.android.MapLibre
+import org.maplibre.android.camera.CameraPosition
+import org.maplibre.android.geometry.LatLng
+import org.maplibre.android.maps.MapLibreMap
+import org.maplibre.android.maps.MapView
+import org.maplibre.android.maps.Style
 
 @Composable
 actual fun MapView(
@@ -35,79 +34,68 @@ actual fun MapView(
 ) {
     val context = LocalContext.current
     
-    // Initialize OSMDroid configuration
+    // Initialize MapLibre
     remember {
-        Configuration.getInstance().userAgentValue = context.packageName
+        MapLibre.getInstance(context)
     }
 
-    // Light Mode: CartoDB Voyager
-    val voyagerTileSource = remember {
-        XYTileSource(
-            "CartoDBVoyager",
-            0, 19, 256, ".png",
-            arrayOf(
-                "https://a.basemaps.cartocdn.com/rastertiles/voyager/",
-                "https://b.basemaps.cartocdn.com/rastertiles/voyager/",
-                "https://c.basemaps.cartocdn.com/rastertiles/voyager/",
-                "https://d.basemaps.cartocdn.com/rastertiles/voyager/"
-            )
-        )
-    }
-
-    // Dark Mode: CartoDB Dark Matter
-    val darkTileSource = remember {
-        XYTileSource(
-            "CartoDBDarkMatter",
-            0, 19, 256, ".png",
-            arrayOf(
-                "https://a.basemaps.cartocdn.com/rastertiles/dark_all/",
-                "https://b.basemaps.cartocdn.com/rastertiles/dark_all/",
-                "https://c.basemaps.cartocdn.com/rastertiles/dark_all/",
-                "https://d.basemaps.cartocdn.com/rastertiles/dark_all/"
-            )
-        )
-    }
+    // Styles for OpenFreeMap
+    val lightStyle = "https://tiles.openfreemap.org/styles/positron/style.json"
+    val darkStyle = "https://tiles.openfreemap.org/styles/dark/style.json"
+    
+    // Keep reference to the map object to update style
+    val mapRef = remember { mutableStateOf<MapLibreMap?>(null) }
 
     val mapView = remember {
         MapView(context).apply {
-            setMultiTouchControls(true)
-            isTilesScaledToDpi = true
-            minZoomLevel = 10.0
-            
-            // Disable default zoom buttons
-            zoomController.setVisibility(CustomZoomButtonsController.Visibility.NEVER)
-            
-            controller.setZoom(12.0)
-            controller.setCenter(GeoPoint(37.9838, 23.7275)) // Athens
+            // Configuration handled in getMapAsync
         }
     }
 
-    // Switch Tile Source based on Theme
-    LaunchedEffect(isDark) {
-        if (isDark) {
-            mapView.setTileSource(darkTileSource)
-            // Ensure filter is removed if we had one, or add one if we want to tint Dark Matter
-            mapView.overlayManager.tilesOverlay.setColorFilter(null) 
-        } else {
-            mapView.setTileSource(voyagerTileSource)
-            mapView.overlayManager.tilesOverlay.setColorFilter(null)
-        }
-        mapView.invalidate()
+    // Handle Style Switching
+    LaunchedEffect(isDark, mapRef.value) {
+        mapRef.value?.setStyle(if (isDark) darkStyle else lightStyle)
     }
 
     DisposableEffect(mapView) {
+        mapView.onStart()
+        mapView.onResume()
         onDispose {
-            mapView.onDetach()
+            mapView.onPause()
+            mapView.onStop()
+            mapView.onDestroy()
         }
     }
 
     Box(modifier = modifier) {
         AndroidView(
-            factory = { mapView },
+            factory = { 
+                mapView.apply {
+                    getMapAsync { map ->
+                        mapRef.value = map
+                        
+                        // Initial Camera Position (Athens)
+                        map.cameraPosition = CameraPosition.Builder()
+                            .target(LatLng(37.9838, 23.7275))
+                            .zoom(12.0)
+                            .build()
+                        
+                        // Disable default UI to use custom buttons
+                        map.uiSettings.isLogoEnabled = false // OpenFreeMap doesn't strictly require logo like Google
+                        map.uiSettings.isAttributionEnabled = true // Keep attribution
+                        map.uiSettings.isCompassEnabled = false
+                        map.uiSettings.isRotateGesturesEnabled = true
+                        map.uiSettings.isTiltGesturesEnabled = true
+                        
+                        // Set initial style
+                        map.setStyle(if (isDark) darkStyle else lightStyle)
+                    }
+                }
+            },
             modifier = Modifier.fillMaxSize()
         )
         
-        // Custom Zoom Controls
+        // Custom Zoom Controls (Reusable from previous step)
         Column(
             modifier = Modifier
                 .align(Alignment.BottomEnd)
@@ -115,7 +103,16 @@ actual fun MapView(
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             SmallFloatingActionButton(
-                onClick = { mapView.controller.zoomIn() },
+                onClick = { 
+                     // mapRef.value?.cameraPosition?.zoom (getter) -> animateCamera
+                     val currentZoom = mapRef.value?.cameraPosition?.zoom ?: 12.0
+                     mapRef.value?.animateCamera(
+                         org.maplibre.android.camera.CameraUpdateFactory.newLatLngZoom(
+                             mapRef.value?.cameraPosition?.target ?: LatLng(37.9838, 23.7275),
+                             currentZoom + 1
+                         )
+                     )
+                },
                 containerColor = MaterialTheme.colorScheme.surface,
                 contentColor = MaterialTheme.colorScheme.onSurface
             ) {
@@ -123,7 +120,15 @@ actual fun MapView(
             }
             
             SmallFloatingActionButton(
-                onClick = { mapView.controller.zoomOut() },
+                onClick = { 
+                     val currentZoom = mapRef.value?.cameraPosition?.zoom ?: 12.0
+                     mapRef.value?.animateCamera(
+                         org.maplibre.android.camera.CameraUpdateFactory.newLatLngZoom(
+                             mapRef.value?.cameraPosition?.target ?: LatLng(37.9838, 23.7275),
+                             currentZoom - 1
+                         )
+                     )
+                },
                 containerColor = MaterialTheme.colorScheme.surface,
                 contentColor = MaterialTheme.colorScheme.onSurface
             ) {
