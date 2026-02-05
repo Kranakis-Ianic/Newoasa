@@ -19,7 +19,7 @@ fun MapView(
     )
 
     // OpenFreeMap Styles
-    val styleUrl = if (isDark) "https://tiles.openfreemap.org/styles/dark" else "https://tiles.openfreemap.org/styles/positron"
+    val styleUrl = if (isDark) "https://tiles.openfreemap.org/styles/dark" else "https://tiles.openfreemap.org/styles/bright"
 
     MapLibre(
         modifier = modifier.fillMaxSize(),
