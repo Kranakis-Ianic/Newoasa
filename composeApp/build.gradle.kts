@@ -29,6 +29,8 @@ kotlin {
         androidMain.dependencies {
             implementation(libs.compose.uiToolingPreview)
             implementation(libs.androidx.activity.compose)
+            // Native MapLibre SDK for Android
+            implementation("org.maplibre.gl:android-sdk:11.5.0")
         }
         commonMain.dependencies {
             implementation(libs.compose.runtime)
@@ -42,8 +44,7 @@ kotlin {
             implementation("org.jetbrains.androidx.navigation:navigation-compose:2.7.0-alpha07")
             implementation("org.jetbrains.compose.material:material-icons-extended:1.6.0")
             
-            // Use correct official artifact
-            implementation("org.maplibre.compose:maplibre-compose:0.12.1")
+            // Removed maplibre-compose
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
