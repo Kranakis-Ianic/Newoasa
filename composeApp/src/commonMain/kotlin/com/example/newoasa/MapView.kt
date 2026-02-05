@@ -15,6 +15,6 @@ fun MapView(
 
     MaplibreMap(
         modifier = modifier.fillMaxSize(),
-        style = styleUrl
+        styleUri = styleUrl
     )
 }
