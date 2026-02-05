@@ -1,40 +1,44 @@
 package com.example.newoasa
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import com.google.maps.android.compose.GoogleMap
-import com.google.maps.android.compose.MapProperties
-import com.google.maps.android.compose.MapUiSettings
-import com.google.maps.android.compose.rememberCameraPositionState
-import com.google.android.gms.maps.model.CameraPosition
-import com.google.android.gms.maps.model.LatLng
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.viewinterop.AndroidView
+import org.osmdroid.config.Configuration
+import org.osmdroid.tileprovider.tilesource.TileSourceFactory
+import org.osmdroid.util.GeoPoint
+import org.osmdroid.views.MapView
 
 @Composable
 actual fun MapView(modifier: Modifier) {
-    val athens = LatLng(37.9838, 23.7275)
-    val cameraPositionState = rememberCameraPositionState {
-        position = CameraPosition.fromLatLngZoom(athens, 12f)
+    val context = LocalContext.current
+    
+    // Initialize OSMDroid configuration
+    // In a real app, this should be done in Application class or MainActivity onCreate
+    // but for this component it ensures the user agent is set
+    remember {
+        Configuration.getInstance().userAgentValue = context.packageName
     }
-    
-    val mapProperties = MapProperties(
-        isTrafficEnabled = false, // Removed traffic as requested
-        isMyLocationEnabled = false
-    )
-    
-    // Explicitly enable gestures to ensure interaction works well
-    val mapUiSettings = MapUiSettings(
-        myLocationButtonEnabled = false,
-        scrollGesturesEnabled = true,
-        zoomGesturesEnabled = true,
-        tiltGesturesEnabled = true,
-        rotationGesturesEnabled = true,
-        zoomControlsEnabled = false // Hide default zoom buttons for cleaner UI
-    )
 
-    GoogleMap(
-        modifier = modifier,
-        cameraPositionState = cameraPositionState,
-        properties = mapProperties,
-        uiSettings = mapUiSettings
+    val mapView = remember {
+        MapView(context).apply {
+            setTileSource(TileSourceFactory.MAPNIK)
+            setMultiTouchControls(true)
+            controller.setZoom(12.0)
+            controller.setCenter(GeoPoint(37.9838, 23.7275)) // Athens
+        }
+    }
+
+    DisposableEffect(mapView) {
+        onDispose {
+            mapView.onDetach()
+        }
+    }
+
+    AndroidView(
+        factory = { mapView },
+        modifier = modifier
     )
 }
