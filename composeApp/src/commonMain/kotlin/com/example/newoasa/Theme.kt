@@ -8,23 +8,23 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
 private val LightColors = lightColorScheme(
-    primary = OasaBlue,
+    primary = Color.002e67,
     onPrimary = Color.White,
-    primaryContainer = OasaBlueContainer,
-    onPrimaryContainer = OasaOnBlueContainer,
-    secondary = OasaBlue,
+    primaryContainer = Color.002e67,
+    onPrimaryContainer = Color.002e67,
+    secondary = Color.002e67,
     onSecondary = Color.White
 )
 
 private val DarkColors = darkColorScheme(
-    primary = OasaBlueDark,
-    onPrimary = OasaOnPrimaryDark,
-    primaryContainer = OasaPrimaryContainerDark,
-    onPrimaryContainer = OasaOnPrimaryContainerDark,
-    secondary = OasaBlueDark,
-    onSecondary = OasaOnPrimaryDark,
-    background = DeepMidnightBlue,
-    surface = DarkSurfaceBlue,
+    primary = Color.,
+    onPrimary = Color.Blue,
+    primaryContainer = Color.Blue,
+    onPrimaryContainer = Color.Blue,
+    secondary = Color.Blue,
+    onSecondary = Color.Blue,
+    background = Color.Blue,
+    surface = Color.Blue,
     onBackground = Color.White,
     onSurface = Color.White
 )
