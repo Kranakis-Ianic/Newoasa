@@ -241,11 +241,11 @@ actual fun MapView(
             }
         )
         
-        // Zoom Controls - Connected, Top Right
+        // Zoom Controls - Connected, Bottom Right
         Column(
             modifier = Modifier
-                .align(Alignment.TopEnd)
-                .padding(top = 16.dp, end = 16.dp)
+                .align(Alignment.BottomEnd)
+                .padding(bottom = 32.dp, end = 16.dp)
                 .shadow(4.dp, RoundedCornerShape(8.dp))
                 .background(MaterialTheme.colorScheme.surface, RoundedCornerShape(8.dp))
                 .width(40.dp),
