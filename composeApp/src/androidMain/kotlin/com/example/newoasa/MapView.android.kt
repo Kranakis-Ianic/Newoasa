@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -37,7 +36,6 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalLifecycleOwner
-import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.lifecycle.Lifecycle
@@ -74,9 +72,7 @@ data class Stop(
 )
 
 data class StopInfoState(
-    val stop: Stop,
-    val screenX: Float,
-    val screenY: Float
+    val stop: Stop
 )
 
 @Composable
@@ -180,8 +176,7 @@ actual fun MapView(
                                         if (geometry is Point) {
                                             val stopCoord = LatLng(geometry.latitude(), geometry.longitude())
                                             
-                                            // Center map on the clicked pin with offset for info window
-                                            // Move the pin slightly down from center so info window appears above it
+                                            // Center map on the clicked pin
                                             val currentZoom = map.cameraPosition.zoom
                                             val newCameraPosition = CameraPosition.Builder()
                                                 .target(stopCoord)
@@ -193,10 +188,9 @@ actual fun MapView(
                                                 300 // Quick 300ms animation
                                             )
                                             
-                                            // Wait a bit for camera animation, then get screen position
+                                            // Show info window after animation completes
                                             coroutineScope.launch {
                                                 kotlinx.coroutines.delay(350)
-                                                val stopScreenPoint = map.projection.toScreenLocation(stopCoord)
                                                 
                                                 selectedStopInfo = StopInfoState(
                                                     stop = Stop(
@@ -204,9 +198,7 @@ actual fun MapView(
                                                         stopCode = stopCode,
                                                         order = order,
                                                         coordinate = stopCoord
-                                                    ),
-                                                    screenX = stopScreenPoint.x,
-                                                    screenY = stopScreenPoint.y
+                                                    )
                                                 )
                                             }
                                         }
@@ -236,12 +228,10 @@ actual fun MapView(
             }
         )
         
-        // Info window overlay
+        // Info window overlay - centered on screen, above center point
         selectedStopInfo?.let { info ->
             StopInfoWindow(
                 stop = info.stop,
-                screenX = info.screenX,
-                screenY = info.screenY,
                 onClose = { selectedStopInfo = null }
             )
         }
@@ -251,34 +241,27 @@ actual fun MapView(
 @Composable
 fun StopInfoWindow(
     stop: Stop,
-    screenX: Float,
-    screenY: Float,
     onClose: () -> Unit
 ) {
-    val density = LocalDensity.current
-    
-    // Position the window above the pin
+    // Position the window centered horizontally and in the upper portion of screen
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .clickable(onClick = onClose) // Close when clicking outside
+            .clickable(onClick = onClose), // Close when clicking outside
+        contentAlignment = Alignment.Center // Center the content
     ) {
         Column(
             modifier = Modifier
-                .offset {
-                    IntOffset(
-                        x = (screenX - 150).toInt(), // Center horizontally (half of ~300dp width)
-                        y = (screenY - 180).toInt()  // Position above pin
-                    )
-                }
                 .width(300.dp)
+                .padding(bottom = 200.dp) // Offset upward so it appears above the centered pin
                 .shadow(8.dp, RoundedCornerShape(12.dp))
                 .background(
                     color = MaterialTheme.colorScheme.surface,
                     shape = RoundedCornerShape(12.dp)
                 )
                 .padding(16.dp)
-                .clickable(onClick = {}) // Prevent closing when clicking inside
+                .clickable(onClick = {}), // Prevent closing when clicking inside
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
             // Header with close button
             Row(
@@ -635,7 +618,7 @@ private fun createPinBitmap(color: Int): Bitmap {
     path.lineTo(size / 2f + circleRadius * 0.6f, circleRadius * 1.5f)
     path.lineTo(size / 2f, size * 0.85f)
     path.close()
-    canvas.drawPath(path, paint)
+    canvas.drawPath(path, path)
     
     // Draw white inner circle
     paint.color = Color.WHITE
