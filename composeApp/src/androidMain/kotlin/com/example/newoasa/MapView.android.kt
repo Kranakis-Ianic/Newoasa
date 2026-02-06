@@ -1,5 +1,9 @@
 package com.example.newoasa
 
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
@@ -27,8 +31,11 @@ import org.maplibre.android.maps.MapView
 import org.maplibre.android.style.layers.LineLayer
 import org.maplibre.android.style.layers.PropertyFactory
 import org.maplibre.android.style.sources.GeoJsonSource
+import org.maplibre.geojson.Feature
+import org.maplibre.geojson.FeatureCollection
+import org.maplibre.geojson.Point
+import org.maplibre.android.style.layers.SymbolLayer
 import newoasa.composeapp.generated.resources.Res
-import java.util.UUID
 
 @Composable
 actual fun MapView(
@@ -146,7 +153,27 @@ private suspend fun displayTransitLine(
             }
         }
         
+        // Remove previous stops layer and source
+        try {
+            style.getLayer("transit-stops-layer")?.let { 
+                style.removeLayer(it)
+                println("Removed stops layer")
+            }
+        } catch (e: Exception) {
+            // Ignore
+        }
+        
+        try {
+            style.getSource("transit-stops-source")?.let { 
+                style.removeSource(it)
+                println("Removed stops source")
+            }
+        } catch (e: Exception) {
+            // Ignore
+        }
+        
         val allCoordinates = mutableListOf<LatLng>()
+        val allStops = mutableListOf<LatLng>()
         val loadedGeoJsonData = mutableListOf<Pair<Int, String>>() // index to geoJson
         
         // Load all GeoJSON files sequentially in IO dispatcher
@@ -173,9 +200,13 @@ private suspend fun displayTransitLine(
                         return@forEachIndexed
                     }
                     
-                    // Extract coordinates for bounds calculation
+                    // Extract coordinates for bounds calculation and stops
                     extractCoordinates(geoJson)?.let { coords ->
                         allCoordinates.addAll(coords)
+                        // Add stops (every 10th point along the route for demonstration)
+                        coords.filterIndexed { idx, _ -> idx % 10 == 0 }.forEach { stop ->
+                            allStops.add(stop)
+                        }
                     }
                     
                     // Store loaded data
@@ -190,6 +221,10 @@ private suspend fun displayTransitLine(
             
             // Now add all sources and layers on main thread sequentially
             withContext(Dispatchers.Main) {
+                // Add line color based on type
+                val lineColor = if (line.isBus) "#2196F3" else "#9C27B0" // Blue for buses, Purple for trolleys
+                
+                // Add route lines
                 loadedGeoJsonData.forEach { (index, geoJsonString) ->
                     try {
                         val sourceId = "transit-line-source-$index"
@@ -207,7 +242,6 @@ private suspend fun displayTransitLine(
                         println("Added source: $sourceId")
                         
                         // Add line layer
-                        val lineColor = if (line.isBus) "#2196F3" else "#9C27B0" // Blue for buses, Purple for trolleys
                         val lineLayer = LineLayer(layerId, sourceId).withProperties(
                             PropertyFactory.lineColor(lineColor),
                             PropertyFactory.lineWidth(5f),
@@ -220,6 +254,43 @@ private suspend fun displayTransitLine(
                         
                     } catch (e: Exception) {
                         println("Error adding source/layer for index $index: ${e.message}")
+                        e.printStackTrace()
+                    }
+                }
+                
+                // Add stops as markers
+                if (allStops.isNotEmpty()) {
+                    try {
+                        // Create pin marker bitmap
+                        val pinBitmap = createPinBitmap(if (line.isBus) Color.parseColor("#2196F3") else Color.parseColor("#9C27B0"))
+                        style.addImage("stop-pin", pinBitmap)
+                        
+                        // Create GeoJSON features for stops
+                        val stopFeatures = allStops.map { stop ->
+                            Feature.fromGeometry(Point.fromLngLat(stop.longitude, stop.latitude))
+                        }
+                        
+                        val featureCollection = FeatureCollection.fromFeatures(stopFeatures)
+                        
+                        // Add stops source
+                        val stopsSource = GeoJsonSource("transit-stops-source", featureCollection)
+                        style.addSource(stopsSource)
+                        println("Added stops source with ${allStops.size} stops")
+                        
+                        // Add stops layer
+                        val stopsLayer = SymbolLayer("transit-stops-layer", "transit-stops-source")
+                            .withProperties(
+                                PropertyFactory.iconImage("stop-pin"),
+                                PropertyFactory.iconSize(0.5f),
+                                PropertyFactory.iconAllowOverlap(true),
+                                PropertyFactory.iconIgnorePlacement(true),
+                                PropertyFactory.iconAnchor("bottom")
+                            )
+                        style.addLayer(stopsLayer)
+                        println("Added stops layer")
+                        
+                    } catch (e: Exception) {
+                        println("Error adding stops: ${e.message}")
                         e.printStackTrace()
                     }
                 }
@@ -245,6 +316,39 @@ private suspend fun displayTransitLine(
             }
         }
     }
+}
+
+/**
+ * Create a custom pin marker bitmap
+ */
+private fun createPinBitmap(color: Int): Bitmap {
+    val size = 80
+    val bitmap = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888)
+    val canvas = Canvas(bitmap)
+    
+    val paint = Paint().apply {
+        this.color = color
+        isAntiAlias = true
+        style = Paint.Style.FILL
+    }
+    
+    // Draw circle (top part of pin)
+    val circleRadius = size / 3f
+    canvas.drawCircle(size / 2f, circleRadius, circleRadius, paint)
+    
+    // Draw triangle (bottom part of pin)
+    val path = android.graphics.Path()
+    path.moveTo(size / 2f - circleRadius * 0.6f, circleRadius * 1.5f)
+    path.lineTo(size / 2f + circleRadius * 0.6f, circleRadius * 1.5f)
+    path.lineTo(size / 2f, size * 0.85f)
+    path.close()
+    canvas.drawPath(path, paint)
+    
+    // Draw white inner circle
+    paint.color = Color.WHITE
+    canvas.drawCircle(size / 2f, circleRadius, circleRadius * 0.5f, paint)
+    
+    return bitmap
 }
 
 @OptIn(ExperimentalResourceApi::class)
