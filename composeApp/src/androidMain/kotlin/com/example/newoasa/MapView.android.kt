@@ -550,11 +550,24 @@ private suspend fun displayTransitLine(
                         val boundsBuilder = LatLngBounds.Builder()
                         allCoordinates.forEach { boundsBuilder.include(it) }
                         val bounds = boundsBuilder.build()
+
+                        // Set reasonable zoom limits
+                        map.setMinZoomPreference(9.0)
+                        map.setMaxZoomPreference(18.0)
                         
                         // Animate to bounds with padding
                         map.animateCamera(
-                            CameraUpdateFactory.newLatLngBounds(bounds, 100),
-                            1000 // 1 second animation
+                            CameraUpdateFactory.newLatLngBounds(bounds, 150), // Increased padding
+                            1500, // Smoother 1.5 second animation
+                            object : MapLibreMap.CancelableCallback {
+                                override fun onFinish() {
+                                    println("Zoom animation finished")
+                                }
+
+                                override fun onCancel() {
+                                    println("Zoom animation cancelled")
+                                }
+                            }
                         )
                         println("Camera animated to show all routes")
                     } catch (e: Exception) {
