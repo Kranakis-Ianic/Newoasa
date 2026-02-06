@@ -618,7 +618,7 @@ private fun createPinBitmap(color: Int): Bitmap {
     path.lineTo(size / 2f + circleRadius * 0.6f, circleRadius * 1.5f)
     path.lineTo(size / 2f, size * 0.85f)
     path.close()
-    canvas.drawPath(path, path)
+    canvas.drawPath(path, paint)
     
     // Draw white inner circle
     paint.color = Color.WHITE
