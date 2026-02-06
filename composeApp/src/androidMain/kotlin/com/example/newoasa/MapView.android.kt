@@ -586,12 +586,13 @@ private suspend fun displayTransitLine(
                         val bounds = boundsBuilder.build()
 
                         // Set reasonable zoom limits
-                        map.setMinZoomPreference(9.0)
+                        // Lower min zoom to ensure large routes fit completely
+                        map.setMinZoomPreference(5.0)
                         map.setMaxZoomPreference(18.0)
                         
                         // Animate to bounds with padding
                         map.animateCamera(
-                            CameraUpdateFactory.newLatLngBounds(bounds, 150), // Increased padding
+                            CameraUpdateFactory.newLatLngBounds(bounds, 200), // Increased padding to 200
                             1500, // Smoother 1.5 second animation
                             object : MapLibreMap.CancelableCallback {
                                 override fun onFinish() {
