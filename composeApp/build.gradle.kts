@@ -45,10 +45,10 @@ kotlin {
             implementation("org.jetbrains.compose.material:material-icons-extended:1.6.0")
             
             // MapLibre Compose for multiplatform map support
-            implementation("org.maplibre.compose:maplibre-compose:0.0.1-alpha05")
+            implementation("org.maplibre.compose:maplibre-compose:0.12.1")
             
-            // GeoJSON parsing library for Kotlin Multiplatform
-            implementation("io.github.elcolto.geokjson:geojson:0.3.1")
+            // GeoJSON parsing library for Kotlin Multiplatform (Spatial K)
+            implementation("org.maplibre.spatialk:geojson:0.6.1")
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
