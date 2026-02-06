@@ -132,17 +132,15 @@ private suspend fun displayTransitLine(
         // Load and display each route
         line.routePaths.forEachIndexed { index, path ->
             try {
-                // Remove "files/" prefix from path if present
-                val resourcePath = path.removePrefix("files/")
-                
-                println("Loading GeoJSON from composeResources: $resourcePath")
+                println("Loading GeoJSON from composeResources: $path")
                 
                 // Load GeoJSON from Compose Multiplatform resources
-                val geoJsonString = loadGeoJsonFromResources(resourcePath)
+                // Path already includes "files/" prefix from repository
+                val geoJsonString = loadGeoJsonFromResources(path)
                 
                 // Validate GeoJSON before adding
                 if (geoJsonString.isBlank() || geoJsonString == "{}") {
-                    println("Empty GeoJSON for path: $resourcePath")
+                    println("Empty GeoJSON for path: $path")
                     return@forEachIndexed
                 }
                 
@@ -150,7 +148,7 @@ private suspend fun displayTransitLine(
                 
                 // Validate that it has required properties
                 if (!geoJson.has("type")) {
-                    println("Invalid GeoJSON - missing 'type' property for path: $resourcePath")
+                    println("Invalid GeoJSON - missing 'type' property for path: $path")
                     return@forEachIndexed
                 }
                 
@@ -174,7 +172,7 @@ private suspend fun displayTransitLine(
                 )
                 style.addLayer(lineLayer)
                 
-                println("Successfully loaded and displayed route: $resourcePath")
+                println("Successfully loaded and displayed route: $path")
                 
             } catch (e: Exception) {
                 println("Error loading route $path: ${e.message}")
@@ -200,8 +198,9 @@ private suspend fun displayTransitLine(
 @OptIn(ExperimentalResourceApi::class)
 private suspend fun loadGeoJsonFromResources(path: String): String {
     return try {
-        // Use Compose Multiplatform resource loading
-        val bytes = Res.readBytes("files/$path")
+        // Path already includes "files/" prefix from TransitLineRepository
+        // e.g., "files/geojson/buses/035/route_2953.geojson"
+        val bytes = Res.readBytes(path)
         bytes.decodeToString()
     } catch (e: Exception) {
         println("Failed to load GeoJSON from composeResources path: $path")
