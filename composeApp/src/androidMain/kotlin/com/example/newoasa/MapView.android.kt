@@ -125,9 +125,25 @@ private fun displayTransitLine(
         // Load and display each route
         line.routePaths.forEachIndexed { index, path ->
             try {
+                // Remove "files/" prefix from path if present
+                val assetPath = path.removePrefix("files/")
+                
                 // Load GeoJSON from assets
-                val geoJsonString = loadGeoJsonFromAssets(context, path)
+                val geoJsonString = loadGeoJsonFromAssets(context, assetPath)
+                
+                // Validate GeoJSON before adding
+                if (geoJsonString.isBlank() || geoJsonString == "{}") {
+                    println("Empty GeoJSON for path: $assetPath")
+                    return@forEachIndexed
+                }
+                
                 val geoJson = JSONObject(geoJsonString)
+                
+                // Validate that it has required properties
+                if (!geoJson.has("type")) {
+                    println("Invalid GeoJSON - missing 'type' property for path: $assetPath")
+                    return@forEachIndexed
+                }
                 
                 // Extract coordinates for bounds calculation
                 extractCoordinates(geoJson)?.let { coords ->
@@ -150,6 +166,7 @@ private fun displayTransitLine(
                 style.addLayer(lineLayer)
                 
             } catch (e: Exception) {
+                println("Error loading route $path: ${e.message}")
                 e.printStackTrace()
             }
         }
@@ -175,6 +192,7 @@ private fun loadGeoJsonFromAssets(context: android.content.Context, path: String
         val bufferedReader = BufferedReader(InputStreamReader(inputStream))
         bufferedReader.use { it.readText() }
     } catch (e: Exception) {
+        println("Failed to load GeoJSON from path: $path")
         e.printStackTrace()
         "{}" // Return empty GeoJSON on error
     }
