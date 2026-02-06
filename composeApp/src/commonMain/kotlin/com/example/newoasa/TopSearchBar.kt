@@ -24,12 +24,13 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.example.newoasa.data.TransitLine
+import com.example.newoasa.data.TransitLineRepository
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TopSearchBar(
     onMenuClick: () -> Unit = {},
-    repository: TransitLineRepository = remember { TransitLineRepository() },
     onLineSelected: (TransitLine) -> Unit = {},
     modifier: Modifier = Modifier
 ) {
@@ -41,7 +42,11 @@ fun TopSearchBar(
         query = query,
         onQueryChange = { newQuery ->
             query = newQuery
-            searchResults = repository.searchLines(newQuery)
+            searchResults = if (newQuery.isNotEmpty()) {
+                TransitLineRepository.searchLines(newQuery)
+            } else {
+                emptyList()
+            }
         },
         onSearch = { 
             active = false
@@ -67,19 +72,19 @@ fun TopSearchBar(
                 ListItem(
                     headlineContent = { 
                         Text(
-                            text = line.name,
+                            text = line.displayName,
                             fontWeight = FontWeight.Bold
                         )
                     },
                     supportingContent = { 
-                        Text("${line.category} • ${line.routeNumber}")
+                        Text("${line.category} • ${line.routeIds.size} route(s)")
                     },
                     modifier = Modifier
                         .fillMaxWidth()
                         .clickable {
                             onLineSelected(line)
                             active = false
-                            query = line.name
+                            query = line.lineNumber
                         }
                 )
                 HorizontalDivider()
