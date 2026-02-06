@@ -25,13 +25,18 @@ actual fun MapView(
     // Initialize MapLibre
     remember { MapLibre.getInstance(context) }
 
-    val styleUrl = if (isDark) "https://tiles.openfreemap.org/styles/dark" else "https://tiles.openfreemap.org/styles/positron"
+    // Use OpenFreeMap bright theme for light mode, dark theme for dark mode
+    val styleUrl = if (isDark) {
+        "https://tiles.openfreemap.org/styles/dark"
+    } else {
+        "https://tiles.openfreemap.org/styles/bright"
+    }
 
     val mapView = remember { 
         MapView(context)
     }
 
-    // Lifecycle
+    // Lifecycle management
     DisposableEffect(lifecycleOwner) {
         val observer = LifecycleEventObserver { _, event ->
             when (event) {
@@ -55,15 +60,16 @@ actual fun MapView(
         modifier = modifier,
         update = { mv ->
             mv.getMapAsync { map ->
-                // Update style
+                // Update style based on theme
                 map.setStyle(styleUrl)
                 
-                // Set initial position (Athens) - in real app, only do this once
+                // Set initial position (Athens, Greece)
                 map.cameraPosition = CameraPosition.Builder()
                     .target(LatLng(37.9838, 23.7275))
                     .zoom(12.0)
                     .build()
                     
+                // Enable attribution and logo (required for OpenFreeMap)
                 map.uiSettings.isAttributionEnabled = true
                 map.uiSettings.isLogoEnabled = true
             }
