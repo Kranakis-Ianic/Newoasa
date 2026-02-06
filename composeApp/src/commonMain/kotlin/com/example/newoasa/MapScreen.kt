@@ -16,6 +16,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import com.example.newoasa.data.TransitLine
 import kotlinx.coroutines.launch
 
 @Composable
@@ -25,6 +26,7 @@ fun MapScreen(
     isDark: Boolean // Calculated effective theme
 ) {
     var selectedBottomItem by remember { mutableStateOf(BottomNavItem.Map) }
+    var selectedTransitLine by remember { mutableStateOf<TransitLine?>(null) }
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
 
@@ -51,6 +53,13 @@ fun MapScreen(
                 TopSearchBar(
                     onMenuClick = {
                         scope.launch { drawerState.open() }
+                    },
+                    onLineSelected = { line ->
+                        selectedTransitLine = line
+                        // Switch to map view if not already there
+                        if (selectedBottomItem != BottomNavItem.Map) {
+                            selectedBottomItem = BottomNavItem.Map
+                        }
                     }
                 )
             },
@@ -69,7 +78,8 @@ fun MapScreen(
                 when (selectedBottomItem) {
                     BottomNavItem.Map -> MapView(
                         modifier = Modifier.fillMaxSize(),
-                        isDark = isDark
+                        isDark = isDark,
+                        selectedLine = selectedTransitLine
                     )
                     BottomNavItem.Trip -> CenteredText("Trip Planner")
                     BottomNavItem.Favorites -> CenteredText("Favorites")
