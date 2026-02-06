@@ -88,22 +88,32 @@ data class TransitLine(
 
 ## Regenerating the Repository
 
-When you add new transit lines to the `geojson` folder:
+When you add new transit lines to the `geojson` folder, you need to regenerate the repository.
 
-1. **Navigate to the scripts directory:**
-   ```bash
-   cd scripts
-   ```
+### Option 1: Python Script (Recommended)
 
-2. **Run the generator script:**
-   ```bash
-   kotlinc -script GenerateTransitLineRepository.kt
-   ```
+The Python script works on any system with Python 3.6+:
 
-The script will:
-- Scan all folders in `geojson/buses/` and `geojson/trolleys/`
-- Extract route information from each line folder
-- Generate a new `TransitLineRepository.kt` file with all the data
+```bash
+# From project root
+python3 scripts/generate_transit_repository.py
+```
+
+### Option 2: Kotlin Script
+
+If you have `kotlinc` installed:
+
+```bash
+# From scripts directory
+cd scripts
+kotlinc -script GenerateTransitLineRepository.kt
+```
+
+### What the script does:
+- Scans all folders in `geojson/buses/` and `geojson/trolleys/`
+- Extracts route information from each line folder
+- Generates a new `TransitLineRepository.kt` file with all the data
+- Preserves Greek characters in line numbers
 
 ## Current Statistics
 
@@ -115,11 +125,13 @@ The script will:
 
 ```
 composeApp/src/commonMain/kotlin/com/example/newoasa/data/
-├── TransitLineRepository.kt  # Auto-generated repository
-└── README.md                # This file
+├── TransitLineRepository.kt        # Auto-generated repository
+├── TransitLineRepositoryExample.kt # Usage examples
+└── README.md                      # This file
 
 scripts/
-└── GenerateTransitLineRepository.kt  # Generator script
+├── generate_transit_repository.py  # Python generator (recommended)
+└── GenerateTransitLineRepository.kt # Kotlin generator
 ```
 
 ## Notes
@@ -129,6 +141,7 @@ scripts/
 - The repository is a singleton object for efficient memory usage
 - All queries are case-insensitive for better user experience
 - Greek characters in line numbers (e.g., Α, Β) are preserved
+- Route IDs and file paths are automatically extracted from filenames
 
 ## Examples
 
@@ -163,4 +176,15 @@ suspend fun loadRouteData(lineNumber: String) {
 // Get all 700-series buses
 val series700 = TransitLineRepository.getBusLines()
     .filter { it.lineNumber.startsWith("7") }
+```
+
+### Check Routes for a Line
+```kotlin
+val line022 = TransitLineRepository.getLineByNumber("022")
+line022?.let {
+    println("Line 022 has ${it.routeIds.size} routes:")
+    it.routeIds.forEachIndexed { index, routeId ->
+        println("  Route $routeId: ${it.routePaths[index]}")
+    }
+}
 ```
