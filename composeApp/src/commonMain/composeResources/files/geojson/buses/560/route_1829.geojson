@@ -1,0 +1,468 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "route_path",
+        "route_code": "1829",
+        "descr": "ΣΤ. ΚΗΦΙΣΙΑ - ΜΟΡΤΕΡΟ - Ν. ΕΡΥΘΡΑΙΑ"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            23.80842,
+            38.07297
+          ],
+          [
+            23.80859,
+            38.07271
+          ],
+          [
+            23.81145,
+            38.0722
+          ],
+          [
+            23.81175,
+            38.07232
+          ],
+          [
+            23.81227,
+            38.07294
+          ],
+          [
+            23.81249,
+            38.07357
+          ],
+          [
+            23.81251,
+            38.07378
+          ],
+          [
+            23.81212,
+            38.07585
+          ],
+          [
+            23.81276,
+            38.07735
+          ],
+          [
+            23.81375,
+            38.0787
+          ],
+          [
+            23.81437,
+            38.08019
+          ],
+          [
+            23.81479,
+            38.08168
+          ],
+          [
+            23.81623,
+            38.08397
+          ],
+          [
+            23.8165,
+            38.08487
+          ],
+          [
+            23.81653,
+            38.08519
+          ],
+          [
+            23.81644,
+            38.0862
+          ],
+          [
+            23.81734,
+            38.08785
+          ],
+          [
+            23.81781,
+            38.08849
+          ],
+          [
+            23.81881,
+            38.08942
+          ],
+          [
+            23.81446,
+            38.09138
+          ],
+          [
+            23.81425,
+            38.09155
+          ],
+          [
+            23.81425,
+            38.09164
+          ],
+          [
+            23.81498,
+            38.09267
+          ],
+          [
+            23.81531,
+            38.09335
+          ],
+          [
+            23.81442,
+            38.09461
+          ],
+          [
+            23.81373,
+            38.09587
+          ],
+          [
+            23.81539,
+            38.10073
+          ],
+          [
+            23.81566,
+            38.10157
+          ],
+          [
+            23.81634,
+            38.10148
+          ],
+          [
+            23.81493,
+            38.10446
+          ],
+          [
+            23.81432,
+            38.10536
+          ],
+          [
+            23.81306,
+            38.10455
+          ],
+          [
+            23.81265,
+            38.10383
+          ],
+          [
+            23.81105,
+            38.1045
+          ],
+          [
+            23.81073,
+            38.10454
+          ],
+          [
+            23.80911,
+            38.10419
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "10207",
+        "stop_id": "41",
+        "name": "ΣΤ. ΚΗΦΙΣΙΑΣ",
+        "order": "1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.808776,
+          38.0731265
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "270003",
+        "stop_id": "270003",
+        "name": "ΠΛ. ΚΗΦΙΣΙΑΣ",
+        "order": "2"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8119493,
+          38.0723893
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "270004",
+        "stop_id": "270004",
+        "name": "ΟΘΩΝΟΣ",
+        "order": "3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8123883,
+          38.0745981
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "270005",
+        "stop_id": "270005",
+        "name": "ΜΑΡΚΕΤΟΥ",
+        "order": "4"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8126898,
+          38.0770951
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "270006",
+        "stop_id": "270006",
+        "name": "ΚΑΝΑΡΗ",
+        "order": "5"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8145627,
+          38.0804238
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "270007",
+        "stop_id": "270007",
+        "name": "ΣΑΡΑΝΤΑΠΟΡΟΥ",
+        "order": "6"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8162985,
+          38.0839144
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "660001",
+        "stop_id": "660001",
+        "name": "ΦΑΡΟΣ",
+        "order": "7"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8172589,
+          38.0874579
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "660015",
+        "stop_id": "660015",
+        "name": "ΝΕΑ ΕΡΥΘΡΑΙΑ",
+        "order": "8"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8187474,
+          38.0896233
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "660016",
+        "stop_id": "660016",
+        "name": "1η Ν. ΕΡΥΘΡΑΙΑΣ",
+        "order": "9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8160644,
+          38.0908539
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "660030",
+        "stop_id": "660030",
+        "name": "2η Ν. ΕΡΥΘΡΑΙΑΣ",
+        "order": "10"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8144747,
+          38.0914328
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "660024",
+        "stop_id": "660024",
+        "name": "3η Ν. ΕΡΥΘΡΑΙΑΣ",
+        "order": "11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8152839,
+          38.0928535
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "660037",
+        "stop_id": "660037",
+        "name": "ΣΕΥΔΙΚΙΟΥ",
+        "order": "12"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8142401,
+          38.0952492
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "660038",
+        "stop_id": "660038",
+        "name": "ΛΟΥΝΤΕΜΗ",
+        "order": "13"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8144055,
+          38.0975026
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "660039",
+        "stop_id": "660039",
+        "name": "ΜΥΡΙΒΗΛΗ",
+        "order": "14"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8147223,
+          38.0984765
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "660035",
+        "stop_id": "660035",
+        "name": "ΠΑΡΟΥ",
+        "order": "15"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8152542,
+          38.1001537
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "270231",
+        "stop_id": "270231",
+        "name": "ΑΝΘΟΠΩΛΕΙΑ",
+        "order": "16"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8161269,
+          38.1023271
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "660040",
+        "stop_id": "660040",
+        "name": "ΓΕΦΥΡΑ",
+        "order": "17"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8149346,
+          38.1047587
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "10208",
+        "stop_id": "42",
+        "name": "Ν. ΕΡΥΘΡΑΙΑ",
+        "order": "18"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.809702,
+          38.104303
+        ]
+      }
+    }
+  ]
+}

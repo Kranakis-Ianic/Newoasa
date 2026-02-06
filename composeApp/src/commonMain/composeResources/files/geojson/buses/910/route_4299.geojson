@@ -1,0 +1,583 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "route_path",
+        "route_code": "4299",
+        "descr": "ΣΤ. ΣΥΓΓΡΟΥ ΦΙΞ - ΤΖΙΤΖΙΦΙΕΣ [ΑΠΟ ΣΤΑΣΗ ΠΕΙΣΙΣΤΡΑΤΟΥ]"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            23.68505,
+            37.94294
+          ],
+          [
+            23.68554,
+            37.94366
+          ],
+          [
+            23.68605,
+            37.94444
+          ],
+          [
+            23.68696,
+            37.94407
+          ],
+          [
+            23.68811,
+            37.9435
+          ],
+          [
+            23.68877,
+            37.94421
+          ],
+          [
+            23.68986,
+            37.94547
+          ],
+          [
+            23.6904,
+            37.94598
+          ],
+          [
+            23.69108,
+            37.94651
+          ],
+          [
+            23.69226,
+            37.94732
+          ],
+          [
+            23.69328,
+            37.94659
+          ],
+          [
+            23.69513,
+            37.9453
+          ],
+          [
+            23.69592,
+            37.94595
+          ],
+          [
+            23.69814,
+            37.94766
+          ],
+          [
+            23.70061,
+            37.94563
+          ],
+          [
+            23.70289,
+            37.94737
+          ],
+          [
+            23.70055,
+            37.94936
+          ],
+          [
+            23.70224,
+            37.95057
+          ],
+          [
+            23.70238,
+            37.95068
+          ],
+          [
+            23.70395,
+            37.95173
+          ],
+          [
+            23.70587,
+            37.95308
+          ],
+          [
+            23.70817,
+            37.95471
+          ],
+          [
+            23.71015,
+            37.95608
+          ],
+          [
+            23.71206,
+            37.95736
+          ],
+          [
+            23.71341,
+            37.95843
+          ],
+          [
+            23.71386,
+            37.95945
+          ],
+          [
+            23.71434,
+            37.96061
+          ],
+          [
+            23.71499,
+            37.96179
+          ],
+          [
+            23.71528,
+            37.96257
+          ],
+          [
+            23.71584,
+            37.96247
+          ],
+          [
+            23.71673,
+            37.96212
+          ],
+          [
+            23.71714,
+            37.96193
+          ],
+          [
+            23.71766,
+            37.9618
+          ],
+          [
+            23.7181,
+            37.96165
+          ],
+          [
+            23.71837,
+            37.96154
+          ],
+          [
+            23.71857,
+            37.9614
+          ],
+          [
+            23.71889,
+            37.96127
+          ],
+          [
+            23.71961,
+            37.96171
+          ],
+          [
+            23.72024,
+            37.96206
+          ],
+          [
+            23.7209,
+            37.96243
+          ],
+          [
+            23.72193,
+            37.96303
+          ],
+          [
+            23.72252,
+            37.96341
+          ],
+          [
+            23.72323,
+            37.96384
+          ],
+          [
+            23.72335,
+            37.96392
+          ],
+          [
+            23.72371,
+            37.96362
+          ],
+          [
+            23.72394,
+            37.9634
+          ],
+          [
+            23.7243,
+            37.96312
+          ],
+          [
+            23.72457,
+            37.96284
+          ],
+          [
+            23.72473,
+            37.96302
+          ],
+          [
+            23.725,
+            37.96321
+          ],
+          [
+            23.72541,
+            37.96345
+          ],
+          [
+            23.72571,
+            37.9636
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "10333",
+        "stop_id": "000129",
+        "name": "ΤΖΙΤΖΙΦΙΕΣ",
+        "order": "1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6854735,
+          37.9437795
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "240036",
+        "stop_id": "240036",
+        "name": "ΙΣΜΗΝΗΣ",
+        "order": "2"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6867658,
+          37.9440053
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "240039",
+        "stop_id": "240039",
+        "name": "13η ΚΑΛΛΙΘΕΑΣ",
+        "order": "3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6884744,
+          37.9436583
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "240040",
+        "stop_id": "240040",
+        "name": "12η ΚΑΛΛΙΘΕΑΣ",
+        "order": "4"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.690491,
+          37.9458628
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "240111",
+        "stop_id": "240111",
+        "name": "11η ΚΑΛΛΙΘΕΑΣ",
+        "order": "5"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6930603,
+          37.9465635
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "240042",
+        "stop_id": "240042",
+        "name": "10η ΚΑΛΛΙΘΕΑΣ",
+        "order": "6"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6958974,
+          37.9457957
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "240043",
+        "stop_id": "240043",
+        "name": "9η ΚΑΛΛΙΘΕΑΣ",
+        "order": "7"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6977921,
+          37.9472697
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "240074",
+        "stop_id": "240074",
+        "name": "ΦΑΡΟΣ ΤΥΦΛΩΝ",
+        "order": "8"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.699971,
+          37.9460315
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "240072",
+        "stop_id": "240072",
+        "name": "ΑΘΗΝΑΣ",
+        "order": "9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7012232,
+          37.9459806
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "240075",
+        "stop_id": "240075",
+        "name": "ΣΩΚΡΑΤΟΥΣ",
+        "order": "10"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7024331,
+          37.9479395
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "240044",
+        "stop_id": "240044",
+        "name": "ΣΠΑΡΤΗΣ",
+        "order": "11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7009357,
+          37.949513
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "240045",
+        "stop_id": "240045",
+        "name": "ΣΚΡΑ",
+        "order": "12"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7024796,
+          37.9505083
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "240046",
+        "stop_id": "240046",
+        "name": "ΔΑΒΑΚΗ",
+        "order": "13"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7059073,
+          37.9529594
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "240047",
+        "stop_id": "240047",
+        "name": "ΔΗΜΗΤΡΑΚΟΠΟΥΛΟΥ",
+        "order": "14"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7082684,
+          37.9545876
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "240048",
+        "stop_id": "240048",
+        "name": "ΑΓ. ΠΑΝΤΩΝ",
+        "order": "15"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7101753,
+          37.9559713
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "240121",
+        "stop_id": "240121",
+        "name": "ΑΤΘΙΔΩΝ",
+        "order": "16"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7121394,
+          37.957274
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "240107",
+        "stop_id": "240107",
+        "name": "2η ΔΗΜΟΤΙΚΟΥ ΣΤΑΔΙΟΥ",
+        "order": "17"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7138757,
+          37.9594109
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "240116",
+        "stop_id": "240116",
+        "name": "1η ΔΗΜΟΤΙΚΟΥ ΣΤΑΔΙΟΥ",
+        "order": "18"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7150032,
+          37.9614719
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "61127",
+        "stop_id": "061127",
+        "name": "ΠΑΙΔΙΚΗ ΧΑΡΑ",
+        "order": "19"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7196607,
+          37.9616416
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "61088",
+        "stop_id": "061088",
+        "name": "KOYKAKI",
+        "order": "20"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7223381,
+          37.9632298
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "10308",
+        "stop_id": "000107",
+        "name": "ΣΤ. ΣΥΓΓΡΟΥ ΦΙΞ",
+        "order": "21"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.726367,
+          37.963923
+        ]
+      }
+    }
+  ]
+}

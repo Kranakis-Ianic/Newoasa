@@ -1,0 +1,256 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "route_path",
+        "route_code": "4907",
+        "descr": "ΓΑΛΑΤΣΙ - ΑΚΑΔΗΜΙΑ - ΝΕΚΡ. ΖΩΓΡΑΦΟΥ [ΕΩΣ ΣΤΑΣΗ ΧΑΤΖΗΔΑΚΗ]"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            23.76184,
+            38.02694
+          ],
+          [
+            23.76154,
+            38.02658
+          ],
+          [
+            23.76142,
+            38.02641
+          ],
+          [
+            23.76126,
+            38.02604
+          ],
+          [
+            23.75661,
+            38.02003
+          ],
+          [
+            23.75315,
+            38.01322
+          ],
+          [
+            23.75301,
+            38.01303
+          ],
+          [
+            23.75289,
+            38.01302
+          ],
+          [
+            23.74976,
+            38.01407
+          ],
+          [
+            23.74738,
+            38.01413
+          ],
+          [
+            23.74505,
+            38.01518
+          ],
+          [
+            23.74464,
+            38.01533
+          ],
+          [
+            23.74406,
+            38.01542
+          ],
+          [
+            23.74104,
+            38.01576
+          ],
+          [
+            23.73962,
+            38.01589
+          ],
+          [
+            23.7393,
+            38.01592
+          ],
+          [
+            23.73938,
+            38.01642
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "10340",
+        "stop_id": "000134",
+        "name": "ΓΑΛΑΤΣΙ",
+        "order": "1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7614695,
+          38.0265555
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "150038",
+        "stop_id": "150038",
+        "name": "ΧΡΙΣΤΙΑΝΟΥΠΟΛΕΩΣ",
+        "order": "2"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7575178,
+          38.0214937
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "150007",
+        "stop_id": "150007",
+        "name": "ΕΣΠΕΡΙΔΩΝ",
+        "order": "3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7551023,
+          38.0172306
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "150008",
+        "stop_id": "150008",
+        "name": "ΜΑΥΡΟΓΕΝΟΥΣ",
+        "order": "4"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7540733,
+          38.0151301
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "150009",
+        "stop_id": "150009",
+        "name": "ΠΑΛ. ΤΕΡΜΑ",
+        "order": "5"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7526888,
+          38.0131555
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "150010",
+        "stop_id": "150010",
+        "name": "ΣΥΚΙΑ",
+        "order": "6"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.750242,
+          38.014047
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "150011",
+        "stop_id": "150011",
+        "name": "ΛΙΝΑΡΑ",
+        "order": "7"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7462571,
+          38.0147025
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "60441",
+        "stop_id": "060441",
+        "name": "ΒΟΡΕΙΟΣ ΠΟΛΟΣ",
+        "order": "8"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7425907,
+          38.0156343
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "60442",
+        "stop_id": "060442",
+        "name": "ΧΑΤΖΗΔΑΚΗ",
+        "order": "9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7398599,
+          38.0159168
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "11773",
+        "stop_id": "609",
+        "name": "ΧΑΤΖΗΔΑΚΗ",
+        "order": "10"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.739618,
+          38.0167485
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,433 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "route_path",
+        "route_code": "4227",
+        "descr": "ΑΜΑΞ. ΑΓ. ΔΗΜΗΤΡΙΟΥ - ΣΤ. ΔΑΦΝΗ [ΕΩΣ ΣΤ.ΔΑΦΝΗ]"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            23.71938,
+            37.93229
+          ],
+          [
+            23.7185,
+            37.93253
+          ],
+          [
+            23.7166,
+            37.93306
+          ],
+          [
+            23.71636,
+            37.93307
+          ],
+          [
+            23.71627,
+            37.93237
+          ],
+          [
+            23.71613,
+            37.93159
+          ],
+          [
+            23.71594,
+            37.9309
+          ],
+          [
+            23.71523,
+            37.92966
+          ],
+          [
+            23.71502,
+            37.92945
+          ],
+          [
+            23.71324,
+            37.93003
+          ],
+          [
+            23.71314,
+            37.93015
+          ],
+          [
+            23.71369,
+            37.93079
+          ],
+          [
+            23.71502,
+            37.93337
+          ],
+          [
+            23.71522,
+            37.93402
+          ],
+          [
+            23.716,
+            37.93458
+          ],
+          [
+            23.7176,
+            37.93586
+          ],
+          [
+            23.71902,
+            37.93696
+          ],
+          [
+            23.72063,
+            37.93821
+          ],
+          [
+            23.72302,
+            37.94006
+          ],
+          [
+            23.72533,
+            37.94189
+          ],
+          [
+            23.7271,
+            37.94323
+          ],
+          [
+            23.72764,
+            37.94365
+          ],
+          [
+            23.72833,
+            37.94312
+          ],
+          [
+            23.72848,
+            37.94327
+          ],
+          [
+            23.72862,
+            37.94371
+          ],
+          [
+            23.72893,
+            37.94441
+          ],
+          [
+            23.72942,
+            37.94505
+          ],
+          [
+            23.73002,
+            37.94553
+          ],
+          [
+            23.73069,
+            37.94601
+          ],
+          [
+            23.73123,
+            37.94617
+          ],
+          [
+            23.73205,
+            37.94615
+          ],
+          [
+            23.73299,
+            37.94625
+          ],
+          [
+            23.73355,
+            37.94637
+          ],
+          [
+            23.73439,
+            37.94674
+          ],
+          [
+            23.73552,
+            37.94646
+          ],
+          [
+            23.73667,
+            37.9478
+          ],
+          [
+            23.73715,
+            37.94843
+          ],
+          [
+            23.7373,
+            37.94865
+          ],
+          [
+            23.73712,
+            37.94876
+          ],
+          [
+            23.73698,
+            37.94885
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "10429",
+        "stop_id": "000209",
+        "name": "ΑΜ/ΣΙΟ ΑΓ. ΔΗΜΗΤΡΙΟΥ",
+        "order": "1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7190825,
+          37.9323035
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "340040",
+        "stop_id": "340040",
+        "name": "ΝΕΚΡ. ΚΑΛΛΙΘΕΑΣ",
+        "order": "2"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7152395,
+          37.9297381
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "340041",
+        "stop_id": "340041",
+        "name": "ΝΕΚΡ. ΦΑΛΗΡΟΥ",
+        "order": "3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7137901,
+          37.9308431
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "340042",
+        "stop_id": "340042",
+        "name": "ΝΕΚΡ. ΣΜΥΡΝΗΣ",
+        "order": "4"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7145585,
+          37.932233
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "340030",
+        "stop_id": "340030",
+        "name": "ΨΑΧΟΥ",
+        "order": "5"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.715802,
+          37.934363
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "340031",
+        "stop_id": "340031",
+        "name": "ΔΕΓΛΕΡΗ",
+        "order": "6"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7179577,
+          37.9360356
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "340036",
+        "stop_id": "340036",
+        "name": "ΙΑΣΟΝΟΣ",
+        "order": "7"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7201928,
+          37.9378165
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "40114",
+        "stop_id": "040114",
+        "name": "ΑΡΣΑΚΕΙΟΥ",
+        "order": "8"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7230638,
+          37.9399954
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "340057",
+        "stop_id": "340057",
+        "name": "ΚΑΛΑΜΩΝ",
+        "order": "9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7248795,
+          37.9413877
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "340058",
+        "stop_id": "340058",
+        "name": "ΑΓ. ΛΑΥΡΑΣ",
+        "order": "10"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7265024,
+          37.9426262
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "40115",
+        "stop_id": "040115",
+        "name": "ΨΥΧΟΓΙΟΥ",
+        "order": "11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7286952,
+          37.9436407
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "40112",
+        "stop_id": "040112",
+        "name": "ΑΛΚΙΝΟΟΥ",
+        "order": "12"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7296909,
+          37.9452293
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "40116",
+        "stop_id": "040116",
+        "name": "ΑΛΣΟΣ",
+        "order": "13"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.732385,
+          37.9461277
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "40040",
+        "stop_id": "040040",
+        "name": "ΑΝΤΙΟΠΗΣ",
+        "order": "14"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7359679,
+          37.9467667
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "10285",
+        "stop_id": "84",
+        "name": "ΣΤ. ΔΑΦΝΗ",
+        "order": "15"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.737017,
+          37.948945
+        ]
+      }
+    }
+  ]
+}

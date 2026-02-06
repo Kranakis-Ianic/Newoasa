@@ -1,0 +1,396 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "route_path",
+        "route_code": "4214",
+        "descr": "ΑΚΑΔΗΜΙΑ - Ν. ΚΥΨΕΛΗ [ΕΩΣ ΚΥΨΕΛΗ] [Προσωρινή λόγω έργων]"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            23.73423,
+            37.97961
+          ],
+          [
+            23.73413,
+            37.97956
+          ],
+          [
+            23.73381,
+            37.97935
+          ],
+          [
+            23.72993,
+            37.98381
+          ],
+          [
+            23.72869,
+            37.98405
+          ],
+          [
+            23.72816,
+            37.98453
+          ],
+          [
+            23.7295,
+            37.9901
+          ],
+          [
+            23.72968,
+            37.99013
+          ],
+          [
+            23.73033,
+            37.99005
+          ],
+          [
+            23.73047,
+            37.99005
+          ],
+          [
+            23.73184,
+            37.98988
+          ],
+          [
+            23.73214,
+            37.99104
+          ],
+          [
+            23.73272,
+            37.99287
+          ],
+          [
+            23.7332,
+            37.99494
+          ],
+          [
+            23.73337,
+            37.99531
+          ],
+          [
+            23.73352,
+            37.99536
+          ],
+          [
+            23.73396,
+            37.99534
+          ],
+          [
+            23.73524,
+            37.99622
+          ],
+          [
+            23.73765,
+            37.99793
+          ],
+          [
+            23.73789,
+            37.99813
+          ],
+          [
+            23.73797,
+            37.99826
+          ],
+          [
+            23.7381,
+            37.99844
+          ],
+          [
+            23.7385,
+            37.99904
+          ],
+          [
+            23.73872,
+            37.99932
+          ],
+          [
+            23.73888,
+            37.99951
+          ],
+          [
+            23.73951,
+            38.00008
+          ],
+          [
+            23.73969,
+            38.00022
+          ],
+          [
+            23.74172,
+            38.00211
+          ],
+          [
+            23.74211,
+            38.00255
+          ],
+          [
+            23.74235,
+            38.00272
+          ],
+          [
+            23.7437,
+            38.00222
+          ],
+          [
+            23.74523,
+            38.00118
+          ],
+          [
+            23.74537,
+            38.00129
+          ],
+          [
+            23.74574,
+            38.00124
+          ],
+          [
+            23.74611,
+            38.00121
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "10292",
+        "stop_id": "91",
+        "name": "ΑΦΕΤΗΡΙΑ - ΣΙΝΑ",
+        "order": "1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.734821,
+          37.980083
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "61000",
+        "stop_id": "061000",
+        "name": "ΑΚΑΔΗΜΙΑ",
+        "order": "2"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7335091,
+          37.9798734
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "60116",
+        "stop_id": "060116",
+        "name": "ΡΕΞ",
+        "order": "3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7310565,
+          37.982726
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "60118",
+        "stop_id": "060118",
+        "name": "ΠΛ. ΛΑΥΡΙΟΥ",
+        "order": "4"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7285925,
+          37.9858267
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "60065",
+        "stop_id": "060065",
+        "name": "ΠΑΤΗΣΙΩΝ",
+        "order": "5"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.73032,
+          37.9900089
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "60066",
+        "stop_id": "060066",
+        "name": "ΑΙΓΥΠΤΟΥ",
+        "order": "6"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7322183,
+          37.9910421
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "60550",
+        "stop_id": "060550",
+        "name": "ΠΑΝΕΛΛΗΝΙΟΣ",
+        "order": "7"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.733133,
+          37.9941861
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "60551",
+        "stop_id": "060551",
+        "name": "ΕΠΤΑΝΗΣΟΥ",
+        "order": "8"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7352559,
+          37.9961709
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "60552",
+        "stop_id": "060552",
+        "name": "ΙΘΑΚΗΣ",
+        "order": "9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7373941,
+          37.9976955
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "60553",
+        "stop_id": "060553",
+        "name": "ΖΑΚΥΝΘΟΥ",
+        "order": "10"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7389319,
+          37.9994663
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "60554",
+        "stop_id": "060554",
+        "name": "ΣΚΥΡΟΥ",
+        "order": "11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7406598,
+          38.0010166
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "60555",
+        "stop_id": "060555",
+        "name": "ΠΛ  ΚΥΨΕΛΗΣ (ΤΕΡΜΑ 036)",
+        "order": "12"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7420444,
+          38.0023813
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "60556",
+        "stop_id": "060556",
+        "name": "ΦΙΛΟΤΙΜΟΥ",
+        "order": "13"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7437771,
+          38.0020239
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "10186",
+        "stop_id": "27",
+        "name": "Ν. ΚΥΨΕΛΗ",
+        "order": "14"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.746045,
+          38.0014215
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,620 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "route_path",
+        "route_code": "4341",
+        "descr": "ΛΙΜ. ΠΕΡΑΜΑΤΟΣ - ΑΝΩ ΠΕΡΑΜΑ [ΑΠΟ ΣΤΑΣΗ ΣΧΟΛΕΙΟ]"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            23.57778,
+            37.96292
+          ],
+          [
+            23.57757,
+            37.96294
+          ],
+          [
+            23.57715,
+            37.96301
+          ],
+          [
+            23.57729,
+            37.96395
+          ],
+          [
+            23.57765,
+            37.96439
+          ],
+          [
+            23.57854,
+            37.96461
+          ],
+          [
+            23.57938,
+            37.96491
+          ],
+          [
+            23.58014,
+            37.96539
+          ],
+          [
+            23.58034,
+            37.96561
+          ],
+          [
+            23.58039,
+            37.96588
+          ],
+          [
+            23.58014,
+            37.96643
+          ],
+          [
+            23.57978,
+            37.96666
+          ],
+          [
+            23.57963,
+            37.96655
+          ],
+          [
+            23.57958,
+            37.96623
+          ],
+          [
+            23.57934,
+            37.96606
+          ],
+          [
+            23.57835,
+            37.96593
+          ],
+          [
+            23.57639,
+            37.9659
+          ],
+          [
+            23.57508,
+            37.96618
+          ],
+          [
+            23.5734,
+            37.96676
+          ],
+          [
+            23.57162,
+            37.96741
+          ],
+          [
+            23.5708,
+            37.96781
+          ],
+          [
+            23.56988,
+            37.96804
+          ],
+          [
+            23.56893,
+            37.96815
+          ],
+          [
+            23.56801,
+            37.96819
+          ],
+          [
+            23.56782,
+            37.96813
+          ],
+          [
+            23.56762,
+            37.96798
+          ],
+          [
+            23.56647,
+            37.9682
+          ],
+          [
+            23.56551,
+            37.96821
+          ],
+          [
+            23.56478,
+            37.96827
+          ],
+          [
+            23.56461,
+            37.96844
+          ],
+          [
+            23.56367,
+            37.96846
+          ],
+          [
+            23.56275,
+            37.96841
+          ],
+          [
+            23.56182,
+            37.9682
+          ],
+          [
+            23.56163,
+            37.96831
+          ],
+          [
+            23.56159,
+            37.96859
+          ],
+          [
+            23.56275,
+            37.96962
+          ],
+          [
+            23.56325,
+            37.97024
+          ],
+          [
+            23.56334,
+            37.97038
+          ],
+          [
+            23.56352,
+            37.97043
+          ],
+          [
+            23.56418,
+            37.97024
+          ],
+          [
+            23.56543,
+            37.96885
+          ],
+          [
+            23.56536,
+            37.96809
+          ],
+          [
+            23.56488,
+            37.96663
+          ],
+          [
+            23.56459,
+            37.96531
+          ],
+          [
+            23.56164,
+            37.96567
+          ],
+          [
+            23.55977,
+            37.96592
+          ],
+          [
+            23.55951,
+            37.966
+          ],
+          [
+            23.55925,
+            37.9662
+          ],
+          [
+            23.55912,
+            37.96602
+          ],
+          [
+            23.55894,
+            37.96565
+          ],
+          [
+            23.55886,
+            37.96534
+          ],
+          [
+            23.5588,
+            37.96483
+          ],
+          [
+            23.55882,
+            37.96423
+          ],
+          [
+            23.55868,
+            37.96418
+          ],
+          [
+            23.55806,
+            37.96412
+          ],
+          [
+            23.55819,
+            37.96394
+          ],
+          [
+            23.55867,
+            37.96384
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "11863",
+        "stop_id": "818",
+        "name": "ΣΧΟΛΕΙΟ",
+        "order": "1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5775565,
+          37.9629775
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "410039",
+        "stop_id": "410039",
+        "name": "1η ΑΝΩ ΠΕΡΑΜΑΤΟΣ",
+        "order": "2"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5786532,
+          37.9645416
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "410029",
+        "stop_id": "410029",
+        "name": "2η ΑΝΩ ΠΕΡΑΜΑΤΟΣ",
+        "order": "3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5800185,
+          37.9666825
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "410093",
+        "stop_id": "410093",
+        "name": "ΑΡΙΣΤΟΦΑΝΟΥΣ",
+        "order": "4"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.579541,
+          37.9665546
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "410030",
+        "stop_id": "410030",
+        "name": "3η ΑΝΩ ΠΕΡΑΜΑΤΟΣ",
+        "order": "5"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5775404,
+          37.9660157
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "410031",
+        "stop_id": "410031",
+        "name": "4η ΑΝΩ ΠΕΡΑΜΑΤΟΣ",
+        "order": "6"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5746954,
+          37.9663861
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "410094",
+        "stop_id": "410094",
+        "name": "ΡΗΓΑ ΦΕΡΑΙΟΥ",
+        "order": "7"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.572335,
+          37.9672047
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "410032",
+        "stop_id": "410032",
+        "name": "5η ΑΝΩ ΠΕΡΑΜΑΤΟΣ",
+        "order": "8"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5704935,
+          37.967964
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "410033",
+        "stop_id": "410033",
+        "name": "6η ΑΝΩ ΠΕΡΑΜΑΤΟΣ",
+        "order": "9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5682489,
+          37.9682622
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "410034",
+        "stop_id": "410034",
+        "name": "7η ΑΝΩ ΠΕΡΑΜΑΤΟΣ",
+        "order": "10"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5659606,
+          37.9682628
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "410046",
+        "stop_id": "410046",
+        "name": "ΠΡΟΦ. ΗΛΙΑΣ",
+        "order": "11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5634879,
+          37.9686232
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "410047",
+        "stop_id": "410047",
+        "name": "ΚΟΡΑΗ",
+        "order": "12"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5618146,
+          37.9685809
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "410057",
+        "stop_id": "410057",
+        "name": "ΚΑΡΑΙΣΚΑΚΗ",
+        "order": "13"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5627772,
+          37.9694498
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "410060",
+        "stop_id": "410060",
+        "name": "ΚΟΛΟΚΟΤΡΩΝΗ",
+        "order": "14"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5637056,
+          37.9703274
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "410058",
+        "stop_id": "410058",
+        "name": "ΜΙΑΟΥΛΗ",
+        "order": "15"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5648156,
+          37.9693582
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "410048",
+        "stop_id": "410048",
+        "name": "ΑΓ. ΛΑΥΡΑΣ",
+        "order": "16"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.565242,
+          37.9684945
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "410035",
+        "stop_id": "410035",
+        "name": "8η ΑΝΩ ΠΕΡΑΜΑΤΟΣ",
+        "order": "17"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5646972,
+          37.9662843
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "410036",
+        "stop_id": "410036",
+        "name": "9η ΑΝΩ ΠΕΡΑΜΑΤΟΣ",
+        "order": "18"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5627202,
+          37.9656191
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "410059",
+        "stop_id": "410059",
+        "name": "ΠΟΝΤΙΩΝ",
+        "order": "19"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5613986,
+          37.9657944
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "410061",
+        "stop_id": "410061",
+        "name": "ΚΑΝΑΡΗ",
+        "order": "20"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5596325,
+          37.9660402
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "410051",
+        "stop_id": "410051",
+        "name": "ΑΝΑΠΑΥΣΕΩΣ",
+        "order": "21"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5588872,
+          37.9655338
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "10278",
+        "stop_id": "77",
+        "name": "ΠΕΡΑΜΑ",
+        "order": "22"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5587085,
+          37.9639465
+        ]
+      }
+    }
+  ]
+}

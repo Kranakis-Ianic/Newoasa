@@ -1,0 +1,756 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "route_path",
+        "route_code": "3040",
+        "descr": "ΕΛΕΥΣΙΝΑ - ΜΑΝΔΡΑ"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            23.54048,
+            38.0357
+          ],
+          [
+            23.54033,
+            38.03576
+          ],
+          [
+            23.53996,
+            38.03593
+          ],
+          [
+            23.53799,
+            38.03682
+          ],
+          [
+            23.53773,
+            38.03698
+          ],
+          [
+            23.53952,
+            38.03955
+          ],
+          [
+            23.54207,
+            38.04292
+          ],
+          [
+            23.54205,
+            38.04328
+          ],
+          [
+            23.54143,
+            38.04338
+          ],
+          [
+            23.53573,
+            38.04475
+          ],
+          [
+            23.53465,
+            38.04513
+          ],
+          [
+            23.52967,
+            38.04802
+          ],
+          [
+            23.52302,
+            38.05212
+          ],
+          [
+            23.52185,
+            38.05302
+          ],
+          [
+            23.52114,
+            38.05377
+          ],
+          [
+            23.51918,
+            38.05733
+          ],
+          [
+            23.51892,
+            38.05776
+          ],
+          [
+            23.5183,
+            38.05842
+          ],
+          [
+            23.51751,
+            38.05925
+          ],
+          [
+            23.51553,
+            38.06199
+          ],
+          [
+            23.51324,
+            38.06474
+          ],
+          [
+            23.50986,
+            38.07211
+          ],
+          [
+            23.50961,
+            38.07232
+          ],
+          [
+            23.5081,
+            38.07248
+          ],
+          [
+            23.50649,
+            38.07214
+          ],
+          [
+            23.50566,
+            38.07184
+          ],
+          [
+            23.50527,
+            38.07166
+          ],
+          [
+            23.5047,
+            38.0715
+          ],
+          [
+            23.50279,
+            38.07132
+          ],
+          [
+            23.49967,
+            38.06998
+          ],
+          [
+            23.499,
+            38.06991
+          ],
+          [
+            23.49841,
+            38.06993
+          ],
+          [
+            23.49708,
+            38.07066
+          ],
+          [
+            23.49669,
+            38.07101
+          ],
+          [
+            23.49642,
+            38.07163
+          ],
+          [
+            23.49679,
+            38.07309
+          ],
+          [
+            23.4968,
+            38.07497
+          ],
+          [
+            23.49607,
+            38.07575
+          ],
+          [
+            23.49591,
+            38.07607
+          ],
+          [
+            23.49424,
+            38.07651
+          ],
+          [
+            23.49385,
+            38.07653
+          ],
+          [
+            23.49342,
+            38.07645
+          ],
+          [
+            23.493,
+            38.07643
+          ],
+          [
+            23.4927,
+            38.07644
+          ],
+          [
+            23.49244,
+            38.07648
+          ],
+          [
+            23.49132,
+            38.07684
+          ],
+          [
+            23.49024,
+            38.07703
+          ],
+          [
+            23.48988,
+            38.07952
+          ],
+          [
+            23.48915,
+            38.07976
+          ],
+          [
+            23.48736,
+            38.07999
+          ],
+          [
+            23.48705,
+            38.08024
+          ],
+          [
+            23.48704,
+            38.0805
+          ],
+          [
+            23.48722,
+            38.081
+          ],
+          [
+            23.48512,
+            38.08432
+          ],
+          [
+            23.48188,
+            38.08481
+          ],
+          [
+            23.48167,
+            38.0846
+          ],
+          [
+            23.48148,
+            38.08439
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "10156",
+        "stop_id": "03",
+        "name": "ΕΛΕΥΣΙΝΑ",
+        "order": "1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5399225,
+          38.035942
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "190056",
+        "stop_id": "190056",
+        "name": "ΠΑΡΑΛΙΑ",
+        "order": "2"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.538276,
+          38.0367717
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "190010",
+        "stop_id": "190010",
+        "name": "ΑΓ. ΓΕΩΡΓΙΟΣ",
+        "order": "3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5395959,
+          38.0395584
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "190011",
+        "stop_id": "190011",
+        "name": "ΠΛ. ΕΛΕΥΣΙΝΑΣ",
+        "order": "4"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5420901,
+          38.0427981
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "190014",
+        "stop_id": "190014",
+        "name": "ΟΤΕ",
+        "order": "5"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5403095,
+          38.0436764
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "190029",
+        "stop_id": "190029",
+        "name": "ΣΤΡΟΦΗ ΜΑΓΟΥΛΑΣ",
+        "order": "6"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5359386,
+          38.0447526
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "190030",
+        "stop_id": "190030",
+        "name": "ΓΗΠΕΔΟ",
+        "order": "7"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5320645,
+          38.0466584
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "190031",
+        "stop_id": "190031",
+        "name": "ΠΟΛΕΟΔΟΜΙΑ",
+        "order": "8"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5283521,
+          38.0489716
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "300012",
+        "stop_id": "300012",
+        "name": "ΜΠΛΟΚΟ",
+        "order": "9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5246291,
+          38.0511502
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "190048",
+        "stop_id": "190048",
+        "name": "ΓΥΜΝΑΣΤΗΡΙΟ",
+        "order": "10"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5234316,
+          38.0519981
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "300013",
+        "stop_id": "300013",
+        "name": "ΕΡΓΑΤΙΚΕΣ ΚΑΤΟΙΚΙΕΣ",
+        "order": "11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5223841,
+          38.0526357
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "300014",
+        "stop_id": "300014",
+        "name": "ΑΕΡΟΓΕΦΥΡΑ",
+        "order": "12"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.518142,
+          38.0586498
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "300015",
+        "stop_id": "300015",
+        "name": "ΔΕΗ",
+        "order": "13"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5152054,
+          38.0625293
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "300046",
+        "stop_id": "300046",
+        "name": "ΒΕΡΝΙΛΑΚ",
+        "order": "14"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5140636,
+          38.0639141
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "300016",
+        "stop_id": "300016",
+        "name": "ΤΖΟΝΣΟΝ",
+        "order": "15"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5125248,
+          38.066567
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "300017",
+        "stop_id": "300017",
+        "name": "ΣΤΡΑΤΟΠΕΔΟ",
+        "order": "16"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5103319,
+          38.0713665
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "10621",
+        "stop_id": "300082",
+        "name": "ΔΕΞΑΜΕΝΗ",
+        "order": "17"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5070784,
+          38.0723106
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "11375",
+        "stop_id": "300091",
+        "name": "ΑΡΙΣΤΕΙΔΟΥ",
+        "order": "18"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5050207,
+          38.0716651
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "10623",
+        "stop_id": "300083",
+        "name": "ΠΑΤΡΟΚΛΟΥ",
+        "order": "19"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5013909,
+          38.0708319
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "10624",
+        "stop_id": "300084",
+        "name": "ΓΕΛ ΜΑΝΔΡΑΣ",
+        "order": "20"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.4978459,
+          38.07033
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "11376",
+        "stop_id": "300092",
+        "name": "ΑΙΣΧΥΛΟΥ",
+        "order": "21"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.4965925,
+          38.071964
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "11377",
+        "stop_id": "300093",
+        "name": "ΠΛ. ΜΑΝΔΡΑΣ",
+        "order": "22"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.4969335,
+          38.073775
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "300026",
+        "stop_id": "300026",
+        "name": "ΤΕΡΜΑ - ΜΑΝΔΡΑ",
+        "order": "23"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.495534,
+          38.076306
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "300033",
+        "stop_id": "300033",
+        "name": "1η ΣΧΟΛΕΙΩΝ",
+        "order": "24"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.4937533,
+          38.0766048
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "11378",
+        "stop_id": "300094",
+        "name": "25ης ΜΑΡΤΙΟΥ",
+        "order": "25"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.4914955,
+          38.076885
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "11387",
+        "stop_id": "300095",
+        "name": "2η ΣΧΟΛΕΙΩΝ",
+        "order": "26"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.4901456,
+          38.0783741
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "11379",
+        "stop_id": "300096",
+        "name": "ΑΡΙΣΤΟΤΕΛΟΥΣ",
+        "order": "27"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.4896124,
+          38.0797076
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "300055",
+        "stop_id": "300055",
+        "name": "ΠΑΛ. ΤΕΡΜΑ",
+        "order": "28"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.4867149,
+          38.0820093
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "11380",
+        "stop_id": "300097",
+        "name": "ΚΡΗΤΗΣ",
+        "order": "29"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.4857157,
+          38.0836187
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "10167",
+        "stop_id": "14",
+        "name": "ΜΑΝΔΡΑ",
+        "order": "30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.4814965,
+          38.084371
+        ]
+      }
+    }
+  ]
+}

@@ -70,8 +70,8 @@ actual fun MapView(
                     .build()
                     
                 // Enable attribution and logo (required for OpenFreeMap)
-                map.uiSettings.isAttributionEnabled = true
-                map.uiSettings.isLogoEnabled = true
+                map.uiSettings.isAttributionEnabled = false
+                map.uiSettings.isLogoEnabled = false
             }
         }
     )

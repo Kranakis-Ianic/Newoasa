@@ -1,0 +1,837 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "route_path",
+        "route_code": "3456",
+        "descr": "ΑΝΩ ΜΕΛΙΣΣΙΑ - ΟΑΚΑ [ΑΠΟ ΣΤΑΣΗ ΚΛΕΙΟΥΣ]"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            23.84226,
+            38.06556
+          ],
+          [
+            23.84226,
+            38.0656
+          ],
+          [
+            23.84126,
+            38.06553
+          ],
+          [
+            23.84067,
+            38.06556
+          ],
+          [
+            23.83935,
+            38.06562
+          ],
+          [
+            23.83918,
+            38.06545
+          ],
+          [
+            23.83696,
+            38.06292
+          ],
+          [
+            23.83605,
+            38.05987
+          ],
+          [
+            23.83563,
+            38.05869
+          ],
+          [
+            23.83639,
+            38.05876
+          ],
+          [
+            23.83734,
+            38.05894
+          ],
+          [
+            23.83746,
+            38.05885
+          ],
+          [
+            23.8381,
+            38.0583
+          ],
+          [
+            23.83839,
+            38.05729
+          ],
+          [
+            23.83838,
+            38.05658
+          ],
+          [
+            23.83863,
+            38.05569
+          ],
+          [
+            23.83875,
+            38.05483
+          ],
+          [
+            23.83908,
+            38.05396
+          ],
+          [
+            23.83917,
+            38.05265
+          ],
+          [
+            23.83874,
+            38.05191
+          ],
+          [
+            23.83851,
+            38.05158
+          ],
+          [
+            23.83769,
+            38.05145
+          ],
+          [
+            23.83651,
+            38.0512
+          ],
+          [
+            23.83623,
+            38.05117
+          ],
+          [
+            23.83311,
+            38.05116
+          ],
+          [
+            23.83223,
+            38.05125
+          ],
+          [
+            23.83145,
+            38.05135
+          ],
+          [
+            23.82995,
+            38.0517
+          ],
+          [
+            23.82779,
+            38.05252
+          ],
+          [
+            23.82651,
+            38.0528
+          ],
+          [
+            23.82509,
+            38.05297
+          ],
+          [
+            23.82484,
+            38.05305
+          ],
+          [
+            23.82449,
+            38.05355
+          ],
+          [
+            23.82427,
+            38.05365
+          ],
+          [
+            23.82408,
+            38.05361
+          ],
+          [
+            23.82388,
+            38.05321
+          ],
+          [
+            23.8237,
+            38.05292
+          ],
+          [
+            23.82357,
+            38.05279
+          ],
+          [
+            23.82323,
+            38.05253
+          ],
+          [
+            23.82312,
+            38.05244
+          ],
+          [
+            23.82267,
+            38.05235
+          ],
+          [
+            23.8221,
+            38.05231
+          ],
+          [
+            23.82079,
+            38.05233
+          ],
+          [
+            23.81589,
+            38.05271
+          ],
+          [
+            23.81535,
+            38.0529
+          ],
+          [
+            23.81341,
+            38.05355
+          ],
+          [
+            23.81152,
+            38.05399
+          ],
+          [
+            23.81124,
+            38.054
+          ],
+          [
+            23.8095,
+            38.0505
+          ],
+          [
+            23.80926,
+            38.05032
+          ],
+          [
+            23.8089,
+            38.05006
+          ],
+          [
+            23.80855,
+            38.04977
+          ],
+          [
+            23.80813,
+            38.04906
+          ],
+          [
+            23.80795,
+            38.04859
+          ],
+          [
+            23.80737,
+            38.04642
+          ],
+          [
+            23.80577,
+            38.04701
+          ],
+          [
+            23.80397,
+            38.04791
+          ],
+          [
+            23.80223,
+            38.04876
+          ],
+          [
+            23.80167,
+            38.04892
+          ],
+          [
+            23.80074,
+            38.04914
+          ],
+          [
+            23.79834,
+            38.0497
+          ],
+          [
+            23.7978,
+            38.04977
+          ],
+          [
+            23.79753,
+            38.04968
+          ],
+          [
+            23.79731,
+            38.04963
+          ],
+          [
+            23.79668,
+            38.04903
+          ],
+          [
+            23.79353,
+            38.04517
+          ],
+          [
+            23.79334,
+            38.04504
+          ],
+          [
+            23.79294,
+            38.04471
+          ],
+          [
+            23.7896,
+            38.04299
+          ],
+          [
+            23.78858,
+            38.04246
+          ],
+          [
+            23.78865,
+            38.04228
+          ],
+          [
+            23.79387,
+            38.03984
+          ],
+          [
+            23.7931,
+            38.03934
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "10386",
+        "stop_id": "000173",
+        "name": "ΜΕΛΙΣΣΙΑ ",
+        "order": "1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8424235,
+          38.0656075
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "640028",
+        "stop_id": "640028",
+        "name": "ΚΛΕΙΟΥΣ",
+        "order": "2"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8413068,
+          38.0655806
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "640029",
+        "stop_id": "640029",
+        "name": "ΜΟΥΣΣΩΝ",
+        "order": "3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8396293,
+          38.065659
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "640030",
+        "stop_id": "640030",
+        "name": "ΚΑΛΛΙΠΟΛΕΩΣ",
+        "order": "4"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.837817,
+          38.0639757
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "640066",
+        "stop_id": "640066",
+        "name": "ΣΜΥΡΝΗΣ",
+        "order": "5"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8369019,
+          38.0628251
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "640068",
+        "stop_id": "640068",
+        "name": "ΠΟΛΙΤΙΣΤΙΚΟ ΚΕΝΤΡΟ",
+        "order": "6"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8363606,
+          38.0613852
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "640033",
+        "stop_id": "640033",
+        "name": "ΦΟΥΡΝΟΣ",
+        "order": "7"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8378149,
+          38.0584785
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "640046",
+        "stop_id": "640046",
+        "name": "ΜΠΟΥΜΠΟΥΛΙΝΑΣ",
+        "order": "8"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8387434,
+          38.0547431
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "640064",
+        "stop_id": "640064",
+        "name": "ΣΤΡΟΦΗ",
+        "order": "9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8389229,
+          38.0523713
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "640084",
+        "stop_id": "640084",
+        "name": "ΔΙΑΣΤΑΥΡΩΣΗ",
+        "order": "10"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8377625,
+          38.0515292
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "640038",
+        "stop_id": "640038",
+        "name": "ΠΛ. ΜΕΛΙΣΣΙΩΝ",
+        "order": "11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8348646,
+          38.0512103
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "640039",
+        "stop_id": "640039",
+        "name": "ΠΑΠΑΝΙΚΟΛΑΟΥ",
+        "order": "12"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8332097,
+          38.0512188
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "640040",
+        "stop_id": "640040",
+        "name": "ΚΑΛΑΜΠΟΚΗ",
+        "order": "13"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8312853,
+          38.0514653
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "640041",
+        "stop_id": "640041",
+        "name": "ΠΑΛΛΑΔΙΟ",
+        "order": "14"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8283698,
+          38.0523605
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "90023",
+        "stop_id": "090023",
+        "name": "ΣΤΟΥΝΤΙΟ",
+        "order": "15"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8254321,
+          38.0529524
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "90047",
+        "stop_id": "090047",
+        "name": "ΣΙΚΙΑΡΙΔΕΙΟΝ",
+        "order": "16"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8212768,
+          38.0523447
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "90048",
+        "stop_id": "090048",
+        "name": "ΑΛΩΝΙΑ",
+        "order": "17"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8172838,
+          38.0526514
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "90050",
+        "stop_id": "090050",
+        "name": "ΕΥΓΕΝΙΟΣ ΣΠΑΘΑΡΗΣ",
+        "order": "18"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8148048,
+          38.0531246
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "90014",
+        "stop_id": "090014",
+        "name": "ΔΙΑΣΤΑΥΡΩΣΗ ΜΕΛΙΣΣΙΩΝ",
+        "order": "19"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8109432,
+          38.0534423
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "90015",
+        "stop_id": "090015",
+        "name": "ΔΙΑΣΤΑΥΡΩΣΗ ΑΜΑΡΟΥΣΙΟΥ",
+        "order": "20"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8097087,
+          38.0510157
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "90016",
+        "stop_id": "090016",
+        "name": "ΚΑΝΑΤΑΔΙΚΑ",
+        "order": "21"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8077711,
+          38.0484137
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "90017",
+        "stop_id": "090017",
+        "name": "ΗΒΗ",
+        "order": "22"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.807474,
+          38.0470258
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "90167",
+        "stop_id": "090167",
+        "name": "INTERAMERICAN",
+        "order": "23"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8056429,
+          38.0471614
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "90168",
+        "stop_id": "090168",
+        "name": "ΕΜΠ. ΚΕΝΤΡΟ",
+        "order": "24"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8038439,
+          38.0480074
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "90070",
+        "stop_id": "090070",
+        "name": "ΕΡΓ. ΠΟΛΥΚΑΤΟΙΚΙΕΣ",
+        "order": "25"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.80197,
+          38.0488863
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "90071",
+        "stop_id": "090071",
+        "name": "ΑΓ. ΚΩΝ/ΝΟΣ",
+        "order": "26"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.800332,
+          38.0492652
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "90224",
+        "stop_id": "090224",
+        "name": "ΠΑΝΑΓΙΑ",
+        "order": "27"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7971449,
+          38.0495541
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "90088",
+        "stop_id": "090088",
+        "name": "ΣΤ. ΝΕΡΑΤΖΙΩΤΙΣΣΑ",
+        "order": "28"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7934677,
+          38.0451918
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "90220",
+        "stop_id": "090220",
+        "name": "ΝΕΡΑΤΖΙΩΤΙΣΣΑ",
+        "order": "29"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7899606,
+          38.0416393
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "90221",
+        "stop_id": "090221",
+        "name": "ΑΡΤΕΜΙΔΟΣ",
+        "order": "30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7927739,
+          38.0403569
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "10204",
+        "stop_id": "38",
+        "name": "ΜΑΡΟΥΣΙ",
+        "order": "31"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7925909,
+          38.0384245
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,561 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "route_path",
+        "route_code": "4298",
+        "descr": "ΗΡΑΚΛΕΙΟ -ΑΓ. ΝΕΚΤΑΡΙΟΣ-ΠΕΥΚΗ [ΑΠΟ 8η ΠΕΥΚΗΣ]"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            23.79321,
+            38.05098
+          ],
+          [
+            23.79305,
+            38.05104
+          ],
+          [
+            23.79288,
+            38.05108
+          ],
+          [
+            23.79273,
+            38.05112
+          ],
+          [
+            23.79148,
+            38.05148
+          ],
+          [
+            23.79103,
+            38.05138
+          ],
+          [
+            23.79061,
+            38.05124
+          ],
+          [
+            23.78915,
+            38.05161
+          ],
+          [
+            23.78796,
+            38.05227
+          ],
+          [
+            23.78669,
+            38.0528
+          ],
+          [
+            23.78601,
+            38.053
+          ],
+          [
+            23.78543,
+            38.05233
+          ],
+          [
+            23.78524,
+            38.05219
+          ],
+          [
+            23.785,
+            38.05207
+          ],
+          [
+            23.78478,
+            38.05199
+          ],
+          [
+            23.78446,
+            38.05202
+          ],
+          [
+            23.78423,
+            38.05219
+          ],
+          [
+            23.78205,
+            38.05312
+          ],
+          [
+            23.78121,
+            38.05368
+          ],
+          [
+            23.78048,
+            38.05428
+          ],
+          [
+            23.77997,
+            38.05488
+          ],
+          [
+            23.77932,
+            38.05596
+          ],
+          [
+            23.77889,
+            38.05654
+          ],
+          [
+            23.77862,
+            38.05682
+          ],
+          [
+            23.77745,
+            38.05651
+          ],
+          [
+            23.77729,
+            38.05611
+          ],
+          [
+            23.7783,
+            38.05551
+          ],
+          [
+            23.7784,
+            38.05531
+          ],
+          [
+            23.77672,
+            38.0545
+          ],
+          [
+            23.77597,
+            38.05405
+          ],
+          [
+            23.77538,
+            38.05351
+          ],
+          [
+            23.77447,
+            38.05233
+          ],
+          [
+            23.7738,
+            38.05201
+          ],
+          [
+            23.77698,
+            38.05059
+          ],
+          [
+            23.77468,
+            38.04714
+          ],
+          [
+            23.77382,
+            38.04759
+          ],
+          [
+            23.77288,
+            38.04758
+          ],
+          [
+            23.77122,
+            38.04833
+          ],
+          [
+            23.77036,
+            38.04872
+          ],
+          [
+            23.76947,
+            38.04905
+          ],
+          [
+            23.76818,
+            38.04955
+          ],
+          [
+            23.7667,
+            38.05016
+          ],
+          [
+            23.76468,
+            38.04939
+          ],
+          [
+            23.76389,
+            38.04998
+          ],
+          [
+            23.76237,
+            38.04906
+          ],
+          [
+            23.76176,
+            38.0486
+          ],
+          [
+            23.76063,
+            38.04791
+          ],
+          [
+            23.75954,
+            38.04703
+          ],
+          [
+            23.76016,
+            38.04697
+          ],
+          [
+            23.76055,
+            38.04702
+          ],
+          [
+            23.76083,
+            38.04703
+          ],
+          [
+            23.76086,
+            38.04676
+          ],
+          [
+            23.76049,
+            38.04642
+          ],
+          [
+            23.76059,
+            38.04635
+          ],
+          [
+            23.76101,
+            38.04671
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "11801",
+        "stop_id": "642",
+        "name": "ΑΦΕΤΗΡΙΑ 8η ΠΕΥΚΗΣ",
+        "order": "1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7931275,
+          38.0509985
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "730031",
+        "stop_id": "730031",
+        "name": "ΕΛ. ΒΕΝΙΖΕΛΟΥ",
+        "order": "2"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7889857,
+          38.0518399
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "730033",
+        "stop_id": "730033",
+        "name": "ΛΕΡΟΥ",
+        "order": "3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.787578,
+          38.0524951
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "730032",
+        "stop_id": "730032",
+        "name": "ΚΟΡΙΝΘΟΥ",
+        "order": "4"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7854092,
+          38.0523806
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "220079",
+        "stop_id": "220079",
+        "name": "7η ΠΕΥΚΗΣ",
+        "order": "5"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7812218,
+          38.053842
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "220037",
+        "stop_id": "220037",
+        "name": "6η ΠΕΥΚΗΣ",
+        "order": "6"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7793113,
+          38.0561727
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "220021",
+        "stop_id": "220021",
+        "name": "ΚΑΛΛΙΚΡΑΤΟΥΣ",
+        "order": "7"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7772712,
+          38.056298
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "220046",
+        "stop_id": "220046",
+        "name": "ΓΕΦΥΡΑ",
+        "order": "8"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7766727,
+          38.0545339
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "220082",
+        "stop_id": "220082",
+        "name": "ΔΕΞΑΜΕΝΗ",
+        "order": "9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7749095,
+          38.0531181
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "220091",
+        "stop_id": "220091",
+        "name": "ΕΥΤΥΧΙΑΣ",
+        "order": "10"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7752915,
+          38.0511901
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "220013",
+        "stop_id": "220013",
+        "name": "ΠΑΛ.ΤΕΡΜΑ",
+        "order": "11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7766957,
+          38.0504357
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "220014",
+        "stop_id": "220014",
+        "name": "12η ΗΡΑΚΛΕΙΟΥ",
+        "order": "12"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7749712,
+          38.0478367
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "220016",
+        "stop_id": "220016",
+        "name": "10η ΗΡΑΚΛΕΙΟΥ",
+        "order": "13"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7725664,
+          38.0478501
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "220017",
+        "stop_id": "220017",
+        "name": "9η ΗΡΑΚΛΕΙΟΥ",
+        "order": "14"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7693366,
+          38.0492318
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "220018",
+        "stop_id": "220018",
+        "name": "8η ΗΡΑΚΛΕΙΟΥ",
+        "order": "15"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7659264,
+          38.0500001
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "220019",
+        "stop_id": "220019",
+        "name": "ΑΣΤΕΡΙΑ",
+        "order": "16"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7633399,
+          38.0497606
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "220020",
+        "stop_id": "220020",
+        "name": "ΖΕΦΥΡΟΣ",
+        "order": "17"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7611902,
+          38.0483863
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "220065",
+        "stop_id": "220065",
+        "name": "ΤΕΡΜΑ (ΣΙΔΕΡΑ)",
+        "order": "18"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7605338,
+          38.046961
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "10396",
+        "stop_id": "000181",
+        "name": "ΤΟΠΙΚΗ ΗΡΑΚΛΕΙΟΥ",
+        "order": "19"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7610715,
+          38.046609
+        ]
+      }
+    }
+  ]
+}

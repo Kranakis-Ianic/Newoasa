@@ -1,0 +1,782 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "route_path",
+        "route_code": "5362",
+        "descr": "ΑΧΑΡΝΑΙ - ΕΡΓ. ΠΟΛΥΚΑΤΟΙΚΙΕΣ - Α.ΛΙΟΣΙΑ"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            23.73228,
+            38.07804
+          ],
+          [
+            23.7325,
+            38.07793
+          ],
+          [
+            23.73265,
+            38.07783
+          ],
+          [
+            23.73351,
+            38.07785
+          ],
+          [
+            23.73349,
+            38.0787
+          ],
+          [
+            23.73272,
+            38.08286
+          ],
+          [
+            23.7303,
+            38.08315
+          ],
+          [
+            23.72977,
+            38.08324
+          ],
+          [
+            23.72885,
+            38.08346
+          ],
+          [
+            23.72808,
+            38.08361
+          ],
+          [
+            23.72615,
+            38.08411
+          ],
+          [
+            23.72586,
+            38.08447
+          ],
+          [
+            23.72505,
+            38.08488
+          ],
+          [
+            23.72419,
+            38.0848
+          ],
+          [
+            23.7233,
+            38.08475
+          ],
+          [
+            23.72289,
+            38.08485
+          ],
+          [
+            23.72268,
+            38.08514
+          ],
+          [
+            23.72235,
+            38.08598
+          ],
+          [
+            23.72131,
+            38.08552
+          ],
+          [
+            23.72074,
+            38.08535
+          ],
+          [
+            23.72007,
+            38.08535
+          ],
+          [
+            23.71729,
+            38.08565
+          ],
+          [
+            23.71554,
+            38.08586
+          ],
+          [
+            23.71299,
+            38.08607
+          ],
+          [
+            23.71223,
+            38.08615
+          ],
+          [
+            23.71331,
+            38.08691
+          ],
+          [
+            23.71389,
+            38.08725
+          ],
+          [
+            23.71438,
+            38.08743
+          ],
+          [
+            23.71469,
+            38.08761
+          ],
+          [
+            23.71512,
+            38.0882
+          ],
+          [
+            23.71645,
+            38.08947
+          ],
+          [
+            23.71469,
+            38.09023
+          ],
+          [
+            23.70965,
+            38.09047
+          ],
+          [
+            23.70816,
+            38.09069
+          ],
+          [
+            23.70754,
+            38.0912
+          ],
+          [
+            23.70606,
+            38.09164
+          ],
+          [
+            23.70415,
+            38.09237
+          ],
+          [
+            23.70183,
+            38.09333
+          ],
+          [
+            23.70168,
+            38.09332
+          ],
+          [
+            23.70139,
+            38.09349
+          ],
+          [
+            23.70033,
+            38.09419
+          ],
+          [
+            23.70012,
+            38.0933
+          ],
+          [
+            23.70014,
+            38.09236
+          ],
+          [
+            23.70042,
+            38.08892
+          ],
+          [
+            23.70058,
+            38.0886
+          ],
+          [
+            23.70085,
+            38.08811
+          ],
+          [
+            23.70097,
+            38.0873
+          ],
+          [
+            23.70117,
+            38.08637
+          ],
+          [
+            23.70163,
+            38.08478
+          ],
+          [
+            23.70176,
+            38.08452
+          ],
+          [
+            23.70208,
+            38.08344
+          ],
+          [
+            23.70229,
+            38.08298
+          ],
+          [
+            23.70271,
+            38.0823
+          ],
+          [
+            23.70233,
+            38.08223
+          ],
+          [
+            23.70161,
+            38.08213
+          ],
+          [
+            23.70084,
+            38.08215
+          ],
+          [
+            23.70011,
+            38.08208
+          ],
+          [
+            23.69924,
+            38.08218
+          ],
+          [
+            23.6989,
+            38.08221
+          ],
+          [
+            23.69741,
+            38.08139
+          ],
+          [
+            23.69922,
+            38.07951
+          ],
+          [
+            23.70066,
+            38.0782
+          ],
+          [
+            23.70164,
+            38.07754
+          ],
+          [
+            23.70347,
+            38.07639
+          ],
+          [
+            23.70552,
+            38.07495
+          ],
+          [
+            23.70816,
+            38.07294
+          ],
+          [
+            23.7089,
+            38.07222
+          ],
+          [
+            23.70984,
+            38.07126
+          ],
+          [
+            23.71056,
+            38.07001
+          ],
+          [
+            23.71021,
+            38.0698
+          ],
+          [
+            23.70976,
+            38.06997
+          ],
+          [
+            23.70935,
+            38.07024
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "10300",
+        "stop_id": "000099",
+        "name": "ΑΧΑΡΝΑΙ",
+        "order": "1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7316095,
+          38.0780845
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "130011",
+        "stop_id": "130011",
+        "name": "ΛΙΟΣΙΩΝ",
+        "order": "2"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7335094,
+          38.0789492
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "130012",
+        "stop_id": "130012",
+        "name": "ΚΑΡΑΒΟΣ",
+        "order": "3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7329055,
+          38.081979
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "130068",
+        "stop_id": "130068",
+        "name": "ΠΑΛΑΙΟ ΚΟΙΜΗΤΗΡΙΟ",
+        "order": "4"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7310997,
+          38.0831285
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "130318",
+        "stop_id": "130318",
+        "name": "ΕΥΑΓΓΕΛΙΣΤΡΙΑΣ",
+        "order": "5"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7275963,
+          38.0838595
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "130097",
+        "stop_id": "130097",
+        "name": "ΕΘΝ. ΑΝΤΙΣΤΑΣΕΩΣ",
+        "order": "6"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7255293,
+          38.0846838
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "130058",
+        "stop_id": "130058",
+        "name": "ΠΑΛΙΓΓΕΝΕΣΙΑΣ",
+        "order": "7"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7218531,
+          38.0858829
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "130431",
+        "stop_id": "130431",
+        "name": "ΑΧΑΡΝΕΩΝ ΙΠΠΕΩΝ",
+        "order": "8"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7202012,
+          38.0854734
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "100133",
+        "stop_id": "100133",
+        "name": "ΚΥΚΛΑΔΩΝ",
+        "order": "9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7185111,
+          38.0856296
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "100086",
+        "stop_id": "100086",
+        "name": "ΑΙΓΑΙΟΥ ΠΕΛΑΓΟΥΣ",
+        "order": "10"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7123762,
+          38.0861215
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "100155",
+        "stop_id": "100155",
+        "name": "ΕΚΚΛΗΣΙΑ",
+        "order": "11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7132289,
+          38.0867634
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "12239",
+        "stop_id": "100308",
+        "name": "ΜΑΡΩΝΕΙΑΣ",
+        "order": "12"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.712841,
+          38.090255
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "11372",
+        "stop_id": "100293",
+        "name": "ΠΙΝΔΟΥ",
+        "order": "13"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7093647,
+          38.090609
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "11373",
+        "stop_id": "100294",
+        "name": "ΛΑΓΚΑΔΑ",
+        "order": "14"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7075531,
+          38.0912446
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "11789",
+        "stop_id": "100299",
+        "name": "ΛΟΥΡΟΥ",
+        "order": "15"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7041945,
+          38.0923898
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "11485",
+        "stop_id": "100202",
+        "name": "ΠΑΙΔΙΚΗ ΧΑΡΑ",
+        "order": "16"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7001781,
+          38.0939201
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "11792",
+        "stop_id": "100300",
+        "name": "25ης ΜΑΡΤΙΟΥ",
+        "order": "17"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7001588,
+          38.0899534
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "11363",
+        "stop_id": "100284",
+        "name": "ΦΟΥΡΝΟΣ",
+        "order": "18"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7008068,
+          38.0874325
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "11364",
+        "stop_id": "100285",
+        "name": "ΕΥΗΝΟΥ",
+        "order": "19"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.701383,
+          38.0849998
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "100152",
+        "stop_id": "100152",
+        "name": "ΠΑΡΝΗΘΟΣ",
+        "order": "20"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7024246,
+          38.0824736
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "100192",
+        "stop_id": "100192",
+        "name": "ΔΗΜΑΡΧΕΙΟ",
+        "order": "21"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7020454,
+          38.0822556
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "100103",
+        "stop_id": "100103",
+        "name": "ΠΛ. ΕΘΝ. ΑΝΤΙΣΤΑΣΕΩΣ",
+        "order": "22"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.698709,
+          38.0820856
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "100054",
+        "stop_id": "100054",
+        "name": "20η ΦΥΛΗΣ",
+        "order": "23"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6991776,
+          38.0795375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "100055",
+        "stop_id": "100055",
+        "name": "19η ΦΥΛΗΣ",
+        "order": "24"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.701298,
+          38.0777257
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "100056",
+        "stop_id": "100056",
+        "name": "18η ΦΥΛΗΣ",
+        "order": "25"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7033809,
+          38.0764409
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "100090",
+        "stop_id": "100090",
+        "name": "17η ΦΥΛΗΣ",
+        "order": "26"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7055811,
+          38.0749005
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "100058",
+        "stop_id": "100058",
+        "name": "16η ΦΥΛΗΣ",
+        "order": "27"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7081356,
+          38.0729606
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "11644",
+        "stop_id": "555",
+        "name": "709 ΠΡΟΑΣΤΙΑΚΟΣ",
+        "order": "28"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7100615,
+          38.070073
+        ]
+      }
+    }
+  ]
+}

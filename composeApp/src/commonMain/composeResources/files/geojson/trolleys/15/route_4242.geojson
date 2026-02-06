@@ -1,0 +1,414 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "route_path",
+        "route_code": "4242",
+        "descr": "ΟΜΟΝΟΙΑ - ΠΕΤΡΑΛΩΝΑ [ΑΠΟ ΟΜΟΝΟΙΑ ΕΩΣ ΠΕΤΡΑΛΩΝΑ]"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            23.72871,
+            37.98347
+          ],
+          [
+            23.72913,
+            37.98296
+          ],
+          [
+            23.72944,
+            37.98258
+          ],
+          [
+            23.73445,
+            37.9766
+          ],
+          [
+            23.73438,
+            37.97628
+          ],
+          [
+            23.73402,
+            37.97572
+          ],
+          [
+            23.73399,
+            37.97535
+          ],
+          [
+            23.73408,
+            37.975
+          ],
+          [
+            23.73358,
+            37.97256
+          ],
+          [
+            23.73337,
+            37.97229
+          ],
+          [
+            23.73382,
+            37.97202
+          ],
+          [
+            23.73253,
+            37.97066
+          ],
+          [
+            23.73198,
+            37.97046
+          ],
+          [
+            23.73172,
+            37.97032
+          ],
+          [
+            23.73164,
+            37.97011
+          ],
+          [
+            23.73158,
+            37.96838
+          ],
+          [
+            23.73023,
+            37.96736
+          ],
+          [
+            23.72913,
+            37.96767
+          ],
+          [
+            23.72714,
+            37.96657
+          ],
+          [
+            23.7254,
+            37.96587
+          ],
+          [
+            23.71922,
+            37.96217
+          ],
+          [
+            23.71901,
+            37.96223
+          ],
+          [
+            23.71351,
+            37.96664
+          ],
+          [
+            23.71334,
+            37.96722
+          ],
+          [
+            23.71307,
+            37.96742
+          ],
+          [
+            23.71294,
+            37.96742
+          ],
+          [
+            23.7125,
+            37.96734
+          ],
+          [
+            23.7126,
+            37.967
+          ],
+          [
+            23.71215,
+            37.96624
+          ],
+          [
+            23.70876,
+            37.96743
+          ],
+          [
+            23.7092,
+            37.96832
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "11395",
+        "stop_id": "1515",
+        "name": "ΟΜΟΝΟΙΑ-ΡΕΞ",
+        "order": "1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7282895,
+          37.983979
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "60884",
+        "stop_id": "060884",
+        "name": "ΟΜΟΝΟΙΑ",
+        "order": "2"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7297845,
+          37.9820725
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "60990",
+        "stop_id": "060990",
+        "name": "ΠΛ. ΚΛΑΥΘΜΩΝΟΣ",
+        "order": "3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7319336,
+          37.9795105
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "60991",
+        "stop_id": "060991",
+        "name": "ΣΥΝΤΑΓΜΑ",
+        "order": "4"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.733962,
+          37.9759189
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "61357",
+        "stop_id": "061357",
+        "name": "ΦΙΛΕΛΛΗΝΩΝ",
+        "order": "5"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7335943,
+          37.9729705
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "60805",
+        "stop_id": "060805",
+        "name": "ΜΑΚΡΥΓΙΑΝΝΗ",
+        "order": "6"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7309186,
+          37.9679757
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "61074",
+        "stop_id": "061074",
+        "name": "ΑΓ. ΙΩΑΝΝΗΣ",
+        "order": "7"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7279825,
+          37.9671537
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "61075",
+        "stop_id": "061075",
+        "name": "ΓΑΡΓΑΡΕΤΤΑ",
+        "order": "8"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7250274,
+          37.96584
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "61076",
+        "stop_id": "061076",
+        "name": "ΖΙΝΝΗ",
+        "order": "9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7229261,
+          37.9645462
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "61077",
+        "stop_id": "061077",
+        "name": "ΚΟΥΚΑΚΙ",
+        "order": "10"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7207679,
+          37.9632883
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "61078",
+        "stop_id": "061078",
+        "name": "ΠΑΙΔΙΚΗ ΧΑΡΑ",
+        "order": "11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7187896,
+          37.9626077
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "61079",
+        "stop_id": "061079",
+        "name": "ΑΓ. ΝΙΚΟΛΑΟΣ",
+        "order": "12"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7168711,
+          37.9641713
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "61080",
+        "stop_id": "061080",
+        "name": "ΦΙΛΟΠΑΠΠΟΥ",
+        "order": "13"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7144732,
+          37.9660492
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "61081",
+        "stop_id": "061081",
+        "name": "ΠΛ. ΜΕΡΚΟΥΡΗ",
+        "order": "14"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7124538,
+          37.9671529
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "61082",
+        "stop_id": "061082",
+        "name": "ΚΥΚΛΩΠΩΝ",
+        "order": "15"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7103025,
+          37.9670394
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "10346",
+        "stop_id": "000140",
+        "name": "ΠΕΤΡΑΛΩΝΑ",
+        "order": "16"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.70904,
+          37.9681125
+        ]
+      }
+    }
+  ]
+}

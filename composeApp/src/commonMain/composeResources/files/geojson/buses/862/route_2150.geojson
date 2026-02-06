@@ -1,0 +1,642 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "route_path",
+        "route_code": "2150",
+        "descr": "ΑΝΩ ΕΛΕΥΣΙΝΑ - ΠΑΡΑΛΙΑ"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            23.52559,
+            38.05812
+          ],
+          [
+            23.52533,
+            38.0583
+          ],
+          [
+            23.52555,
+            38.05901
+          ],
+          [
+            23.52824,
+            38.05882
+          ],
+          [
+            23.52868,
+            38.0587
+          ],
+          [
+            23.52875,
+            38.05854
+          ],
+          [
+            23.53276,
+            38.05817
+          ],
+          [
+            23.53312,
+            38.05808
+          ],
+          [
+            23.53443,
+            38.05492
+          ],
+          [
+            23.53433,
+            38.05484
+          ],
+          [
+            23.53419,
+            38.05483
+          ],
+          [
+            23.52127,
+            38.05665
+          ],
+          [
+            23.51946,
+            38.05707
+          ],
+          [
+            23.51907,
+            38.05707
+          ],
+          [
+            23.51904,
+            38.05695
+          ],
+          [
+            23.51945,
+            38.05628
+          ],
+          [
+            23.51998,
+            38.05561
+          ],
+          [
+            23.52044,
+            38.05487
+          ],
+          [
+            23.52085,
+            38.05434
+          ],
+          [
+            23.52239,
+            38.05467
+          ],
+          [
+            23.52307,
+            38.05471
+          ],
+          [
+            23.52389,
+            38.05334
+          ],
+          [
+            23.52416,
+            38.05313
+          ],
+          [
+            23.5244,
+            38.05302
+          ],
+          [
+            23.52493,
+            38.05327
+          ],
+          [
+            23.52601,
+            38.05177
+          ],
+          [
+            23.52823,
+            38.05047
+          ],
+          [
+            23.52885,
+            38.05036
+          ],
+          [
+            23.53051,
+            38.05307
+          ],
+          [
+            23.53084,
+            38.05341
+          ],
+          [
+            23.53509,
+            38.05342
+          ],
+          [
+            23.53522,
+            38.05326
+          ],
+          [
+            23.53642,
+            38.04991
+          ],
+          [
+            23.53711,
+            38.04851
+          ],
+          [
+            23.53717,
+            38.04778
+          ],
+          [
+            23.53697,
+            38.04637
+          ],
+          [
+            23.53662,
+            38.04516
+          ],
+          [
+            23.53656,
+            38.04453
+          ],
+          [
+            23.54213,
+            38.04323
+          ],
+          [
+            23.54297,
+            38.04354
+          ],
+          [
+            23.54379,
+            38.04399
+          ],
+          [
+            23.54432,
+            38.0442
+          ],
+          [
+            23.54439,
+            38.04391
+          ],
+          [
+            23.54609,
+            38.03925
+          ],
+          [
+            23.54748,
+            38.03486
+          ],
+          [
+            23.5474,
+            38.03459
+          ],
+          [
+            23.54678,
+            38.03462
+          ],
+          [
+            23.54635,
+            38.03474
+          ],
+          [
+            23.54535,
+            38.03479
+          ],
+          [
+            23.54458,
+            38.03491
+          ],
+          [
+            23.54364,
+            38.03515
+          ],
+          [
+            23.54075,
+            38.03555
+          ],
+          [
+            23.53954,
+            38.03614
+          ],
+          [
+            23.53889,
+            38.0364
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "10407",
+        "stop_id": "000188",
+        "name": "ΑΝΩ ΕΛΕΥΣΙΝΑ",
+        "order": "1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5256685,
+          38.0579385
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "300051",
+        "stop_id": "300051",
+        "name": "ΒΕΡΓΙΝΑ",
+        "order": "2"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5274457,
+          38.0587648
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "190039",
+        "stop_id": "190039",
+        "name": "ΖΑΦΕΙΡΗ ΚΑΛΑΘΑ",
+        "order": "3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5295327,
+          38.0586109
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "190023",
+        "stop_id": "190023",
+        "name": "ΑΓΓΕΛΟΥ",
+        "order": "4"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5331311,
+          38.0578905
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "190024",
+        "stop_id": "190024",
+        "name": "ΠΑΡΑΔΕΙΣΟΣ",
+        "order": "5"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5340802,
+          38.0556983
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "300061",
+        "stop_id": "300061",
+        "name": "ΒΙΕΧ",
+        "order": "6"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5276333,
+          38.0558039
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "300027",
+        "stop_id": "300027",
+        "name": "ΝΕΕΣ ΕΡΓΑΤ. ΠΟΛΥΚΑΤΟΙΚΙΕΣ",
+        "order": "7"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5228447,
+          38.0546274
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "300035",
+        "stop_id": "300035",
+        "name": "ΣΑΛΑΜΙΝΟΣ",
+        "order": "8"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5235818,
+          38.0534407
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "300041",
+        "stop_id": "300041",
+        "name": "ΠΑΙΔΙΚΗ ΧΑΡΑ",
+        "order": "9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5257574,
+          38.0518903
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "190060",
+        "stop_id": "190060",
+        "name": "ΡΕΜΑ",
+        "order": "10"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5280232,
+          38.0504934
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "190052",
+        "stop_id": "190052",
+        "name": "ΠΑΛΑΙΟ ΤΕΡΜΑ",
+        "order": "11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5295342,
+          38.0512475
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "190002",
+        "stop_id": "190002",
+        "name": "ΣΟΦΟΚΛΕΟΥΣ",
+        "order": "12"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5314359,
+          38.053301
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "190025",
+        "stop_id": "190025",
+        "name": "ΤΡΟΧΑΙΑ",
+        "order": "13"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5352793,
+          38.0528873
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "190026",
+        "stop_id": "190026",
+        "name": "ΑΓ. ΑΠΟΣΤΟΛΩΝ",
+        "order": "14"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5363828,
+          38.0498808
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "190027",
+        "stop_id": "190027",
+        "name": "ΕΘΝ. ΑΝΤΙΣΤΑΣΕΩΣ",
+        "order": "15"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5370647,
+          38.0472129
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "190028",
+        "stop_id": "190028",
+        "name": "ΣΤΡΟΦΗ ΜΑΓΟΥΛΑΣ",
+        "order": "16"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5365714,
+          38.0451979
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "190035",
+        "stop_id": "190035",
+        "name": "ΟΤΕ",
+        "order": "17"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.539623,
+          38.043729
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "190007",
+        "stop_id": "190007",
+        "name": "1η ΜΟΥΡΙΚΗ",
+        "order": "18"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5443201,
+          38.0439793
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "190008",
+        "stop_id": "190008",
+        "name": "2η ΜΟΥΡΙΚΗ",
+        "order": "19"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5450903,
+          38.041748
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "190053",
+        "stop_id": "190053",
+        "name": "3η ΜΟΥΡΙΚΗ",
+        "order": "20"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5462277,
+          38.0384753
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "190068",
+        "stop_id": "190068",
+        "name": "ΤΕΛΩΝΕΙΟ",
+        "order": "21"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5465344,
+          38.0347715
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "190055",
+        "stop_id": "190055",
+        "name": "ΛΙΜΑΝΑΚΙ",
+        "order": "22"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5439413,
+          38.0351806
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "11918",
+        "stop_id": "190061",
+        "name": "ΤΕΡΜΑ - ΑΠΟΒΙΒΑΣΗ",
+        "order": "23"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5414284,
+          38.0355608
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "10156",
+        "stop_id": "03",
+        "name": "ΕΛΕΥΣΙΝΑ",
+        "order": "24"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5399225,
+          38.035942
+        ]
+      }
+    }
+  ]
+}

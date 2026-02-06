@@ -1,0 +1,315 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "route_path",
+        "route_code": "4198",
+        "descr": "ΠΛΑΤΕΙΑ ΚΑΝΙΓΓΟΣ - ΓΚΥΖH [ΓΚΥΖΗ ΕΩΣ ΚΑΝΙΓΓΟΣ]"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            23.74983,
+            37.99337
+          ],
+          [
+            23.75002,
+            37.99348
+          ],
+          [
+            23.74996,
+            37.99356
+          ],
+          [
+            23.74946,
+            37.99328
+          ],
+          [
+            23.74893,
+            37.99293
+          ],
+          [
+            23.74891,
+            37.99282
+          ],
+          [
+            23.74842,
+            37.99115
+          ],
+          [
+            23.74781,
+            37.98911
+          ],
+          [
+            23.74809,
+            37.98895
+          ],
+          [
+            23.7412,
+            37.98558
+          ],
+          [
+            23.74016,
+            37.98507
+          ],
+          [
+            23.73822,
+            37.98407
+          ],
+          [
+            23.73667,
+            37.98334
+          ],
+          [
+            23.73557,
+            37.98278
+          ],
+          [
+            23.73509,
+            37.98254
+          ],
+          [
+            23.73354,
+            37.98444
+          ],
+          [
+            23.7322,
+            37.98612
+          ],
+          [
+            23.73174,
+            37.98618
+          ],
+          [
+            23.73159,
+            37.98562
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "10176",
+        "stop_id": "19",
+        "name": "ΠΛ. ΓΚΥΖΗ",
+        "order": "1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7493223,
+          37.9933216
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "60021",
+        "stop_id": "060021",
+        "name": "ΣΚΑΛΑΚΙΑ",
+        "order": "2"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7485723,
+          37.992021
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "60022",
+        "stop_id": "060022",
+        "name": "ΜΟΜΦΕΡΑΤΟΥ",
+        "order": "3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7482344,
+          37.9909207
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "60023",
+        "stop_id": "060023",
+        "name": "ΠΑΡΑΣΧΟΥ",
+        "order": "4"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7479189,
+          37.9899376
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "60024",
+        "stop_id": "060024",
+        "name": "ΙΠΠΟΚΡΑΤΟΥΣ (ΑΦΕΤΗΡΙΑ)",
+        "order": "5"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7468308,
+          37.9884301
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "60666",
+        "stop_id": "060666",
+        "name": "ΛΑΣΚΑΡΕΩΣ",
+        "order": "6"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7437954,
+          37.9869545
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "60667",
+        "stop_id": "060667",
+        "name": "ΤΣΙΜΙΣΚΗ",
+        "order": "7"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7418287,
+          37.9859948
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "60668",
+        "stop_id": "060668",
+        "name": "ΚΑΛΛΙΔΡΟΜΙΟΥ",
+        "order": "8"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7394074,
+          37.9847817
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "61109",
+        "stop_id": "061109",
+        "name": "ΔΙΔΟΤΟΥ",
+        "order": "9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7369407,
+          37.9835505
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "60767",
+        "stop_id": "060767",
+        "name": "ΣΟΛΩΝΟΣ",
+        "order": "10"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.735213,
+          37.9826814
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "60030",
+        "stop_id": "060030",
+        "name": "ΖΩΟΔΟΧΟΣ ΠΗΓΗ",
+        "order": "11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.733688,
+          37.9843568
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "60031",
+        "stop_id": "060031",
+        "name": "ΜΠΟΤΑΣΗ",
+        "order": "12"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7326812,
+          37.9855885
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "10175",
+        "stop_id": "18",
+        "name": "ΠΛ. ΚΑΝΙΓΓΟΣ",
+        "order": "13"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.73113,
+          37.98566
+        ]
+      }
+    }
+  ]
+}

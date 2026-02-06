@@ -1,0 +1,221 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "route_path",
+        "route_code": "3388",
+        "descr": "ΠΑΝΕΠΙΣΤΗΜΙΟΥΠΟΛΗ - ΣΤ. ΕΥΑΓΓΕΛΙΣΜΟΣ [ΕΩΣ ΣΤ. ΕΥΑΓΓΕΛΙΣΜΟΣ]"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            23.7601,
+            37.97172
+          ],
+          [
+            23.75992,
+            37.97173
+          ],
+          [
+            23.759,
+            37.97198
+          ],
+          [
+            23.75887,
+            37.97198
+          ],
+          [
+            23.75869,
+            37.9719
+          ],
+          [
+            23.75842,
+            37.97176
+          ],
+          [
+            23.75823,
+            37.97181
+          ],
+          [
+            23.75772,
+            37.97187
+          ],
+          [
+            23.757,
+            37.97199
+          ],
+          [
+            23.75514,
+            37.97219
+          ],
+          [
+            23.75321,
+            37.97242
+          ],
+          [
+            23.75232,
+            37.97248
+          ],
+          [
+            23.75157,
+            37.97257
+          ],
+          [
+            23.74695,
+            37.97307
+          ],
+          [
+            23.74688,
+            37.97318
+          ],
+          [
+            23.74669,
+            37.97369
+          ],
+          [
+            23.74604,
+            37.97521
+          ],
+          [
+            23.74583,
+            37.97582
+          ],
+          [
+            23.74583,
+            37.97593
+          ],
+          [
+            23.74644,
+            37.97607
+          ],
+          [
+            23.74762,
+            37.97633
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "10384",
+        "stop_id": "000171",
+        "name": "ΠΑΝΕΠΙΣΤΗΜΙΟΥΠΟΛΗ",
+        "order": "1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7602385,
+          37.9717425
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "61026",
+        "stop_id": "061026",
+        "name": "2η ΣΧΟΛΕΙΟ",
+        "order": "2"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7563704,
+          37.9720957
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "60756",
+        "stop_id": "060756",
+        "name": "ΒΡΥΣΑΚΙ",
+        "order": "3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7515408,
+          37.9726228
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "60757",
+        "stop_id": "060757",
+        "name": "ΕΥΦΡΟΝΙΟΥ",
+        "order": "4"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7491992,
+          37.9728834
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "60758",
+        "stop_id": "060758",
+        "name": "2η ΡΙΖΑΡΗ",
+        "order": "5"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7467873,
+          37.9736718
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "60759",
+        "stop_id": "060759",
+        "name": "ΕΥΑΓΓΕΛΙΣΜΟΣ",
+        "order": "6"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7460312,
+          37.9754518
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "11487",
+        "stop_id": "250",
+        "name": "ΣΤ. ΕΥΑΓΓΕΛΙΣΜΟΣ",
+        "order": "7"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7481695,
+          37.976618
+        ]
+      }
+    }
+  ]
+}

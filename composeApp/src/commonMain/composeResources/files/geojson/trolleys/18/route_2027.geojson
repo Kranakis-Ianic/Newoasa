@@ -1,0 +1,629 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "route_path",
+        "route_code": "2027",
+        "descr": "ΜΟΥΣΕΙΟ - ΧΑΛΑΝΔΡΙ [ΜΕΣΩ ΕΘΝ. ΑΝΤΙΣΤΑΣΕΩΣ]"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            23.73168,
+            37.98983
+          ],
+          [
+            23.73346,
+            37.98951
+          ],
+          [
+            23.73361,
+            37.98953
+          ],
+          [
+            23.73408,
+            37.9912
+          ],
+          [
+            23.74307,
+            37.98985
+          ],
+          [
+            23.76101,
+            37.98651
+          ],
+          [
+            23.76133,
+            37.98648
+          ],
+          [
+            23.76156,
+            37.98662
+          ],
+          [
+            23.76213,
+            37.98722
+          ],
+          [
+            23.76353,
+            37.98836
+          ],
+          [
+            23.76576,
+            37.99091
+          ],
+          [
+            23.76617,
+            37.99155
+          ],
+          [
+            23.7693,
+            37.99768
+          ],
+          [
+            23.76972,
+            37.99835
+          ],
+          [
+            23.77029,
+            37.99892
+          ],
+          [
+            23.77161,
+            37.99998
+          ],
+          [
+            23.77375,
+            38.00235
+          ],
+          [
+            23.77692,
+            38.00637
+          ],
+          [
+            23.77748,
+            38.007
+          ],
+          [
+            23.77782,
+            38.00743
+          ],
+          [
+            23.77972,
+            38.00946
+          ],
+          [
+            23.78011,
+            38.00976
+          ],
+          [
+            23.78205,
+            38.00976
+          ],
+          [
+            23.78301,
+            38.00985
+          ],
+          [
+            23.78356,
+            38.01018
+          ],
+          [
+            23.7906,
+            38.01528
+          ],
+          [
+            23.79236,
+            38.01579
+          ],
+          [
+            23.79471,
+            38.01693
+          ],
+          [
+            23.79616,
+            38.01822
+          ],
+          [
+            23.79729,
+            38.01941
+          ],
+          [
+            23.79853,
+            38.02111
+          ],
+          [
+            23.79861,
+            38.02126
+          ],
+          [
+            23.79963,
+            38.02209
+          ],
+          [
+            23.8001,
+            38.02261
+          ],
+          [
+            23.80006,
+            38.02272
+          ],
+          [
+            23.79916,
+            38.02293
+          ],
+          [
+            23.79859,
+            38.02298
+          ],
+          [
+            23.79832,
+            38.02287
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "10191",
+        "stop_id": "32",
+        "name": "ΜΟΥΣΕΙΟ",
+        "order": "1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7326805,
+          37.989501
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "60034",
+        "stop_id": "060034",
+        "name": "ΑΓ. ΒΑΣΙΛΕΙΟΣ",
+        "order": "2"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7339583,
+          37.9905888
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "60035",
+        "stop_id": "060035",
+        "name": "ΠΑΡΚΟ",
+        "order": "3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7372638,
+          37.9906911
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "60036",
+        "stop_id": "060036",
+        "name": "ΒΡΑΙΛΑ",
+        "order": "4"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7389663,
+          37.9903687
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "60068",
+        "stop_id": "060068",
+        "name": "ΣΟΝΙΑ",
+        "order": "5"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7413429,
+          37.9900219
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "60069",
+        "stop_id": "060069",
+        "name": "ΠΑΝΑΘΗΝΑΙΑ",
+        "order": "6"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7448248,
+          37.9894651
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "60071",
+        "stop_id": "060071",
+        "name": "ΙΠΠΟΚΡΑΤΟΥΣ",
+        "order": "7"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7482542,
+          37.9888542
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "60072",
+        "stop_id": "060072",
+        "name": "ΙΚΑ",
+        "order": "8"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7523352,
+          37.9880563
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "60073",
+        "stop_id": "060073",
+        "name": "ΣΤ. ΑΜΠΕΛΟΚΗΠΟΙ",
+        "order": "9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7570458,
+          37.9871943
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "60598",
+        "stop_id": "060598",
+        "name": "ΑΜΠΕΛΟΚΗΠΟΙ",
+        "order": "10"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7629466,
+          37.9877954
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "60601",
+        "stop_id": "060601",
+        "name": "ΖΕΡΒΑ",
+        "order": "11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7646045,
+          37.9893773
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "60603",
+        "stop_id": "060603",
+        "name": "ΕΡΥΘΡΟΣ ΣΤΑΥΡΟΣ",
+        "order": "12"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7666903,
+          37.9924188
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "60604",
+        "stop_id": "060604",
+        "name": "ΓΗΡΟΚΟΜΕΙΟ",
+        "order": "13"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7683769,
+          37.9956938
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "60605",
+        "stop_id": "060605",
+        "name": "ΚΑΤΕΧΑΚΗ",
+        "order": "14"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.770535,
+          37.9990617
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "690015",
+        "stop_id": "690015",
+        "name": "ΣΚΑΛΑΚΙΑ",
+        "order": "15"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7738264,
+          38.0022585
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "690008",
+        "stop_id": "690008",
+        "name": "ΦΑΡΟΣ",
+        "order": "16"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7762627,
+          38.0054339
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "690017",
+        "stop_id": "690017",
+        "name": "ΠΑΡΙΤΣΗ",
+        "order": "17"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7775786,
+          38.0070034
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "690007",
+        "stop_id": "690007",
+        "name": "1η ΑΓ. ΒΑΡΒΑΡΑΣ",
+        "order": "18"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7806238,
+          38.0097593
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "480018",
+        "stop_id": "480018",
+        "name": "2η ΑΓ. ΒΑΡΒΑΡΑΣ",
+        "order": "19"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7837892,
+          38.0102519
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "480019",
+        "stop_id": "480019",
+        "name": "ΜΑΡΟΥΔΑ",
+        "order": "20"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7870177,
+          38.012547
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "480020",
+        "stop_id": "480020",
+        "name": "ΣΕΡΡΩΝ",
+        "order": "21"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7899733,
+          38.0147154
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "480021",
+        "stop_id": "480021",
+        "name": "ΑΚΡΟΠΟΛΕΩΣ",
+        "order": "22"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7928293,
+          38.0159462
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "480154",
+        "stop_id": "480154",
+        "name": "ΠΑΠΑΝΙΚΟΛΗ",
+        "order": "23"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7956045,
+          38.0175824
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "480022",
+        "stop_id": "480022",
+        "name": "ΣΙΔΕΡΑ",
+        "order": "24"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7963886,
+          38.0182958
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "480023",
+        "stop_id": "480023",
+        "name": "ΠΛ. ΧΑΛΑΝΔΡΙΟΥ",
+        "order": "25"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7981941,
+          38.0204529
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "480054",
+        "stop_id": "480054",
+        "name": "ΧΑΙΜΑΝΤΑ",
+        "order": "26"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7996368,
+          38.0219876
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "stop",
+        "stop_code": "10328",
+        "stop_id": "000123",
+        "name": "ΧΑΛΑΝΔΡΙ",
+        "order": "27"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7985915,
+          38.022938
+        ]
+      }
+    }
+  ]
+}
