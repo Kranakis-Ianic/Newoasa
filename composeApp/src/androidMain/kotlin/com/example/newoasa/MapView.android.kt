@@ -4,6 +4,7 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
+import android.view.Gravity
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -12,6 +13,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -229,36 +231,56 @@ actual fun MapView(
                         map.uiSettings.isAttributionEnabled = false
                         map.uiSettings.isLogoEnabled = false
                         map.uiSettings.isCompassEnabled = true
+                        map.uiSettings.compassGravity = Gravity.TOP or Gravity.START // Move compass to top left
+                        val density = context.resources.displayMetrics.density
+                        val marginPx = (16 * density).toInt()
+                        map.uiSettings.setCompassMargins(marginPx, marginPx, 0, 0)
                         map.uiSettings.isTiltGesturesEnabled = false
                     }
                 }
             }
         )
         
-        // Zoom Controls
+        // Zoom Controls - Connected, Top Right
         Column(
             modifier = Modifier
-                .align(Alignment.CenterEnd)
-                .padding(end = 16.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp),
+                .align(Alignment.TopEnd)
+                .padding(top = 16.dp, end = 16.dp)
+                .shadow(4.dp, RoundedCornerShape(8.dp))
+                .background(MaterialTheme.colorScheme.surface, RoundedCornerShape(8.dp))
+                .width(40.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            SmallFloatingActionButton(
+            // Zoom In
+            IconButton(
                 onClick = { mapLibreInstance?.animateCamera(CameraUpdateFactory.zoomIn()) },
-                containerColor = MaterialTheme.colorScheme.surface,
-                contentColor = MaterialTheme.colorScheme.onSurface,
-                elevation = FloatingActionButtonDefaults.elevation(defaultElevation = 4.dp)
+                modifier = Modifier.size(40.dp)
             ) {
-                Icon(Icons.Default.Add, contentDescription = "Zoom In")
+                Icon(
+                    Icons.Default.Add, 
+                    contentDescription = "Zoom In", 
+                    tint = MaterialTheme.colorScheme.onSurface
+                )
             }
             
-            SmallFloatingActionButton(
+            // Divider
+            Box(
+                modifier = Modifier
+                    .height(1.dp)
+                    .width(20.dp)
+                    .background(MaterialTheme.colorScheme.onSurface.copy(alpha = 0.1f))
+            )
+            
+            // Zoom Out
+            IconButton(
                 onClick = { mapLibreInstance?.animateCamera(CameraUpdateFactory.zoomOut()) },
-                containerColor = MaterialTheme.colorScheme.surface,
-                contentColor = MaterialTheme.colorScheme.onSurface,
-                elevation = FloatingActionButtonDefaults.elevation(defaultElevation = 4.dp)
+                modifier = Modifier.size(40.dp)
             ) {
-                Icon(Icons.Default.Remove, contentDescription = "Zoom Out")
+                Icon(
+                    Icons.Default.Remove, 
+                    contentDescription = "Zoom Out", 
+                    tint = MaterialTheme.colorScheme.onSurface
+                )
             }
         }
         
