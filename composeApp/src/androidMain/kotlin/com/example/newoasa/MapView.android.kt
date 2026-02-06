@@ -612,9 +612,20 @@ private suspend fun displayTransitLine(
                         map.setMinZoomPreference(5.0)
                         map.setMaxZoomPreference(18.0)
                         
-                        // Animate to bounds with padding
+                        // Calculate padding in pixels based on screen density
+                        val density = context.resources.displayMetrics.density
+                        val horizontalPadding = (50 * density).toInt() // 50dp horizontal
+                        val verticalPadding = (100 * density).toInt()  // 100dp vertical to avoid cutoff
+
+                        // Animate to bounds with asymmetrical padding
                         map.animateCamera(
-                            CameraUpdateFactory.newLatLngBounds(bounds, 200), // Increased padding to 200
+                            CameraUpdateFactory.newLatLngBounds(
+                                bounds, 
+                                horizontalPadding, 
+                                verticalPadding, 
+                                horizontalPadding, 
+                                verticalPadding
+                            ),
                             1500, // Smoother 1.5 second animation
                             object : MapLibreMap.CancelableCallback {
                                 override fun onFinish() {
