@@ -37,6 +37,13 @@ import org.maplibre.geojson.Point
 import org.maplibre.android.style.layers.SymbolLayer
 import newoasa.composeapp.generated.resources.Res
 
+data class Stop(
+    val name: String,
+    val stopCode: String,
+    val order: String,
+    val coordinate: LatLng
+)
+
 @Composable
 actual fun MapView(
     modifier: Modifier,
@@ -173,7 +180,7 @@ private suspend fun displayTransitLine(
         }
         
         val allCoordinates = mutableListOf<LatLng>()
-        val allStops = mutableListOf<LatLng>()
+        val allStops = mutableListOf<Stop>()
         val loadedGeoJsonData = mutableListOf<Pair<Int, String>>() // index to geoJson
         
         // Load all GeoJSON files sequentially in IO dispatcher
@@ -200,18 +207,58 @@ private suspend fun displayTransitLine(
                         return@forEachIndexed
                     }
                     
-                    // Extract coordinates for bounds calculation and stops
-                    extractCoordinates(geoJson)?.let { coords ->
-                        allCoordinates.addAll(coords)
-                        // Add stops (every 10th point along the route for demonstration)
-                        coords.filterIndexed { idx, _ -> idx % 10 == 0 }.forEach { stop ->
-                            allStops.add(stop)
+                    // Extract route coordinates and stops from the FeatureCollection
+                    val features = geoJson.optJSONArray("features")
+                    if (features != null) {
+                        for (i in 0 until features.length()) {
+                            val feature = features.getJSONObject(i)
+                            val properties = feature.optJSONObject("properties")
+                            val featureType = properties?.optString("type")
+                            
+                            when (featureType) {
+                                "route_path" -> {
+                                    // Extract route coordinates for bounds calculation
+                                    val geometry = feature.optJSONObject("geometry")
+                                    val coords = geometry?.optJSONArray("coordinates")
+                                    coords?.let {
+                                        for (j in 0 until it.length()) {
+                                            val coord = it.getJSONArray(j)
+                                            val lng = coord.getDouble(0)
+                                            val lat = coord.getDouble(1)
+                                            allCoordinates.add(LatLng(lat, lng))
+                                        }
+                                    }
+                                }
+                                "stop" -> {
+                                    // Extract stop information
+                                    val geometry = feature.optJSONObject("geometry")
+                                    val coordinates = geometry?.optJSONArray("coordinates")
+                                    if (coordinates != null && coordinates.length() >= 2) {
+                                        val lng = coordinates.getDouble(0)
+                                        val lat = coordinates.getDouble(1)
+                                        val stopName = properties?.optString("name") ?: "Unknown"
+                                        val stopCode = properties?.optString("stop_code") ?: ""
+                                        val order = properties?.optString("order") ?: ""
+                                        
+                                        allStops.add(
+                                            Stop(
+                                                name = stopName,
+                                                stopCode = stopCode,
+                                                order = order,
+                                                coordinate = LatLng(lat, lng)
+                                            )
+                                        )
+                                    }
+                                }
+                            }
                         }
                     }
                     
-                    // Store loaded data
-                    loadedGeoJsonData.add(index to geoJsonString)
-                    println("Successfully loaded GeoJSON for route: $path")
+                    // Store loaded data (only the route LineString, not stops)
+                    // We need to create a new GeoJSON with just the route path
+                    val routeOnlyGeoJson = extractRoutePathOnly(geoJson)
+                    loadedGeoJsonData.add(index to routeOnlyGeoJson)
+                    println("Successfully loaded GeoJSON for route: $path with ${allStops.size} stops so far")
                     
                 } catch (e: Exception) {
                     println("Error loading route $path: ${e.message}")
@@ -267,7 +314,7 @@ private suspend fun displayTransitLine(
                         
                         // Create GeoJSON features for stops
                         val stopFeatures = allStops.map { stop ->
-                            Feature.fromGeometry(Point.fromLngLat(stop.longitude, stop.latitude))
+                            Feature.fromGeometry(Point.fromLngLat(stop.coordinate.longitude, stop.coordinate.latitude))
                         }
                         
                         val featureCollection = FeatureCollection.fromFeatures(stopFeatures)
@@ -287,7 +334,7 @@ private suspend fun displayTransitLine(
                                 PropertyFactory.iconAnchor("bottom")
                             )
                         style.addLayer(stopsLayer)
-                        println("Added stops layer")
+                        println("Added stops layer with ${allStops.size} stops")
                         
                     } catch (e: Exception) {
                         println("Error adding stops: ${e.message}")
@@ -315,6 +362,31 @@ private suspend fun displayTransitLine(
                 }
             }
         }
+    }
+}
+
+/**
+ * Extract only the route path from the GeoJSON FeatureCollection
+ */
+private fun extractRoutePathOnly(geoJson: JSONObject): String {
+    return try {
+        val features = geoJson.optJSONArray("features")
+        if (features != null) {
+            for (i in 0 until features.length()) {
+                val feature = features.getJSONObject(i)
+                val properties = feature.optJSONObject("properties")
+                val featureType = properties?.optString("type")
+                
+                if (featureType == "route_path") {
+                    // Return just this feature as a FeatureCollection
+                    return """{"type":"FeatureCollection","features":[${feature}]}"""
+                }
+            }
+        }
+        "{}" // Return empty if no route_path found
+    } catch (e: Exception) {
+        e.printStackTrace()
+        "{}"
     }
 }
 
@@ -362,27 +434,5 @@ private suspend fun loadGeoJsonFromResources(path: String): String {
         println("Failed to load GeoJSON from composeResources path: $path")
         e.printStackTrace()
         "{}" // Return empty GeoJSON on error
-    }
-}
-
-private fun extractCoordinates(geoJson: JSONObject): List<LatLng>? {
-    return try {
-        val coordinates = mutableListOf<LatLng>()
-        val geometry = geoJson.optJSONObject("geometry")
-        val coordsArray = geometry?.optJSONArray("coordinates")
-        
-        coordsArray?.let {
-            for (i in 0 until it.length()) {
-                val coord = it.getJSONArray(i)
-                val lng = coord.getDouble(0)
-                val lat = coord.getDouble(1)
-                coordinates.add(LatLng(lat, lng))
-            }
-        }
-        
-        coordinates.takeIf { it.isNotEmpty() }
-    } catch (e: Exception) {
-        e.printStackTrace()
-        null
     }
 }
