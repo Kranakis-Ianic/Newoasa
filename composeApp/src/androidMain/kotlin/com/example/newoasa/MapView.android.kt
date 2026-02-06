@@ -7,8 +7,11 @@ import android.graphics.Paint
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
@@ -54,6 +57,8 @@ actual fun MapView(
     val context = LocalContext.current
     val lifecycleOwner = LocalLifecycleOwner.current
     val coroutineScope = rememberCoroutineScope()
+    var isMapReady by remember { mutableStateOf(false) }
+    var currentDisplayedLine by remember { mutableStateOf<TransitLine?>(null) }
     
     // Initialize MapLibre
     remember { MapLibre.getInstance(context) }
@@ -88,12 +93,13 @@ actual fun MapView(
         }
     }
 
-    // Load and display selected line
-    LaunchedEffect(selectedLine) {
-        if (selectedLine != null) {
+    // Load and display selected line only when it changes and map is ready
+    LaunchedEffect(selectedLine, isMapReady) {
+        if (selectedLine != null && isMapReady && selectedLine != currentDisplayedLine) {
             mapView.getMapAsync { map ->
                 coroutineScope.launch {
                     displayTransitLine(map, selectedLine)
+                    currentDisplayedLine = selectedLine
                 }
             }
         }
@@ -104,29 +110,23 @@ actual fun MapView(
         modifier = modifier,
         update = { mv ->
             mv.getMapAsync { map ->
-                // Update style based on theme
-                map.setStyle(styleUrl) { style ->
-                    onMapReady()
-                    
-                    // Display selected line if present
-                    if (selectedLine != null) {
-                        coroutineScope.launch {
-                            displayTransitLine(map, selectedLine)
-                        }
+                // Only set up style once
+                if (!isMapReady) {
+                    map.setStyle(styleUrl) { style ->
+                        isMapReady = true
+                        onMapReady()
                     }
-                }
-                
-                // Set initial position (Athens, Greece) only if no line is selected
-                if (selectedLine == null) {
+                    
+                    // Set initial position (Athens, Greece)
                     map.cameraPosition = CameraPosition.Builder()
                         .target(LatLng(37.9838, 23.7275))
                         .zoom(12.0)
                         .build()
+                        
+                    // Disable attribution and logo
+                    map.uiSettings.isAttributionEnabled = false
+                    map.uiSettings.isLogoEnabled = false
                 }
-                    
-                // Enable attribution and logo (required for OpenFreeMap)
-                map.uiSettings.isAttributionEnabled = false
-                map.uiSettings.isLogoEnabled = false
             }
         }
     )
@@ -139,12 +139,10 @@ private suspend fun displayTransitLine(
 ) = withContext(Dispatchers.Main) {
     map.getStyle { style ->
         // Remove ALL previous transit line layers and sources
-        // Clean up with a wider range to ensure all are removed
         for (i in 0 until 50) {
             try {
                 style.getLayer("transit-line-layer-$i")?.let { 
                     style.removeLayer(it)
-                    println("Removed layer: transit-line-layer-$i")
                 }
             } catch (e: Exception) {
                 // Ignore if layer doesn't exist
@@ -153,7 +151,6 @@ private suspend fun displayTransitLine(
             try {
                 style.getSource("transit-line-source-$i")?.let { 
                     style.removeSource(it)
-                    println("Removed source: transit-line-source-$i")
                 }
             } catch (e: Exception) {
                 // Ignore if source doesn't exist
@@ -164,7 +161,6 @@ private suspend fun displayTransitLine(
         try {
             style.getLayer("transit-stops-layer")?.let { 
                 style.removeLayer(it)
-                println("Removed stops layer")
             }
         } catch (e: Exception) {
             // Ignore
@@ -173,8 +169,14 @@ private suspend fun displayTransitLine(
         try {
             style.getSource("transit-stops-source")?.let { 
                 style.removeSource(it)
-                println("Removed stops source")
             }
+        } catch (e: Exception) {
+            // Ignore
+        }
+        
+        // Remove the stop pin image if it exists
+        try {
+            style.removeImage("stop-pin")
         } catch (e: Exception) {
             // Ignore
         }
@@ -255,16 +257,17 @@ private suspend fun displayTransitLine(
                     }
                     
                     // Store loaded data (only the route LineString, not stops)
-                    // We need to create a new GeoJSON with just the route path
                     val routeOnlyGeoJson = extractRoutePathOnly(geoJson)
                     loadedGeoJsonData.add(index to routeOnlyGeoJson)
-                    println("Successfully loaded GeoJSON for route: $path with ${allStops.size} stops so far")
+                    println("Successfully loaded GeoJSON for route: $path")
                     
                 } catch (e: Exception) {
                     println("Error loading route $path: ${e.message}")
                     e.printStackTrace()
                 }
             }
+            
+            println("Finished loading all routes. Total stops: ${allStops.size}")
             
             // Now add all sources and layers on main thread sequentially
             withContext(Dispatchers.Main) {
@@ -276,12 +279,6 @@ private suspend fun displayTransitLine(
                     try {
                         val sourceId = "transit-line-source-$index"
                         val layerId = "transit-line-layer-$index"
-                        
-                        // Check if source already exists (safety check)
-                        if (style.getSource(sourceId) != null) {
-                            println("Source $sourceId already exists, skipping")
-                            return@forEach
-                        }
                         
                         // Add source
                         val source = GeoJsonSource(sourceId, geoJsonString)
@@ -297,8 +294,6 @@ private suspend fun displayTransitLine(
                         style.addLayer(lineLayer)
                         println("Added layer: $layerId")
                         
-                        println("Successfully displayed route with index: $index")
-                        
                     } catch (e: Exception) {
                         println("Error adding source/layer for index $index: ${e.message}")
                         e.printStackTrace()
@@ -311,6 +306,7 @@ private suspend fun displayTransitLine(
                         // Create pin marker bitmap
                         val pinBitmap = createPinBitmap(if (line.isBus) Color.parseColor("#2196F3") else Color.parseColor("#9C27B0"))
                         style.addImage("stop-pin", pinBitmap)
+                        println("Added pin image to style")
                         
                         // Create GeoJSON features for stops
                         val stopFeatures = allStops.map { stop ->
