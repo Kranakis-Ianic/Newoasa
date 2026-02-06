@@ -6,6 +6,7 @@ import android.graphics.Color
 import android.graphics.Paint
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -16,12 +17,16 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.FloatingActionButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.SmallFloatingActionButton
 import androidx.compose.material3.Text
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.Remove
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
@@ -220,13 +225,42 @@ actual fun MapView(
                             .zoom(12.0)
                             .build()
                             
-                        // Disable attribution and logo
+                        // Disable attribution and logo, Enable Compass, Disable Tilt
                         map.uiSettings.isAttributionEnabled = false
                         map.uiSettings.isLogoEnabled = false
+                        map.uiSettings.isCompassEnabled = true
+                        map.uiSettings.isTiltGesturesEnabled = false
                     }
                 }
             }
         )
+        
+        // Zoom Controls
+        Column(
+            modifier = Modifier
+                .align(Alignment.CenterEnd)
+                .padding(end = 16.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            SmallFloatingActionButton(
+                onClick = { mapLibreInstance?.animateCamera(CameraUpdateFactory.zoomIn()) },
+                containerColor = MaterialTheme.colorScheme.surface,
+                contentColor = MaterialTheme.colorScheme.onSurface,
+                elevation = FloatingActionButtonDefaults.elevation(defaultElevation = 4.dp)
+            ) {
+                Icon(Icons.Default.Add, contentDescription = "Zoom In")
+            }
+            
+            SmallFloatingActionButton(
+                onClick = { mapLibreInstance?.animateCamera(CameraUpdateFactory.zoomOut()) },
+                containerColor = MaterialTheme.colorScheme.surface,
+                contentColor = MaterialTheme.colorScheme.onSurface,
+                elevation = FloatingActionButtonDefaults.elevation(defaultElevation = 4.dp)
+            ) {
+                Icon(Icons.Default.Remove, contentDescription = "Zoom Out")
+            }
+        }
         
         // Info window overlay - centered on screen, above center point
         selectedStopInfo?.let { info ->
