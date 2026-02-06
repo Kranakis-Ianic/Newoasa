@@ -4,6 +4,7 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
+import android.widget.Toast
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
@@ -19,6 +20,7 @@ import androidx.compose.ui.viewinterop.AndroidView
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import com.example.newoasa.data.TransitLine
+import com.google.gson.JsonObject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -59,6 +61,7 @@ actual fun MapView(
     val coroutineScope = rememberCoroutineScope()
     var isMapReady by remember { mutableStateOf(false) }
     var currentDisplayedLine by remember { mutableStateOf<TransitLine?>(null) }
+    var allStopsMap by remember { mutableStateOf<Map<String, Stop>>(emptyMap()) }
     
     // Initialize MapLibre
     remember { MapLibre.getInstance(context) }
@@ -98,7 +101,8 @@ actual fun MapView(
         if (selectedLine != null && isMapReady && selectedLine != currentDisplayedLine) {
             mapView.getMapAsync { map ->
                 coroutineScope.launch {
-                    displayTransitLine(map, selectedLine)
+                    val stops = displayTransitLine(map, selectedLine, context)
+                    allStopsMap = stops
                     currentDisplayedLine = selectedLine
                 }
             }
@@ -115,6 +119,35 @@ actual fun MapView(
                     map.setStyle(styleUrl) { style ->
                         isMapReady = true
                         onMapReady()
+                        
+                        // Add click listener for stop pins
+                        map.addOnMapClickListener { point ->
+                            val screenPoint = map.projection.toScreenLocation(point)
+                            val features = map.queryRenderedFeatures(screenPoint, "transit-stops-layer")
+                            
+                            if (features.isNotEmpty()) {
+                                val feature = features[0]
+                                val geometry = feature.geometry()
+                                if (geometry is Point) {
+                                    val clickedCoord = LatLng(geometry.latitude(), geometry.longitude())
+                                    
+                                    // Find the stop that matches this coordinate
+                                    val stop = allStopsMap.values.find { stop ->
+                                        Math.abs(stop.coordinate.latitude - clickedCoord.latitude) < 0.0001 &&
+                                        Math.abs(stop.coordinate.longitude - clickedCoord.longitude) < 0.0001
+                                    }
+                                    
+                                    if (stop != null) {
+                                        // Show stop information in a Toast
+                                        val message = "${stop.name}\nStop Code: ${stop.stopCode}\nOrder: ${stop.order}"
+                                        Toast.makeText(context, message, Toast.LENGTH_LONG).show()
+                                    }
+                                }
+                                true // Consume the event
+                            } else {
+                                false // Don't consume the event
+                            }
+                        }
                     }
                     
                     // Set initial position (Athens, Greece)
@@ -135,8 +168,11 @@ actual fun MapView(
 @OptIn(ExperimentalResourceApi::class)
 private suspend fun displayTransitLine(
     map: MapLibreMap,
-    line: TransitLine
-) = withContext(Dispatchers.Main) {
+    line: TransitLine,
+    context: android.content.Context
+): Map<String, Stop> = withContext(Dispatchers.Main) {
+    var stopsMap = emptyMap<String, Stop>()
+    
     map.getStyle { style ->
         // Remove ALL previous transit line layers and sources
         for (i in 0 until 50) {
@@ -269,6 +305,9 @@ private suspend fun displayTransitLine(
             
             println("Finished loading all routes. Total stops: ${allStops.size}")
             
+            // Create stops map for quick lookup
+            stopsMap = allStops.associateBy { "${it.coordinate.latitude},${it.coordinate.longitude}" }
+            
             // Now add all sources and layers on main thread sequentially
             withContext(Dispatchers.Main) {
                 // Add line color based on type
@@ -303,14 +342,24 @@ private suspend fun displayTransitLine(
                 // Add stops as markers
                 if (allStops.isNotEmpty()) {
                     try {
-                        // Create pin marker bitmap
-                        val pinBitmap = createPinBitmap(if (line.isBus) Color.parseColor("#2196F3") else Color.parseColor("#9C27B0"))
+                        // Create pin marker bitmap (bigger size)
+                        val pinBitmap = createPinBitmap(
+                            if (line.isBus) Color.parseColor("#2196F3") else Color.parseColor("#9C27B0")
+                        )
                         style.addImage("stop-pin", pinBitmap)
                         println("Added pin image to style")
                         
-                        // Create GeoJSON features for stops
+                        // Create GeoJSON features for stops with properties
                         val stopFeatures = allStops.map { stop ->
-                            Feature.fromGeometry(Point.fromLngLat(stop.coordinate.longitude, stop.coordinate.latitude))
+                            val properties = JsonObject()
+                            properties.addProperty("name", stop.name)
+                            properties.addProperty("stop_code", stop.stopCode)
+                            properties.addProperty("order", stop.order)
+                            
+                            Feature.fromGeometry(
+                                Point.fromLngLat(stop.coordinate.longitude, stop.coordinate.latitude),
+                                properties
+                            )
                         }
                         
                         val featureCollection = FeatureCollection.fromFeatures(stopFeatures)
@@ -320,11 +369,11 @@ private suspend fun displayTransitLine(
                         style.addSource(stopsSource)
                         println("Added stops source with ${allStops.size} stops")
                         
-                        // Add stops layer
+                        // Add stops layer with bigger icons
                         val stopsLayer = SymbolLayer("transit-stops-layer", "transit-stops-source")
                             .withProperties(
                                 PropertyFactory.iconImage("stop-pin"),
-                                PropertyFactory.iconSize(0.5f),
+                                PropertyFactory.iconSize(0.8f), // Increased from 0.5f to 0.8f
                                 PropertyFactory.iconAllowOverlap(true),
                                 PropertyFactory.iconIgnorePlacement(true),
                                 PropertyFactory.iconAnchor("bottom")
@@ -359,6 +408,8 @@ private suspend fun displayTransitLine(
             }
         }
     }
+    
+    return@withContext stopsMap
 }
 
 /**
@@ -390,7 +441,7 @@ private fun extractRoutePathOnly(geoJson: JSONObject): String {
  * Create a custom pin marker bitmap
  */
 private fun createPinBitmap(color: Int): Bitmap {
-    val size = 80
+    val size = 120 // Increased from 80 to 120
     val bitmap = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888)
     val canvas = Canvas(bitmap)
     
