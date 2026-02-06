@@ -609,7 +609,7 @@ private suspend fun displayTransitLine(
 
                         // Set reasonable zoom limits
                         // Lower min zoom to ensure large routes fit completely
-                        map.setMinZoomPreference(5.0)
+                        map.setMinZoomPreference(1.0)
                         map.setMaxZoomPreference(18.0)
                         
                         // Calculate padding in pixels based on screen density
