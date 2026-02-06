@@ -28,6 +28,7 @@ import org.maplibre.android.style.layers.LineLayer
 import org.maplibre.android.style.layers.PropertyFactory
 import org.maplibre.android.style.sources.GeoJsonSource
 import newoasa.composeapp.generated.resources.Res
+import java.util.UUID
 
 @Composable
 actual fun MapView(
@@ -123,17 +124,34 @@ private suspend fun displayTransitLine(
     line: TransitLine
 ) = withContext(Dispatchers.Main) {
     map.getStyle { style ->
-        // Remove previous transit line layers and sources
-        for (i in 0 until 10) {
-            style.getLayer("transit-line-layer-$i")?.let { style.removeLayer(it) }
-            style.getSource("transit-line-source-$i")?.let { style.removeSource(it) }
+        // Remove ALL previous transit line layers and sources
+        // Clean up with a wider range to ensure all are removed
+        for (i in 0 until 50) {
+            try {
+                style.getLayer("transit-line-layer-$i")?.let { 
+                    style.removeLayer(it)
+                    println("Removed layer: transit-line-layer-$i")
+                }
+            } catch (e: Exception) {
+                // Ignore if layer doesn't exist
+            }
+            
+            try {
+                style.getSource("transit-line-source-$i")?.let { 
+                    style.removeSource(it)
+                    println("Removed source: transit-line-source-$i")
+                }
+            } catch (e: Exception) {
+                // Ignore if source doesn't exist
+            }
         }
         
         val allCoordinates = mutableListOf<LatLng>()
+        val loadedGeoJsonData = mutableListOf<Pair<Int, String>>() // index to geoJson
         
-        // Launch coroutine for loading resources
+        // Load all GeoJSON files sequentially in IO dispatcher
         kotlinx.coroutines.CoroutineScope(Dispatchers.IO).launch {
-            // Load and display each route
+            // Load all routes first
             line.routePaths.forEachIndexed { index, path ->
                 try {
                     println("Loading GeoJSON from composeResources: $path")
@@ -160,25 +178,9 @@ private suspend fun displayTransitLine(
                         allCoordinates.addAll(coords)
                     }
                     
-                    // Switch to main thread for map operations
-                    withContext(Dispatchers.Main) {
-                        // Add source
-                        val sourceId = "transit-line-source-$index"
-                        val source = GeoJsonSource(sourceId, geoJsonString)
-                        style.addSource(source)
-                        
-                        // Add line layer
-                        val layerId = "transit-line-layer-$index"
-                        val lineColor = if (line.isBus) "#2196F3" else "#9C27B0" // Blue for buses, Purple for trolleys
-                        val lineLayer = LineLayer(layerId, sourceId).withProperties(
-                            PropertyFactory.lineColor(lineColor),
-                            PropertyFactory.lineWidth(5f),
-                            PropertyFactory.lineOpacity(0.8f)
-                        )
-                        style.addLayer(lineLayer)
-                        
-                        println("Successfully loaded and displayed route: $path")
-                    }
+                    // Store loaded data
+                    loadedGeoJsonData.add(index to geoJsonString)
+                    println("Successfully loaded GeoJSON for route: $path")
                     
                 } catch (e: Exception) {
                     println("Error loading route $path: ${e.message}")
@@ -186,18 +188,59 @@ private suspend fun displayTransitLine(
                 }
             }
             
-            // Animate camera to show all routes on main thread
+            // Now add all sources and layers on main thread sequentially
             withContext(Dispatchers.Main) {
+                loadedGeoJsonData.forEach { (index, geoJsonString) ->
+                    try {
+                        val sourceId = "transit-line-source-$index"
+                        val layerId = "transit-line-layer-$index"
+                        
+                        // Check if source already exists (safety check)
+                        if (style.getSource(sourceId) != null) {
+                            println("Source $sourceId already exists, skipping")
+                            return@forEach
+                        }
+                        
+                        // Add source
+                        val source = GeoJsonSource(sourceId, geoJsonString)
+                        style.addSource(source)
+                        println("Added source: $sourceId")
+                        
+                        // Add line layer
+                        val lineColor = if (line.isBus) "#2196F3" else "#9C27B0" // Blue for buses, Purple for trolleys
+                        val lineLayer = LineLayer(layerId, sourceId).withProperties(
+                            PropertyFactory.lineColor(lineColor),
+                            PropertyFactory.lineWidth(5f),
+                            PropertyFactory.lineOpacity(0.8f)
+                        )
+                        style.addLayer(lineLayer)
+                        println("Added layer: $layerId")
+                        
+                        println("Successfully displayed route with index: $index")
+                        
+                    } catch (e: Exception) {
+                        println("Error adding source/layer for index $index: ${e.message}")
+                        e.printStackTrace()
+                    }
+                }
+                
+                // Animate camera to show all routes
                 if (allCoordinates.isNotEmpty()) {
-                    val boundsBuilder = LatLngBounds.Builder()
-                    allCoordinates.forEach { boundsBuilder.include(it) }
-                    val bounds = boundsBuilder.build()
-                    
-                    // Animate to bounds with padding
-                    map.animateCamera(
-                        CameraUpdateFactory.newLatLngBounds(bounds, 100),
-                        1000 // 1 second animation
-                    )
+                    try {
+                        val boundsBuilder = LatLngBounds.Builder()
+                        allCoordinates.forEach { boundsBuilder.include(it) }
+                        val bounds = boundsBuilder.build()
+                        
+                        // Animate to bounds with padding
+                        map.animateCamera(
+                            CameraUpdateFactory.newLatLngBounds(bounds, 100),
+                            1000 // 1 second animation
+                        )
+                        println("Camera animated to show all routes")
+                    } catch (e: Exception) {
+                        println("Error animating camera: ${e.message}")
+                        e.printStackTrace()
+                    }
                 }
             }
         }
