@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
@@ -11,6 +12,8 @@ import androidx.compose.ui.viewinterop.AndroidView
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import com.example.newoasa.data.TransitLine
+import kotlinx.coroutines.launch
+import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.json.JSONObject
 import org.maplibre.android.MapLibre
 import org.maplibre.android.camera.CameraPosition
@@ -22,8 +25,7 @@ import org.maplibre.android.maps.MapView
 import org.maplibre.android.style.layers.LineLayer
 import org.maplibre.android.style.layers.PropertyFactory
 import org.maplibre.android.style.sources.GeoJsonSource
-import java.io.BufferedReader
-import java.io.InputStreamReader
+import newoasa.composeapp.generated.resources.Res
 
 @Composable
 actual fun MapView(
@@ -34,6 +36,7 @@ actual fun MapView(
 ) {
     val context = LocalContext.current
     val lifecycleOwner = LocalLifecycleOwner.current
+    val coroutineScope = rememberCoroutineScope()
     
     // Initialize MapLibre
     remember { MapLibre.getInstance(context) }
@@ -72,7 +75,9 @@ actual fun MapView(
     LaunchedEffect(selectedLine) {
         if (selectedLine != null) {
             mapView.getMapAsync { map ->
-                displayTransitLine(context, map, selectedLine)
+                coroutineScope.launch {
+                    displayTransitLine(map, selectedLine)
+                }
             }
         }
     }
@@ -88,7 +93,9 @@ actual fun MapView(
                     
                     // Display selected line if present
                     if (selectedLine != null) {
-                        displayTransitLine(context, map, selectedLine)
+                        coroutineScope.launch {
+                            displayTransitLine(map, selectedLine)
+                        }
                     }
                 }
                 
@@ -108,8 +115,8 @@ actual fun MapView(
     )
 }
 
-private fun displayTransitLine(
-    context: android.content.Context,
+@OptIn(ExperimentalResourceApi::class)
+private suspend fun displayTransitLine(
     map: MapLibreMap,
     line: TransitLine
 ) {
@@ -126,14 +133,16 @@ private fun displayTransitLine(
         line.routePaths.forEachIndexed { index, path ->
             try {
                 // Remove "files/" prefix from path if present
-                val assetPath = path.removePrefix("files/")
+                val resourcePath = path.removePrefix("files/")
                 
-                // Load GeoJSON from assets
-                val geoJsonString = loadGeoJsonFromAssets(context, assetPath)
+                println("Loading GeoJSON from composeResources: $resourcePath")
+                
+                // Load GeoJSON from Compose Multiplatform resources
+                val geoJsonString = loadGeoJsonFromResources(resourcePath)
                 
                 // Validate GeoJSON before adding
                 if (geoJsonString.isBlank() || geoJsonString == "{}") {
-                    println("Empty GeoJSON for path: $assetPath")
+                    println("Empty GeoJSON for path: $resourcePath")
                     return@forEachIndexed
                 }
                 
@@ -141,7 +150,7 @@ private fun displayTransitLine(
                 
                 // Validate that it has required properties
                 if (!geoJson.has("type")) {
-                    println("Invalid GeoJSON - missing 'type' property for path: $assetPath")
+                    println("Invalid GeoJSON - missing 'type' property for path: $resourcePath")
                     return@forEachIndexed
                 }
                 
@@ -165,6 +174,8 @@ private fun displayTransitLine(
                 )
                 style.addLayer(lineLayer)
                 
+                println("Successfully loaded and displayed route: $resourcePath")
+                
             } catch (e: Exception) {
                 println("Error loading route $path: ${e.message}")
                 e.printStackTrace()
@@ -186,13 +197,14 @@ private fun displayTransitLine(
     }
 }
 
-private fun loadGeoJsonFromAssets(context: android.content.Context, path: String): String {
+@OptIn(ExperimentalResourceApi::class)
+private suspend fun loadGeoJsonFromResources(path: String): String {
     return try {
-        val inputStream = context.assets.open(path)
-        val bufferedReader = BufferedReader(InputStreamReader(inputStream))
-        bufferedReader.use { it.readText() }
+        // Use Compose Multiplatform resource loading
+        val bytes = Res.readBytes("files/$path")
+        bytes.decodeToString()
     } catch (e: Exception) {
-        println("Failed to load GeoJSON from path: $path")
+        println("Failed to load GeoJSON from composeResources path: $path")
         e.printStackTrace()
         "{}" // Return empty GeoJSON on error
     }
