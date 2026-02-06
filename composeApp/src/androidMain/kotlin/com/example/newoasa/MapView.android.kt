@@ -4,8 +4,25 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
-import android.graphics.RectF
-import android.widget.Toast
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
@@ -14,9 +31,14 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalLifecycleOwner
+import androidx.compose.ui.unit.IntOffset
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
@@ -51,6 +73,12 @@ data class Stop(
     val coordinate: LatLng
 )
 
+data class StopInfoState(
+    val stop: Stop,
+    val screenX: Float,
+    val screenY: Float
+)
+
 @Composable
 actual fun MapView(
     modifier: Modifier,
@@ -64,6 +92,9 @@ actual fun MapView(
     var isMapReady by remember { mutableStateOf(false) }
     var currentDisplayedLine by remember { mutableStateOf<TransitLine?>(null) }
     var allStopsMap by remember { mutableStateOf<Map<String, Stop>>(emptyMap()) }
+    var selectedStopInfo by remember { mutableStateOf<StopInfoState?>(null) }
+    var mapViewInstance by remember { mutableStateOf<MapView?>(null) }
+    var mapLibreInstance by remember { mutableStateOf<MapLibreMap?>(null) }
     
     // Initialize MapLibre
     remember { MapLibre.getInstance(context) }
@@ -76,7 +107,7 @@ actual fun MapView(
     }
 
     val mapView = remember { 
-        MapView(context)
+        MapView(context).also { mapViewInstance = it }
     }
 
     // Lifecycle management
@@ -111,61 +142,165 @@ actual fun MapView(
         }
     }
 
-    AndroidView(
-        factory = { mapView },
-        modifier = modifier,
-        update = { mv ->
-            mv.getMapAsync { map ->
-                // Only set up style once
-                if (!isMapReady) {
-                    map.setStyle(styleUrl) { style ->
-                        isMapReady = true
-                        onMapReady()
-                        
-                        // Add click listener for stop pins - check both layers
-                        map.addOnMapClickListener { point ->
-                            val screenPoint = map.projection.toScreenLocation(point)
-                            
-                            // First check the hit area layer
-                            val hitAreaFeatures = map.queryRenderedFeatures(
-                                screenPoint, 
-                                "transit-stops-hit-area"
-                            )
-                            
-                            if (hitAreaFeatures.isNotEmpty()) {
-                                val feature = hitAreaFeatures[0]
-                                val properties = feature.properties()
-                                
-                                if (properties != null) {
-                                    val stopName = properties.get("name")?.asString ?: "Unknown"
-                                    val stopCode = properties.get("stop_code")?.asString ?: ""
-                                    val order = properties.get("order")?.asString ?: ""
-                                    
-                                    // Show stop information in a Toast
-                                    val message = "$stopName\nStop Code: $stopCode\nOrder: $order"
-                                    Toast.makeText(context, message, Toast.LENGTH_LONG).show()
-                                    
-                                    return@addOnMapClickListener true // Consume the event
-                                }
-                            }
-                            
-                            false // Don't consume the event
-                        }
-                    }
+    Box(modifier = modifier.fillMaxSize()) {
+        AndroidView(
+            factory = { mapView },
+            modifier = Modifier.fillMaxSize(),
+            update = { mv ->
+                mv.getMapAsync { map ->
+                    mapLibreInstance = map
                     
-                    // Set initial position (Athens, Greece)
-                    map.cameraPosition = CameraPosition.Builder()
-                        .target(LatLng(37.9838, 23.7275))
-                        .zoom(12.0)
-                        .build()
+                    // Only set up style once
+                    if (!isMapReady) {
+                        map.setStyle(styleUrl) { style ->
+                            isMapReady = true
+                            onMapReady()
+                            
+                            // Add click listener for stop pins
+                            map.addOnMapClickListener { point ->
+                                val screenPoint = map.projection.toScreenLocation(point)
+                                
+                                // Check the hit area layer
+                                val hitAreaFeatures = map.queryRenderedFeatures(
+                                    screenPoint, 
+                                    "transit-stops-hit-area"
+                                )
+                                
+                                if (hitAreaFeatures.isNotEmpty()) {
+                                    val feature = hitAreaFeatures[0]
+                                    val properties = feature.properties()
+                                    
+                                    if (properties != null) {
+                                        val stopName = properties.get("name")?.asString ?: "Unknown"
+                                        val stopCode = properties.get("stop_code")?.asString ?: ""
+                                        val order = properties.get("order")?.asString ?: ""
+                                        
+                                        // Get the geometry to find screen position
+                                        val geometry = feature.geometry()
+                                        if (geometry is Point) {
+                                            val stopCoord = LatLng(geometry.latitude(), geometry.longitude())
+                                            val stopScreenPoint = map.projection.toScreenLocation(stopCoord)
+                                            
+                                            selectedStopInfo = StopInfoState(
+                                                stop = Stop(
+                                                    name = stopName,
+                                                    stopCode = stopCode,
+                                                    order = order,
+                                                    coordinate = stopCoord
+                                                ),
+                                                screenX = stopScreenPoint.x,
+                                                screenY = stopScreenPoint.y
+                                            )
+                                        }
+                                        
+                                        return@addOnMapClickListener true // Consume the event
+                                    }
+                                } else {
+                                    // Clicked outside of stops, close info window
+                                    selectedStopInfo = null
+                                }
+                                
+                                false
+                            }
+                        }
                         
-                    // Disable attribution and logo
-                    map.uiSettings.isAttributionEnabled = false
-                    map.uiSettings.isLogoEnabled = false
+                        // Set initial position (Athens, Greece)
+                        map.cameraPosition = CameraPosition.Builder()
+                            .target(LatLng(37.9838, 23.7275))
+                            .zoom(12.0)
+                            .build()
+                            
+                        // Disable attribution and logo
+                        map.uiSettings.isAttributionEnabled = false
+                        map.uiSettings.isLogoEnabled = false
+                    }
                 }
             }
+        )
+        
+        // Info window overlay
+        selectedStopInfo?.let { info ->
+            StopInfoWindow(
+                stop = info.stop,
+                screenX = info.screenX,
+                screenY = info.screenY,
+                onClose = { selectedStopInfo = null }
+            )
         }
-    )
+    }
+}
+
+@Composable
+fun StopInfoWindow(
+    stop: Stop,
+    screenX: Float,
+    screenY: Float,
+    onClose: () -> Unit
+) {
+    val density = LocalDensity.current
+    
+    // Position the window above the pin
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .clickable(onClick = onClose) // Close when clicking outside
+    ) {
+        Column(
+            modifier = Modifier
+                .offset {
+                    IntOffset(
+                        x = (screenX - 150).toInt(), // Center horizontally (half of ~300dp width)
+                        y = (screenY - 180).toInt()  // Position above pin
+                    )
+                }
+                .width(300.dp)
+                .shadow(8.dp, RoundedCornerShape(12.dp))
+                .background(
+                    color = MaterialTheme.colors.surface,
+                    shape = RoundedCornerShape(12.dp)
+                )
+                .padding(16.dp)
+                .clickable(onClick = {}) // Prevent closing when clicking inside
+        ) {
+            // Header with close button
+            Row(
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    text = stop.name,
+                    style = MaterialTheme.typography.h6,
+                    modifier = Modifier.weight(1f)
+                )
+                IconButton(
+                    onClick = onClose,
+                    modifier = Modifier.size(24.dp)
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Close,
+                        contentDescription = "Close",
+                        tint = MaterialTheme.colors.onSurface
+                    )
+                }
+            }
+            
+            Spacer(modifier = Modifier.height(8.dp))
+            
+            // Stop details
+            Text(
+                text = "Stop Code: ${stop.stopCode}",
+                style = MaterialTheme.typography.body1,
+                color = MaterialTheme.colors.onSurface.copy(alpha = 0.7f)
+            )
+            
+            Spacer(modifier = Modifier.height(4.dp))
+            
+            Text(
+                text = "Order: ${stop.order}",
+                style = MaterialTheme.typography.body2,
+                color = MaterialTheme.colors.onSurface.copy(alpha = 0.6f)
+            )
+        }
+    }
 }
 
 @OptIn(ExperimentalResourceApi::class)
