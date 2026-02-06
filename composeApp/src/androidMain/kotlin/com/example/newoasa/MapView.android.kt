@@ -179,18 +179,36 @@ actual fun MapView(
                                         val geometry = feature.geometry()
                                         if (geometry is Point) {
                                             val stopCoord = LatLng(geometry.latitude(), geometry.longitude())
-                                            val stopScreenPoint = map.projection.toScreenLocation(stopCoord)
                                             
-                                            selectedStopInfo = StopInfoState(
-                                                stop = Stop(
-                                                    name = stopName,
-                                                    stopCode = stopCode,
-                                                    order = order,
-                                                    coordinate = stopCoord
-                                                ),
-                                                screenX = stopScreenPoint.x,
-                                                screenY = stopScreenPoint.y
+                                            // Center map on the clicked pin with offset for info window
+                                            // Move the pin slightly down from center so info window appears above it
+                                            val currentZoom = map.cameraPosition.zoom
+                                            val newCameraPosition = CameraPosition.Builder()
+                                                .target(stopCoord)
+                                                .zoom(currentZoom)
+                                                .build()
+                                            
+                                            map.animateCamera(
+                                                CameraUpdateFactory.newCameraPosition(newCameraPosition),
+                                                300 // Quick 300ms animation
                                             )
+                                            
+                                            // Wait a bit for camera animation, then get screen position
+                                            coroutineScope.launch {
+                                                kotlinx.coroutines.delay(350)
+                                                val stopScreenPoint = map.projection.toScreenLocation(stopCoord)
+                                                
+                                                selectedStopInfo = StopInfoState(
+                                                    stop = Stop(
+                                                        name = stopName,
+                                                        stopCode = stopCode,
+                                                        order = order,
+                                                        coordinate = stopCoord
+                                                    ),
+                                                    screenX = stopScreenPoint.x,
+                                                    screenY = stopScreenPoint.y
+                                                )
+                                            }
                                         }
                                         
                                         return@addOnMapClickListener true // Consume the event
