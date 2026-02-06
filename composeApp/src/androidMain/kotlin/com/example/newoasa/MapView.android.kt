@@ -4,6 +4,7 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
+import android.graphics.RectF
 import android.widget.Toast
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
@@ -33,6 +34,7 @@ import org.maplibre.android.geometry.LatLng
 import org.maplibre.android.geometry.LatLngBounds
 import org.maplibre.android.maps.MapLibreMap
 import org.maplibre.android.maps.MapView
+import org.maplibre.android.style.layers.CircleLayer
 import org.maplibre.android.style.layers.LineLayer
 import org.maplibre.android.style.layers.PropertyFactory
 import org.maplibre.android.style.sources.GeoJsonSource
@@ -120,33 +122,34 @@ actual fun MapView(
                         isMapReady = true
                         onMapReady()
                         
-                        // Add click listener for stop pins
+                        // Add click listener for stop pins - check both layers
                         map.addOnMapClickListener { point ->
                             val screenPoint = map.projection.toScreenLocation(point)
-                            val features = map.queryRenderedFeatures(screenPoint, "transit-stops-layer")
                             
-                            if (features.isNotEmpty()) {
-                                val feature = features[0]
-                                val geometry = feature.geometry()
-                                if (geometry is Point) {
-                                    val clickedCoord = LatLng(geometry.latitude(), geometry.longitude())
+                            // First check the hit area layer
+                            val hitAreaFeatures = map.queryRenderedFeatures(
+                                screenPoint, 
+                                "transit-stops-hit-area"
+                            )
+                            
+                            if (hitAreaFeatures.isNotEmpty()) {
+                                val feature = hitAreaFeatures[0]
+                                val properties = feature.properties()
+                                
+                                if (properties != null) {
+                                    val stopName = properties.get("name")?.asString ?: "Unknown"
+                                    val stopCode = properties.get("stop_code")?.asString ?: ""
+                                    val order = properties.get("order")?.asString ?: ""
                                     
-                                    // Find the stop that matches this coordinate
-                                    val stop = allStopsMap.values.find { stop ->
-                                        Math.abs(stop.coordinate.latitude - clickedCoord.latitude) < 0.0001 &&
-                                        Math.abs(stop.coordinate.longitude - clickedCoord.longitude) < 0.0001
-                                    }
+                                    // Show stop information in a Toast
+                                    val message = "$stopName\nStop Code: $stopCode\nOrder: $order"
+                                    Toast.makeText(context, message, Toast.LENGTH_LONG).show()
                                     
-                                    if (stop != null) {
-                                        // Show stop information in a Toast
-                                        val message = "${stop.name}\nStop Code: ${stop.stopCode}\nOrder: ${stop.order}"
-                                        Toast.makeText(context, message, Toast.LENGTH_LONG).show()
-                                    }
+                                    return@addOnMapClickListener true // Consume the event
                                 }
-                                true // Consume the event
-                            } else {
-                                false // Don't consume the event
                             }
+                            
+                            false // Don't consume the event
                         }
                     }
                     
@@ -193,7 +196,15 @@ private suspend fun displayTransitLine(
             }
         }
         
-        // Remove previous stops layer and source
+        // Remove previous stops layers and sources
+        try {
+            style.getLayer("transit-stops-hit-area")?.let { 
+                style.removeLayer(it)
+            }
+        } catch (e: Exception) {
+            // Ignore
+        }
+        
         try {
             style.getLayer("transit-stops-layer")?.let { 
                 style.removeLayer(it)
@@ -369,11 +380,21 @@ private suspend fun displayTransitLine(
                         style.addSource(stopsSource)
                         println("Added stops source with ${allStops.size} stops")
                         
-                        // Add stops layer with bigger icons
+                        // Add invisible hit area layer FIRST (larger clickable area)
+                        val hitAreaLayer = CircleLayer("transit-stops-hit-area", "transit-stops-source")
+                            .withProperties(
+                                PropertyFactory.circleRadius(80f), // Very large hit area (80 pixels radius)
+                                PropertyFactory.circleColor(Color.TRANSPARENT), // Invisible
+                                PropertyFactory.circleOpacity(0f) // Completely transparent
+                            )
+                        style.addLayer(hitAreaLayer)
+                        println("Added hit area layer with 80px radius")
+                        
+                        // Add visible stops layer SECOND (on top of hit area)
                         val stopsLayer = SymbolLayer("transit-stops-layer", "transit-stops-source")
                             .withProperties(
                                 PropertyFactory.iconImage("stop-pin"),
-                                PropertyFactory.iconSize(0.8f), // Increased from 0.5f to 0.8f
+                                PropertyFactory.iconSize(0.8f),
                                 PropertyFactory.iconAllowOverlap(true),
                                 PropertyFactory.iconIgnorePlacement(true),
                                 PropertyFactory.iconAnchor("bottom")
@@ -441,7 +462,7 @@ private fun extractRoutePathOnly(geoJson: JSONObject): String {
  * Create a custom pin marker bitmap
  */
 private fun createPinBitmap(color: Int): Bitmap {
-    val size = 120 // Increased from 80 to 120
+    val size = 120
     val bitmap = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888)
     val canvas = Canvas(bitmap)
     
