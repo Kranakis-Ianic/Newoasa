@@ -15,7 +15,6 @@ Requirements:
 
 import os
 import re
-import json
 from pathlib import Path
 from datetime import datetime
 from typing import List, Dict, Tuple
@@ -33,7 +32,7 @@ class TransitLineData:
     def _extract_route_ids(self) -> List[str]:
         """Extract route IDs from filenames (e.g., route_3494.geojson -> 3494)"""
         route_ids = []
-        pattern = re.compile(r'route_(\w+)\.geojson') # Updated regex to support alphanumeric IDs like T6
+        pattern = re.compile(r'route_(\d+)\.geojson')
         
         for filename in self.route_files:
             match = pattern.match(filename)
@@ -66,82 +65,12 @@ class RepositoryGenerator:
         self.geojson_path = self.base_path / "composeApp" / "src" / "commonMain" / "composeResources" / "files" / "geojson"
         self.output_path = self.base_path / "composeApp" / "src" / "commonMain" / "kotlin" / "com" / "example" / "newoasa" / "data" / "TransitLineRepository.kt"
         self.transit_lines: List[TransitLineData] = []
-
-    def create_sample_data_if_missing(self):
-        """Create sample metro and tram data if they don't exist"""
-        print("🛠️  Checking for missing metro/tram data...")
-        
-        # Define sample data
-        sample_data = {
-            "metro": {
-                "1": {
-                    "color": "007A33", # Green
-                    "coordinates": [[23.642, 37.947], [23.808, 38.073]] # Piraeus -> Kifissia
-                },
-                "2": {
-                    "color": "DA291C", # Red
-                    "coordinates": [
-                        [23.691, 38.017], # Anthoupoli
-                        [23.736, 37.975], # Syntagma
-                        [23.747, 37.893]  # Elliniko
-                    ]
-                },
-                "3": {
-                    "color": "0057B8", # Blue
-                    "coordinates": [[23.647, 37.943], [23.945, 37.936]] # Dimotiko Theatro -> Airport
-                }
-            },
-            "tram": {
-                "T6": {
-                    "color": "51A344", # Greenish
-                    "coordinates": [[23.735, 37.975], [23.718, 37.915]] # Syntagma -> Pikropa
-                },
-                "T7": {
-                    "color": "51A344",
-                    "coordinates": [[23.642, 37.947], [23.766, 37.839]] # Piraeus -> Voula
-                }
-            }
-        }
-        
-        for category, lines in sample_data.items():
-            category_path = self.geojson_path / category
-            
-            # Check if category exists and has subdirectories
-            has_data = category_path.exists() and any(d.is_dir() for d in category_path.iterdir() if category_path.exists())
-            
-            if not has_data:
-                print(f"   ✨ Creating sample {category} data...")
-                category_path.mkdir(parents=True, exist_ok=True)
-                
-                for line_id, data in lines.items():
-                    line_dir = category_path / line_id
-                    line_dir.mkdir(exist_ok=True)
-                    
-                    geojson_content = {
-                        "type": "FeatureCollection",
-                        "features": [
-                            {
-                                "type": "Feature",
-                                "properties": {"color": data["color"]},
-                                "geometry": {
-                                    "type": "LineString",
-                                    "coordinates": data["coordinates"]
-                                }
-                            }
-                        ]
-                    }
-                    
-                    file_path = line_dir / f"route_{line_id}.geojson"
-                    with open(file_path, 'w') as f:
-                        json.dump(geojson_content, f, indent=2)
-            else:
-                print(f"   ✅ {category} data found.")
     
     def scan_geojson_folders(self):
         """Scan the geojson folder structure and collect transit line data"""
         print("🔍 Scanning GeoJSON folders...")
         
-        categories = ["buses", "trolleys", "metro", "tram"]
+        categories = ["buses", "trolleys"]
         
         for category in categories:
             category_path = self.geojson_path / category
@@ -152,13 +81,7 @@ class RepositoryGenerator:
             
             # Get all line folders
             line_folders = [d for d in category_path.iterdir() if d.is_dir()]
-            
-            # Sort naturally (so 2 comes before 10)
-            def natural_sort_key(s):
-                return [int(text) if text.isdigit() else text.lower()
-                        for text in re.split('([0-9]+)', s.name)]
-            
-            line_folders.sort(key=natural_sort_key)
+            line_folders.sort(key=lambda x: x.name)
             
             print(f"   Found {len(line_folders)} {category} lines")
             
@@ -179,8 +102,6 @@ class RepositoryGenerator:
         total_lines = len(self.transit_lines)
         bus_lines = sum(1 for line in self.transit_lines if line.category == "buses")
         trolley_lines = sum(1 for line in self.transit_lines if line.category == "trolleys")
-        metro_lines = sum(1 for line in self.transit_lines if line.category == "metro")
-        tram_lines = sum(1 for line in self.transit_lines if line.category == "tram")
         total_routes = sum(len(line.route_ids) for line in self.transit_lines)
         
         # Generate transit line entries
@@ -204,7 +125,7 @@ class RepositoryGenerator:
 /**
  * Represents a transit line with its routes
  * @property lineNumber The line identifier (e.g., "022", "1", "309Β")
- * @property category The category of transit ("buses", "trolleys", "metro", "tram")
+ * @property category The category of transit ("buses" or "trolleys")
  * @property routeIds List of route IDs for this line
  * @property routePaths Resource paths to the GeoJSON files for each route
  */
@@ -221,8 +142,6 @@ data class TransitLine(
         get() = when (category) {{
             "buses" -> "Bus $lineNumber"
             "trolleys" -> "Trolley $lineNumber"
-            "metro" -> "Metro Line $lineNumber"
-            "tram" -> "Tram Line $lineNumber"
             else -> "Line $lineNumber"
         }}
     
@@ -235,16 +154,6 @@ data class TransitLine(
      * Returns true if this is a trolley line
      */
     val isTrolley: Boolean get() = category == "trolleys"
-
-    /**
-     * Returns true if this is a metro line
-     */
-    val isMetro: Boolean get() = category == "metro"
-
-    /**
-     * Returns true if this is a tram line
-     */
-    val isTram: Boolean get() = category == "tram"
     
     /**
      * Returns the base path to this line's geojson folder
@@ -277,7 +186,7 @@ object TransitLineRepository {{
     
     /**
      * Get all lines in a specific category
-     * @param category The category ("buses", "trolleys", "metro", "tram")
+     * @param category The category ("buses" or "trolleys")
      * @return List of transit lines in that category
      */
     fun getLinesByCategory(category: String): List<TransitLine> {{
@@ -293,16 +202,6 @@ object TransitLineRepository {{
      * Get all trolley lines
      */
     fun getTrolleyLines(): List<TransitLine> = getLinesByCategory("trolleys")
-
-    /**
-     * Get all metro lines
-     */
-    fun getMetroLines(): List<TransitLine> = getLinesByCategory("metro")
-
-    /**
-     * Get all tram lines
-     */
-    fun getTramLines(): List<TransitLine> = getLinesByCategory("tram")
     
     /**
      * Search for lines matching a query
@@ -321,8 +220,6 @@ object TransitLineRepository {{
             totalLines = lines.size,
             totalBusLines = getBusLines().size,
             totalTrolleyLines = getTrolleyLines().size,
-            totalMetroLines = getMetroLines().size,
-            totalTramLines = getTramLines().size,
             totalRoutes = lines.sumOf {{ it.routeIds.size }}
         )
     }}
@@ -335,8 +232,6 @@ data class RepositoryStats(
     val totalLines: Int,
     val totalBusLines: Int,
     val totalTrolleyLines: Int,
-    val totalMetroLines: Int,
-    val totalTramLines: Int,
     val totalRoutes: Int
 )
 '''
@@ -358,9 +253,6 @@ data class RepositoryStats(
         print("="*60)
         print()
         
-        # Create sample data if missing
-        self.create_sample_data_if_missing()
-        
         # Scan folders
         self.scan_geojson_folders()
         
@@ -380,16 +272,12 @@ data class RepositoryStats(
         total_lines = len(self.transit_lines)
         bus_lines = sum(1 for line in self.transit_lines if line.category == "buses")
         trolley_lines = sum(1 for line in self.transit_lines if line.category == "trolleys")
-        metro_lines = sum(1 for line in self.transit_lines if line.category == "metro")
-        tram_lines = sum(1 for line in self.transit_lines if line.category == "tram")
         total_routes = sum(len(line.route_ids) for line in self.transit_lines)
         
         print("\\n✅ Successfully generated TransitLineRepository!")
         print(f"   Total lines: {total_lines}")
         print(f"   Bus lines: {bus_lines}")
         print(f"   Trolley lines: {trolley_lines}")
-        print(f"   Metro lines: {metro_lines}")
-        print(f"   Tram lines: {tram_lines}")
         print(f"   Total routes: {total_routes}")
         print()
         print("="*60)
