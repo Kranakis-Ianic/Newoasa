@@ -462,8 +462,8 @@ private suspend fun displayTransitLine(
                     line.category == "metro" && line.lineNumber == "2" -> "#DA291C" // Red
                     line.category == "metro" && line.lineNumber == "3" -> "#0057B8" // Blue
                     line.category == "tram" -> "#D60C8C" // Pink
-                    line.isBus -> "#2196F3"
-                    else -> "#9C27B0"
+                    line.isBus -> "#009dc6" // Blue updated
+                    else -> "#f27d00" // Trolley updated (Orange)
                 }
                 
                 // Add route lines
