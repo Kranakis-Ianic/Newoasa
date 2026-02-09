@@ -6,8 +6,11 @@ import android.graphics.Color
 import android.graphics.Paint
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -33,8 +36,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Color as ComposeColor
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
@@ -63,6 +68,7 @@ import org.maplibre.geojson.Point
 import org.maplibre.android.style.layers.SymbolLayer
 import newoasa.composeapp.generated.resources.Res
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 data class Stop(
     val name: String,
@@ -96,6 +102,20 @@ private fun getTransitLineColor(line: TransitLine): String {
         line.isBus -> "#009cc7" // Cyan
         line.isTrolley -> "#f07c00" // Orange
         else -> "#000000" // Default to black
+    }
+}
+
+/**
+ * Get Compose Color for a line ID string (for UI display)
+ */
+private fun getLineComposeColor(lineId: String): ComposeColor {
+    return when (lineId) {
+        "1" -> ComposeColor(0xFF00734c) // Green
+        "2" -> ComposeColor(0xFFe60000) // Red
+        "3" -> ComposeColor(0xFF002673) // Blue
+        "T6" -> ComposeColor(0xFFa7c636) // Lime green
+        "T7" -> ComposeColor(0xFFb9348b) // Pink
+        else -> ComposeColor(0xFF000000) // Default to black
     }
 }
 
@@ -208,72 +228,55 @@ actual fun MapView(
                             map.addOnMapClickListener { point ->
                                 val screenPoint = map.projection.toScreenLocation(point)
                                 
-                                // Check all possible stop hit area layers
-                                val layersToCheck = mutableListOf(
-                                    "transit-stops-hit-area",
-                                    "combined-stations-hit-area"  // Combined metro/tram stations
-                                )
-                                
-                                // Also check individual metro and tram lines (fallback)
-                                for (i in 1..3) {
-                                    layersToCheck.add("metro-$i-stops-hit-area")
-                                }
-                                layersToCheck.add("tram-T6-stops-hit-area")
-                                layersToCheck.add("tram-T7-stops-hit-area")
+                                // Check combined stations first
+                                val combinedFeatures = map.queryRenderedFeatures(screenPoint, "combined-stations-hit-area")
                                 
                                 var handled = false
-                                for (layerId in layersToCheck) {
-                                    val hitAreaFeatures = map.queryRenderedFeatures(screenPoint, layerId)
+                                if (combinedFeatures.isNotEmpty()) {
+                                    val feature = combinedFeatures[0]
+                                    val properties = feature.properties()
                                     
-                                    if (hitAreaFeatures.isNotEmpty()) {
-                                        val feature = hitAreaFeatures[0]
-                                        val properties = feature.properties()
+                                    if (properties != null) {
+                                        val stopName = properties.get("name")?.asString ?: "Unknown"
                                         
-                                        if (properties != null) {
-                                            val stopName = properties.get("name")?.asString ?: "Unknown"
-                                            val stopCode = properties.get("stop_code")?.asString ?: ""
-                                            val order = properties.get("order")?.asString ?: ""
-                                            
-                                            // Extract lines from properties (for combined stations)
-                                            val linesJson = properties.get("lines")
-                                            val lines = if (linesJson != null && linesJson.isJsonArray) {
-                                                linesJson.asJsonArray.map { it.asString }
-                                            } else {
-                                                emptyList()
-                                            }
-                                            
-                                            val geometry = feature.geometry()
-                                            if (geometry is Point) {
-                                                val stopCoord = LatLng(geometry.latitude(), geometry.longitude())
-                                                
-                                                val currentZoom = map.cameraPosition.zoom
-                                                val newCameraPosition = CameraPosition.Builder()
-                                                    .target(stopCoord)
-                                                    .zoom(if (currentZoom < 14) 14.0 else currentZoom)
-                                                    .build()
-                                                
-                                                map.animateCamera(
-                                                    CameraUpdateFactory.newCameraPosition(newCameraPosition),
-                                                    300
-                                                )
-                                                
-                                                coroutineScope.launch {
-                                                    kotlinx.coroutines.delay(350)
-                                                    selectedStopInfo = StopInfoState(
-                                                        stop = Stop(
-                                                            name = stopName,
-                                                            stopCode = stopCode,
-                                                            order = order,
-                                                            coordinate = stopCoord
-                                                        ),
-                                                        lines = lines
-                                                    )
-                                                }
-                                            }
-                                            
-                                            handled = true
-                                            break
+                                        // Extract lines from properties
+                                        val linesJson = properties.get("lines")
+                                        val lines = if (linesJson != null && linesJson.isJsonArray) {
+                                            linesJson.asJsonArray.map { it.asString }
+                                        } else {
+                                            emptyList()
                                         }
+                                        
+                                        val geometry = feature.geometry()
+                                        if (geometry is Point) {
+                                            val stopCoord = LatLng(geometry.latitude(), geometry.longitude())
+                                            
+                                            val currentZoom = map.cameraPosition.zoom
+                                            val newCameraPosition = CameraPosition.Builder()
+                                                .target(stopCoord)
+                                                .zoom(if (currentZoom < 14) 14.0 else currentZoom)
+                                                .build()
+                                            
+                                            map.animateCamera(
+                                                CameraUpdateFactory.newCameraPosition(newCameraPosition),
+                                                300
+                                            )
+                                            
+                                            coroutineScope.launch {
+                                                kotlinx.coroutines.delay(350)
+                                                selectedStopInfo = StopInfoState(
+                                                    stop = Stop(
+                                                        name = stopName,
+                                                        stopCode = "",
+                                                        order = "",
+                                                        coordinate = stopCoord
+                                                    ),
+                                                    lines = lines
+                                                )
+                                            }
+                                        }
+                                        
+                                        handled = true
                                     }
                                 }
                                 
@@ -309,6 +312,7 @@ actual fun MapView(
     }
 }
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun StopInfoWindow(
     stopInfo: StopInfoState,
@@ -324,78 +328,67 @@ fun StopInfoWindow(
             modifier = Modifier
                 .width(300.dp)
                 .padding(bottom = 200.dp)
-                .shadow(8.dp, RoundedCornerShape(12.dp))
+                .shadow(8.dp, RoundedCornerShape(16.dp))
                 .background(
-                    color = MaterialTheme.colorScheme.surface,
-                    shape = RoundedCornerShape(12.dp)
+                    color = ComposeColor(0xFF1565C0), // Nice blue background
+                    shape = RoundedCornerShape(16.dp)
                 )
-                .padding(16.dp)
+                .padding(20.dp)
                 .clickable(onClick = {}),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Row(
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(
-                    text = stopInfo.stop.name,
-                    style = MaterialTheme.typography.titleLarge,
-                    modifier = Modifier.weight(1f)
-                )
-                IconButton(
-                    onClick = onClose,
-                    modifier = Modifier.size(24.dp)
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.Close,
-                        contentDescription = "Close",
-                        tint = MaterialTheme.colorScheme.onSurface
-                    )
-                }
-            }
+            // Station name at top
+            Text(
+                text = stopInfo.stop.name,
+                style = MaterialTheme.typography.headlineSmall,
+                color = ComposeColor.White,
+                fontWeight = FontWeight.Bold
+            )
             
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(16.dp))
             
-            // Show lines if available (for combined stations)
+            // Show line badges if available
             if (stopInfo.lines.isNotEmpty()) {
-                Text(
-                    text = "Lines: ${formatLines(stopInfo.lines)}",
-                    style = MaterialTheme.typography.titleMedium,
-                    color = MaterialTheme.colorScheme.primary
-                )
-                Spacer(modifier = Modifier.height(8.dp))
-            }
-            
-            if (stopInfo.stop.stopCode.isNotEmpty()) {
-                Text(
-                    text = "Stop Code: ${stopInfo.stop.stopCode}",
-                    style = MaterialTheme.typography.bodyLarge,
-                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f)
-                )
-                Spacer(modifier = Modifier.height(4.dp))
-            }
-            
-            if (stopInfo.stop.order.isNotEmpty()) {
-                Text(
-                    text = "Order: ${stopInfo.stop.order}",
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
-                )
+                FlowRow(
+                    modifier = Modifier.padding(vertical = 4.dp),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    verticalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    stopInfo.lines.forEach { lineId ->
+                        LineBadge(lineId = lineId)
+                    }
+                }
             }
         }
     }
 }
 
-/**
- * Format line IDs for display (e.g., ["1", "2", "T6"] -> "M1, M2, T6")
- */
-private fun formatLines(lines: List<String>): String {
-    return lines.map { line ->
-        when {
-            line.toIntOrNull() != null -> "M$line"  // Metro lines
-            line.startsWith("T") -> line  // Tram lines
-            else -> line
-        }
-    }.joinToString(", ")
+@Composable
+fun LineBadge(lineId: String) {
+    val displayText = when {
+        lineId.toIntOrNull() != null -> "M$lineId"  // Metro lines
+        lineId.startsWith("T") -> lineId  // Tram lines already have T
+        else -> lineId
+    }
+    
+    val backgroundColor = getLineComposeColor(lineId)
+    
+    Box(
+        modifier = Modifier
+            .background(
+                color = backgroundColor,
+                shape = RoundedCornerShape(8.dp)
+            )
+            .padding(horizontal = 16.dp, vertical = 8.dp),
+        contentAlignment = Alignment.Center
+    ) {
+        Text(
+            text = displayText,
+            color = ComposeColor.White,
+            fontSize = 18.sp,
+            fontWeight = FontWeight.Bold
+        )
+    }
 }
 
 /**
