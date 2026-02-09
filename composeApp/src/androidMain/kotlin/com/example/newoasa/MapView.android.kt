@@ -614,8 +614,8 @@ private suspend fun displayTransitLine(
                         
                         // Calculate padding in pixels based on screen density
                         val density = context.resources.displayMetrics.density
-                        val horizontalPadding = (24 * density).toInt() // Reduced from 50dp to 24dp
-                        val verticalPadding = (32 * density).toInt()   // Reduced from 100dp to 32dp
+                        val horizontalPadding = (50 * density).toInt() // Increased from 24dp to 50dp
+                        val verticalPadding = (150 * density).toInt()  // Increased from 32dp to 150dp
 
                         // Move camera immediately to bounds with asymmetrical padding
                         map.moveCamera(
