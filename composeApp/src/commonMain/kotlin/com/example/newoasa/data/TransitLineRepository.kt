@@ -7,7 +7,7 @@ package com.example.newoasa.data
  * DO NOT EDIT MANUALLY!
  * Run scripts/generate_transit_repository.py to regenerate this file
  * 
- * Generated: 2026-02-09 15:23:51
+ * Generated: 2026-02-09 15:50:34
  * Total Lines: 291
  * Total Routes: 700
  */
