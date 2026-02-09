@@ -75,6 +75,29 @@ data class StopInfoState(
     val stop: Stop
 )
 
+/**
+ * Get the color for a transit line based on its category and line number
+ * Returns color in hex format (e.g., "#00734c")
+ */
+private fun getTransitLineColor(line: TransitLine): String {
+    return when {
+        line.isMetro -> when (line.lineNumber) {
+            "1" -> "#00734c" // Green
+            "2" -> "#e60000" // Red
+            "3" -> "#002673" // Blue
+            else -> "#e60000" // Default to red
+        }
+        line.isTram -> when (line.lineNumber.uppercase()) {
+            "T6" -> "#a7c636" // Lime green
+            "T7" -> "#b9348b" // Pink
+            else -> "#a7c636" // Default to lime green
+        }
+        line.isBus -> "#009cc7" // Cyan
+        line.isTrolley -> "#f07c00" // Orange
+        else -> "#009cc7" // Default to cyan
+    }
+}
+
 @Composable
 actual fun MapView(
     modifier: Modifier,
@@ -398,9 +421,8 @@ private suspend fun displayPersistentTransitLine(
             
             // Add sources and layers on main thread
             withContext(Dispatchers.Main) {
-                val lineColor = if (line.category.equals("metro", ignoreCase = true)) "#F44336"
-                               else if (line.category.equals("tram", ignoreCase = true)) "#4CAF50"
-                               else "#2196F3"
+                // Get line-specific color
+                val lineColor = getTransitLineColor(line)
                 
                 loadedGeoJsonData.forEach { (layerId, geoJsonString) ->
                     try {
@@ -603,11 +625,8 @@ private suspend fun displayTransitLine(
             
             // Now add all sources and layers on main thread sequentially
             withContext(Dispatchers.Main) {
-                // Add line color based on type
-                val lineColor = if (line.category.equals("metro", ignoreCase = true)) "#F44336" // Red for Metro
-                               else if (line.category.equals("tram", ignoreCase = true)) "#4CAF50" // Green for Tram
-                               else if (line.isBus) "#2196F3" // Blue for Bus
-                               else "#9C27B0" // Purple for Trolley
+                // Get line-specific color
+                val lineColor = getTransitLineColor(line)
                 
                 // Add route lines
                 loadedGeoJsonData.forEach { (index, geoJsonString) ->
@@ -685,8 +704,7 @@ private suspend fun displayTransitLine(
                                 PropertyFactory.textSize(12f),
                                 PropertyFactory.textOffset(arrayOf(0f, 1.5f)),
                                 PropertyFactory.textAnchor("top"),
-                                // FIX: Ensure both branches return Int for textColor
-                                PropertyFactory.textColor(if (line.category == "metro") Color.parseColor(lineColor) else Color.BLACK), 
+                                PropertyFactory.textColor(Color.parseColor(lineColor)), 
                                 PropertyFactory.textHaloColor(Color.WHITE),
                                 PropertyFactory.textHaloWidth(1f)
                             )
