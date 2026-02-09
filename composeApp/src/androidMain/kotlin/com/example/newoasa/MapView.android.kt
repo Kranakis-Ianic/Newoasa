@@ -61,6 +61,7 @@ import org.maplibre.geojson.FeatureCollection
 import org.maplibre.geojson.Point
 import org.maplibre.android.style.layers.SymbolLayer
 import newoasa.composeapp.generated.resources.Res
+import androidx.compose.ui.unit.dp
 
 data class Stop(
     val name: String,
