@@ -39,6 +39,7 @@ import androidx.compose.ui.viewinterop.AndroidView
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import com.example.newoasa.data.TransitLine
+import com.example.newoasa.data.TransitLineRepository
 import com.google.gson.JsonObject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -85,6 +86,7 @@ actual fun MapView(
     val lifecycleOwner = LocalLifecycleOwner.current
     val coroutineScope = rememberCoroutineScope()
     var isMapReady by remember { mutableStateOf(false) }
+    var baseLinesLoaded by remember { mutableStateOf(false) }
     var currentDisplayedLine by remember { mutableStateOf<TransitLine?>(null) }
     var allStopsMap by remember { mutableStateOf<Map<String, Stop>>(emptyMap()) }
     var selectedStopInfo by remember { mutableStateOf<StopInfoState?>(null) }
@@ -121,6 +123,30 @@ actual fun MapView(
         lifecycleOwner.lifecycle.addObserver(observer)
         onDispose {
             lifecycleOwner.lifecycle.removeObserver(observer)
+        }
+    }
+
+    // Load base transit lines (metro and tram) after map is ready
+    LaunchedEffect(isMapReady) {
+        if (isMapReady && !baseLinesLoaded) {
+            mapView.getMapAsync { map ->
+                coroutineScope.launch {
+                    // Load all metro lines
+                    val metroLines = TransitLineRepository.getMetroLines()
+                    metroLines.forEach { metroLine ->
+                        displayPersistentTransitLine(map, metroLine, context, "metro")
+                    }
+                    
+                    // Load all tram lines
+                    val tramLines = TransitLineRepository.getTramLines()
+                    tramLines.forEach { tramLine ->
+                        displayPersistentTransitLine(map, tramLine, context, "tram")
+                    }
+                    
+                    baseLinesLoaded = true
+                    println("Base transit lines loaded: ${metroLines.size} metro + ${tramLines.size} tram")
+                }
+            }
         }
     }
 
@@ -303,6 +329,104 @@ fun StopInfoWindow(
     }
 }
 
+/**
+ * Display a persistent transit line (metro or tram) that stays on the map
+ * Uses unique layer IDs to prevent removal when switching between other lines
+ */
+@OptIn(ExperimentalResourceApi::class)
+private suspend fun displayPersistentTransitLine(
+    map: MapLibreMap,
+    line: TransitLine,
+    context: android.content.Context,
+    prefix: String
+) = withContext(Dispatchers.Main) {
+    map.getStyle { style ->
+        val allCoordinates = mutableListOf<LatLng>()
+        val loadedGeoJsonData = mutableListOf<Pair<String, String>>() // layerId to geoJson
+        
+        // Load all GeoJSON files in IO dispatcher
+        kotlinx.coroutines.CoroutineScope(Dispatchers.IO).launch {
+            line.routePaths.forEachIndexed { index, path ->
+                try {
+                    val geoJsonString = loadGeoJsonFromResources(path)
+                    
+                    if (geoJsonString.isBlank() || geoJsonString == "{}") {
+                        return@forEachIndexed
+                    }
+                    
+                    val geoJson = JSONObject(geoJsonString)
+                    val features = geoJson.optJSONArray("features")
+                    
+                    if (features != null) {
+                        for (i in 0 until features.length()) {
+                            val feature = features.getJSONObject(i)
+                            val geometry = feature.optJSONObject("geometry")
+                            val geometryType = geometry?.optString("type")
+                            
+                            if (geometryType == "LineString" || geometryType == "MultiLineString") {
+                                val coords = geometry.optJSONArray("coordinates")
+                                coords?.let {
+                                    if (geometryType == "LineString") {
+                                        for (j in 0 until it.length()) {
+                                            val coord = it.getJSONArray(j)
+                                            allCoordinates.add(LatLng(coord.getDouble(1), coord.getDouble(0)))
+                                        }
+                                    } else if (geometryType == "MultiLineString") {
+                                        for (k in 0 until it.length()) {
+                                            val lineString = it.getJSONArray(k)
+                                            for (j in 0 until lineString.length()) {
+                                                val coord = lineString.getJSONArray(j)
+                                                allCoordinates.add(LatLng(coord.getDouble(1), coord.getDouble(0)))
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                    val routeOnlyGeoJson = extractRoutePathOnly(geoJson)
+                    if (routeOnlyGeoJson != "{}") {
+                        // Use unique layer ID with prefix
+                        val layerId = "${prefix}-${line.lineNumber}-$index"
+                        loadedGeoJsonData.add(layerId to routeOnlyGeoJson)
+                    }
+                } catch (e: Exception) {
+                    println("Error loading persistent route $path: ${e.message}")
+                }
+            }
+            
+            // Add sources and layers on main thread
+            withContext(Dispatchers.Main) {
+                val lineColor = if (line.category.equals("metro", ignoreCase = true)) "#F44336"
+                               else if (line.category.equals("tram", ignoreCase = true)) "#4CAF50"
+                               else "#2196F3"
+                
+                loadedGeoJsonData.forEach { (layerId, geoJsonString) ->
+                    try {
+                        val sourceId = "source-$layerId"
+                        
+                        // Check if source already exists
+                        if (style.getSource(sourceId) == null) {
+                            val source = GeoJsonSource(sourceId, geoJsonString)
+                            style.addSource(source)
+                            
+                            val lineLayer = LineLayer(layerId, sourceId).withProperties(
+                                PropertyFactory.lineColor(lineColor),
+                                PropertyFactory.lineWidth(4f),
+                                PropertyFactory.lineOpacity(0.8f)
+                            )
+                            style.addLayer(lineLayer)
+                        }
+                    } catch (e: Exception) {
+                        println("Error adding persistent layer: ${e.message}")
+                    }
+                }
+            }
+        }
+    }
+}
+
 @OptIn(ExperimentalResourceApi::class)
 private suspend fun displayTransitLine(
     map: MapLibreMap,
@@ -312,10 +436,11 @@ private suspend fun displayTransitLine(
     var stopsMap = emptyMap<String, Stop>()
     
     map.getStyle { style ->
-        // Remove ALL previous transit line layers and sources
+        // Remove ONLY temporary transit line layers (not metro/tram base layers)
         for (i in 0 until 50) {
             try {
-                style.getLayer("transit-line-layer-$i")?.let { 
+                val layerId = "transit-line-layer-$i"
+                style.getLayer(layerId)?.let { 
                     style.removeLayer(it)
                 }
             } catch (e: Exception) {
@@ -323,7 +448,8 @@ private suspend fun displayTransitLine(
             }
             
             try {
-                style.getSource("transit-line-source-$i")?.let { 
+                val sourceId = "transit-line-source-$i"
+                style.getSource(sourceId)?.let { 
                     style.removeSource(it)
                 }
             } catch (e: Exception) {
@@ -640,4 +766,25 @@ private suspend fun loadGeoJsonFromResources(path: String): String {
         e.printStackTrace()
         "{}" // Return empty GeoJSON on error
     }
+}
+
+private fun createPinBitmap(color: Int): Bitmap {
+    val size = 48
+    val bitmap = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888)
+    val canvas = Canvas(bitmap)
+    val paint = Paint().apply {
+        isAntiAlias = true
+    }
+    
+    // Draw pin shape (circle)
+    paint.color = color
+    canvas.drawCircle(size / 2f, size / 2f, size / 3f, paint)
+    
+    // Draw white border
+    paint.style = Paint.Style.STROKE
+    paint.strokeWidth = 3f
+    paint.color = Color.WHITE
+    canvas.drawCircle(size / 2f, size / 2f, size / 3f, paint)
+    
+    return bitmap
 }
