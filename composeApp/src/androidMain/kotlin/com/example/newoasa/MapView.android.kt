@@ -612,25 +612,29 @@ private suspend fun displayTransitLine(
                         map.setMinZoomPreference(1.0)
                         map.setMaxZoomPreference(18.0)
                         
-                        // Set specific map padding to reserve space for UI overlays
+                        // Clear previous explicit padding on the map instance to avoid conflicts
+                        map.setPadding(0, 0, 0, 0)
+                        
+                        // Calculate explicit padding in pixels
                         val density = context.resources.displayMetrics.density
-                        val topOverlay = (120 * density).toInt()     // Reserve top 120dp for search bar
-                        val bottomOverlay = (120 * density).toInt()  // Reserve bottom 120dp for nav/sheet
+                        val horizontalPadding = (50 * density).toInt() 
+                        val topPadding = (200 * density).toInt()     // Increased to 200dp
+                        val bottomPadding = (200 * density).toInt()  // Increased to 200dp
                         
-                        // Apply the padding to the map viewport
-                        map.setPadding(0, topOverlay, 0, bottomOverlay)
-                        
-                        // Add a little extra padding for the content itself within the safe area
-                        val contentPadding = (32 * density).toInt()
+                        // Add delay to ensure layout is measured
+                        kotlinx.coroutines.delay(200)
 
-                        // Move camera immediately to bounds respecting the map padding
+                        // Move camera using explicitly defined padding for all 4 sides
                         map.moveCamera(
                             CameraUpdateFactory.newLatLngBounds(
                                 bounds, 
-                                contentPadding
+                                horizontalPadding, 
+                                topPadding, 
+                                horizontalPadding, 
+                                bottomPadding
                             )
                         )
-                        println("Camera moved to show all routes with viewport padding")
+                        println("Camera moved with explicit padding: Top=$topPadding, Bottom=$bottomPadding")
                     } catch (e: Exception) {
                         println("Error animating camera: ${e.message}")
                         e.printStackTrace()
