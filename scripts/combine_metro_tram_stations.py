@@ -60,16 +60,23 @@ def load_stops_from_geojson(file_path: Path, line_id: str, category: str) -> Lis
             properties = feature.get('properties', {})
             
             # Check if this is a stop (Point geometry)
-            # Metro/Tram stations have 'q2wHide_layer' property
-            layer = properties.get('q2wHide_layer', '')
-            if geometry.get('type') == 'Point' and 'ΣΤΑΣΕΙΣ' in layer:
+            # All Point features in these files are stations
+            if geometry.get('type') == 'Point':
                 coords = geometry.get('coordinates', [])
                 if len(coords) >= 2:
-                    # Try different name properties
-                    name = properties.get('NAME') or properties.get('STATHMOI') or properties.get('name') or 'Unknown'
+                    # Try different name properties (prioritize Greek name)
+                    name = (
+                        properties.get('name_gr') or 
+                        properties.get('NAME') or 
+                        properties.get('STATHMOI') or 
+                        properties.get('name_en') or
+                        properties.get('name') or 
+                        'Unknown'
+                    )
                     
                     stop = {
                         'name': name,
+                        'name_en': properties.get('name_en', ''),
                         'stop_code': properties.get('stop_code', ''),
                         'order': properties.get('order', ''),
                         'longitude': coords[0],
@@ -139,6 +146,7 @@ def combine_nearby_stations(stops: List[Dict]) -> List[Dict]:
         # Start a new combined station
         station = {
             'name': stop1['name'],
+            'name_en': stop1['name_en'],
             'stop_codes': {stop1['stop_code']} if stop1['stop_code'] else set(),
             'latitude': stop1['latitude'],
             'longitude': stop1['longitude'],
@@ -172,9 +180,10 @@ def combine_nearby_stations(stops: List[Dict]) -> List[Dict]:
                 coords_sum_lon += stop2['longitude']
                 count += 1
                 
-                # Update name to the most common or longest
+                # Update name to the longest one
                 if len(stop2['name']) > len(station['name']):
                     station['name'] = stop2['name']
+                    station['name_en'] = stop2['name_en']
         
         # Average the coordinates for combined station
         station['latitude'] = coords_sum_lat / count
@@ -214,6 +223,7 @@ def generate_geojson_output(stations: List[Dict]) -> Dict:
             },
             'properties': {
                 'name': station['name'],
+                'name_en': station['name_en'],
                 'stop_codes': station['stop_codes'],
                 'lines': station['lines'],
                 'categories': station['categories']
@@ -253,6 +263,7 @@ import org.maplibre.android.geometry.LatLng
  */
 data class CombinedStation(
     val name: String,
+    val nameEn: String,
     val stopCodes: List<String>,
     val coordinate: LatLng,
     val lines: List<String>,  // e.g., ["1", "2"] for metro lines or ["T6", "T7"] for tram
@@ -289,6 +300,7 @@ object CombinedStationsRepository {{
         
         kotlin_code += f'''        CombinedStation(
             name = "{station['name']}",
+            nameEn = "{station['name_en']}",
             stopCodes = listOf({', '.join(f'"{code}"' for code in station['stop_codes'])}),
             coordinate = LatLng({station['latitude']}, {station['longitude']}),
             lines = listOf({', '.join(f'"{line}"' for line in station['lines'])}),
