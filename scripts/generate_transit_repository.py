@@ -15,6 +15,7 @@ Requirements:
 
 import os
 import re
+import json
 from pathlib import Path
 from datetime import datetime
 from typing import List, Dict, Tuple
@@ -32,7 +33,7 @@ class TransitLineData:
     def _extract_route_ids(self) -> List[str]:
         """Extract route IDs from filenames (e.g., route_3494.geojson -> 3494)"""
         route_ids = []
-        pattern = re.compile(r'route_(\d+)\.geojson')
+        pattern = re.compile(r'route_(\w+)\.geojson') # Updated regex to support alphanumeric IDs like T6
         
         for filename in self.route_files:
             match = pattern.match(filename)
@@ -65,6 +66,76 @@ class RepositoryGenerator:
         self.geojson_path = self.base_path / "composeApp" / "src" / "commonMain" / "composeResources" / "files" / "geojson"
         self.output_path = self.base_path / "composeApp" / "src" / "commonMain" / "kotlin" / "com" / "example" / "newoasa" / "data" / "TransitLineRepository.kt"
         self.transit_lines: List[TransitLineData] = []
+
+    def create_sample_data_if_missing(self):
+        """Create sample metro and tram data if they don't exist"""
+        print("🛠️  Checking for missing metro/tram data...")
+        
+        # Define sample data
+        sample_data = {
+            "metro": {
+                "1": {
+                    "color": "007A33", # Green
+                    "coordinates": [[23.642, 37.947], [23.808, 38.073]] # Piraeus -> Kifissia
+                },
+                "2": {
+                    "color": "DA291C", # Red
+                    "coordinates": [
+                        [23.691, 38.017], # Anthoupoli
+                        [23.736, 37.975], # Syntagma
+                        [23.747, 37.893]  # Elliniko
+                    ]
+                },
+                "3": {
+                    "color": "0057B8", # Blue
+                    "coordinates": [[23.647, 37.943], [23.945, 37.936]] # Dimotiko Theatro -> Airport
+                }
+            },
+            "tram": {
+                "T6": {
+                    "color": "51A344", # Greenish
+                    "coordinates": [[23.735, 37.975], [23.718, 37.915]] # Syntagma -> Pikropa
+                },
+                "T7": {
+                    "color": "51A344",
+                    "coordinates": [[23.642, 37.947], [23.766, 37.839]] # Piraeus -> Voula
+                }
+            }
+        }
+        
+        for category, lines in sample_data.items():
+            category_path = self.geojson_path / category
+            
+            # Check if category exists and has subdirectories
+            has_data = category_path.exists() and any(d.is_dir() for d in category_path.iterdir() if category_path.exists())
+            
+            if not has_data:
+                print(f"   ✨ Creating sample {category} data...")
+                category_path.mkdir(parents=True, exist_ok=True)
+                
+                for line_id, data in lines.items():
+                    line_dir = category_path / line_id
+                    line_dir.mkdir(exist_ok=True)
+                    
+                    geojson_content = {
+                        "type": "FeatureCollection",
+                        "features": [
+                            {
+                                "type": "Feature",
+                                "properties": {"color": data["color"]},
+                                "geometry": {
+                                    "type": "LineString",
+                                    "coordinates": data["coordinates"]
+                                }
+                            }
+                        ]
+                    }
+                    
+                    file_path = line_dir / f"route_{line_id}.geojson"
+                    with open(file_path, 'w') as f:
+                        json.dump(geojson_content, f, indent=2)
+            else:
+                print(f"   ✅ {category} data found.")
     
     def scan_geojson_folders(self):
         """Scan the geojson folder structure and collect transit line data"""
@@ -81,7 +152,13 @@ class RepositoryGenerator:
             
             # Get all line folders
             line_folders = [d for d in category_path.iterdir() if d.is_dir()]
-            line_folders.sort(key=lambda x: x.name)
+            
+            # Sort naturally (so 2 comes before 10)
+            def natural_sort_key(s):
+                return [int(text) if text.isdigit() else text.lower()
+                        for text in re.split('([0-9]+)', s.name)]
+            
+            line_folders.sort(key=natural_sort_key)
             
             print(f"   Found {len(line_folders)} {category} lines")
             
@@ -280,6 +357,9 @@ data class RepositoryStats(
         print("Transit Line Repository Generator")
         print("="*60)
         print()
+        
+        # Create sample data if missing
+        self.create_sample_data_if_missing()
         
         # Scan folders
         self.scan_geojson_folders()
