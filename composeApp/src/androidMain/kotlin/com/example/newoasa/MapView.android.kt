@@ -4,31 +4,24 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
-import android.view.Gravity
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.FloatingActionButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.SmallFloatingActionButton
 import androidx.compose.material3.Text
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Close
-import androidx.compose.material.icons.filled.Remove
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
@@ -41,9 +34,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalLifecycleOwner
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
@@ -187,7 +178,7 @@ actual fun MapView(
                                             val currentZoom = map.cameraPosition.zoom
                                             val newCameraPosition = CameraPosition.Builder()
                                                 .target(stopCoord)
-                                                .zoom(currentZoom)
+                                                .zoom(if (currentZoom < 14) 14.0 else currentZoom) // Zoom in slightly if too far out
                                                 .build()
                                             
                                             map.animateCamera(
@@ -227,62 +218,13 @@ actual fun MapView(
                             .zoom(12.0)
                             .build()
                             
-                        // Disable attribution and logo, Enable Compass, Disable Tilt
+                        // Disable attribution and logo
                         map.uiSettings.isAttributionEnabled = false
                         map.uiSettings.isLogoEnabled = false
-                        map.uiSettings.isCompassEnabled = true
-                        map.uiSettings.compassGravity = Gravity.TOP or Gravity.START // Move compass to top left
-                        val density = context.resources.displayMetrics.density
-                        val marginPx = (16 * density).toInt()
-                        map.uiSettings.setCompassMargins(marginPx, marginPx, 0, 0)
-                        map.uiSettings.isTiltGesturesEnabled = false
                     }
                 }
             }
         )
-        
-        // Zoom Controls - Connected, Bottom Right
-        Column(
-            modifier = Modifier
-                .align(Alignment.BottomEnd)
-                .padding(bottom = 32.dp, end = 16.dp)
-                .shadow(4.dp, RoundedCornerShape(8.dp))
-                .background(MaterialTheme.colorScheme.surface, RoundedCornerShape(8.dp))
-                .width(40.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            // Zoom In
-            IconButton(
-                onClick = { mapLibreInstance?.animateCamera(CameraUpdateFactory.zoomIn()) },
-                modifier = Modifier.size(40.dp)
-            ) {
-                Icon(
-                    Icons.Default.Add, 
-                    contentDescription = "Zoom In", 
-                    tint = MaterialTheme.colorScheme.onSurface
-                )
-            }
-            
-            // Divider
-            Box(
-                modifier = Modifier
-                    .height(1.dp)
-                    .width(20.dp)
-                    .background(MaterialTheme.colorScheme.onSurface.copy(alpha = 0.1f))
-            )
-            
-            // Zoom Out
-            IconButton(
-                onClick = { mapLibreInstance?.animateCamera(CameraUpdateFactory.zoomOut()) },
-                modifier = Modifier.size(40.dp)
-            ) {
-                Icon(
-                    Icons.Default.Remove, 
-                    contentDescription = "Zoom Out", 
-                    tint = MaterialTheme.colorScheme.onSurface
-                )
-            }
-        }
         
         // Info window overlay - centered on screen, above center point
         selectedStopInfo?.let { info ->
@@ -398,7 +340,15 @@ private suspend fun displayTransitLine(
         }
         
         try {
-            style.getLayer("transit-stops-layer")?.let { 
+            style.getLayer("transit-stops-labels-layer")?.let { 
+                style.removeLayer(it)
+            }
+        } catch (e: Exception) {
+            // Ignore
+        }
+
+        try {
+            style.getLayer("transit-stops-dots-layer")?.let { 
                 style.removeLayer(it)
             }
         } catch (e: Exception) {
@@ -409,13 +359,6 @@ private suspend fun displayTransitLine(
             style.getSource("transit-stops-source")?.let { 
                 style.removeSource(it)
             }
-        } catch (e: Exception) {
-            // Ignore
-        }
-        
-        // Remove the stop pin image if it exists
-        try {
-            style.removeImage("stop-pin")
         } catch (e: Exception) {
             // Ignore
         }
@@ -514,7 +457,14 @@ private suspend fun displayTransitLine(
             // Now add all sources and layers on main thread sequentially
             withContext(Dispatchers.Main) {
                 // Add line color based on type
-                val lineColor = if (line.isBus) "#2196F3" else "#9C27B0" // Blue for buses, Purple for trolleys
+                val lineColor = when {
+                    line.category == "metro" && line.lineNumber == "1" -> "#007A33" // Green
+                    line.category == "metro" && line.lineNumber == "2" -> "#DA291C" // Red
+                    line.category == "metro" && line.lineNumber == "3" -> "#0057B8" // Blue
+                    line.category == "tram" -> "#D60C8C" // Pink
+                    line.isBus -> "#2196F3"
+                    else -> "#9C27B0"
+                }
                 
                 // Add route lines
                 loadedGeoJsonData.forEach { (index, geoJsonString) ->
@@ -525,7 +475,6 @@ private suspend fun displayTransitLine(
                         // Add source
                         val source = GeoJsonSource(sourceId, geoJsonString)
                         style.addSource(source)
-                        println("Added source: $sourceId")
                         
                         // Add line layer
                         val lineLayer = LineLayer(layerId, sourceId).withProperties(
@@ -534,10 +483,8 @@ private suspend fun displayTransitLine(
                             PropertyFactory.lineOpacity(0.8f)
                         )
                         style.addLayer(lineLayer)
-                        println("Added layer: $layerId")
                         
                     } catch (e: Exception) {
-                        println("Error adding source/layer for index $index: ${e.message}")
                         e.printStackTrace()
                     }
                 }
@@ -545,13 +492,6 @@ private suspend fun displayTransitLine(
                 // Add stops as markers
                 if (allStops.isNotEmpty()) {
                     try {
-                        // Create pin marker bitmap (bigger size)
-                        val pinBitmap = createPinBitmap(
-                            if (line.isBus) Color.parseColor("#2196F3") else Color.parseColor("#9C27B0")
-                        )
-                        style.addImage("stop-pin", pinBitmap)
-                        println("Added pin image to style")
-                        
                         // Create GeoJSON features for stops with properties
                         val stopFeatures = allStops.map { stop ->
                             val properties = JsonObject()
@@ -570,29 +510,39 @@ private suspend fun displayTransitLine(
                         // Add stops source
                         val stopsSource = GeoJsonSource("transit-stops-source", featureCollection)
                         style.addSource(stopsSource)
-                        println("Added stops source with ${allStops.size} stops")
                         
-                        // Add invisible hit area layer FIRST (larger clickable area)
+                        // 1. Add invisible hit area layer (for clicking)
                         val hitAreaLayer = CircleLayer("transit-stops-hit-area", "transit-stops-source")
                             .withProperties(
-                                PropertyFactory.circleRadius(80f), // Very large hit area (80 pixels radius)
-                                PropertyFactory.circleColor(Color.TRANSPARENT), // Invisible
-                                PropertyFactory.circleOpacity(0f) // Completely transparent
+                                PropertyFactory.circleRadius(15f), // Clickable radius
+                                PropertyFactory.circleColor(Color.TRANSPARENT),
+                                PropertyFactory.circleOpacity(0f)
                             )
                         style.addLayer(hitAreaLayer)
-                        println("Added hit area layer with 80px radius")
                         
-                        // Add visible stops layer SECOND (on top of hit area)
-                        val stopsLayer = SymbolLayer("transit-stops-layer", "transit-stops-source")
+                        // 2. Add visible dots layer (CircleLayer)
+                        val stopsLayer = CircleLayer("transit-stops-dots-layer", "transit-stops-source")
                             .withProperties(
-                                PropertyFactory.iconImage("stop-pin"),
-                                PropertyFactory.iconSize(0.8f),
-                                PropertyFactory.iconAllowOverlap(true),
-                                PropertyFactory.iconIgnorePlacement(true),
-                                PropertyFactory.iconAnchor("bottom")
+                                PropertyFactory.circleRadius(5f),
+                                PropertyFactory.circleColor(Color.WHITE),
+                                PropertyFactory.circleStrokeWidth(2f),
+                                PropertyFactory.circleStrokeColor(lineColor)
                             )
                         style.addLayer(stopsLayer)
-                        println("Added stops layer with ${allStops.size} stops")
+
+                        // 3. Add labels layer (SymbolLayer) - visible only when zoomed in
+                        val labelsLayer = SymbolLayer("transit-stops-labels-layer", "transit-stops-source")
+                            .withProperties(
+                                PropertyFactory.textField("{name}"),
+                                PropertyFactory.textSize(12f),
+                                PropertyFactory.textOffset(arrayOf(0f, 1.5f)),
+                                PropertyFactory.textAnchor("top"),
+                                PropertyFactory.textColor(if (line.category == "metro") lineColor else Color.BLACK), // Use line color for metro station names
+                                PropertyFactory.textHaloColor(Color.WHITE),
+                                PropertyFactory.textHaloWidth(1f)
+                            )
+                        labelsLayer.minZoom = 14f // Only show labels when zoomed in
+                        style.addLayer(labelsLayer)
                         
                     } catch (e: Exception) {
                         println("Error adding stops: ${e.message}")
@@ -606,32 +556,13 @@ private suspend fun displayTransitLine(
                         val boundsBuilder = LatLngBounds.Builder()
                         allCoordinates.forEach { boundsBuilder.include(it) }
                         val bounds = boundsBuilder.build()
-
-                        // Set reasonable zoom limits
-                        // Lower min zoom to ensure large routes fit completely
-                        map.setMinZoomPreference(1.0)
-                        map.setMaxZoomPreference(18.0)
                         
-                        // Calculate explicit padding in pixels
-                        val density = context.resources.displayMetrics.density
-                        val horizontalPadding = (32 * density).toInt() 
-                        val topPadding = (100 * density).toInt()     // Reduced to 100dp
-                        val bottomPadding = (100 * density).toInt()  // Reduced to 100dp
-                        
-                        // Add delay to ensure layout is measured
-                        kotlinx.coroutines.delay(200)
-
-                        // Move camera using explicitly defined padding for all 4 sides
-                        map.moveCamera(
-                            CameraUpdateFactory.newLatLngBounds(
-                                bounds, 
-                                horizontalPadding, 
-                                topPadding, 
-                                horizontalPadding, 
-                                bottomPadding
-                            )
+                        // Animate to bounds with padding
+                        map.animateCamera(
+                            CameraUpdateFactory.newLatLngBounds(bounds, 100),
+                            1000 // 1 second animation
                         )
-                        println("Camera moved with explicit padding: Top=$topPadding, Bottom=$bottomPadding")
+                        println("Camera animated to show all routes")
                     } catch (e: Exception) {
                         println("Error animating camera: ${e.message}")
                         e.printStackTrace()
@@ -658,7 +589,7 @@ private fun extractRoutePathOnly(geoJson: JSONObject): String {
                 
                 if (featureType == "route_path") {
                     // Return just this feature as a FeatureCollection
-                    return """{"type":"FeatureCollection","features":[${feature}]}"""
+                    return """{"type":"FeatureCollection","features":[$feature]}"""
                 }
             }
         }
@@ -667,39 +598,6 @@ private fun extractRoutePathOnly(geoJson: JSONObject): String {
         e.printStackTrace()
         "{}"
     }
-}
-
-/**
- * Create a custom pin marker bitmap
- */
-private fun createPinBitmap(color: Int): Bitmap {
-    val size = 120
-    val bitmap = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888)
-    val canvas = Canvas(bitmap)
-    
-    val paint = Paint().apply {
-        this.color = color
-        isAntiAlias = true
-        style = Paint.Style.FILL
-    }
-    
-    // Draw circle (top part of pin)
-    val circleRadius = size / 3f
-    canvas.drawCircle(size / 2f, circleRadius, circleRadius, paint)
-    
-    // Draw triangle (bottom part of pin)
-    val path = android.graphics.Path()
-    path.moveTo(size / 2f - circleRadius * 0.6f, circleRadius * 1.5f)
-    path.lineTo(size / 2f + circleRadius * 0.6f, circleRadius * 1.5f)
-    path.lineTo(size / 2f, size * 0.85f)
-    path.close()
-    canvas.drawPath(path, paint)
-    
-    // Draw white inner circle
-    paint.color = Color.WHITE
-    canvas.drawCircle(size / 2f, circleRadius, circleRadius * 0.5f, paint)
-    
-    return bitmap
 }
 
 @OptIn(ExperimentalResourceApi::class)
