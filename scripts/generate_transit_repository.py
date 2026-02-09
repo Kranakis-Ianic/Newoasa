@@ -17,37 +17,72 @@ import os
 import re
 from pathlib import Path
 from datetime import datetime
-from typing import List, Dict, Tuple
+from typing import List, Dict, Tuple, Optional
 
 
 class TransitLineData:
     """Represents a single transit line with its routes"""
     
-    def __init__(self, line_number: str, category: str, route_files: List[str]):
+    def __init__(self, line_number: str, category: str, route_files: List[str], is_flat: bool = False):
         self.line_number = line_number
         self.category = category
         self.route_files = sorted(route_files)
+        self.is_flat = is_flat
         self.route_ids = self._extract_route_ids()
     
     def _extract_route_ids(self) -> List[str]:
-        """Extract route IDs from filenames (e.g., route_3494.geojson -> 3494)"""
+        """Extract route IDs"""
         route_ids = []
-        pattern = re.compile(r'route_(\d+)\.geojson')
         
-        for filename in self.route_files:
-            match = pattern.match(filename)
-            if match:
-                route_ids.append(match.group(1))
-        
+        if self.is_flat:
+            # For flat structure (Metro/Tram), we usually just have one route per file/line
+            # We can use the line number or just "main" as the ID since there's typically one file
+            # But based on the file naming (metro_line_1.geojson), the ID is implicitly the line itself.
+            # Let's generate a simple ID "1" or similar if multiple files existed, but for now just "main" or the line number.
+            # Actually, looking at the previous logic, it extracted IDs from "route_3494.geojson".
+            # For "metro_line_1.geojson", the file IS the route. 
+            # Let's use "main" as a default route ID for these single-file lines.
+            return ["main"]
+        else:
+            # Nested structure: route_3494.geojson -> 3494
+            pattern = re.compile(r'route_(\d+)\.geojson')
+            for filename in self.route_files:
+                match = pattern.match(filename)
+                if match:
+                    route_ids.append(match.group(1))
+            
         return route_ids
     
     def to_kotlin_code(self) -> str:
         """Generate Kotlin code for this transit line"""
         route_ids_str = ', '.join(f'"{rid}"' for rid in self.route_ids)
-        route_paths_str = ', '.join(
-            f'"files/geojson/{self.category}/{self.line_number}/{rf}"' 
-            for rf in self.route_files
-        )
+        
+        if self.is_flat:
+            # Flat structure path: files/geojson/Metro/metro_line_1.geojson
+            # category in Kotlin is lowercase ("metro"), but folder is "Metro"
+            # We need to preserve the actual file path.
+            # However, the Kotlin TransitLine class expects a "category" field.
+            # We should probably pass the folder name or handle the path construction carefully.
+            
+            # Let's reconstruct the correct path based on the category directory mapping known by the generator
+            # But here we only store 'category' string (e.g. "metro").
+            # We need to know the source folder name.
+            
+            # To simplify, we'll store the relative path in the object or construct it here.
+            # But wait, self.route_files contains just filenames.
+            
+            folder_name = "Metro" if self.category == "metro" else "Tram" if self.category == "tram" else self.category
+            
+            route_paths_str = ', '.join(
+                f'"files/geojson/{folder_name}/{rf}"' 
+                for rf in self.route_files
+            )
+        else:
+            # Nested structure path: files/geojson/buses/022/route_123.geojson
+            route_paths_str = ', '.join(
+                f'"files/geojson/{self.category}/{self.line_number}/{rf}"' 
+                for rf in self.route_files
+            )
         
         return f'''        TransitLine(
             lineNumber = "{self.line_number}",
@@ -70,31 +105,74 @@ class RepositoryGenerator:
         """Scan the geojson folder structure and collect transit line data"""
         print("🔍 Scanning GeoJSON folders...")
         
-        categories = ["buses", "trolleys"]
+        # Configuration for categories: (kotlin_category_name, folder_name, is_flat)
+        category_config = [
+            ("buses", "buses", False),
+            ("trolleys", "trolleys", False),
+            ("metro", "Metro", True),
+            ("tram", "Tram", True)
+        ]
         
-        for category in categories:
-            category_path = self.geojson_path / category
+        for category_name, folder_name, is_flat in category_config:
+            category_path = self.geojson_path / folder_name
             
             if not category_path.exists():
                 print(f"   ⚠️  Category directory not found: {category_path}")
                 continue
             
-            # Get all line folders
-            line_folders = [d for d in category_path.iterdir() if d.is_dir()]
-            line_folders.sort(key=lambda x: x.name)
-            
-            print(f"   Found {len(line_folders)} {category} lines")
-            
-            for line_folder in line_folders:
-                line_number = line_folder.name
+            if is_flat:
+                # Flat structure: Scan files directly in the category folder
+                print(f"   Scanning flat directory: {folder_name}")
                 
-                # Get all .geojson files
-                route_files = [f.name for f in line_folder.iterdir() 
-                              if f.is_file() and f.name.endswith('.geojson')]
+                # Regex to match files like "metro_line_1.geojson" or "tram_line_T6.geojson"
+                # We capture the line number from the filename
+                file_pattern = re.compile(rf'{category_name}_line_(\w+)\.geojson', re.IGNORECASE)
                 
-                if route_files:
-                    transit_line = TransitLineData(line_number, category, route_files)
+                found_files = []
+                for f in category_path.iterdir():
+                    if f.is_file() and f.name.endswith('.geojson'):
+                        match = file_pattern.match(f.name)
+                        if match:
+                            line_number = match.group(1)
+                            found_files.append((line_number, f.name))
+                
+                # Sort by line number (natural sort)
+                def natural_sort_key(item):
+                    s = item[0]
+                    return [int(text) if text.isdigit() else text.lower()
+                            for text in re.split('([0-9]+)', s)]
+                            
+                found_files.sort(key=natural_sort_key)
+                print(f"   Found {len(found_files)} {category_name} lines")
+                
+                for line_number, filename in found_files:
+                    transit_line = TransitLineData(line_number, category_name, [filename], is_flat=True)
                     self.transit_lines.append(transit_line)
+                    
+            else:
+                # Nested structure: Scan subdirectories (one per line)
+                # Get all line folders
+                line_folders = [d for d in category_path.iterdir() if d.is_dir()]
+                
+                # Sort naturally
+                def natural_sort_key_folder(f):
+                    return [int(text) if text.isdigit() else text.lower()
+                            for text in re.split('([0-9]+)', f.name)]
+                            
+                line_folders.sort(key=natural_sort_key_folder)
+                
+                print(f"   Found {len(line_folders)} {category_name} lines")
+                
+                for line_folder in line_folders:
+                    line_number = line_folder.name
+                    
+                    # Get all .geojson files
+                    route_files = [f.name for f in line_folder.iterdir() 
+                                  if f.is_file() and f.name.endswith('.geojson')]
+                    
+                    if route_files:
+                        transit_line = TransitLineData(line_number, category_name, route_files, is_flat=False)
+                        self.transit_lines.append(transit_line)
     
     def generate_kotlin_code(self) -> str:
         """Generate the complete Kotlin repository code"""
@@ -102,6 +180,8 @@ class RepositoryGenerator:
         total_lines = len(self.transit_lines)
         bus_lines = sum(1 for line in self.transit_lines if line.category == "buses")
         trolley_lines = sum(1 for line in self.transit_lines if line.category == "trolleys")
+        metro_lines = sum(1 for line in self.transit_lines if line.category == "metro")
+        tram_lines = sum(1 for line in self.transit_lines if line.category == "tram")
         total_routes = sum(len(line.route_ids) for line in self.transit_lines)
         
         # Generate transit line entries
@@ -125,7 +205,7 @@ class RepositoryGenerator:
 /**
  * Represents a transit line with its routes
  * @property lineNumber The line identifier (e.g., "022", "1", "309Β")
- * @property category The category of transit ("buses" or "trolleys")
+ * @property category The category of transit ("buses", "trolleys", "metro", "tram")
  * @property routeIds List of route IDs for this line
  * @property routePaths Resource paths to the GeoJSON files for each route
  */
@@ -142,6 +222,8 @@ data class TransitLine(
         get() = when (category) {{
             "buses" -> "Bus $lineNumber"
             "trolleys" -> "Trolley $lineNumber"
+            "metro" -> "Metro Line $lineNumber"
+            "tram" -> "Tram Line $lineNumber"
             else -> "Line $lineNumber"
         }}
     
@@ -154,11 +236,26 @@ data class TransitLine(
      * Returns true if this is a trolley line
      */
     val isTrolley: Boolean get() = category == "trolleys"
+
+    /**
+     * Returns true if this is a metro line
+     */
+    val isMetro: Boolean get() = category == "metro"
+
+    /**
+     * Returns true if this is a tram line
+     */
+    val isTram: Boolean get() = category == "tram"
     
     /**
      * Returns the base path to this line's geojson folder
+     * Note: For Metro and Tram which use a flat structure, this points to the category folder
      */
-    val basePath: String get() = "files/geojson/$category/$lineNumber"
+    val basePath: String get() = when(category) {{
+        "metro" -> "files/geojson/Metro"
+        "tram" -> "files/geojson/Tram"
+        else -> "files/geojson/$category/$lineNumber"
+    }}
 }}
 
 /**
@@ -186,7 +283,7 @@ object TransitLineRepository {{
     
     /**
      * Get all lines in a specific category
-     * @param category The category ("buses" or "trolleys")
+     * @param category The category ("buses", "trolleys", "metro", "tram")
      * @return List of transit lines in that category
      */
     fun getLinesByCategory(category: String): List<TransitLine> {{
@@ -202,6 +299,16 @@ object TransitLineRepository {{
      * Get all trolley lines
      */
     fun getTrolleyLines(): List<TransitLine> = getLinesByCategory("trolleys")
+
+    /**
+     * Get all metro lines
+     */
+    fun getMetroLines(): List<TransitLine> = getLinesByCategory("metro")
+
+    /**
+     * Get all tram lines
+     */
+    fun getTramLines(): List<TransitLine> = getLinesByCategory("tram")
     
     /**
      * Search for lines matching a query
@@ -220,6 +327,8 @@ object TransitLineRepository {{
             totalLines = lines.size,
             totalBusLines = getBusLines().size,
             totalTrolleyLines = getTrolleyLines().size,
+            totalMetroLines = getMetroLines().size,
+            totalTramLines = getTramLines().size,
             totalRoutes = lines.sumOf {{ it.routeIds.size }}
         )
     }}
@@ -232,6 +341,8 @@ data class RepositoryStats(
     val totalLines: Int,
     val totalBusLines: Int,
     val totalTrolleyLines: Int,
+    val totalMetroLines: Int,
+    val totalTramLines: Int,
     val totalRoutes: Int
 )
 '''
@@ -257,27 +368,31 @@ data class RepositoryStats(
         self.scan_geojson_folders()
         
         if not self.transit_lines:
-            print("\n❌ No transit lines found!")
+            print("\\n❌ No transit lines found!")
             return
         
         # Generate code
-        print("\n📝 Generating Kotlin code...")
+        print("\\n📝 Generating Kotlin code...")
         kotlin_code = self.generate_kotlin_code()
         
         # Write output
-        print(f"\n💾 Writing to: {self.output_path}")
+        print(f"\\n💾 Writing to: {self.output_path}")
         self.write_output(kotlin_code)
         
         # Statistics
         total_lines = len(self.transit_lines)
         bus_lines = sum(1 for line in self.transit_lines if line.category == "buses")
         trolley_lines = sum(1 for line in self.transit_lines if line.category == "trolleys")
+        metro_lines = sum(1 for line in self.transit_lines if line.category == "metro")
+        tram_lines = sum(1 for line in self.transit_lines if line.category == "tram")
         total_routes = sum(len(line.route_ids) for line in self.transit_lines)
         
-        print("\n✅ Successfully generated TransitLineRepository!")
+        print("\\n✅ Successfully generated TransitLineRepository!")
         print(f"   Total lines: {total_lines}")
         print(f"   Bus lines: {bus_lines}")
         print(f"   Trolley lines: {trolley_lines}")
+        print(f"   Metro lines: {metro_lines}")
+        print(f"   Tram lines: {tram_lines}")
         print(f"   Total routes: {total_routes}")
         print()
         print("="*60)
@@ -294,7 +409,7 @@ def main():
         generator.generate()
         
     except Exception as e:
-        print(f"\n❌ Error: {e}")
+        print(f"\\n❌ Error: {e}")
         import traceback
         traceback.print_exc()
         exit(1)

@@ -7,15 +7,15 @@ package com.example.newoasa.data
  * DO NOT EDIT MANUALLY!
  * Run scripts/generate_transit_repository.py to regenerate this file
  * 
- * Generated: 2026-02-06 14:50:56
- * Total Lines: 286
- * Total Routes: 695
+ * Generated: 2026-02-09 14:27:39
+ * Total Lines: 291
+ * Total Routes: 700
  */
 
 /**
  * Represents a transit line with its routes
  * @property lineNumber The line identifier (e.g., "022", "1", "309Β")
- * @property category The category of transit ("buses" or "trolleys")
+ * @property category The category of transit ("buses", "trolleys", "metro", "tram")
  * @property routeIds List of route IDs for this line
  * @property routePaths Resource paths to the GeoJSON files for each route
  */
@@ -32,6 +32,8 @@ data class TransitLine(
         get() = when (category) {
             "buses" -> "Bus $lineNumber"
             "trolleys" -> "Trolley $lineNumber"
+            "metro" -> "Metro Line $lineNumber"
+            "tram" -> "Tram Line $lineNumber"
             else -> "Line $lineNumber"
         }
     
@@ -44,11 +46,26 @@ data class TransitLine(
      * Returns true if this is a trolley line
      */
     val isTrolley: Boolean get() = category == "trolleys"
+
+    /**
+     * Returns true if this is a metro line
+     */
+    val isMetro: Boolean get() = category == "metro"
+
+    /**
+     * Returns true if this is a tram line
+     */
+    val isTram: Boolean get() = category == "tram"
     
     /**
      * Returns the base path to this line's geojson folder
+     * Note: For Metro and Tram which use a flat structure, this points to the category folder
      */
-    val basePath: String get() = "files/geojson/$category/$lineNumber"
+    val basePath: String get() = when(category) {
+        "metro" -> "files/geojson/Metro"
+        "tram" -> "files/geojson/Tram"
+        else -> "files/geojson/$category/$lineNumber"
+    }
 }
 
 /**
@@ -57,6 +74,24 @@ data class TransitLine(
  */
 object TransitLineRepository {
     private val lines: List<TransitLine> = listOf(
+        TransitLine(
+            lineNumber = "14",
+            category = "buses",
+            routeIds = listOf("1997", "1998"),
+            routePaths = listOf("files/geojson/buses/14/route_1997.geojson", "files/geojson/buses/14/route_1998.geojson")
+        ),
+        TransitLine(
+            lineNumber = "16",
+            category = "buses",
+            routeIds = listOf("2079"),
+            routePaths = listOf("files/geojson/buses/16/route_2079.geojson")
+        ),
+        TransitLine(
+            lineNumber = "19Β",
+            category = "buses",
+            routeIds = listOf("4044"),
+            routePaths = listOf("files/geojson/buses/19Β/route_4044.geojson")
+        ),
         TransitLine(
             lineNumber = "022",
             category = "buses",
@@ -244,12 +279,6 @@ object TransitLineRepository {
             routePaths = listOf("files/geojson/buses/137/route_5285.geojson")
         ),
         TransitLine(
-            lineNumber = "14",
-            category = "buses",
-            routeIds = listOf("1997", "1998"),
-            routePaths = listOf("files/geojson/buses/14/route_1997.geojson", "files/geojson/buses/14/route_1998.geojson")
-        ),
-        TransitLine(
             lineNumber = "140",
             category = "buses",
             routeIds = listOf("5043", "5483", "5650", "5690"),
@@ -274,12 +303,6 @@ object TransitLineRepository {
             routePaths = listOf("files/geojson/buses/154/route_3895.geojson")
         ),
         TransitLine(
-            lineNumber = "16",
-            category = "buses",
-            routeIds = listOf("2079"),
-            routePaths = listOf("files/geojson/buses/16/route_2079.geojson")
-        ),
-        TransitLine(
             lineNumber = "162",
             category = "buses",
             routeIds = listOf("5116"),
@@ -296,12 +319,6 @@ object TransitLineRepository {
             category = "buses",
             routeIds = listOf("3897", "4015", "4018", "5372"),
             routePaths = listOf("files/geojson/buses/171/route_3897.geojson", "files/geojson/buses/171/route_4015.geojson", "files/geojson/buses/171/route_4018.geojson", "files/geojson/buses/171/route_5372.geojson")
-        ),
-        TransitLine(
-            lineNumber = "19Β",
-            category = "buses",
-            routeIds = listOf("4044"),
-            routePaths = listOf("files/geojson/buses/19Β/route_4044.geojson")
         ),
         TransitLine(
             lineNumber = "201",
@@ -1504,30 +1521,6 @@ object TransitLineRepository {
             routePaths = listOf("files/geojson/buses/Α1/route_5517.geojson", "files/geojson/buses/Α1/route_5518.geojson", "files/geojson/buses/Α1/route_5561.geojson")
         ),
         TransitLine(
-            lineNumber = "Α10",
-            category = "buses",
-            routeIds = listOf("3690", "3691", "4677", "4678"),
-            routePaths = listOf("files/geojson/buses/Α10/route_3690.geojson", "files/geojson/buses/Α10/route_3691.geojson", "files/geojson/buses/Α10/route_4677.geojson", "files/geojson/buses/Α10/route_4678.geojson")
-        ),
-        TransitLine(
-            lineNumber = "Α11",
-            category = "buses",
-            routeIds = listOf("5270", "5271"),
-            routePaths = listOf("files/geojson/buses/Α11/route_5270.geojson", "files/geojson/buses/Α11/route_5271.geojson")
-        ),
-        TransitLine(
-            lineNumber = "Α13",
-            category = "buses",
-            routeIds = listOf("1873", "3536"),
-            routePaths = listOf("files/geojson/buses/Α13/route_1873.geojson", "files/geojson/buses/Α13/route_3536.geojson")
-        ),
-        TransitLine(
-            lineNumber = "Α15",
-            category = "buses",
-            routeIds = listOf("1837", "2980", "4664"),
-            routePaths = listOf("files/geojson/buses/Α15/route_1837.geojson", "files/geojson/buses/Α15/route_2980.geojson", "files/geojson/buses/Α15/route_4664.geojson")
-        ),
-        TransitLine(
             lineNumber = "Α2",
             category = "buses",
             routeIds = listOf("5566", "5567", "5568", "5569"),
@@ -1558,10 +1551,52 @@ object TransitLineRepository {
             routePaths = listOf("files/geojson/buses/Α8/route_1824.geojson", "files/geojson/buses/Α8/route_1825.geojson", "files/geojson/buses/Α8/route_2598.geojson", "files/geojson/buses/Α8/route_2599.geojson")
         ),
         TransitLine(
+            lineNumber = "Α10",
+            category = "buses",
+            routeIds = listOf("3690", "3691", "4677", "4678"),
+            routePaths = listOf("files/geojson/buses/Α10/route_3690.geojson", "files/geojson/buses/Α10/route_3691.geojson", "files/geojson/buses/Α10/route_4677.geojson", "files/geojson/buses/Α10/route_4678.geojson")
+        ),
+        TransitLine(
+            lineNumber = "Α11",
+            category = "buses",
+            routeIds = listOf("5270", "5271"),
+            routePaths = listOf("files/geojson/buses/Α11/route_5270.geojson", "files/geojson/buses/Α11/route_5271.geojson")
+        ),
+        TransitLine(
+            lineNumber = "Α13",
+            category = "buses",
+            routeIds = listOf("1873", "3536"),
+            routePaths = listOf("files/geojson/buses/Α13/route_1873.geojson", "files/geojson/buses/Α13/route_3536.geojson")
+        ),
+        TransitLine(
+            lineNumber = "Α15",
+            category = "buses",
+            routeIds = listOf("1837", "2980", "4664"),
+            routePaths = listOf("files/geojson/buses/Α15/route_1837.geojson", "files/geojson/buses/Α15/route_2980.geojson", "files/geojson/buses/Α15/route_4664.geojson")
+        ),
+        TransitLine(
             lineNumber = "Β1",
             category = "buses",
             routeIds = listOf("5519", "5520", "5521", "5522"),
             routePaths = listOf("files/geojson/buses/Β1/route_5519.geojson", "files/geojson/buses/Β1/route_5520.geojson", "files/geojson/buses/Β1/route_5521.geojson", "files/geojson/buses/Β1/route_5522.geojson")
+        ),
+        TransitLine(
+            lineNumber = "Β2",
+            category = "buses",
+            routeIds = listOf("5662", "5666", "5667"),
+            routePaths = listOf("files/geojson/buses/Β2/route_5662.geojson", "files/geojson/buses/Β2/route_5666.geojson", "files/geojson/buses/Β2/route_5667.geojson")
+        ),
+        TransitLine(
+            lineNumber = "Β5",
+            category = "buses",
+            routeIds = listOf("2167", "2168"),
+            routePaths = listOf("files/geojson/buses/Β5/route_2167.geojson", "files/geojson/buses/Β5/route_2168.geojson")
+        ),
+        TransitLine(
+            lineNumber = "Β9",
+            category = "buses",
+            routeIds = listOf("2042", "2043"),
+            routePaths = listOf("files/geojson/buses/Β9/route_2042.geojson", "files/geojson/buses/Β9/route_2043.geojson")
         ),
         TransitLine(
             lineNumber = "Β10",
@@ -1586,24 +1621,6 @@ object TransitLineRepository {
             category = "buses",
             routeIds = listOf("2204", "2979"),
             routePaths = listOf("files/geojson/buses/Β15/route_2204.geojson", "files/geojson/buses/Β15/route_2979.geojson")
-        ),
-        TransitLine(
-            lineNumber = "Β2",
-            category = "buses",
-            routeIds = listOf("5662", "5666", "5667"),
-            routePaths = listOf("files/geojson/buses/Β2/route_5662.geojson", "files/geojson/buses/Β2/route_5666.geojson", "files/geojson/buses/Β2/route_5667.geojson")
-        ),
-        TransitLine(
-            lineNumber = "Β5",
-            category = "buses",
-            routeIds = listOf("2167", "2168"),
-            routePaths = listOf("files/geojson/buses/Β5/route_2167.geojson", "files/geojson/buses/Β5/route_2168.geojson")
-        ),
-        TransitLine(
-            lineNumber = "Β9",
-            category = "buses",
-            routeIds = listOf("2042", "2043"),
-            routePaths = listOf("files/geojson/buses/Β9/route_2042.geojson", "files/geojson/buses/Β9/route_2043.geojson")
         ),
         TransitLine(
             lineNumber = "Γ12",
@@ -1654,28 +1671,40 @@ object TransitLineRepository {
             routePaths = listOf("files/geojson/buses/Χ97/route_5373.geojson", "files/geojson/buses/Χ97/route_5374.geojson", "files/geojson/buses/Χ97/route_5375.geojson", "files/geojson/buses/Χ97/route_5376.geojson")
         ),
         TransitLine(
-            lineNumber = "021",
-            category = "trolleys",
-            routeIds = listOf("2484", "4198", "4199"),
-            routePaths = listOf("files/geojson/trolleys/021/route_2484.geojson", "files/geojson/trolleys/021/route_4198.geojson", "files/geojson/trolleys/021/route_4199.geojson")
-        ),
-        TransitLine(
-            lineNumber = "024",
-            category = "trolleys",
-            routeIds = listOf("2640"),
-            routePaths = listOf("files/geojson/trolleys/024/route_2640.geojson")
-        ),
-        TransitLine(
-            lineNumber = "025",
-            category = "trolleys",
-            routeIds = listOf("1797", "5562"),
-            routePaths = listOf("files/geojson/trolleys/025/route_1797.geojson", "files/geojson/trolleys/025/route_5562.geojson")
-        ),
-        TransitLine(
             lineNumber = "1",
             category = "trolleys",
             routeIds = listOf("5529", "5530"),
             routePaths = listOf("files/geojson/trolleys/1/route_5529.geojson", "files/geojson/trolleys/1/route_5530.geojson")
+        ),
+        TransitLine(
+            lineNumber = "2",
+            category = "trolleys",
+            routeIds = listOf("4914", "5196"),
+            routePaths = listOf("files/geojson/trolleys/2/route_4914.geojson", "files/geojson/trolleys/2/route_5196.geojson")
+        ),
+        TransitLine(
+            lineNumber = "3",
+            category = "trolleys",
+            routeIds = listOf("1989", "1990"),
+            routePaths = listOf("files/geojson/trolleys/3/route_1989.geojson", "files/geojson/trolleys/3/route_1990.geojson")
+        ),
+        TransitLine(
+            lineNumber = "4",
+            category = "trolleys",
+            routeIds = listOf("2024", "4915"),
+            routePaths = listOf("files/geojson/trolleys/4/route_2024.geojson", "files/geojson/trolleys/4/route_4915.geojson")
+        ),
+        TransitLine(
+            lineNumber = "5",
+            category = "trolleys",
+            routeIds = listOf("1991", "1992"),
+            routePaths = listOf("files/geojson/trolleys/5/route_1991.geojson", "files/geojson/trolleys/5/route_1992.geojson")
+        ),
+        TransitLine(
+            lineNumber = "6",
+            category = "trolleys",
+            routeIds = listOf("1987", "1988"),
+            routePaths = listOf("files/geojson/trolleys/6/route_1987.geojson", "files/geojson/trolleys/6/route_1988.geojson")
         ),
         TransitLine(
             lineNumber = "10",
@@ -1720,12 +1749,6 @@ object TransitLineRepository {
             routePaths = listOf("files/geojson/trolleys/19/route_2029.geojson", "files/geojson/trolleys/19/route_2030.geojson")
         ),
         TransitLine(
-            lineNumber = "2",
-            category = "trolleys",
-            routeIds = listOf("4914", "5196"),
-            routePaths = listOf("files/geojson/trolleys/2/route_4914.geojson", "files/geojson/trolleys/2/route_5196.geojson")
-        ),
-        TransitLine(
             lineNumber = "20",
             category = "trolleys",
             routeIds = listOf("1961", "3766"),
@@ -1738,10 +1761,28 @@ object TransitLineRepository {
             routePaths = listOf("files/geojson/trolleys/21/route_3627.geojson")
         ),
         TransitLine(
+            lineNumber = "021",
+            category = "trolleys",
+            routeIds = listOf("2484", "4198", "4199"),
+            routePaths = listOf("files/geojson/trolleys/021/route_2484.geojson", "files/geojson/trolleys/021/route_4198.geojson", "files/geojson/trolleys/021/route_4199.geojson")
+        ),
+        TransitLine(
+            lineNumber = "024",
+            category = "trolleys",
+            routeIds = listOf("2640"),
+            routePaths = listOf("files/geojson/trolleys/024/route_2640.geojson")
+        ),
+        TransitLine(
             lineNumber = "24",
             category = "trolleys",
             routeIds = listOf("1962"),
             routePaths = listOf("files/geojson/trolleys/24/route_1962.geojson")
+        ),
+        TransitLine(
+            lineNumber = "025",
+            category = "trolleys",
+            routeIds = listOf("1797", "5562"),
+            routePaths = listOf("files/geojson/trolleys/025/route_1797.geojson", "files/geojson/trolleys/025/route_5562.geojson")
         ),
         TransitLine(
             lineNumber = "25",
@@ -1750,28 +1791,34 @@ object TransitLineRepository {
             routePaths = listOf("files/geojson/trolleys/25/route_4293.geojson", "files/geojson/trolleys/25/route_5102.geojson")
         ),
         TransitLine(
+            lineNumber = "1",
+            category = "metro",
+            routeIds = listOf("main"),
+            routePaths = listOf("files/geojson/Metro/metro_line_1.geojson")
+        ),
+        TransitLine(
+            lineNumber = "2",
+            category = "metro",
+            routeIds = listOf("main"),
+            routePaths = listOf("files/geojson/Metro/metro_line_2.geojson")
+        ),
+        TransitLine(
             lineNumber = "3",
-            category = "trolleys",
-            routeIds = listOf("1989", "1990"),
-            routePaths = listOf("files/geojson/trolleys/3/route_1989.geojson", "files/geojson/trolleys/3/route_1990.geojson")
+            category = "metro",
+            routeIds = listOf("main"),
+            routePaths = listOf("files/geojson/Metro/metro_line_3.geojson")
         ),
         TransitLine(
-            lineNumber = "4",
-            category = "trolleys",
-            routeIds = listOf("2024", "4915"),
-            routePaths = listOf("files/geojson/trolleys/4/route_2024.geojson", "files/geojson/trolleys/4/route_4915.geojson")
+            lineNumber = "T6",
+            category = "tram",
+            routeIds = listOf("main"),
+            routePaths = listOf("files/geojson/Tram/tram_line_T6.geojson")
         ),
         TransitLine(
-            lineNumber = "5",
-            category = "trolleys",
-            routeIds = listOf("1991", "1992"),
-            routePaths = listOf("files/geojson/trolleys/5/route_1991.geojson", "files/geojson/trolleys/5/route_1992.geojson")
-        ),
-        TransitLine(
-            lineNumber = "6",
-            category = "trolleys",
-            routeIds = listOf("1987", "1988"),
-            routePaths = listOf("files/geojson/trolleys/6/route_1987.geojson", "files/geojson/trolleys/6/route_1988.geojson")
+            lineNumber = "T7",
+            category = "tram",
+            routeIds = listOf("main"),
+            routePaths = listOf("files/geojson/Tram/tram_line_T7.geojson")
         )
     )
     
@@ -1791,7 +1838,7 @@ object TransitLineRepository {
     
     /**
      * Get all lines in a specific category
-     * @param category The category ("buses" or "trolleys")
+     * @param category The category ("buses", "trolleys", "metro", "tram")
      * @return List of transit lines in that category
      */
     fun getLinesByCategory(category: String): List<TransitLine> {
@@ -1807,6 +1854,16 @@ object TransitLineRepository {
      * Get all trolley lines
      */
     fun getTrolleyLines(): List<TransitLine> = getLinesByCategory("trolleys")
+
+    /**
+     * Get all metro lines
+     */
+    fun getMetroLines(): List<TransitLine> = getLinesByCategory("metro")
+
+    /**
+     * Get all tram lines
+     */
+    fun getTramLines(): List<TransitLine> = getLinesByCategory("tram")
     
     /**
      * Search for lines matching a query
@@ -1825,6 +1882,8 @@ object TransitLineRepository {
             totalLines = lines.size,
             totalBusLines = getBusLines().size,
             totalTrolleyLines = getTrolleyLines().size,
+            totalMetroLines = getMetroLines().size,
+            totalTramLines = getTramLines().size,
             totalRoutes = lines.sumOf { it.routeIds.size }
         )
     }
@@ -1837,5 +1896,7 @@ data class RepositoryStats(
     val totalLines: Int,
     val totalBusLines: Int,
     val totalTrolleyLines: Int,
+    val totalMetroLines: Int,
+    val totalTramLines: Int,
     val totalRoutes: Int
 )
