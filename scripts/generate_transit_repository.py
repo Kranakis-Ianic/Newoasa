@@ -70,7 +70,7 @@ class RepositoryGenerator:
         """Scan the geojson folder structure and collect transit line data"""
         print("🔍 Scanning GeoJSON folders...")
         
-        categories = ["buses", "trolleys"]
+        categories = ["buses", "trolleys", "metro", "tram"]
         
         for category in categories:
             category_path = self.geojson_path / category
@@ -102,6 +102,8 @@ class RepositoryGenerator:
         total_lines = len(self.transit_lines)
         bus_lines = sum(1 for line in self.transit_lines if line.category == "buses")
         trolley_lines = sum(1 for line in self.transit_lines if line.category == "trolleys")
+        metro_lines = sum(1 for line in self.transit_lines if line.category == "metro")
+        tram_lines = sum(1 for line in self.transit_lines if line.category == "tram")
         total_routes = sum(len(line.route_ids) for line in self.transit_lines)
         
         # Generate transit line entries
@@ -125,7 +127,7 @@ class RepositoryGenerator:
 /**
  * Represents a transit line with its routes
  * @property lineNumber The line identifier (e.g., "022", "1", "309Β")
- * @property category The category of transit ("buses" or "trolleys")
+ * @property category The category of transit ("buses", "trolleys", "metro", "tram")
  * @property routeIds List of route IDs for this line
  * @property routePaths Resource paths to the GeoJSON files for each route
  */
@@ -142,6 +144,8 @@ data class TransitLine(
         get() = when (category) {{
             "buses" -> "Bus $lineNumber"
             "trolleys" -> "Trolley $lineNumber"
+            "metro" -> "Metro Line $lineNumber"
+            "tram" -> "Tram Line $lineNumber"
             else -> "Line $lineNumber"
         }}
     
@@ -154,6 +158,16 @@ data class TransitLine(
      * Returns true if this is a trolley line
      */
     val isTrolley: Boolean get() = category == "trolleys"
+
+    /**
+     * Returns true if this is a metro line
+     */
+    val isMetro: Boolean get() = category == "metro"
+
+    /**
+     * Returns true if this is a tram line
+     */
+    val isTram: Boolean get() = category == "tram"
     
     /**
      * Returns the base path to this line's geojson folder
@@ -186,7 +200,7 @@ object TransitLineRepository {{
     
     /**
      * Get all lines in a specific category
-     * @param category The category ("buses" or "trolleys")
+     * @param category The category ("buses", "trolleys", "metro", "tram")
      * @return List of transit lines in that category
      */
     fun getLinesByCategory(category: String): List<TransitLine> {{
@@ -202,6 +216,16 @@ object TransitLineRepository {{
      * Get all trolley lines
      */
     fun getTrolleyLines(): List<TransitLine> = getLinesByCategory("trolleys")
+
+    /**
+     * Get all metro lines
+     */
+    fun getMetroLines(): List<TransitLine> = getLinesByCategory("metro")
+
+    /**
+     * Get all tram lines
+     */
+    fun getTramLines(): List<TransitLine> = getLinesByCategory("tram")
     
     /**
      * Search for lines matching a query
@@ -220,6 +244,8 @@ object TransitLineRepository {{
             totalLines = lines.size,
             totalBusLines = getBusLines().size,
             totalTrolleyLines = getTrolleyLines().size,
+            totalMetroLines = getMetroLines().size,
+            totalTramLines = getTramLines().size,
             totalRoutes = lines.sumOf {{ it.routeIds.size }}
         )
     }}
@@ -232,6 +258,8 @@ data class RepositoryStats(
     val totalLines: Int,
     val totalBusLines: Int,
     val totalTrolleyLines: Int,
+    val totalMetroLines: Int,
+    val totalTramLines: Int,
     val totalRoutes: Int
 )
 '''
@@ -257,27 +285,31 @@ data class RepositoryStats(
         self.scan_geojson_folders()
         
         if not self.transit_lines:
-            print("\n❌ No transit lines found!")
+            print("\\n❌ No transit lines found!")
             return
         
         # Generate code
-        print("\n📝 Generating Kotlin code...")
+        print("\\n📝 Generating Kotlin code...")
         kotlin_code = self.generate_kotlin_code()
         
         # Write output
-        print(f"\n💾 Writing to: {self.output_path}")
+        print(f"\\n💾 Writing to: {self.output_path}")
         self.write_output(kotlin_code)
         
         # Statistics
         total_lines = len(self.transit_lines)
         bus_lines = sum(1 for line in self.transit_lines if line.category == "buses")
         trolley_lines = sum(1 for line in self.transit_lines if line.category == "trolleys")
+        metro_lines = sum(1 for line in self.transit_lines if line.category == "metro")
+        tram_lines = sum(1 for line in self.transit_lines if line.category == "tram")
         total_routes = sum(len(line.route_ids) for line in self.transit_lines)
         
-        print("\n✅ Successfully generated TransitLineRepository!")
+        print("\\n✅ Successfully generated TransitLineRepository!")
         print(f"   Total lines: {total_lines}")
         print(f"   Bus lines: {bus_lines}")
         print(f"   Trolley lines: {trolley_lines}")
+        print(f"   Metro lines: {metro_lines}")
+        print(f"   Tram lines: {tram_lines}")
         print(f"   Total routes: {total_routes}")
         print()
         print("="*60)
@@ -294,7 +326,7 @@ def main():
         generator.generate()
         
     except Exception as e:
-        print(f"\n❌ Error: {e}")
+        print(f"\\n❌ Error: {e}")
         import traceback
         traceback.print_exc()
         exit(1)
