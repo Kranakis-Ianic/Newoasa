@@ -617,9 +617,9 @@ private suspend fun displayTransitLine(
                         
                         // Calculate explicit padding in pixels
                         val density = context.resources.displayMetrics.density
-                        val horizontalPadding = (50 * density).toInt() 
-                        val topPadding = (200 * density).toInt()     // Increased to 200dp
-                        val bottomPadding = (200 * density).toInt()  // Increased to 200dp
+                        val horizontalPadding = (32 * density).toInt() 
+                        val topPadding = (100 * density).toInt()     // Reduced to 100dp
+                        val bottomPadding = (100 * density).toInt()  // Reduced to 100dp
                         
                         // Add delay to ensure layout is measured
                         kotlinx.coroutines.delay(200)
