@@ -617,27 +617,17 @@ private suspend fun displayTransitLine(
                         val horizontalPadding = (24 * density).toInt() // Reduced from 50dp to 24dp
                         val verticalPadding = (32 * density).toInt()   // Reduced from 100dp to 32dp
 
-                        // Animate to bounds with asymmetrical padding
-                        map.animateCamera(
+                        // Move camera immediately to bounds with asymmetrical padding
+                        map.moveCamera(
                             CameraUpdateFactory.newLatLngBounds(
                                 bounds, 
                                 horizontalPadding, 
                                 verticalPadding, 
                                 horizontalPadding, 
                                 verticalPadding
-                            ),
-                            1500, // Smoother 1.5 second animation
-                            object : MapLibreMap.CancelableCallback {
-                                override fun onFinish() {
-                                    println("Zoom animation finished")
-                                }
-
-                                override fun onCancel() {
-                                    println("Zoom animation cancelled")
-                                }
-                            }
+                            )
                         )
-                        println("Camera animated to show all routes")
+                        println("Camera moved to show all routes")
                     } catch (e: Exception) {
                         println("Error animating camera: ${e.message}")
                         e.printStackTrace()
