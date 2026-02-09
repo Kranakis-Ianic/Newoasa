@@ -60,11 +60,16 @@ def load_stops_from_geojson(file_path: Path, line_id: str, category: str) -> Lis
             properties = feature.get('properties', {})
             
             # Check if this is a stop (Point geometry)
-            if geometry.get('type') in ['Point', 'MultiPoint']:
+            # Metro/Tram stations have 'q2wHide_layer' property
+            layer = properties.get('q2wHide_layer', '')
+            if geometry.get('type') == 'Point' and 'ΣΤΑΣΕΙΣ' in layer:
                 coords = geometry.get('coordinates', [])
                 if len(coords) >= 2:
+                    # Try different name properties
+                    name = properties.get('NAME') or properties.get('STATHMOI') or properties.get('name') or 'Unknown'
+                    
                     stop = {
-                        'name': properties.get('name', 'Unknown'),
+                        'name': name,
                         'stop_code': properties.get('stop_code', ''),
                         'order': properties.get('order', ''),
                         'longitude': coords[0],
@@ -189,7 +194,7 @@ def combine_nearby_stations(stops: List[Dict]) -> List[Dict]:
     if multi_line_stations:
         print(f"\nFound {len(multi_line_stations)} interchange stations:")
         for station in multi_line_stations:
-            lines_display = ', '.join(station['lines'])
+            lines_display = ', '.join([f"M{l}" if l.isdigit() else l for l in station['lines']])
             print(f"  - {station['name']}: {lines_display}")
     
     return combined_stations
