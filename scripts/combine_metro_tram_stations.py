@@ -85,53 +85,38 @@ def find_all_metro_tram_stops() -> List[Dict]:
     """
     all_stops = []
     
-    # Metro lines (flat structure)
-    metro_path = GEOJSON_BASE_PATH / "Metro"
-    if metro_path.exists():
-        for geojson_file in metro_path.glob("*.geojson"):
-            # Extract line number from filename (e.g., route_5646.geojson)
-            # We need to determine which metro line this belongs to
-            # Let's read the file and check
-            try:
-                with open(geojson_file, 'r', encoding='utf-8') as f:
-                    data = json.load(f)
-                    # Try to infer line from properties or filename
-                    # For now, we'll process all metro files
-                    stops = load_stops_from_geojson(geojson_file, geojson_file.stem, 'metro')
-                    all_stops.extend(stops)
-            except Exception as e:
-                print(f"Error processing {geojson_file}: {e}")
-    
-    # Better approach: Use the known metro line structure
-    metro_lines = {
-        '1': ['route_5646.geojson', 'route_5647.geojson'],
-        '2': ['route_5648.geojson', 'route_5649.geojson'],
-        '3': ['route_5650.geojson', 'route_5651.geojson', 'route_5652.geojson']
+    # Metro lines - using actual filenames
+    metro_files = {
+        '1': 'metro_line_1.geojson',
+        '2': 'metro_line_2.geojson',
+        '3': 'metro_line_3.geojson'
     }
     
-    all_stops = []  # Reset
+    for line_num, filename in metro_files.items():
+        file_path = GEOJSON_BASE_PATH / "Metro" / filename
+        if file_path.exists():
+            stops = load_stops_from_geojson(file_path, line_num, 'metro')
+            print(f"Loaded {len(stops)} stops from Metro Line {line_num}")
+            all_stops.extend(stops)
+        else:
+            print(f"Warning: Metro file not found: {file_path}")
     
-    for line_num, routes in metro_lines.items():
-        for route_file in routes:
-            file_path = GEOJSON_BASE_PATH / "Metro" / route_file
-            if file_path.exists():
-                stops = load_stops_from_geojson(file_path, line_num, 'metro')
-                all_stops.extend(stops)
-    
-    # Tram lines (flat structure)
-    tram_lines = {
-        'T6': ['route_5653.geojson', 'route_5654.geojson'],
-        'T7': ['route_5655.geojson', 'route_5656.geojson']
+    # Tram lines - using actual filenames
+    tram_files = {
+        'T6': 'tram_line_T6.geojson',
+        'T7': 'tram_line_T7.geojson'
     }
     
-    for line_num, routes in tram_lines.items():
-        for route_file in routes:
-            file_path = GEOJSON_BASE_PATH / "Tram" / route_file
-            if file_path.exists():
-                stops = load_stops_from_geojson(file_path, line_num, 'tram')
-                all_stops.extend(stops)
+    for line_num, filename in tram_files.items():
+        file_path = GEOJSON_BASE_PATH / "Tram" / filename
+        if file_path.exists():
+            stops = load_stops_from_geojson(file_path, line_num, 'tram')
+            print(f"Loaded {len(stops)} stops from Tram Line {line_num}")
+            all_stops.extend(stops)
+        else:
+            print(f"Warning: Tram file not found: {file_path}")
     
-    print(f"Found {len(all_stops)} total stops from metro and tram lines")
+    print(f"\nFound {len(all_stops)} total stops from metro and tram lines")
     return all_stops
 
 def combine_nearby_stations(stops: List[Dict]) -> List[Dict]:
@@ -198,6 +183,15 @@ def combine_nearby_stations(stops: List[Dict]) -> List[Dict]:
         combined_stations.append(station)
     
     print(f"Combined {len(stops)} stops into {len(combined_stations)} stations")
+    
+    # Print stations with multiple lines
+    multi_line_stations = [s for s in combined_stations if len(s['lines']) > 1]
+    if multi_line_stations:
+        print(f"\nFound {len(multi_line_stations)} interchange stations:")
+        for station in multi_line_stations:
+            lines_display = ', '.join(station['lines'])
+            print(f"  - {station['name']}: {lines_display}")
+    
     return combined_stations
 
 def generate_geojson_output(stations: List[Dict]) -> Dict:
@@ -335,12 +329,15 @@ def main():
     print("="*60)
     print("Combining Metro and Tram Stations")
     print("="*60)
+    print(f"\nSearching for GeoJSON files in: {GEOJSON_BASE_PATH.absolute()}")
+    print(f"Combination radius: {COMBINE_RADIUS_METERS}m\n")
     
     # Load all stops
     all_stops = find_all_metro_tram_stops()
     
     if not all_stops:
-        print("No stops found! Check the GeoJSON file paths.")
+        print("\nNo stops found! Check the GeoJSON file paths.")
+        print(f"Expected path: {GEOJSON_BASE_PATH.absolute()}")
         return
     
     # Combine nearby stations
@@ -364,7 +361,7 @@ def main():
     print(f"Generated Kotlin: {OUTPUT_KOTLIN_PATH}")
     
     print("\n" + "="*60)
-    print(f"Successfully combined {len(all_stops)} stops into {len(combined_stations)} stations")
+    print(f"✓ Successfully combined {len(all_stops)} stops into {len(combined_stations)} stations")
     print("="*60)
 
 if __name__ == '__main__':
