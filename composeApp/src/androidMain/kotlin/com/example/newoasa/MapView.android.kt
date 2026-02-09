@@ -612,9 +612,6 @@ private suspend fun displayTransitLine(
                         map.setMinZoomPreference(1.0)
                         map.setMaxZoomPreference(18.0)
                         
-                        // Clear previous explicit padding on the map instance to avoid conflicts
-                        map.setPadding(0, 0, 0, 0)
-                        
                         // Calculate explicit padding in pixels
                         val density = context.resources.displayMetrics.density
                         val horizontalPadding = (32 * density).toInt() 
