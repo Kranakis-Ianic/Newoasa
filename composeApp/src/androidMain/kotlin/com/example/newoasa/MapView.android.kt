@@ -458,12 +458,12 @@ private suspend fun displayTransitLine(
             withContext(Dispatchers.Main) {
                 // Add line color based on type
                 val lineColor = when {
-                    line.category == "metro" && line.lineNumber == "1" -> "#007A33" // Green
-                    line.category == "metro" && line.lineNumber == "2" -> "#DA291C" // Red
-                    line.category == "metro" && line.lineNumber == "3" -> "#0057B8" // Blue
-                    line.category == "tram" -> "#D60C8C" // Pink
-                    line.isBus -> "#009dc6" // Blue updated
-                    else -> "#f27d00" // Trolley updated (Orange)
+                    line.category == "metro" && line.lineNumber == "1" -> "#ec3125" // Updated to Red
+                    line.category == "metro" && line.lineNumber == "2" -> "#ec3125" // Updated to Red
+                    line.category == "metro" && line.lineNumber == "3" -> "#0593cf" // Updated to Blue
+                    line.category == "tram" -> "#c63e94" // Updated to Pink
+                    line.isBus -> "#009dc6" // Previous blue
+                    else -> "#f27d00" // Previous orange (Trolley)
                 }
                 
                 // Add route lines
