@@ -386,26 +386,31 @@ private suspend fun displayTransitLine(
                     
                     val geoJson = JSONObject(geoJsonString)
                     
-                    // Validate that it has required properties
-                    if (!geoJson.has("type")) {
-                        println("Invalid GeoJSON - missing 'type' property for path: $path")
-                        return@forEachIndexed
-                    }
-                    
-                    // Extract route coordinates and stops from the FeatureCollection
+                    // Validate that it has features - type check relaxed to allow FeatureCollection or manual parsing
                     val features = geoJson.optJSONArray("features")
                     if (features != null) {
                         for (i in 0 until features.length()) {
                             val feature = features.getJSONObject(i)
                             val properties = feature.optJSONObject("properties")
-                            val featureType = properties?.optString("type")
+                            val geometry = feature.optJSONObject("geometry")
                             
-                            when (featureType) {
-                                "route_path" -> {
-                                    // Extract route coordinates for bounds calculation
-                                    val geometry = feature.optJSONObject("geometry")
-                                    val coords = geometry?.optJSONArray("coordinates")
-                                    coords?.let {
+                            val featureType = properties?.optString("type")
+                            val geometryType = geometry?.optString("type")
+                            
+                            // Check for route path (either explicit type or LineString geometry)
+                            val isRoute = featureType == "route_path" || 
+                                         (featureType.isNullOrEmpty() && (geometryType == "LineString" || geometryType == "MultiLineString"))
+                            
+                            // Check for stop (either explicit type or Point geometry)
+                            val isStop = featureType == "stop" || 
+                                        (featureType.isNullOrEmpty() && (geometryType == "Point" || geometryType == "MultiPoint"))
+
+                            if (isRoute) {
+                                // Extract route coordinates for bounds calculation
+                                val coords = geometry?.optJSONArray("coordinates")
+                                coords?.let {
+                                    // Handle LineString (array of points)
+                                    if (geometryType == "LineString") {
                                         for (j in 0 until it.length()) {
                                             val coord = it.getJSONArray(j)
                                             val lng = coord.getDouble(0)
@@ -413,27 +418,37 @@ private suspend fun displayTransitLine(
                                             allCoordinates.add(LatLng(lat, lng))
                                         }
                                     }
-                                }
-                                "stop" -> {
-                                    // Extract stop information
-                                    val geometry = feature.optJSONObject("geometry")
-                                    val coordinates = geometry?.optJSONArray("coordinates")
-                                    if (coordinates != null && coordinates.length() >= 2) {
-                                        val lng = coordinates.getDouble(0)
-                                        val lat = coordinates.getDouble(1)
-                                        val stopName = properties?.optString("name") ?: "Unknown"
-                                        val stopCode = properties?.optString("stop_code") ?: ""
-                                        val order = properties?.optString("order") ?: ""
-                                        
-                                        allStops.add(
-                                            Stop(
-                                                name = stopName,
-                                                stopCode = stopCode,
-                                                order = order,
-                                                coordinate = LatLng(lat, lng)
-                                            )
-                                        )
+                                    // Basic support for MultiLineString if needed
+                                    else if (geometryType == "MultiLineString") {
+                                         for (k in 0 until it.length()) {
+                                            val lineString = it.getJSONArray(k)
+                                            for (j in 0 until lineString.length()) {
+                                                val coord = lineString.getJSONArray(j)
+                                                val lng = coord.getDouble(0)
+                                                val lat = coord.getDouble(1)
+                                                allCoordinates.add(LatLng(lat, lng))
+                                            }
+                                         }
                                     }
+                                }
+                            } else if (isStop) {
+                                // Extract stop information
+                                val coordinates = geometry?.optJSONArray("coordinates")
+                                if (coordinates != null && coordinates.length() >= 2) {
+                                    val lng = coordinates.getDouble(0)
+                                    val lat = coordinates.getDouble(1)
+                                    val stopName = properties?.optString("name") ?: "Unknown"
+                                    val stopCode = properties?.optString("stop_code") ?: ""
+                                    val order = properties?.optString("order") ?: ""
+                                    
+                                    allStops.add(
+                                        Stop(
+                                            name = stopName,
+                                            stopCode = stopCode,
+                                            order = order,
+                                            coordinate = LatLng(lat, lng)
+                                        )
+                                    )
                                 }
                             }
                         }
@@ -441,8 +456,13 @@ private suspend fun displayTransitLine(
                     
                     // Store loaded data (only the route LineString, not stops)
                     val routeOnlyGeoJson = extractRoutePathOnly(geoJson)
-                    loadedGeoJsonData.add(index to routeOnlyGeoJson)
-                    println("Successfully loaded GeoJSON for route: $path")
+                    // Only add if we actually found a route
+                    if (routeOnlyGeoJson != "{}") {
+                        loadedGeoJsonData.add(index to routeOnlyGeoJson)
+                        println("Successfully loaded GeoJSON for route: $path")
+                    } else {
+                        println("Warning: No route path found in $path")
+                    }
                     
                 } catch (e: Exception) {
                     println("Error loading route $path: ${e.message}")
@@ -458,7 +478,10 @@ private suspend fun displayTransitLine(
             // Now add all sources and layers on main thread sequentially
             withContext(Dispatchers.Main) {
                 // Add line color based on type
-                val lineColor = if (line.isBus) "#2196F3" else "#9C27B0" // Blue for buses, Purple for trolleys
+                val lineColor = if (line.category.equals("metro", ignoreCase = true)) "#F44336" // Red for Metro
+                               else if (line.category.equals("tram", ignoreCase = true)) "#4CAF50" // Green for Tram
+                               else if (line.isBus) "#2196F3" // Blue for Bus
+                               else "#9C27B0" // Purple for Trolley
                 
                 // Add route lines
                 loadedGeoJsonData.forEach { (index, geoJsonString) ->
@@ -490,9 +513,7 @@ private suspend fun displayTransitLine(
                 if (allStops.isNotEmpty()) {
                     try {
                         // Create pin marker bitmap (bigger size)
-                        val pinBitmap = createPinBitmap(
-                            if (line.isBus) Color.parseColor("#2196F3") else Color.parseColor("#9C27B0")
-                        )
+                        val pinBitmap = createPinBitmap(Color.parseColor(lineColor))
                         style.addImage("stop-pin", pinBitmap)
                         println("Added pin image to style")
                         
@@ -579,9 +600,14 @@ private fun extractRoutePathOnly(geoJson: JSONObject): String {
             for (i in 0 until features.length()) {
                 val feature = features.getJSONObject(i)
                 val properties = feature.optJSONObject("properties")
-                val featureType = properties?.optString("type")
+                val geometry = feature.optJSONObject("geometry")
                 
-                if (featureType == "route_path") {
+                val featureType = properties?.optString("type")
+                val geometryType = geometry?.optString("type")
+                
+                // Return if explicit route_path OR fallback to LineString/MultiLineString geometry
+                if (featureType == "route_path" || 
+                   (featureType.isNullOrEmpty() && (geometryType == "LineString" || geometryType == "MultiLineString"))) {
                     // Return just this feature as a FeatureCollection
                     return """{"type":"FeatureCollection","features":[${feature}]}"""
                 }
