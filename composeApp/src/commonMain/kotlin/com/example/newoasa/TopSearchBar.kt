@@ -47,8 +47,31 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.newoasa.data.TransitLine
 import com.example.newoasa.data.TransitLineRepository
+
+/**
+ * Get the color for a transit line badge
+ */
+private fun getLineColor(line: TransitLine): Color {
+    return when {
+        line.isMetro -> when (line.lineNumber) {
+            "1" -> Color(0xFF00734c) // Green
+            "2" -> Color(0xFFe60000) // Red
+            "3" -> Color(0xFF002673) // Blue
+            else -> Color(0xFF000000) // Default to black
+        }
+        line.isTram -> when (line.lineNumber.uppercase()) {
+            "T6" -> Color(0xFFa7c636) // Lime green
+            "T7" -> Color(0xFFb9348b) // Pink
+            else -> Color(0xFF000000) // Default to black
+        }
+        line.isBus -> Color(0xFF009cc7) // Cyan
+        line.isTrolley -> Color(0xFFf07c00) // Orange
+        else -> Color(0xFF000000) // Default to black
+    }
+}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -244,32 +267,29 @@ private fun TransitLineItem(
                 .padding(horizontal = 16.dp, vertical = 12.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            // Line number badge
-            Card(
-                colors = CardDefaults.cardColors(
-                    containerColor = if (line.isBus) 
-                        MaterialTheme.colorScheme.primaryContainer 
-                    else 
-                        MaterialTheme.colorScheme.secondaryContainer
-                ),
+            // Colored line badge (matching station popup style)
+            val lineColor = getLineColor(line)
+            val displayText = when {
+                line.isMetro -> "M${line.lineNumber}"
+                line.isTram -> if (line.lineNumber.startsWith("T")) line.lineNumber else "T${line.lineNumber}"
+                else -> line.lineNumber
+            }
+            
+            Box(
                 modifier = Modifier
-                    .size(width = 56.dp, height = 40.dp)
-                    .clip(RoundedCornerShape(8.dp))
-            ) {
-                Box(
-                    modifier = Modifier.fillMaxSize(),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Text(
-                        text = line.lineNumber,
-                        style = MaterialTheme.typography.titleMedium,
-                        fontWeight = FontWeight.Bold,
-                        color = if (line.isBus) 
-                            MaterialTheme.colorScheme.onPrimaryContainer 
-                        else 
-                            MaterialTheme.colorScheme.onSecondaryContainer
+                    .background(
+                        color = lineColor,
+                        shape = RoundedCornerShape(8.dp)
                     )
-                }
+                    .padding(horizontal = 16.dp, vertical = 10.dp),
+                contentAlignment = Alignment.Center
+            ) {
+                Text(
+                    text = displayText,
+                    color = Color.White,
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Bold
+                )
             }
             
             Spacer(modifier = Modifier.width(16.dp))
@@ -293,7 +313,7 @@ private fun TransitLineItem(
             }
             
             Icon(
-                imageVector = Icons.AutoMirrored.Filled.ArrowBack, // Using ArrowBack rotated 180 (or similar) as chevron
+                imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                 contentDescription = null,
                 modifier = Modifier.size(20.dp),
                 tint = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f)
