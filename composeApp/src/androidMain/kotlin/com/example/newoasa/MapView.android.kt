@@ -204,61 +204,68 @@ actual fun MapView(
                             map.addOnMapClickListener { point ->
                                 val screenPoint = map.projection.toScreenLocation(point)
                                 
-                                // Check the hit area layer
-                                val hitAreaFeatures = map.queryRenderedFeatures(
-                                    screenPoint, 
-                                    "transit-stops-hit-area"
+                                // Check all possible stop hit area layers (metro, tram, and regular transit)
+                                val layersToCheck = listOf(
+                                    "transit-stops-hit-area",
+                                    "metro-1-stops-hit-area",
+                                    "metro-2-stops-hit-area",
+                                    "metro-3-stops-hit-area",
+                                    "tram-T6-stops-hit-area",
+                                    "tram-T7-stops-hit-area"
                                 )
                                 
-                                if (hitAreaFeatures.isNotEmpty()) {
-                                    val feature = hitAreaFeatures[0]
-                                    val properties = feature.properties()
+                                var handled = false
+                                for (layerId in layersToCheck) {
+                                    val hitAreaFeatures = map.queryRenderedFeatures(screenPoint, layerId)
                                     
-                                    if (properties != null) {
-                                        val stopName = properties.get("name")?.asString ?: "Unknown"
-                                        val stopCode = properties.get("stop_code")?.asString ?: ""
-                                        val order = properties.get("order")?.asString ?: ""
+                                    if (hitAreaFeatures.isNotEmpty()) {
+                                        val feature = hitAreaFeatures[0]
+                                        val properties = feature.properties()
                                         
-                                        // Get the geometry to find screen position
-                                        val geometry = feature.geometry()
-                                        if (geometry is Point) {
-                                            val stopCoord = LatLng(geometry.latitude(), geometry.longitude())
+                                        if (properties != null) {
+                                            val stopName = properties.get("name")?.asString ?: "Unknown"
+                                            val stopCode = properties.get("stop_code")?.asString ?: ""
+                                            val order = properties.get("order")?.asString ?: ""
                                             
-                                            // Center map on the clicked pin
-                                            val currentZoom = map.cameraPosition.zoom
-                                            val newCameraPosition = CameraPosition.Builder()
-                                                .target(stopCoord)
-                                                .zoom(if (currentZoom < 14) 14.0 else currentZoom) // Zoom in slightly if too far out
-                                                .build()
-                                            
-                                            map.animateCamera(
-                                                CameraUpdateFactory.newCameraPosition(newCameraPosition),
-                                                300 // Quick 300ms animation
-                                            )
-                                            
-                                            // Show info window after animation completes
-                                            coroutineScope.launch {
-                                                kotlinx.coroutines.delay(350)
+                                            val geometry = feature.geometry()
+                                            if (geometry is Point) {
+                                                val stopCoord = LatLng(geometry.latitude(), geometry.longitude())
                                                 
-                                                selectedStopInfo = StopInfoState(
-                                                    stop = Stop(
-                                                        name = stopName,
-                                                        stopCode = stopCode,
-                                                        order = order,
-                                                        coordinate = stopCoord
-                                                    )
+                                                val currentZoom = map.cameraPosition.zoom
+                                                val newCameraPosition = CameraPosition.Builder()
+                                                    .target(stopCoord)
+                                                    .zoom(if (currentZoom < 14) 14.0 else currentZoom)
+                                                    .build()
+                                                
+                                                map.animateCamera(
+                                                    CameraUpdateFactory.newCameraPosition(newCameraPosition),
+                                                    300
                                                 )
+                                                
+                                                coroutineScope.launch {
+                                                    kotlinx.coroutines.delay(350)
+                                                    selectedStopInfo = StopInfoState(
+                                                        stop = Stop(
+                                                            name = stopName,
+                                                            stopCode = stopCode,
+                                                            order = order,
+                                                            coordinate = stopCoord
+                                                        )
+                                                    )
+                                                }
                                             }
+                                            
+                                            handled = true
+                                            break
                                         }
-                                        
-                                        return@addOnMapClickListener true // Consume the event
                                     }
-                                } else {
-                                    // Clicked outside of stops, close info window
+                                }
+                                
+                                if (!handled) {
                                     selectedStopInfo = null
                                 }
                                 
-                                false
+                                handled
                             }
                         }
                         
@@ -276,7 +283,7 @@ actual fun MapView(
             }
         )
         
-        // Info window overlay - centered on screen, above center point
+        // Info window overlay
         selectedStopInfo?.let { info ->
             StopInfoWindow(
                 stop = info.stop,
@@ -291,27 +298,25 @@ fun StopInfoWindow(
     stop: Stop,
     onClose: () -> Unit
 ) {
-    // Position the window centered horizontally and in the upper portion of screen
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .clickable(onClick = onClose), // Close when clicking outside
-        contentAlignment = Alignment.Center // Center the content
+            .clickable(onClick = onClose),
+        contentAlignment = Alignment.Center
     ) {
         Column(
             modifier = Modifier
                 .width(300.dp)
-                .padding(bottom = 200.dp) // Offset upward so it appears above the centered pin
+                .padding(bottom = 200.dp)
                 .shadow(8.dp, RoundedCornerShape(12.dp))
                 .background(
                     color = MaterialTheme.colorScheme.surface,
                     shape = RoundedCornerShape(12.dp)
                 )
                 .padding(16.dp)
-                .clickable(onClick = {}), // Prevent closing when clicking inside
+                .clickable(onClick = {}),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            // Header with close button
             Row(
                 verticalAlignment = Alignment.CenterVertically
             ) {
@@ -334,7 +339,6 @@ fun StopInfoWindow(
             
             Spacer(modifier = Modifier.height(8.dp))
             
-            // Stop details
             Text(
                 text = "Stop Code: ${stop.stopCode}",
                 style = MaterialTheme.typography.bodyLarge,
@@ -354,7 +358,7 @@ fun StopInfoWindow(
 
 /**
  * Display a persistent transit line (metro or tram) that stays on the map
- * Uses unique layer IDs to prevent removal when switching between other lines
+ * Also displays stop dots and labels (visible when zoomed in)
  */
 @OptIn(ExperimentalResourceApi::class)
 private suspend fun displayPersistentTransitLine(
@@ -365,9 +369,9 @@ private suspend fun displayPersistentTransitLine(
 ) = withContext(Dispatchers.Main) {
     map.getStyle { style ->
         val allCoordinates = mutableListOf<LatLng>()
-        val loadedGeoJsonData = mutableListOf<Pair<String, String>>() // layerId to geoJson
+        val allStops = mutableListOf<Stop>()
+        val loadedGeoJsonData = mutableListOf<Pair<String, String>>()
         
-        // Load all GeoJSON files in IO dispatcher
         kotlinx.coroutines.CoroutineScope(Dispatchers.IO).launch {
             line.routePaths.forEachIndexed { index, path ->
                 try {
@@ -383,9 +387,13 @@ private suspend fun displayPersistentTransitLine(
                     if (features != null) {
                         for (i in 0 until features.length()) {
                             val feature = features.getJSONObject(i)
+                            val properties = feature.optJSONObject("properties")
                             val geometry = feature.optJSONObject("geometry")
+                            
+                            val featureType = properties?.optString("type")
                             val geometryType = geometry?.optString("type")
                             
+                            // Handle routes
                             if (geometryType == "LineString" || geometryType == "MultiLineString") {
                                 val coords = geometry.optJSONArray("coordinates")
                                 coords?.let {
@@ -405,12 +413,35 @@ private suspend fun displayPersistentTransitLine(
                                     }
                                 }
                             }
+                            
+                            // Handle stops
+                            val isStop = featureType == "stop" || 
+                                        (featureType.isNullOrEmpty() && (geometryType == "Point" || geometryType == "MultiPoint"))
+                            
+                            if (isStop) {
+                                val coordinates = geometry?.optJSONArray("coordinates")
+                                if (coordinates != null && coordinates.length() >= 2) {
+                                    val lng = coordinates.getDouble(0)
+                                    val lat = coordinates.getDouble(1)
+                                    val stopName = properties?.optString("name") ?: "Unknown"
+                                    val stopCode = properties?.optString("stop_code") ?: ""
+                                    val order = properties?.optString("order") ?: ""
+                                    
+                                    allStops.add(
+                                        Stop(
+                                            name = stopName,
+                                            stopCode = stopCode,
+                                            order = order,
+                                            coordinate = LatLng(lat, lng)
+                                        )
+                                    )
+                                }
+                            }
                         }
                     }
                     
                     val routeOnlyGeoJson = extractRoutePathOnly(geoJson)
                     if (routeOnlyGeoJson != "{}") {
-                        // Use unique layer ID with prefix
                         val layerId = "${prefix}-${line.lineNumber}-$index"
                         loadedGeoJsonData.add(layerId to routeOnlyGeoJson)
                     }
@@ -419,16 +450,14 @@ private suspend fun displayPersistentTransitLine(
                 }
             }
             
-            // Add sources and layers on main thread
             withContext(Dispatchers.Main) {
-                // Get line-specific color
                 val lineColor = getTransitLineColor(line)
                 
+                // Add route lines
                 loadedGeoJsonData.forEach { (layerId, geoJsonString) ->
                     try {
                         val sourceId = "source-$layerId"
                         
-                        // Check if source already exists
                         if (style.getSource(sourceId) == null) {
                             val source = GeoJsonSource(sourceId, geoJsonString)
                             style.addSource(source)
@@ -442,6 +471,76 @@ private suspend fun displayPersistentTransitLine(
                         }
                     } catch (e: Exception) {
                         println("Error adding persistent layer: ${e.message}")
+                    }
+                }
+                
+                // Add stops if any
+                if (allStops.isNotEmpty()) {
+                    try {
+                        val stopsSourceId = "${prefix}-${line.lineNumber}-stops-source"
+                        
+                        // Check if stops already added
+                        if (style.getSource(stopsSourceId) == null) {
+                            val stopFeatures = allStops.map { stop ->
+                                val properties = JsonObject()
+                                properties.addProperty("name", stop.name)
+                                properties.addProperty("stop_code", stop.stopCode)
+                                properties.addProperty("order", stop.order)
+                                
+                                Feature.fromGeometry(
+                                    Point.fromLngLat(stop.coordinate.longitude, stop.coordinate.latitude),
+                                    properties
+                                )
+                            }
+                            
+                            val featureCollection = FeatureCollection.fromFeatures(stopFeatures)
+                            val stopsSource = GeoJsonSource(stopsSourceId, featureCollection)
+                            style.addSource(stopsSource)
+                            
+                            // 1. Hit area layer (invisible, for clicking)
+                            val hitAreaLayer = CircleLayer(
+                                "${prefix}-${line.lineNumber}-stops-hit-area",
+                                stopsSourceId
+                            ).withProperties(
+                                PropertyFactory.circleRadius(15f),
+                                PropertyFactory.circleColor(Color.TRANSPARENT),
+                                PropertyFactory.circleOpacity(0f)
+                            )
+                            style.addLayer(hitAreaLayer)
+                            
+                            // 2. Visible dots layer
+                            val dotsLayer = CircleLayer(
+                                "${prefix}-${line.lineNumber}-stops-dots",
+                                stopsSourceId
+                            ).withProperties(
+                                PropertyFactory.circleRadius(4f),
+                                PropertyFactory.circleColor(Color.WHITE),
+                                PropertyFactory.circleStrokeWidth(2f),
+                                PropertyFactory.circleStrokeColor(lineColor)
+                            )
+                            style.addLayer(dotsLayer)
+                            
+                            // 3. Labels layer (only visible when zoomed in)
+                            val labelsLayer = SymbolLayer(
+                                "${prefix}-${line.lineNumber}-stops-labels",
+                                stopsSourceId
+                            ).withProperties(
+                                PropertyFactory.textField("{name}"),
+                                PropertyFactory.textSize(11f),
+                                PropertyFactory.textOffset(arrayOf(0f, 1.5f)),
+                                PropertyFactory.textAnchor("top"),
+                                PropertyFactory.textColor(Color.parseColor(lineColor)),
+                                PropertyFactory.textHaloColor(Color.WHITE),
+                                PropertyFactory.textHaloWidth(1.5f)
+                            )
+                            labelsLayer.minZoom = 14f // Only show when zoomed in
+                            style.addLayer(labelsLayer)
+                            
+                            println("Added ${allStops.size} stops for ${prefix} line ${line.lineNumber}")
+                        }
+                    } catch (e: Exception) {
+                        println("Error adding persistent stops: ${e.message}")
+                        e.printStackTrace()
                     }
                 }
             }
