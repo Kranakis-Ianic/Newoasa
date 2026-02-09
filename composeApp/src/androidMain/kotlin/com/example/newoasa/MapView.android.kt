@@ -537,7 +537,8 @@ private suspend fun displayTransitLine(
                                 PropertyFactory.textSize(12f),
                                 PropertyFactory.textOffset(arrayOf(0f, 1.5f)),
                                 PropertyFactory.textAnchor("top"),
-                                PropertyFactory.textColor(if (line.category == "metro") lineColor else Color.BLACK), // Use line color for metro station names
+                                // FIX: Ensure both branches return Int for textColor
+                                PropertyFactory.textColor(if (line.category == "metro") Color.parseColor(lineColor) else Color.BLACK), 
                                 PropertyFactory.textHaloColor(Color.WHITE),
                                 PropertyFactory.textHaloWidth(1f)
                             )
