@@ -85,16 +85,16 @@ private fun getTransitLineColor(line: TransitLine): String {
             "1" -> "#00734c" // Green
             "2" -> "#e60000" // Red
             "3" -> "#002673" // Blue
-            else -> "#000000" // Default to red
+            else -> "#000000" // Default to black
         }
         line.isTram -> when (line.lineNumber.uppercase()) {
             "T6" -> "#a7c636" // Lime green
             "T7" -> "#b9348b" // Pink
-            else -> "#000000" // Default to lime green
+            else -> "#000000" // Default to black
         }
         line.isBus -> "#009cc7" // Cyan
         line.isTrolley -> "#f07c00" // Orange
-        else -> "#000000" // Default to cyan
+        else -> "#000000" // Default to black
     }
 }
 
