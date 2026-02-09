@@ -612,22 +612,25 @@ private suspend fun displayTransitLine(
                         map.setMinZoomPreference(1.0)
                         map.setMaxZoomPreference(18.0)
                         
-                        // Calculate padding in pixels based on screen density
+                        // Set specific map padding to reserve space for UI overlays
                         val density = context.resources.displayMetrics.density
-                        val horizontalPadding = (50 * density).toInt() // Increased from 24dp to 50dp
-                        val verticalPadding = (150 * density).toInt()  // Increased from 32dp to 150dp
+                        val topOverlay = (120 * density).toInt()     // Reserve top 120dp for search bar
+                        val bottomOverlay = (120 * density).toInt()  // Reserve bottom 120dp for nav/sheet
+                        
+                        // Apply the padding to the map viewport
+                        map.setPadding(0, topOverlay, 0, bottomOverlay)
+                        
+                        // Add a little extra padding for the content itself within the safe area
+                        val contentPadding = (32 * density).toInt()
 
-                        // Move camera immediately to bounds with asymmetrical padding
+                        // Move camera immediately to bounds respecting the map padding
                         map.moveCamera(
                             CameraUpdateFactory.newLatLngBounds(
                                 bounds, 
-                                horizontalPadding, 
-                                verticalPadding, 
-                                horizontalPadding, 
-                                verticalPadding
+                                contentPadding
                             )
                         )
-                        println("Camera moved to show all routes")
+                        println("Camera moved to show all routes with viewport padding")
                     } catch (e: Exception) {
                         println("Error animating camera: ${e.message}")
                         e.printStackTrace()
