@@ -484,7 +484,7 @@ private suspend fun displayCombinedStations(
                             "combined-stations-hit-area",
                             sourceId
                         ).withProperties(
-                            PropertyFactory.circleRadius(20f),
+                            PropertyFactory.circleRadius(15f),  // Smaller clickable area
                             PropertyFactory.circleColor(Color.TRANSPARENT),
                             PropertyFactory.circleOpacity(0f)
                         )
@@ -495,9 +495,9 @@ private suspend fun displayCombinedStations(
                             "combined-stations-outer",
                             sourceId
                         ).withProperties(
-                            PropertyFactory.circleRadius(7f),  // Bigger radius
+                            PropertyFactory.circleRadius(5f),  // Smaller radius (was 7f)
                             PropertyFactory.circleColor(Color.WHITE),
-                            PropertyFactory.circleStrokeWidth(3f),
+                            PropertyFactory.circleStrokeWidth(2f),  // Thinner stroke (was 3f)
                             PropertyFactory.circleStrokeColor("#000000")
                         )
                         style.addLayer(outerLayer)
@@ -512,7 +512,7 @@ private suspend fun displayCombinedStations(
                                 Expression.step(
                                     Expression.get("line_count"),
                                     Expression.literal(0f),  // 0 radius for single-line stations
-                                    Expression.stop(2, 3f)   // 3f radius for 2+ lines (connections)
+                                    Expression.stop(2, 2f)   // 2f radius for 2+ lines (was 3f)
                                 )
                             ),
                             PropertyFactory.circleColor("#000000")
@@ -535,7 +535,7 @@ private suspend fun displayCombinedStations(
                         labelsLayer.minZoom = 14f
                         style.addLayer(labelsLayer)
                         
-                        println("Added ${features.length()} combined stations (on top, with connection styling)")
+                        println("Added ${features.length()} combined stations (smaller dots)")
                     } catch (e: Exception) {
                         println("Error adding combined stations to map: ${e.message}")
                         e.printStackTrace()
