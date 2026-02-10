@@ -6,8 +6,10 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.kotlinSerialization)
     alias(libs.plugins.ksp)
     alias(libs.plugins.room)
+    alias(libs.plugins.ktorfit)
 }
 
 kotlin {
@@ -31,8 +33,20 @@ kotlin {
         androidMain.dependencies {
             implementation(libs.compose.uiToolingPreview)
             implementation(libs.androidx.activity.compose)
+            
             // Native MapLibre SDK for Android
             implementation("org.maplibre.gl:android-sdk:11.5.0")
+            
+            // Ktor client for Android
+            implementation(libs.ktor.client.okhttp)
+            
+            // Koin for Android
+            implementation(libs.koin.android)
+        }
+        
+        iosMain.dependencies {
+            // Ktor client for iOS
+            implementation(libs.ktor.client.darwin)
         }
         
         commonMain.dependencies {
@@ -44,6 +58,8 @@ kotlin {
             implementation(libs.compose.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodelCompose)
             implementation(libs.androidx.lifecycle.runtimeCompose)
+            
+            // Navigation
             implementation("org.jetbrains.androidx.navigation:navigation-compose:2.7.0-alpha07")
             implementation("org.jetbrains.compose.material:material-icons-extended:1.6.0")
             
@@ -59,10 +75,34 @@ kotlin {
             // Room Multiplatform
             implementation(libs.room.runtime)
             implementation(libs.sqlite.bundled)
+            
+            // Ktor Client
+            implementation(libs.ktor.client.core)
+            implementation(libs.ktor.client.content.negotiation)
+            implementation(libs.ktor.serialization.kotlinx.json)
+            
+            // Ktorfit
+            implementation(libs.ktorfit.lib)
+            
+            // Serialization
+            implementation(libs.serialization.json)
+            
+            // Koin
+            implementation(libs.koin.core)
+            implementation(libs.koin.compose)
+            implementation(libs.koin.compose.viewmodel)
+            
+            // DataStore
+            implementation(libs.androidx.datastore.preferences)
+            
+            // Coil for image loading
+            implementation(libs.coil.compose)
+            implementation(libs.coil.network.ktor)
         }
         
         commonTest.dependencies {
             implementation(libs.kotlin.test)
+            implementation(libs.kotlinx.coroutines.test)
         }
     }
 }
@@ -108,6 +148,13 @@ dependencies {
     add("kspIosX64", libs.room.compiler)
     add("kspIosArm64", libs.room.compiler)
     add("kspIosSimulatorArm64", libs.room.compiler)
+    
+    // Ktorfit KSP for all targets
+    add("kspCommonMainMetadata", libs.ktorfit.ksp)
+    add("kspAndroid", libs.ktorfit.ksp)
+    add("kspIosX64", libs.ktorfit.ksp)
+    add("kspIosArm64", libs.ktorfit.ksp)
+    add("kspIosSimulatorArm64", libs.ktorfit.ksp)
 }
 
 // Ensure KSP tasks run in correct order
