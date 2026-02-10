@@ -14,12 +14,14 @@ that need to be combined into routePaths.
 """
 
 import os
-import json
+import sys
 from pathlib import Path
 from typing import List, Dict
 
-# Base path to GeoJSON resources
-BASE_PATH = Path("composeApp/src/commonMain/composeResources/files/geojson")
+# Determine base path relative to this script
+SCRIPT_DIR = Path(__file__).parent.absolute()
+PROJECT_ROOT = SCRIPT_DIR.parent
+GEOJSON_BASE = PROJECT_ROOT / "composeApp/src/commonMain/composeResources/files/geojson"
 
 def get_geojson_files(line_folder: Path) -> List[str]:
     """Get all .geojson files in a folder, sorted alphabetically."""
@@ -31,8 +33,12 @@ def get_geojson_files(line_folder: Path) -> List[str]:
 
 def scan_metro_lines() -> List[Dict]:
     """Scan Metro lines (1, 2, 3)."""
-    metro_folder = BASE_PATH / "Metro lines"
+    metro_folder = GEOJSON_BASE / "Metro lines"
     lines = []
+    
+    if not metro_folder.exists():
+        print(f"Warning: Metro folder not found at {metro_folder}")
+        return []
     
     for line_num in ["1", "2", "3"]:
         line_folder = metro_folder / line_num
@@ -57,9 +63,13 @@ def scan_metro_lines() -> List[Dict]:
 
 def scan_tram_lines() -> List[Dict]:
     """Scan Tram lines (T6, T7)."""
-    tram_folder = BASE_PATH / "Tram lines"
+    tram_folder = GEOJSON_BASE / "Tram lines"
     lines = []
     
+    if not tram_folder.exists():
+        print(f"Warning: Tram folder not found at {tram_folder}")
+        return []
+
     for line_num in ["T6", "T7"]:
         line_folder = tram_folder / line_num
         if not line_folder.exists():
@@ -82,9 +92,13 @@ def scan_tram_lines() -> List[Dict]:
 
 def scan_suburban_lines() -> List[Dict]:
     """Scan Suburban Railway lines (A1, A2, A3, A4)."""
-    suburban_folder = BASE_PATH / "Suburban Railway lines"
+    suburban_folder = GEOJSON_BASE / "Suburban Railway lines"
     lines = []
     
+    if not suburban_folder.exists():
+        print(f"Warning: Suburban folder not found at {suburban_folder}")
+        return []
+
     for line_num in ["A1", "A2", "A3", "A4"]:
         line_folder = suburban_folder / line_num
         if not line_folder.exists():
@@ -107,7 +121,7 @@ def scan_suburban_lines() -> List[Dict]:
 
 def scan_bus_lines() -> List[Dict]:
     """Scan Bus lines."""
-    bus_folder = BASE_PATH / "Bus lines" / "buses"
+    bus_folder = GEOJSON_BASE / "Bus lines" / "buses"
     if not bus_folder.exists():
         return []
     
@@ -134,7 +148,7 @@ def scan_bus_lines() -> List[Dict]:
 
 def scan_trolley_lines() -> List[Dict]:
     """Scan Trolley lines."""
-    trolley_folder = BASE_PATH / "Bus lines" / "trolleys"
+    trolley_folder = GEOJSON_BASE / "Bus lines" / "trolleys"
     if not trolley_folder.exists():
         return []
     
@@ -294,8 +308,16 @@ object TransitLineRepository {{
     return kotlin_code
 
 def main():
-    print("Scanning transit lines...")
+    print("============================================================")
+    print("Transit Line Repository Generator (Updated)")
+    print("============================================================")
+    print(f"Scanning directory: {GEOJSON_BASE}")
     
+    if not GEOJSON_BASE.exists():
+        print(f"❌ Error: Base directory not found!")
+        print(f"Expected: {GEOJSON_BASE}")
+        sys.exit(1)
+
     # Scan all line types
     metro = scan_metro_lines()
     tram = scan_tram_lines()
@@ -311,19 +333,25 @@ def main():
         'trolley': trolley
     }
     
+    total = len(metro) + len(tram) + len(suburban) + len(bus) + len(trolley)
+    
     print(f"Found:")
     print(f"  Metro: {len(metro)} lines")
     print(f"  Tram: {len(tram)} lines")
     print(f"  Suburban: {len(suburban)} lines")
     print(f"  Bus: {len(bus)} lines")
     print(f"  Trolley: {len(trolley)} lines")
-    print(f"  Total: {len(metro) + len(tram) + len(suburban) + len(bus) + len(trolley)} lines")
+    print(f"  Total: {total} lines")
+    
+    if total == 0:
+        print("\n❌ No lines found! Check your folder structure.")
+        sys.exit(1)
     
     # Generate Kotlin code
     kotlin_code = generate_kotlin_code(all_lines)
     
     # Write to file
-    output_path = Path("composeApp/src/commonMain/kotlin/com/example/newoasa/data/TransitLineRepository.kt")
+    output_path = PROJECT_ROOT / "composeApp/src/commonMain/kotlin/com/example/newoasa/data/TransitLineRepository.kt"
     output_path.parent.mkdir(parents=True, exist_ok=True)
     
     with open(output_path, 'w', encoding='utf-8') as f:
