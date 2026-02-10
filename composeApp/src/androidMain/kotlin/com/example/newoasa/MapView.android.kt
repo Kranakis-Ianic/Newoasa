@@ -51,6 +51,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.json.JSONObject
+import org.json.JSONArray
 import org.maplibre.android.MapLibre
 import org.maplibre.android.camera.CameraPosition
 import org.maplibre.android.camera.CameraUpdateFactory
@@ -65,6 +66,7 @@ import org.maplibre.android.style.sources.GeoJsonSource
 import org.maplibre.geojson.Feature
 import org.maplibre.geojson.FeatureCollection
 import org.maplibre.geojson.Point
+import org.maplibre.geojson.LineString
 import org.maplibre.android.style.layers.SymbolLayer
 import newoasa.composeapp.generated.resources.Res
 import androidx.compose.ui.unit.dp
@@ -80,6 +82,14 @@ data class Stop(
 data class StopInfoState(
     val stop: Stop,
     val lines: List<String> = emptyList()  // Lines that pass through this stop
+)
+
+data class RouteSegment(
+    val coordinates: List<List<Double>>,  // List of [lng, lat] pairs
+    val lineId: String,
+    val color: String,
+    val isTram: Boolean,
+    val isSuburban: Boolean
 )
 
 /**
@@ -128,6 +138,48 @@ private fun getLineComposeColor(lineId: String): ComposeColor {
         "A4" -> ComposeColor(0xFF00a3e0) // Light blue - Suburban A4
         else -> ComposeColor(0xFF000000) // Default to black
     }
+}
+
+/**
+ * Compare two coordinate lists to see if they represent the same path
+ */
+private fun coordinatesMatch(coords1: List<List<Double>>, coords2: List<List<Double>>): Boolean {
+    if (coords1.size != coords2.size) return false
+    
+    val tolerance = 0.00001 // ~1 meter tolerance
+    return coords1.zip(coords2).all { (c1, c2) ->
+        kotlin.math.abs(c1[0] - c2[0]) < tolerance && kotlin.math.abs(c1[1] - c2[1]) < tolerance
+    }
+}
+
+/**
+ * Group route segments by identical coordinates to render them as parallel lines
+ */
+private fun groupOverlappingRoutes(segments: List<RouteSegment>): Map<Int, List<RouteSegment>> {
+    val groups = mutableMapOf<Int, MutableList<RouteSegment>>()
+    var groupId = 0
+    
+    val processed = mutableSetOf<Int>()
+    
+    segments.forEachIndexed { index, segment ->
+        if (index in processed) return@forEachIndexed
+        
+        val group = mutableListOf(segment)
+        processed.add(index)
+        
+        // Find all other segments with matching coordinates
+        for (j in (index + 1) until segments.size) {
+            if (j in processed) continue
+            if (coordinatesMatch(segment.coordinates, segments[j].coordinates)) {
+                group.add(segments[j])
+                processed.add(j)
+            }
+        }
+        
+        groups[groupId++] = group
+    }
+    
+    return groups
 }
 
 @Composable
@@ -186,29 +238,37 @@ actual fun MapView(
         if (isMapReady && !baseLinesLoaded) {
             mapView.getMapAsync { map ->
                 coroutineScope.launch {
-                    // Load all metro lines
+                    val allRouteSegments = mutableListOf<RouteSegment>()
+                    
+                    // Collect all metro lines
                     try {
                         val metroLines = TransitLineRepository.getMetroLines()
                         metroLines.forEach { metroLine ->
-                            displayPersistentTransitLine(map, metroLine, context, "metro")
+                            val segments = collectRouteSegments(metroLine, context)
+                            allRouteSegments.addAll(segments)
                         }
                     } catch (e: Exception) { println("Error loading metro lines: ${e.message}") }
                     
-                    // Load all tram lines
+                    // Collect all tram lines
                     try {
                         val tramLines = TransitLineRepository.getTramLines()
                         tramLines.forEach { tramLine ->
-                            displayPersistentTransitLine(map, tramLine, context, "tram")
+                            val segments = collectRouteSegments(tramLine, context)
+                            allRouteSegments.addAll(segments)
                         }
                     } catch (e: Exception) { println("Error loading tram lines: ${e.message}") }
                     
-                    // Load all suburban lines
+                    // Collect all suburban lines
                     try {
                         val suburbanLines = TransitLineRepository.getSuburbanLines()
                         suburbanLines.forEach { suburbanLine ->
-                            displayPersistentTransitLine(map, suburbanLine, context, "suburban")
+                            val segments = collectRouteSegments(suburbanLine, context)
+                            allRouteSegments.addAll(segments)
                         }
                     } catch (e: Exception) { println("Error loading suburban lines: ${e.message}") }
+                    
+                    // Group overlapping routes and render them
+                    displayGroupedTransitLines(map, allRouteSegments, context)
                     
                     // Load combined stations AFTER lines so dots appear on top
                     displayCombinedStations(map, context)
@@ -416,6 +476,160 @@ fun LineBadge(lineId: String) {
 }
 
 /**
+ * Collect route segments from a transit line
+ */
+@OptIn(ExperimentalResourceApi::class)
+private suspend fun collectRouteSegments(
+    line: TransitLine,
+    context: android.content.Context
+): List<RouteSegment> = withContext(Dispatchers.IO) {
+    val segments = mutableListOf<RouteSegment>()
+    
+    line.routePaths.forEach { path ->
+        try {
+            val geoJsonString = loadGeoJsonFromResources(path)
+            if (geoJsonString.isBlank() || geoJsonString == "{}") return@forEach
+            
+            val geoJson = JSONObject(geoJsonString)
+            val routeOnlyGeoJson = extractRoutePathOnly(geoJson)
+            if (routeOnlyGeoJson == "{}") return@forEach
+            
+            val routeJson = JSONObject(routeOnlyGeoJson)
+            val features = routeJson.optJSONArray("features")
+            if (features != null && features.length() > 0) {
+                val feature = features.getJSONObject(0)
+                val geometry = feature.optJSONObject("geometry")
+                val coords = geometry?.optJSONArray("coordinates")
+                
+                if (coords != null) {
+                    val coordinateList = mutableListOf<List<Double>>()
+                    for (i in 0 until coords.length()) {
+                        val coord = coords.getJSONArray(i)
+                        coordinateList.add(listOf(coord.getDouble(0), coord.getDouble(1)))
+                    }
+                    
+                    segments.add(
+                        RouteSegment(
+                            coordinates = coordinateList,
+                            lineId = line.lineNumber,
+                            color = getTransitLineColor(line),
+                            isTram = line.isTram,
+                            isSuburban = line.isSuburban
+                        )
+                    )
+                }
+            }
+        } catch (e: Exception) {
+            println("Error collecting segment from $path: ${e.message}")
+        }
+    }
+    
+    return@withContext segments
+}
+
+/**
+ * Display grouped transit lines with parallel rendering for overlapping routes
+ */
+private suspend fun displayGroupedTransitLines(
+    map: MapLibreMap,
+    segments: List<RouteSegment>,
+    context: android.content.Context
+) = withContext(Dispatchers.Main) {
+    map.getStyle { style ->
+        kotlinx.coroutines.CoroutineScope(Dispatchers.Main).launch {
+            val groups = groupOverlappingRoutes(segments)
+            var layerCounter = 0
+            
+            groups.forEach { (groupId, groupSegments) ->
+                val groupSize = groupSegments.size
+                
+                groupSegments.forEachIndexed { index, segment ->
+                    try {
+                        // Calculate offset for parallel lines
+                        val lineWidth = if (segment.isTram) 2.5f else 4f
+                        val offset = if (groupSize > 1) {
+                            // Offset each line so they appear side-by-side
+                            val totalWidth = groupSize * lineWidth
+                            val startOffset = -totalWidth / 2f
+                            startOffset + (index * lineWidth) + (lineWidth / 2f)
+                        } else {
+                            0f
+                        }
+                        
+                        // Convert coordinates to GeoJSON
+                        val coordsJson = JSONArray()
+                        segment.coordinates.forEach { coord ->
+                            val point = JSONArray()
+                            point.put(coord[0])
+                            point.put(coord[1])
+                            coordsJson.put(point)
+                        }
+                        
+                        val geometry = JSONObject()
+                        geometry.put("type", "LineString")
+                        geometry.put("coordinates", coordsJson)
+                        
+                        val feature = JSONObject()
+                        feature.put("type", "Feature")
+                        feature.put("geometry", geometry)
+                        feature.put("properties", JSONObject())
+                        
+                        val featureCollection = JSONObject()
+                        featureCollection.put("type", "FeatureCollection")
+                        val featuresArray = JSONArray()
+                        featuresArray.put(feature)
+                        featureCollection.put("features", featuresArray)
+                        
+                        val sourceId = "grouped-transit-source-$layerCounter"
+                        val layerId = "grouped-transit-layer-$layerCounter"
+                        
+                        val source = GeoJsonSource(sourceId, featureCollection.toString())
+                        style.addSource(source)
+                        
+                        // For suburban lines: create dashed pattern
+                        if (segment.isSuburban) {
+                            val whiteLayerId = "${layerId}-white"
+                            val whiteLayer = LineLayer(whiteLayerId, sourceId).withProperties(
+                                PropertyFactory.lineColor("#FFFFFF"),
+                                PropertyFactory.lineWidth(lineWidth),
+                                PropertyFactory.lineOpacity(0.9f),
+                                PropertyFactory.lineDasharray(arrayOf(1f, 2f)),
+                                PropertyFactory.lineOffset(offset)
+                            )
+                            style.addLayer(whiteLayer)
+                            
+                            val colorLayer = LineLayer(layerId, sourceId).withProperties(
+                                PropertyFactory.lineColor(segment.color),
+                                PropertyFactory.lineWidth(lineWidth),
+                                PropertyFactory.lineOpacity(0.9f),
+                                PropertyFactory.lineDasharray(arrayOf(2f, 1f)),
+                                PropertyFactory.lineOffset(offset)
+                            )
+                            style.addLayer(colorLayer)
+                        } else {
+                            val lineLayer = LineLayer(layerId, sourceId).withProperties(
+                                PropertyFactory.lineColor(segment.color),
+                                PropertyFactory.lineWidth(lineWidth),
+                                PropertyFactory.lineOpacity(0.8f),
+                                PropertyFactory.lineOffset(offset)
+                            )
+                            style.addLayer(lineLayer)
+                        }
+                        
+                        layerCounter++
+                    } catch (e: Exception) {
+                        println("Error adding grouped layer: ${e.message}")
+                        e.printStackTrace()
+                    }
+                }
+            }
+            
+            println("Added $layerCounter transit line layers (with parallel rendering)")
+        }
+    }
+}
+
+/**
  * Display combined metro and tram stations
  * Loads from combined_metro_tram_stations.json if available
  */
@@ -458,8 +672,8 @@ private suspend fun displayCombinedStations(
                             val source = GeoJsonSource(sourceId, combinedStationsJson)
                             style.addSource(source)
                             
-                            // Add layers in order (they render bottom-to-top)
-                            // 1. Hit area layer (invisible, for clicking) - add first so it's at bottom
+                            // Add layers explicitly ON TOP using addLayer (last = top)
+                            // 1. Hit area layer (invisible, for clicking)
                             val hitAreaLayer = CircleLayer(
                                 "combined-stations-hit-area",
                                 sourceId
@@ -470,7 +684,7 @@ private suspend fun displayCombinedStations(
                             )
                             style.addLayer(hitAreaLayer)
                             
-                            // 2. Visible dots layer (larger for combined stations) - on top of lines
+                            // 2. Visible dots layer (larger for combined stations)
                             val dotsLayer = CircleLayer(
                                 "combined-stations-dots",
                                 sourceId
@@ -478,11 +692,11 @@ private suspend fun displayCombinedStations(
                                 PropertyFactory.circleRadius(6f),  // Larger than individual stops
                                 PropertyFactory.circleColor(Color.WHITE),
                                 PropertyFactory.circleStrokeWidth(3f),
-                                PropertyFactory.circleStrokeColor("#000000")  // Black border for combined
+                                PropertyFactory.circleStrokeColor("#000000")  // Black border
                             )
                             style.addLayer(dotsLayer)
                             
-                            // 3. Labels layer (only visible when zoomed in) - on top of dots
+                            // 3. Labels layer (only visible when zoomed in)
                             val labelsLayer = SymbolLayer(
                                 "combined-stations-labels",
                                 sourceId
@@ -498,7 +712,7 @@ private suspend fun displayCombinedStations(
                             labelsLayer.minZoom = 14f
                             style.addLayer(labelsLayer)
                             
-                            println("Added ${features.length()} combined stations to map")
+                            println("Added ${features.length()} combined stations to map (on top of lines)")
                         }
                     } catch (e: Exception) {
                         println("Error adding combined stations to map: ${e.message}")
@@ -508,105 +722,6 @@ private suspend fun displayCombinedStations(
             } catch (e: Exception) {
                 println("Error loading combined stations: ${e.message}")
                 e.printStackTrace()
-            }
-        }
-    }
-}
-
-/**
- * Display a persistent transit line (metro, tram, or suburban) that stays on the map
- * Does NOT display individual stops - those are handled by combined stations
- * Applies different styling based on line type:
- * - Metro: 4px solid lines
- * - Tram: 2.5px solid lines (thinner)
- * - Suburban: 4px dashed lines (alternating line color and white)
- */
-@OptIn(ExperimentalResourceApi::class)
-private suspend fun displayPersistentTransitLine(
-    map: MapLibreMap,
-    line: TransitLine,
-    context: android.content.Context,
-    prefix: String
-) = withContext(Dispatchers.Main) {
-    map.getStyle { style ->
-        val loadedGeoJsonData = mutableListOf<Pair<String, String>>()
-        
-        kotlinx.coroutines.CoroutineScope(Dispatchers.IO).launch {
-            line.routePaths.forEachIndexed { index, path ->
-                try {
-                    val geoJsonString = loadGeoJsonFromResources(path)
-                    
-                    if (geoJsonString.isBlank() || geoJsonString == "{}") {
-                        return@forEachIndexed
-                    }
-                    
-                    val geoJson = JSONObject(geoJsonString)
-                    
-                    // Extract only the ROUTE geometry (ignore stops)
-                    val routeOnlyGeoJson = extractRoutePathOnly(geoJson)
-                    
-                    if (routeOnlyGeoJson != "{}" && routeOnlyGeoJson != """{"type":"FeatureCollection","features":[]}""") {
-                        val layerId = "${prefix}-${line.lineNumber}-$index"
-                        loadedGeoJsonData.add(layerId to routeOnlyGeoJson)
-                    }
-                } catch (e: Exception) {
-                    println("Error loading persistent route $path: ${e.message}")
-                }
-            }
-            
-            withContext(Dispatchers.Main) {
-                val lineColor = getTransitLineColor(line)
-                
-                // Determine line width and pattern based on type
-                val lineWidth = when {
-                    line.isTram -> 2.5f      // Thinner for trams
-                    line.isSuburban -> 4f    // Standard width for suburban
-                    else -> 4f               // Standard width for metro
-                }
-                
-                // Add route lines with appropriate styling
-                loadedGeoJsonData.forEach { (layerId, geoJsonString) ->
-                    try {
-                        val sourceId = "source-$layerId"
-                        
-                        if (style.getSource(sourceId) == null) {
-                            val source = GeoJsonSource(sourceId, geoJsonString)
-                            style.addSource(source)
-                            
-                            // For suburban lines: create dashed pattern with line color and white
-                            if (line.isSuburban) {
-                                val lineLayer = LineLayer(layerId, sourceId).withProperties(
-                                    PropertyFactory.lineColor(lineColor),
-                                    PropertyFactory.lineWidth(lineWidth),
-                                    PropertyFactory.lineOpacity(0.9f),
-                                    PropertyFactory.lineDasharray(arrayOf(2f, 1f))  // Dash pattern
-                                )
-                                style.addLayer(lineLayer)
-                                
-                                // Add white background layer for dashed effect
-                                val whiteLayerId = "${layerId}-white"
-                                val whiteLayer = LineLayer(whiteLayerId, sourceId).withProperties(
-                                    PropertyFactory.lineColor("#FFFFFF"),
-                                    PropertyFactory.lineWidth(lineWidth),
-                                    PropertyFactory.lineOpacity(0.9f),
-                                    PropertyFactory.lineDasharray(arrayOf(1f, 2f))  // Inverse pattern
-                                )
-                                // Add white layer first (below colored layer)
-                                style.addLayerBelow(whiteLayer, layerId)
-                            } else {
-                                // Solid lines for metro and tram
-                                val lineLayer = LineLayer(layerId, sourceId).withProperties(
-                                    PropertyFactory.lineColor(lineColor),
-                                    PropertyFactory.lineWidth(lineWidth),
-                                    PropertyFactory.lineOpacity(0.8f)
-                                )
-                                style.addLayer(lineLayer)
-                            }
-                        }
-                    } catch (e: Exception) {
-                        println("Error adding persistent layer: ${e.message}")
-                    }
-                }
             }
         }
     }
@@ -677,27 +792,19 @@ private suspend fun displayTransitLine(
         
         val allCoordinates = mutableListOf<LatLng>()
         val allStops = mutableListOf<Stop>()
-        val loadedGeoJsonData = mutableListOf<Pair<Int, String>>() // index to geoJson
+        val loadedGeoJsonData = mutableListOf<Pair<Int, String>>()
         
         // Load all GeoJSON files sequentially in IO dispatcher
         kotlinx.coroutines.CoroutineScope(Dispatchers.IO).launch {
-            // Load all routes first
             line.routePaths.forEachIndexed { index, path ->
                 try {
-                    println("Loading GeoJSON from composeResources: $path")
-                    
-                    // Load GeoJSON from Compose Multiplatform resources
                     val geoJsonString = loadGeoJsonFromResources(path)
                     
-                    // Validate GeoJSON before adding
                     if (geoJsonString.isBlank() || geoJsonString == "{}") {
-                        println("Empty GeoJSON for path: $path")
                         return@forEachIndexed
                     }
                     
                     val geoJson = JSONObject(geoJsonString)
-                    
-                    // Validate that it has features - type check relaxed to allow FeatureCollection or manual parsing
                     val features = geoJson.optJSONArray("features")
                     if (features != null) {
                         for (i in 0 until features.length()) {
@@ -708,48 +815,35 @@ private suspend fun displayTransitLine(
                             val featureType = properties?.optString("type")
                             val geometryType = geometry?.optString("type")
                             
-                            // Check for route path (either explicit type or LineString geometry)
                             val isRoute = featureType == "route_path" || 
                                          featureType == "Line" ||
                                          (featureType.isNullOrEmpty() && (geometryType == "LineString" || geometryType == "MultiLineString"))
                             
-                            // Check for stop (either explicit type or Point geometry)
                             val isStop = featureType == "stop" || 
                                         featureType == "Station" ||
                                         (featureType.isNullOrEmpty() && (geometryType == "Point" || geometryType == "MultiPoint"))
 
                             if (isRoute) {
-                                // Extract route coordinates for bounds calculation
                                 val coords = geometry?.optJSONArray("coordinates")
                                 coords?.let {
-                                    // Handle LineString (array of points)
                                     if (geometryType == "LineString") {
                                         for (j in 0 until it.length()) {
                                             val coord = it.getJSONArray(j)
-                                            val lng = coord.getDouble(0)
-                                            val lat = coord.getDouble(1)
-                                            allCoordinates.add(LatLng(lat, lng))
+                                            allCoordinates.add(LatLng(coord.getDouble(1), coord.getDouble(0)))
                                         }
-                                    }
-                                    // Basic support for MultiLineString if needed
-                                    else if (geometryType == "MultiLineString") {
+                                    } else if (geometryType == "MultiLineString") {
                                          for (k in 0 until it.length()) {
                                             val lineString = it.getJSONArray(k)
                                             for (j in 0 until lineString.length()) {
                                                 val coord = lineString.getJSONArray(j)
-                                                val lng = coord.getDouble(0)
-                                                val lat = coord.getDouble(1)
-                                                allCoordinates.add(LatLng(lat, lng))
+                                                allCoordinates.add(LatLng(coord.getDouble(1), coord.getDouble(0)))
                                             }
                                          }
                                     }
                                 }
                             } else if (isStop) {
-                                // Extract stop information
                                 val coordinates = geometry?.optJSONArray("coordinates")
                                 if (coordinates != null && coordinates.length() >= 2) {
-                                    val lng = coordinates.getDouble(0)
-                                    val lat = coordinates.getDouble(1)
                                     val stopName = properties?.optString("name") ?: "Unknown"
                                     val stopCode = properties?.optString("stop_code") ?: ""
                                     val order = properties?.optString("order") ?: ""
@@ -759,7 +853,7 @@ private suspend fun displayTransitLine(
                                             name = stopName,
                                             stopCode = stopCode,
                                             order = order,
-                                            coordinate = LatLng(lat, lng)
+                                            coordinate = LatLng(coordinates.getDouble(1), coordinates.getDouble(0))
                                         )
                                     )
                                 }
@@ -767,59 +861,54 @@ private suspend fun displayTransitLine(
                         }
                     }
                     
-                    // Store loaded data (only the route LineString, not stops)
                     val routeOnlyGeoJson = extractRoutePathOnly(geoJson)
-                    // Only add if we actually found a route
                     if (routeOnlyGeoJson != "{}") {
                         loadedGeoJsonData.add(index to routeOnlyGeoJson)
-                        println("Successfully loaded GeoJSON for route: $path")
-                    } else {
-                        println("Warning: No route path found in $path")
                     }
                     
                 } catch (e: Exception) {
                     println("Error loading route $path: ${e.message}")
-                    e.printStackTrace()
                 }
             }
             
-            println("Finished loading all routes. Total stops: ${allStops.size}")
-            
-            // Create stops map for quick lookup
             stopsMap = allStops.associateBy { "${it.coordinate.latitude},${it.coordinate.longitude}" }
             
-            // Now add all sources and layers on main thread sequentially
             withContext(Dispatchers.Main) {
-                // Get line-specific color
                 val lineColor = getTransitLineColor(line)
                 
-                // Add route lines
+                // Add route lines below stations
                 loadedGeoJsonData.forEach { (index, geoJsonString) ->
                     try {
                         val sourceId = "transit-line-source-$index"
                         val layerId = "transit-line-layer-$index"
                         
-                        // Add source
                         val source = GeoJsonSource(sourceId, geoJsonString)
                         style.addSource(source)
                         
-                        // Add line layer
                         val lineLayer = LineLayer(layerId, sourceId).withProperties(
                             PropertyFactory.lineColor(lineColor),
                             PropertyFactory.lineWidth(5f),
                             PropertyFactory.lineOpacity(0.8f)
                         )
-                        style.addLayer(lineLayer)
                         
+                        // Try to add below station dots if they exist
+                        try {
+                            if (style.getLayer("combined-stations-hit-area") != null) {
+                                style.addLayerBelow(lineLayer, "combined-stations-hit-area")
+                            } else {
+                                style.addLayer(lineLayer)
+                            }
+                        } catch (e: Exception) {
+                            style.addLayer(lineLayer)
+                        }
                     } catch (e: Exception) {
                         e.printStackTrace()
                     }
                 }
                 
-                // Add stops as markers (for buses and trolleys) - layers added in correct order
+                // Add stops as markers (for buses and trolleys)
                 if (allStops.isNotEmpty()) {
                     try {
-                        // Create GeoJSON features for stops with properties
                         val stopFeatures = allStops.map { stop ->
                             val properties = JsonObject()
                             properties.addProperty("name", stop.name)
@@ -833,22 +922,17 @@ private suspend fun displayTransitLine(
                         }
                         
                         val featureCollection = FeatureCollection.fromFeatures(stopFeatures)
-                        
-                        // Add stops source
                         val stopsSource = GeoJsonSource("transit-stops-source", featureCollection)
                         style.addSource(stopsSource)
                         
-                        // Add layers in order (bottom to top)
-                        // 1. Add invisible hit area layer (for clicking) first
                         val hitAreaLayer = CircleLayer("transit-stops-hit-area", "transit-stops-source")
                             .withProperties(
-                                PropertyFactory.circleRadius(15f), // Clickable radius
+                                PropertyFactory.circleRadius(15f),
                                 PropertyFactory.circleColor(Color.TRANSPARENT),
                                 PropertyFactory.circleOpacity(0f)
                             )
                         style.addLayer(hitAreaLayer)
                         
-                        // 2. Add visible dots layer (CircleLayer) on top of lines
                         val stopsLayer = CircleLayer("transit-stops-dots-layer", "transit-stops-source")
                             .withProperties(
                                 PropertyFactory.circleRadius(5f),
@@ -858,7 +942,6 @@ private suspend fun displayTransitLine(
                             )
                         style.addLayer(stopsLayer)
 
-                        // 3. Add labels layer (SymbolLayer) - visible only when zoomed in, on top
                         val labelsLayer = SymbolLayer("transit-stops-labels-layer", "transit-stops-source")
                             .withProperties(
                                 PropertyFactory.textField("{name}"),
@@ -869,12 +952,11 @@ private suspend fun displayTransitLine(
                                 PropertyFactory.textHaloColor(Color.WHITE),
                                 PropertyFactory.textHaloWidth(1f)
                             )
-                        labelsLayer.minZoom = 14f // Only show labels when zoomed in
+                        labelsLayer.minZoom = 14f
                         style.addLayer(labelsLayer)
                         
                     } catch (e: Exception) {
                         println("Error adding stops: ${e.message}")
-                        e.printStackTrace()
                     }
                 }
                 
@@ -885,15 +967,12 @@ private suspend fun displayTransitLine(
                         allCoordinates.forEach { boundsBuilder.include(it) }
                         val bounds = boundsBuilder.build()
                         
-                        // Animate to bounds with padding
                         map.animateCamera(
                             CameraUpdateFactory.newLatLngBounds(bounds, 100),
-                            1000 // 1 second animation
+                            1000
                         )
-                        println("Camera animated to show all routes")
                     } catch (e: Exception) {
                         println("Error animating camera: ${e.message}")
-                        e.printStackTrace()
                     }
                 }
             }
@@ -918,16 +997,14 @@ private fun extractRoutePathOnly(geoJson: JSONObject): String {
                 val featureType = properties?.optString("type")
                 val geometryType = geometry?.optString("type")
                 
-                // Return if explicit route_path OR Line type OR fallback to LineString/MultiLineString geometry
                 if (featureType == "route_path" || 
                     featureType == "Line" ||
                    (featureType.isNullOrEmpty() && (geometryType == "LineString" || geometryType == "MultiLineString"))) {
-                    // Return just this feature as a FeatureCollection
                     return """{"type":"FeatureCollection","features":[$feature]}"""
                 }
             }
         }
-        "{}" // Return empty if no route_path found
+        "{}"
     } catch (e: Exception) {
         e.printStackTrace()
         "{}"
@@ -937,14 +1014,12 @@ private fun extractRoutePathOnly(geoJson: JSONObject): String {
 @OptIn(ExperimentalResourceApi::class)
 private suspend fun loadGeoJsonFromResources(path: String): String {
     return try {
-        // Path already includes "files/" prefix from TransitLineRepository
-        // e.g., "files/geojson/buses/035/route_2953.geojson"
         val bytes = Res.readBytes(path)
         bytes.decodeToString()
     } catch (e: Exception) {
         println("Failed to load GeoJSON from composeResources path: $path")
         e.printStackTrace()
-        "{}" // Return empty GeoJSON on error
+        "{}"
     }
 }
 
