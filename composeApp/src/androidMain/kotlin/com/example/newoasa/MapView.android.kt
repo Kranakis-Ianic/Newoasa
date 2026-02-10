@@ -62,6 +62,7 @@ import org.maplibre.android.style.layers.CircleLayer
 import org.maplibre.android.style.layers.LineLayer
 import org.maplibre.android.style.layers.PropertyFactory
 import org.maplibre.android.style.sources.GeoJsonSource
+import org.maplibre.android.style.expressions.Expression
 import org.maplibre.geojson.Feature
 import org.maplibre.geojson.FeatureCollection
 import org.maplibre.geojson.Point
@@ -416,9 +417,11 @@ fun LineBadge(lineId: String) {
 }
 
 /**
- * Display combined metro and tram stations with classic metro map styling
- * Loads from combined_metro_tram_stations.json if available
- * Stations rendered as: white outer circle + black center dot + black stroke
+ * Display combined metro and tram stations
+ * Station appearance:
+ * - Single-line stations: White circle with black border
+ * - Connection stations (2+ lines): White circle + black center dot + black border
+ * Uses data-driven styling based on line_count property
  */
 @OptIn(ExperimentalResourceApi::class)
 private suspend fun displayCombinedStations(
@@ -454,65 +457,85 @@ private suspend fun displayCombinedStations(
                     try {
                         val sourceId = "combined-stations-source"
                         
-                        if (style.getSource(sourceId) == null) {
-                            // Create GeoJSON source
-                            val source = GeoJsonSource(sourceId, combinedStationsJson)
-                            style.addSource(source)
-                            
-                            // Classic metro map station style: white circle with black center + thick black stroke
-                            // Layers render bottom-to-top, so add in this order:
-                            
-                            // 1. Hit area layer (invisible, for clicking)
-                            val hitAreaLayer = CircleLayer(
-                                "combined-stations-hit-area",
-                                sourceId
-                            ).withProperties(
-                                PropertyFactory.circleRadius(20f),  // Large clickable area
-                                PropertyFactory.circleColor(Color.TRANSPARENT),
-                                PropertyFactory.circleOpacity(0f)
-                            )
-                            style.addLayer(hitAreaLayer)
-                            
-                            // 2. Outer white circle with prominent black stroke
-                            val outerLayer = CircleLayer(
-                                "combined-stations-outer",
-                                sourceId
-                            ).withProperties(
-                                PropertyFactory.circleRadius(8f),  // Larger outer circle
-                                PropertyFactory.circleColor(Color.WHITE),
-                                PropertyFactory.circleStrokeWidth(4f),  // Thick black border
-                                PropertyFactory.circleStrokeColor("#000000")
-                            )
-                            style.addLayer(outerLayer)
-                            
-                            // 3. Inner black center dot
-                            val centerDotLayer = CircleLayer(
-                                "combined-stations-center",
-                                sourceId
-                            ).withProperties(
-                                PropertyFactory.circleRadius(3f),  // Small black center
-                                PropertyFactory.circleColor("#000000")
-                            )
-                            style.addLayer(centerDotLayer)
-                            
-                            // 4. Labels layer (only visible when zoomed in)
-                            val labelsLayer = SymbolLayer(
-                                "combined-stations-labels",
-                                sourceId
-                            ).withProperties(
-                                PropertyFactory.textField("{name}"),
-                                PropertyFactory.textSize(12f),
-                                PropertyFactory.textOffset(arrayOf(0f, 2.0f)),
-                                PropertyFactory.textAnchor("top"),
-                                PropertyFactory.textColor(Color.BLACK),
-                                PropertyFactory.textHaloColor(Color.WHITE),
-                                PropertyFactory.textHaloWidth(2f)
-                            )
-                            labelsLayer.minZoom = 14f
-                            style.addLayer(labelsLayer)
-                            
-                            println("Added ${features.length()} combined stations with classic metro map styling")
+                        // Remove existing station layers if present (to re-add on top)
+                        listOf(
+                            "combined-stations-labels",
+                            "combined-stations-center",
+                            "combined-stations-outer",
+                            "combined-stations-hit-area"
+                        ).forEach { layerId ->
+                            try {
+                                style.getLayer(layerId)?.let { style.removeLayer(it) }
+                            } catch (e: Exception) {}
                         }
+                        
+                        // Remove source if exists
+                        try {
+                            style.getSource(sourceId)?.let { style.removeSource(it) }
+                        } catch (e: Exception) {}
+                        
+                        // Create GeoJSON source
+                        val source = GeoJsonSource(sourceId, combinedStationsJson)
+                        style.addSource(source)
+                        
+                        // Add layers (they will be on top because added last)
+                        // 1. Hit area layer (invisible, for clicking)
+                        val hitAreaLayer = CircleLayer(
+                            "combined-stations-hit-area",
+                            sourceId
+                        ).withProperties(
+                            PropertyFactory.circleRadius(20f),
+                            PropertyFactory.circleColor(Color.TRANSPARENT),
+                            PropertyFactory.circleOpacity(0f)
+                        )
+                        style.addLayer(hitAreaLayer)
+                        
+                        // 2. Outer white circle with black stroke (for all stations)
+                        val outerLayer = CircleLayer(
+                            "combined-stations-outer",
+                            sourceId
+                        ).withProperties(
+                            PropertyFactory.circleRadius(7f),  // Bigger radius
+                            PropertyFactory.circleColor(Color.WHITE),
+                            PropertyFactory.circleStrokeWidth(3f),
+                            PropertyFactory.circleStrokeColor("#000000")
+                        )
+                        style.addLayer(outerLayer)
+                        
+                        // 3. Center black dot (ONLY for connection stations with 2+ lines)
+                        // Use data-driven styling based on line_count property
+                        val centerDotLayer = CircleLayer(
+                            "combined-stations-center",
+                            sourceId
+                        ).withProperties(
+                            PropertyFactory.circleRadius(
+                                Expression.step(
+                                    Expression.get("line_count"),
+                                    Expression.literal(0f),  // 0 radius for single-line stations
+                                    Expression.stop(2, 3f)   // 3f radius for 2+ lines (connections)
+                                )
+                            ),
+                            PropertyFactory.circleColor("#000000")
+                        )
+                        style.addLayer(centerDotLayer)
+                        
+                        // 4. Labels layer (only visible when zoomed in)
+                        val labelsLayer = SymbolLayer(
+                            "combined-stations-labels",
+                            sourceId
+                        ).withProperties(
+                            PropertyFactory.textField("{name}"),
+                            PropertyFactory.textSize(12f),
+                            PropertyFactory.textOffset(arrayOf(0f, 2.0f)),
+                            PropertyFactory.textAnchor("top"),
+                            PropertyFactory.textColor(Color.BLACK),
+                            PropertyFactory.textHaloColor(Color.WHITE),
+                            PropertyFactory.textHaloWidth(2f)
+                        )
+                        labelsLayer.minZoom = 14f
+                        style.addLayer(labelsLayer)
+                        
+                        println("Added ${features.length()} combined stations (on top, with connection styling)")
                     } catch (e: Exception) {
                         println("Error adding combined stations to map: ${e.message}")
                         e.printStackTrace()
