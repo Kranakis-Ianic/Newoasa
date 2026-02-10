@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.room)
 }
 
 kotlin {
@@ -32,11 +33,8 @@ kotlin {
             implementation(libs.androidx.activity.compose)
             // Native MapLibre SDK for Android
             implementation("org.maplibre.gl:android-sdk:11.5.0")
-            
-            // Room dependencies
-            implementation("androidx.room:room-runtime:2.6.1")
-            implementation("androidx.room:room-ktx:2.6.1")
         }
+        
         commonMain.dependencies {
             implementation(libs.compose.runtime)
             implementation(libs.compose.foundation)
@@ -57,11 +55,21 @@ kotlin {
             
             // Coroutines
             implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")
+            
+            // Room Multiplatform
+            implementation(libs.room.runtime)
+            implementation(libs.sqlite.bundled)
         }
+        
         commonTest.dependencies {
             implementation(libs.kotlin.test)
         }
     }
+}
+
+// Room configuration
+room {
+    schemaDirectory("$projectDir/schemas")
 }
 
 android {
@@ -94,6 +102,22 @@ android {
 dependencies {
     debugImplementation(libs.compose.uiTooling)
     
-    // Room compiler - use kspAndroid for Android-specific processing
-    add("kspAndroid", "androidx.room:room-compiler:2.6.1")
+    // Room KSP for all targets
+    add("kspCommonMainMetadata", libs.room.compiler)
+    add("kspAndroid", libs.room.compiler)
+    add("kspIosX64", libs.room.compiler)
+    add("kspIosArm64", libs.room.compiler)
+    add("kspIosSimulatorArm64", libs.room.compiler)
+}
+
+// Ensure KSP tasks run in correct order
+tasks.withType<org.jetbrains.kotlin.gradle.dsl.KotlinCompile<*>>().configureEach {
+    if (name != "kspCommonMainKotlinMetadata") {
+        dependsOn("kspCommonMainKotlinMetadata")
+    }
+}
+
+// Add generated KSP sources to commonMain
+kotlin.sourceSets.commonMain {
+    kotlin.srcDir("build/generated/ksp/metadata/commonMain/kotlin")
 }
