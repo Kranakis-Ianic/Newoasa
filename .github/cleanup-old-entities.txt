@@ -1,0 +1,10 @@
+This commit marker indicates cleanup of old entity files:
+- BusLineEntity.kt
+- MetroLineEntity.kt  
+- TramLineEntity.kt
+- TrolleyLineEntity.kt
+- SuburbanRailwayEntity.kt
+
+These have been replaced with the unified:
+- TransitLineEntity.kt
+- StationEntity.kt
