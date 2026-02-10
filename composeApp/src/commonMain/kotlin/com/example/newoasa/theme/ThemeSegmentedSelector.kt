@@ -47,7 +47,10 @@ fun ThemeSegmentedSelector(
                     count = options.size
                 ),
                 selected = mode == currentMode,
-                onClick = { onModeChange(mode) }
+                onClick = { onModeChange(mode) },
+                icon = {
+                    // Empty icon parameter to remove default checkmark
+                }
             ) {
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
