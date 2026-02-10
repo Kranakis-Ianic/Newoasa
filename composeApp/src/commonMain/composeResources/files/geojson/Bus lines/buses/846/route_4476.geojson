@@ -1,0 +1,831 @@
+{
+  "type": "FeatureCollection",
+  "properties": {
+    "LineCode": "1649",
+    "LineID": "846",
+    "LineDescr": "ΝΕΑΠΟΛΗ -  ΣΤ. ΝΙΚΑΙΑ (ΚΥΚΛΙΚΗ)",
+    "RouteCode": "4476",
+    "RouteDescr": "ΝΕΑΠΟΛΗ - ΣΤ.ΝΙΚΑΙΑ",
+    "RouteType": "1"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            23.62642,
+            37.9867
+          ],
+          [
+            23.62667,
+            37.98666
+          ],
+          [
+            23.62683,
+            37.98667
+          ],
+          [
+            23.62711,
+            37.9868
+          ],
+          [
+            23.62777,
+            37.98697
+          ],
+          [
+            23.62803,
+            37.98692
+          ],
+          [
+            23.62882,
+            37.9865
+          ],
+          [
+            23.62953,
+            37.986
+          ],
+          [
+            23.63012,
+            37.98543
+          ],
+          [
+            23.63036,
+            37.98514
+          ],
+          [
+            23.63065,
+            37.98478
+          ],
+          [
+            23.63109,
+            37.9843
+          ],
+          [
+            23.6319,
+            37.98386
+          ],
+          [
+            23.63545,
+            37.98213
+          ],
+          [
+            23.63323,
+            37.98109
+          ],
+          [
+            23.63664,
+            37.97944
+          ],
+          [
+            23.63704,
+            37.97927
+          ],
+          [
+            23.63652,
+            37.97857
+          ],
+          [
+            23.63635,
+            37.97821
+          ],
+          [
+            23.63646,
+            37.97806
+          ],
+          [
+            23.63972,
+            37.97644
+          ],
+          [
+            23.64077,
+            37.97593
+          ],
+          [
+            23.64079,
+            37.9757
+          ],
+          [
+            23.64076,
+            37.97555
+          ],
+          [
+            23.64083,
+            37.9754
+          ],
+          [
+            23.64146,
+            37.97557
+          ],
+          [
+            23.64226,
+            37.97403
+          ],
+          [
+            23.64372,
+            37.97124
+          ],
+          [
+            23.64513,
+            37.96858
+          ],
+          [
+            23.64683,
+            37.96527
+          ],
+          [
+            23.64727,
+            37.96439
+          ],
+          [
+            23.64776,
+            37.96352
+          ],
+          [
+            23.64784,
+            37.96327
+          ],
+          [
+            23.64862,
+            37.96334
+          ],
+          [
+            23.64907,
+            37.9634
+          ],
+          [
+            23.64922,
+            37.96341
+          ],
+          [
+            23.6485,
+            37.96495
+          ],
+          [
+            23.6468,
+            37.96827
+          ],
+          [
+            23.64517,
+            37.97135
+          ],
+          [
+            23.64374,
+            37.97405
+          ],
+          [
+            23.64274,
+            37.97599
+          ],
+          [
+            23.64211,
+            37.9758
+          ],
+          [
+            23.64194,
+            37.97599
+          ],
+          [
+            23.64164,
+            37.97616
+          ],
+          [
+            23.64125,
+            37.97622
+          ],
+          [
+            23.64078,
+            37.97779
+          ],
+          [
+            23.64011,
+            37.97998
+          ],
+          [
+            23.63989,
+            37.98069
+          ],
+          [
+            23.63972,
+            37.98108
+          ],
+          [
+            23.63717,
+            37.98235
+          ],
+          [
+            23.63238,
+            37.98465
+          ],
+          [
+            23.6319,
+            37.98492
+          ],
+          [
+            23.63131,
+            37.98483
+          ],
+          [
+            23.63074,
+            37.98545
+          ],
+          [
+            23.62972,
+            37.9859
+          ],
+          [
+            23.62887,
+            37.98651
+          ],
+          [
+            23.62806,
+            37.98694
+          ],
+          [
+            23.62781,
+            37.98701
+          ],
+          [
+            23.62716,
+            37.98686
+          ],
+          [
+            23.62685,
+            37.98674
+          ],
+          [
+            23.62668,
+            37.98669
+          ],
+          [
+            23.62645,
+            37.98677
+          ]
+        ]
+      },
+      "properties": {
+        "type": "route_path",
+        "RouteCode": "4476"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.626504,
+          37.986699
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "10227",
+        "StopID": "61",
+        "StopDescr": "ΝΕΑΠΟΛΗ",
+        "StopOrder": "1",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6276314,
+          37.9868689
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "370114",
+        "StopID": "370114",
+        "StopDescr": "ΠΑΛ. ΤΕΡΜΑ",
+        "StopOrder": "2",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6304751,
+          37.9848325
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "370094",
+        "StopID": "370094",
+        "StopDescr": "ΝΗΠΙΑΓΩΓΕΙΟ",
+        "StopOrder": "3",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6342574,
+          37.9826421
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "370095",
+        "StopID": "370095",
+        "StopDescr": "ΕΥΡΙΠΙΔΟΥ",
+        "StopOrder": "4",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6338732,
+          37.9815985
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "370096",
+        "StopID": "370096",
+        "StopDescr": "ΦΛΕΜΙΝΓΚ",
+        "StopOrder": "5",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6354991,
+          37.9797919
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "370097",
+        "StopID": "370097",
+        "StopDescr": "ΠΡΑΞΙΤΕΛΟΥΣ",
+        "StopOrder": "6",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6363587,
+          37.978659
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "370059",
+        "StopID": "370059",
+        "StopDescr": "ΣΠΑΘΑ",
+        "StopOrder": "7",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6382458,
+          37.9769614
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "370060",
+        "StopID": "370060",
+        "StopDescr": "ΑΜΕΡΙΚΑΝΟΥ",
+        "StopOrder": "8",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6411782,
+          37.9754312
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "370062",
+        "StopID": "370062",
+        "StopDescr": "ΑΝΩΓΕΙΩΝ",
+        "StopOrder": "9",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6421142,
+          37.9742431
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "370063",
+        "StopID": "370063",
+        "StopDescr": "ΜΟΣΧΟΝΗΣΙΩΝ",
+        "StopOrder": "10",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6427521,
+          37.9728112
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "370073",
+        "StopID": "370073",
+        "StopDescr": "ΑΡΚΑΔΙΟΥ",
+        "StopOrder": "11",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6434645,
+          37.9714614
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "370064",
+        "StopID": "370064",
+        "StopDescr": "ΑΓ. ΓΕΩΡΓΙΟΣ",
+        "StopOrder": "12",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6446714,
+          37.9690767
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "370065",
+        "StopID": "370065",
+        "StopDescr": "ΛΑΟΔΙΚΕΙΑΣ",
+        "StopOrder": "13",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6454994,
+          37.9673577
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "370132",
+        "StopID": "370132",
+        "StopDescr": "ΚΑΙΣΑΡΕΙΑΣ",
+        "StopOrder": "14",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6463457,
+          37.966102
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "370098",
+        "StopID": "370098",
+        "StopDescr": "ΣΤ. ΝΙΚΑΙΑ",
+        "StopOrder": "15",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6469576,
+          37.9649446
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "11438",
+        "StopID": "370900",
+        "StopDescr": "ΕΦΕΣΟΥ",
+        "StopOrder": "16",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.649124,
+          37.9640789
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "370080",
+        "StopID": "370080",
+        "StopDescr": "ΓΕΦΥΡΑ",
+        "StopOrder": "17",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6478143,
+          37.9665715
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "370081",
+        "StopID": "370081",
+        "StopDescr": "ΑΓ. ΝΙΚΟΛΑΟΣ - ΣΤ. ΝΙΚΑΙΑ",
+        "StopOrder": "18",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6469292,
+          37.9683444
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "370052",
+        "StopID": "370052",
+        "StopDescr": "Π. ΡΑΛΛΗ",
+        "StopOrder": "19",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6454582,
+          37.9711971
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "370053",
+        "StopID": "370053",
+        "StopDescr": "ΑΓ. ΓΕΩΡΓΙΟΣ",
+        "StopOrder": "20",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.644034,
+          37.9737705
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "370054",
+        "StopID": "370054",
+        "StopDescr": "ΦΙΛΑΔΕΛΦΕΙΑΣ",
+        "StopOrder": "21",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6415565,
+          37.9761957
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "370178",
+        "StopID": "370178",
+        "StopDescr": "ΠΛ. ΚΡΗΝΗΣ",
+        "StopOrder": "22",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6408357,
+          37.9782311
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "370107",
+        "StopID": "370107",
+        "StopDescr": "ΕΥΑΓΓΕΛΙΣΤΡΙΑΣ",
+        "StopOrder": "23",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6393857,
+          37.9813541
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "370168",
+        "StopID": "370168",
+        "StopDescr": "ΠΛ. ΑΝΑΛΗΨΕΩΣ",
+        "StopOrder": "24",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6363122,
+          37.982816
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "370092",
+        "StopID": "370092",
+        "StopDescr": "1η Κ. ΠΑΛΑΜΑ",
+        "StopOrder": "25",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.634797,
+          37.9836022
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "370123",
+        "StopID": "370123",
+        "StopDescr": "ΚΟΙΜ. ΘΕΟΤΟΚΟΥ",
+        "StopOrder": "26",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6331419,
+          37.9844082
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "370126",
+        "StopID": "370126",
+        "StopDescr": "2η ΠΑΛΑΜΑ",
+        "StopOrder": "27",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.631052,
+          37.985195
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "370186",
+        "StopID": "370186",
+        "StopDescr": "ΠΛ. ΑΘΗΝΑΣ ΜΑΥΡΟΥ",
+        "StopOrder": "28",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6295253,
+          37.9860676
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "370173",
+        "StopID": "370173",
+        "StopDescr": "ΜΟΥΧΤΟΥΡΗ",
+        "StopOrder": "29",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6281608,
+          37.9869392
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "370113",
+        "StopID": "370113",
+        "StopDescr": "ΠΑΛ. ΤΕΡΜΑ",
+        "StopOrder": "30",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.626504,
+          37.986699
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "10227",
+        "StopID": "61",
+        "StopDescr": "ΝΕΑΠΟΛΗ",
+        "StopOrder": "31",
+        "StopType": "0"
+      }
+    }
+  ]
+}

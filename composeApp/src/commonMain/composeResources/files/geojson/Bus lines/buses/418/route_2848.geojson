@@ -1,0 +1,785 @@
+{
+  "type": "FeatureCollection",
+  "properties": {
+    "LineCode": "1237",
+    "LineID": "418",
+    "LineDescr": "ΣΤ. ΕΘΝΙΚΗΣ ΑΜΥΝΑΣ-ΣΧΟΛ. ΧΟΛΑΡΓΟΥ (ΚΥΚΛΙΚΗ)",
+    "RouteCode": "2848",
+    "RouteDescr": "ΣΤ. ΕΘΝ. ΑΜΥΝΑΣ - ΣΧΟΛ. ΧΟΛΑΡΓΟΥ",
+    "RouteType": "1"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            23.78559,
+            37.99968
+          ],
+          [
+            23.78592,
+            37.99989
+          ],
+          [
+            23.7872,
+            38.00079
+          ],
+          [
+            23.78799,
+            38.00116
+          ],
+          [
+            23.78974,
+            38.00175
+          ],
+          [
+            23.79021,
+            38.00188
+          ],
+          [
+            23.79033,
+            38.0018
+          ],
+          [
+            23.79407,
+            37.99871
+          ],
+          [
+            23.7974,
+            37.99596
+          ],
+          [
+            23.79977,
+            37.99401
+          ],
+          [
+            23.80017,
+            37.9937
+          ],
+          [
+            23.80144,
+            37.99257
+          ],
+          [
+            23.8014,
+            37.99244
+          ],
+          [
+            23.79989,
+            37.99168
+          ],
+          [
+            23.79993,
+            37.9916
+          ],
+          [
+            23.80183,
+            37.9903
+          ],
+          [
+            23.8022,
+            37.98994
+          ],
+          [
+            23.80233,
+            37.9899
+          ],
+          [
+            23.80324,
+            37.99045
+          ],
+          [
+            23.80353,
+            37.99076
+          ],
+          [
+            23.80299,
+            37.99162
+          ],
+          [
+            23.80263,
+            37.99203
+          ],
+          [
+            23.80163,
+            37.99345
+          ],
+          [
+            23.80115,
+            37.99408
+          ],
+          [
+            23.8003,
+            37.99497
+          ],
+          [
+            23.80038,
+            37.99588
+          ],
+          [
+            23.80046,
+            37.99762
+          ],
+          [
+            23.80271,
+            37.99757
+          ],
+          [
+            23.80286,
+            37.99955
+          ],
+          [
+            23.80103,
+            38.00063
+          ],
+          [
+            23.80093,
+            38.00079
+          ],
+          [
+            23.80068,
+            38.0012
+          ],
+          [
+            23.80046,
+            38.00111
+          ],
+          [
+            23.79897,
+            38.00234
+          ],
+          [
+            23.7976,
+            38.00344
+          ],
+          [
+            23.79752,
+            38.0036
+          ],
+          [
+            23.79753,
+            38.00377
+          ],
+          [
+            23.79756,
+            38.00388
+          ],
+          [
+            23.79754,
+            38.00397
+          ],
+          [
+            23.79739,
+            38.00413
+          ],
+          [
+            23.79722,
+            38.00423
+          ],
+          [
+            23.79693,
+            38.00424
+          ],
+          [
+            23.79678,
+            38.00423
+          ],
+          [
+            23.79664,
+            38.00415
+          ],
+          [
+            23.79662,
+            38.00394
+          ],
+          [
+            23.79659,
+            38.00376
+          ],
+          [
+            23.79685,
+            38.00352
+          ],
+          [
+            23.79713,
+            38.00349
+          ],
+          [
+            23.79744,
+            38.0035
+          ],
+          [
+            23.7979,
+            38.00316
+          ],
+          [
+            23.80047,
+            38.00106
+          ],
+          [
+            23.80058,
+            38.00078
+          ],
+          [
+            23.80045,
+            37.99887
+          ],
+          [
+            23.79961,
+            37.99828
+          ],
+          [
+            23.80039,
+            37.99764
+          ],
+          [
+            23.80035,
+            37.99593
+          ],
+          [
+            23.80029,
+            37.99523
+          ],
+          [
+            23.80024,
+            37.99502
+          ],
+          [
+            23.79774,
+            37.99707
+          ],
+          [
+            23.7935,
+            38.00062
+          ],
+          [
+            23.79358,
+            38.00083
+          ],
+          [
+            23.7933,
+            38.00115
+          ],
+          [
+            23.79284,
+            38.00114
+          ],
+          [
+            23.79126,
+            38.00251
+          ],
+          [
+            23.79022,
+            38.00209
+          ],
+          [
+            23.78849,
+            38.00151
+          ],
+          [
+            23.78762,
+            38.00121
+          ],
+          [
+            23.78687,
+            38.00078
+          ],
+          [
+            23.78531,
+            37.99982
+          ],
+          [
+            23.78432,
+            37.99913
+          ],
+          [
+            23.78455,
+            37.99895
+          ],
+          [
+            23.78506,
+            37.99931
+          ],
+          [
+            23.78536,
+            37.99954
+          ]
+        ]
+      },
+      "properties": {
+        "type": "route_path",
+        "RouteCode": "2848"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7854835,
+          37.9996025
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "11154",
+        "StopID": "0201",
+        "StopDescr": "ΕΘΝ. ΑΜΥΝΑ",
+        "StopOrder": "1",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7882359,
+          38.0011798
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "490001",
+        "StopID": "490001",
+        "StopDescr": "2η ΧΟΛΑΡΓΟΥ",
+        "StopOrder": "2",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.790889,
+          38.0011708
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "490019",
+        "StopID": "490019",
+        "StopDescr": "3η ΧΟΛΑΡΓΟΥ",
+        "StopOrder": "3",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7933207,
+          37.9991742
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "490020",
+        "StopID": "490020",
+        "StopDescr": "1η ΣΧΟΛΕΙΩΝ ΧΟΛΑΡΓΟΥ",
+        "StopOrder": "4",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7946793,
+          37.9980139
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "490021",
+        "StopID": "490021",
+        "StopDescr": "2η ΣΧΟΛΕΙΩΝ ΧΟΛΑΡΓΟΥ",
+        "StopOrder": "5",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7974419,
+          37.9956934
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "490022",
+        "StopID": "490022",
+        "StopDescr": "3η ΣΧΟΛΕΙΩΝ ΧΟΛΑΡΓΟΥ",
+        "StopOrder": "6",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8000617,
+          37.9936891
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "490023",
+        "StopID": "490023",
+        "StopDescr": "4η ΣΧΟΛΕΙΩΝ ΧΟΛΑΡΓΟΥ",
+        "StopOrder": "7",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8011066,
+          37.992455
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "710052",
+        "StopID": "710052",
+        "StopDescr": "ΕΘΝΙΚΗΣ ΑΜΥΝΗΣ",
+        "StopOrder": "8",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8011915,
+          37.9905444
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "710053",
+        "StopID": "710053",
+        "StopDescr": "ΑΝΑΣΤΑΣΕΩΣ",
+        "StopOrder": "9",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8033557,
+          37.9903768
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "710054",
+        "StopID": "710054",
+        "StopDescr": "ΜΑΚΕΔΟΝΙΑΣ",
+        "StopOrder": "10",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8029674,
+          37.9917486
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "490046",
+        "StopID": "490046",
+        "StopDescr": "ΥΜΗΤΤΟΥ",
+        "StopOrder": "11",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8005783,
+          37.9964205
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "490024",
+        "StopID": "490024",
+        "StopDescr": "5η ΣΧΟΛΕΙΩΝ ΧΟΛΑΡΓΟΥ",
+        "StopOrder": "12",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8016853,
+          37.9974762
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "490045",
+        "StopID": "490045",
+        "StopDescr": "ΔΗΜΑΡΧΕΙΟ",
+        "StopOrder": "13",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8029801,
+          37.9987942
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "490017",
+        "StopID": "490017",
+        "StopDescr": "ΑΓ. ΣΤΥΛΙΑΝΟΣ",
+        "StopOrder": "14",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8011523,
+          38.000819
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "490026",
+        "StopID": "490026",
+        "StopDescr": "ΠΛ. Κ. ΠΑΛΑΜΑ",
+        "StopOrder": "15",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7966686,
+          38.0035422
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "490041",
+        "StopID": "490041",
+        "StopDescr": "ΠΛ. ΦΑΝΕΡΩΜΕΝΗΣ",
+        "StopOrder": "16",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8004584,
+          38.0005024
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "490027",
+        "StopID": "490027",
+        "StopDescr": "7η ΣΧΟΛΕΙΩΝ ΧΟΛΑΡΓΟΥ",
+        "StopOrder": "17",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8000708,
+          37.9977933
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "490025",
+        "StopID": "490025",
+        "StopDescr": "ΔΗΜΑΡΧΕΙΟ - ΠΕΡΙΚΛΕΟΥΣ",
+        "StopOrder": "18",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8001747,
+          37.9959144
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "490029",
+        "StopID": "490029",
+        "StopDescr": "5η ΣΧΟΛΕΙΩΝ ΧΟΛΑΡΓΟΥ",
+        "StopOrder": "19",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7977337,
+          37.9972711
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "490030",
+        "StopID": "490030",
+        "StopDescr": "4η ΣΧΟΛΕΙΩΝ ΧΟΛΑΡΓΟΥ",
+        "StopOrder": "20",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7958273,
+          37.9988541
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "490033",
+        "StopID": "490033",
+        "StopDescr": "3η ΣΧΟΛΕΙΩΝ ΧΟΛΑΡΓΟΥ",
+        "StopOrder": "21",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7937266,
+          38.000644
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "490034",
+        "StopID": "490034",
+        "StopDescr": "ΠΛ. ΔΗΜΟΚΡΑΤΙΑΣ",
+        "StopOrder": "22",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7924938,
+          38.0016062
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "490035",
+        "StopID": "490035",
+        "StopDescr": "ΣΤΡΟΦΗ",
+        "StopOrder": "23",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7898159,
+          38.0020443
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "690018",
+        "StopID": "690018",
+        "StopDescr": "3η ΧΟΛΑΡΓΟΥ",
+        "StopOrder": "24",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7874147,
+          38.0012907
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "690020",
+        "StopID": "690020",
+        "StopDescr": "2η ΧΟΛΑΡΓΟΥ",
+        "StopOrder": "25",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7854835,
+          37.9996025
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "11154",
+        "StopID": "0201",
+        "StopDescr": "ΕΘΝ. ΑΜΥΝΑ",
+        "StopOrder": "26",
+        "StopType": "0"
+      }
+    }
+  ]
+}

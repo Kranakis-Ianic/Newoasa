@@ -1,0 +1,511 @@
+{
+  "type": "FeatureCollection",
+  "properties": {
+    "LineCode": "996",
+    "LineID": "862",
+    "LineDescr": "ΠΑΡΑΛΙΑ - ΑΝΩ ΕΛΕΥΣΙΝΑ",
+    "RouteCode": "2146",
+    "RouteDescr": "ΠΑΡΑΛΙΑ - ΑΝΩ ΕΛΕΥΣΙΝΑ",
+    "RouteType": "1"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            23.54101,
+            38.0355
+          ],
+          [
+            23.53996,
+            38.03592
+          ],
+          [
+            23.53897,
+            38.03641
+          ],
+          [
+            23.53768,
+            38.03697
+          ],
+          [
+            23.54193,
+            38.0427
+          ],
+          [
+            23.54198,
+            38.04279
+          ],
+          [
+            23.5421,
+            38.04316
+          ],
+          [
+            23.54182,
+            38.04327
+          ],
+          [
+            23.53702,
+            38.04444
+          ],
+          [
+            23.5365,
+            38.04468
+          ],
+          [
+            23.53692,
+            38.04603
+          ],
+          [
+            23.53724,
+            38.04817
+          ],
+          [
+            23.53696,
+            38.04891
+          ],
+          [
+            23.53657,
+            38.04963
+          ],
+          [
+            23.53604,
+            38.05103
+          ],
+          [
+            23.53579,
+            38.05133
+          ],
+          [
+            23.52964,
+            38.05162
+          ],
+          [
+            23.5288,
+            38.05032
+          ],
+          [
+            23.52866,
+            38.05031
+          ],
+          [
+            23.52634,
+            38.05164
+          ],
+          [
+            23.52574,
+            38.05224
+          ],
+          [
+            23.52529,
+            38.05289
+          ],
+          [
+            23.52493,
+            38.05329
+          ],
+          [
+            23.52478,
+            38.05324
+          ],
+          [
+            23.52429,
+            38.05301
+          ],
+          [
+            23.524,
+            38.05323
+          ],
+          [
+            23.52271,
+            38.05238
+          ],
+          [
+            23.52256,
+            38.05242
+          ],
+          [
+            23.52152,
+            38.05333
+          ],
+          [
+            23.52099,
+            38.05402
+          ],
+          [
+            23.51914,
+            38.05743
+          ],
+          [
+            23.51837,
+            38.0584
+          ],
+          [
+            23.51841,
+            38.05859
+          ],
+          [
+            23.51785,
+            38.05907
+          ],
+          [
+            23.51792,
+            38.05949
+          ],
+          [
+            23.5194,
+            38.06036
+          ],
+          [
+            23.5232,
+            38.06116
+          ],
+          [
+            23.52524,
+            38.06101
+          ],
+          [
+            23.52584,
+            38.06088
+          ],
+          [
+            23.52586,
+            38.06078
+          ],
+          [
+            23.52568,
+            38.05954
+          ],
+          [
+            23.52532,
+            38.05809
+          ],
+          [
+            23.52547,
+            38.05789
+          ],
+          [
+            23.52597,
+            38.05789
+          ],
+          [
+            23.52557,
+            38.05812
+          ]
+        ]
+      },
+      "properties": {
+        "type": "route_path",
+        "RouteCode": "2146"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5399225,
+          38.035942
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "10156",
+        "StopID": "03",
+        "StopDescr": "ΕΛΕΥΣΙΝΑ",
+        "StopOrder": "1",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.538276,
+          38.0367717
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "190056",
+        "StopID": "190056",
+        "StopDescr": "ΠΑΡΑΛΙΑ",
+        "StopOrder": "2",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5395959,
+          38.0395584
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "190010",
+        "StopID": "190010",
+        "StopDescr": "ΑΓ. ΓΕΩΡΓΙΟΣ",
+        "StopOrder": "3",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5420901,
+          38.0427981
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "190011",
+        "StopID": "190011",
+        "StopDescr": "ΠΛ. ΕΛΕΥΣΙΝΑΣ",
+        "StopOrder": "4",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5403095,
+          38.0436764
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "190014",
+        "StopID": "190014",
+        "StopDescr": "ΟΤΕ",
+        "StopOrder": "5",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5366975,
+          38.0449401
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "190015",
+        "StopID": "190015",
+        "StopDescr": "ΣΤΡΟΦΗ ΜΑΓΟΥΛΑΣ",
+        "StopOrder": "6",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5372733,
+          38.0479333
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "190016",
+        "StopID": "190016",
+        "StopDescr": "ΕΘΝ. ΑΝΤΙΣΤΑΣΕΩΣ",
+        "StopOrder": "7",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5363495,
+          38.0504578
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "190017",
+        "StopID": "190017",
+        "StopDescr": "ΠΛ. ΑΝΩ ΕΛΕΥΣΙΝΑΣ",
+        "StopOrder": "8",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5330537,
+          38.0516221
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "190057",
+        "StopID": "190057",
+        "StopDescr": "ΗΡΩΩΝ ΠΟΛΥΤΕΧΝΕΙΟΥ",
+        "StopOrder": "9",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5293729,
+          38.0515263
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "190058",
+        "StopID": "190058",
+        "StopDescr": "ΝΕΚΡΟΤΑΦΕΙΟ",
+        "StopOrder": "10",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5272202,
+          38.0512923
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "190059",
+        "StopID": "190059",
+        "StopDescr": "ΓΕΦΥΡΑ",
+        "StopOrder": "11",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5251795,
+          38.0531317
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "300040",
+        "StopID": "300040",
+        "StopDescr": "ΒΙΒΛΙΟΘΗΚΗ",
+        "StopOrder": "12",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5223841,
+          38.0526357
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "300013",
+        "StopID": "300013",
+        "StopDescr": "ΕΡΓΑΤΙΚΕΣ ΚΑΤΟΙΚΙΕΣ",
+        "StopOrder": "13",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5184925,
+          38.0597236
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "300059",
+        "StopID": "300059",
+        "StopDescr": "ΑΕΡΟΓΕΦΥΡΑ",
+        "StopOrder": "14",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5230295,
+          38.0612705
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "300060",
+        "StopID": "300060",
+        "StopDescr": "ΕΚΚΛΗΣΙΑ",
+        "StopOrder": "15",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.525999,
+          38.0603812
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "300044",
+        "StopID": "300044",
+        "StopDescr": "ΜΑΡΙΝΟΥ ΑΝΤΥΠΑ",
+        "StopOrder": "16",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5256685,
+          38.0579385
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "10407",
+        "StopID": "000188",
+        "StopDescr": "ΑΝΩ ΕΛΕΥΣΙΝΑ",
+        "StopOrder": "17",
+        "StopType": "0"
+      }
+    }
+  ]
+}

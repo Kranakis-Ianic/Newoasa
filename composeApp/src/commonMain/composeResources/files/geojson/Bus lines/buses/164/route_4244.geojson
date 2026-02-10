@@ -1,0 +1,719 @@
+{
+  "type": "FeatureCollection",
+  "properties": {
+    "LineCode": "1589",
+    "LineID": "164",
+    "LineDescr": "ΣΤ. ΑΓ. ΔΗΜΗΤΡΙΟΣ - Κ. ΗΛ/ΠΟΛΗ - ΑΡΓ/ΠΟΛΗ - ΤΕΡΨΙΘΕΑ (ΑΠΟ ΣΤΑΣΗ ΔΑΡΖΕΝΤΑ)",
+    "RouteCode": "4244",
+    "RouteDescr": "ΣΤ. ΑΓ. ΔΗΜΗΤΡΙΟΣ - Κ. ΗΛ/ΠΟΛΗ - ΑΡΓ/ΠΟΛΗ - ΤΕΡΨΙΘΕΑ [ΑΠΟ ΣΤΑΣΗ ΔΑΡΖΕΝΤΑ]",
+    "RouteType": "1"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            23.74013,
+            37.94149
+          ],
+          [
+            23.74017,
+            37.94123
+          ],
+          [
+            23.74028,
+            37.94097
+          ],
+          [
+            23.74035,
+            37.94073
+          ],
+          [
+            23.74041,
+            37.94056
+          ],
+          [
+            23.74108,
+            37.93875
+          ],
+          [
+            23.7414,
+            37.93804
+          ],
+          [
+            23.7437,
+            37.93499
+          ],
+          [
+            23.74382,
+            37.93479
+          ],
+          [
+            23.74413,
+            37.93409
+          ],
+          [
+            23.7443,
+            37.93322
+          ],
+          [
+            23.74441,
+            37.93039
+          ],
+          [
+            23.74445,
+            37.93014
+          ],
+          [
+            23.74471,
+            37.92985
+          ],
+          [
+            23.7447,
+            37.92874
+          ],
+          [
+            23.74477,
+            37.92802
+          ],
+          [
+            23.74484,
+            37.92789
+          ],
+          [
+            23.74503,
+            37.92785
+          ],
+          [
+            23.75067,
+            37.92993
+          ],
+          [
+            23.75121,
+            37.93006
+          ],
+          [
+            23.75132,
+            37.93
+          ],
+          [
+            23.75136,
+            37.9299
+          ],
+          [
+            23.75061,
+            37.91862
+          ],
+          [
+            23.75005,
+            37.9152
+          ],
+          [
+            23.74985,
+            37.91504
+          ],
+          [
+            23.74984,
+            37.91464
+          ],
+          [
+            23.74986,
+            37.91387
+          ],
+          [
+            23.74957,
+            37.91193
+          ],
+          [
+            23.74959,
+            37.91174
+          ],
+          [
+            23.75081,
+            37.91037
+          ],
+          [
+            23.75297,
+            37.90743
+          ],
+          [
+            23.75332,
+            37.90656
+          ],
+          [
+            23.75421,
+            37.90471
+          ],
+          [
+            23.75701,
+            37.89917
+          ],
+          [
+            23.75863,
+            37.89722
+          ],
+          [
+            23.75955,
+            37.89634
+          ],
+          [
+            23.75999,
+            37.89606
+          ],
+          [
+            23.76107,
+            37.89574
+          ],
+          [
+            23.76675,
+            37.89085
+          ],
+          [
+            23.77678,
+            37.89034
+          ],
+          [
+            23.77725,
+            37.89029
+          ],
+          [
+            23.77761,
+            37.89029
+          ],
+          [
+            23.77779,
+            37.89023
+          ]
+        ]
+      },
+      "properties": {
+        "type": "route_path",
+        "RouteCode": "4244"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.740144,
+          37.9409635
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "11803",
+        "StopID": "264",
+        "StopDescr": "ΔΑΡΖΕΝΤΑ - ΑΓ.ΔΗΜΗΤΡΙΟΣ",
+        "StopOrder": "1",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7411621,
+          37.9383824
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "40004",
+        "StopID": "040004",
+        "StopDescr": "ΕΛΚΑ",
+        "StopOrder": "2",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7432231,
+          37.9354806
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "40005",
+        "StopID": "040005",
+        "StopDescr": "ΑΘΗΝΑΣ",
+        "StopOrder": "3",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7442535,
+          37.9333211
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "40006",
+        "StopID": "040006",
+        "StopDescr": "ΑΓ. ΒΑΣΙΛΕΙΟΣ",
+        "StopOrder": "4",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7446228,
+          37.9288862
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "210121",
+        "StopID": "210121",
+        "StopDescr": "ΚΑΡΑΜΟΛΕΓΚΟΥ",
+        "StopOrder": "5",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7452865,
+          37.9278241
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "210122",
+        "StopID": "210122",
+        "StopDescr": "ΠΛΑΤΩΝΟΣ",
+        "StopOrder": "6",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7470366,
+          37.9284678
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "210115",
+        "StopID": "210115",
+        "StopDescr": "ΦΟΥΡΝΟΣ",
+        "StopOrder": "7",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7495026,
+          37.9293924
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "210064",
+        "StopID": "210064",
+        "StopDescr": "ΕΒΓΑ",
+        "StopOrder": "8",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.751154,
+          37.9289723
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "210065",
+        "StopID": "210065",
+        "StopDescr": "ΠΛ. 25ης ΜΑΡΤΙΟΥ",
+        "StopOrder": "9",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7511149,
+          37.9272264
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "210066",
+        "StopID": "210066",
+        "StopDescr": "Ο.Τ.Ε",
+        "StopOrder": "10",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.750907,
+          37.9241808
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "210067",
+        "StopID": "210067",
+        "StopDescr": "ΑΓ.  ΠΑΡΑΣΚΕΥΗΣ",
+        "StopOrder": "11",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7505347,
+          37.9203095
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "210068",
+        "StopID": "210068",
+        "StopDescr": "ΑΙΝΤΑ",
+        "StopOrder": "12",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7501812,
+          37.9171813
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "110053",
+        "StopID": "110053",
+        "StopDescr": "ΦΑΡΜΑΚΕΙΟ",
+        "StopOrder": "13",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7496544,
+          37.9148368
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "110086",
+        "StopID": "110086",
+        "StopDescr": "ΠΛ. ΑΝΕΞΑΡΤΗΣΙΑΣ",
+        "StopOrder": "14",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7496596,
+          37.9132865
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "110092",
+        "StopID": "110092",
+        "StopDescr": "ΓΡΑΜΜΟΥ",
+        "StopOrder": "15",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7498487,
+          37.9111959
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "110010",
+        "StopID": "110010",
+        "StopDescr": "3η ΑΡΓΥΡΟΥΠΟΛΕΩΣ",
+        "StopOrder": "16",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7518879,
+          37.9088119
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "110011",
+        "StopID": "110011",
+        "StopDescr": "4η ΑΡΓΥΡΟΥΠΟΛΕΩΣ",
+        "StopOrder": "17",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.753083,
+          37.9067594
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "110012",
+        "StopID": "110012",
+        "StopDescr": "5η ΑΡΓΥΡΟΥΠΟΛΕΩΣ",
+        "StopOrder": "18",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7541936,
+          37.9046076
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "110013",
+        "StopID": "110013",
+        "StopDescr": "6η ΑΡΓΥΡΟΥΠΟΛΕΩΣ",
+        "StopOrder": "19",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7554766,
+          37.9018883
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "110014",
+        "StopID": "110014",
+        "StopDescr": "7η ΑΡΓΥΡΟΥΠΟΛΕΩΣ",
+        "StopOrder": "20",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7566558,
+          37.8995564
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "110015",
+        "StopID": "110015",
+        "StopDescr": "8η ΑΡΓΥΡΟΥΠΟΛΕΩΣ",
+        "StopOrder": "21",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7580151,
+          37.8977927
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "110016",
+        "StopID": "110016",
+        "StopDescr": "ΓΥΜΝΑΣΙΟ",
+        "StopOrder": "22",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7619943,
+          37.8948175
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "160318",
+        "StopID": "160318",
+        "StopDescr": "ΓΕΦΥΡΑΚΙ",
+        "StopOrder": "23",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7634313,
+          37.8935676
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "160314",
+        "StopID": "160314",
+        "StopDescr": "ΣΜΥΡΝΗΣ",
+        "StopOrder": "24",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7658947,
+          37.8914544
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "160319",
+        "StopID": "160319",
+        "StopDescr": "ΚΩΝ. ΑΘΑΝΑΤΟΥ",
+        "StopOrder": "25",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7690363,
+          37.8905864
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "160008",
+        "StopID": "160008",
+        "StopDescr": "ΑΘΩΝΟΣ",
+        "StopOrder": "26",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7719938,
+          37.8904299
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "160009",
+        "StopID": "160009",
+        "StopDescr": "ΜΕΤΕΩΡΩΝ",
+        "StopOrder": "27",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7753946,
+          37.8903103
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "160204",
+        "StopID": "160204",
+        "StopDescr": "Π. ΔΕΞΑΜΕΝΗ",
+        "StopOrder": "28",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7774508,
+          37.8902091
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "10261",
+        "StopID": "69",
+        "StopDescr": "ΑΝΩ ΓΛΥΦΑΔΑ",
+        "StopOrder": "29",
+        "StopType": "0"
+      }
+    }
+  ]
+}

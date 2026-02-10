@@ -1,0 +1,545 @@
+{
+  "type": "FeatureCollection",
+  "properties": {
+    "LineCode": "1698",
+    "LineID": "141",
+    "LineDescr": "ΣΤ. ΔΑΦΝΗ - ΚΑΛΑΜΑΚΙ (ΕΩΣ ΣΤΑΣΗ ΜΕΤΑΜΟΡΦΩΣΗ)",
+    "RouteCode": "4917",
+    "RouteDescr": "ΣΤ. ΔΑΦΝΗ - ΚΑΛΑΜΑΚΙ [ΕΩΣ ΣΤΑΣΗ ΜΕΤΑΜΟΡΦΩΣΗ]",
+    "RouteType": "1"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            23.73671,
+            37.94912
+          ],
+          [
+            23.73662,
+            37.94907
+          ],
+          [
+            23.73648,
+            37.94897
+          ],
+          [
+            23.73589,
+            37.94804
+          ],
+          [
+            23.73551,
+            37.94765
+          ],
+          [
+            23.73513,
+            37.94728
+          ],
+          [
+            23.73486,
+            37.94711
+          ],
+          [
+            23.7346,
+            37.9454
+          ],
+          [
+            23.73425,
+            37.94488
+          ],
+          [
+            23.73327,
+            37.94356
+          ],
+          [
+            23.73289,
+            37.94288
+          ],
+          [
+            23.73272,
+            37.94262
+          ],
+          [
+            23.73139,
+            37.94125
+          ],
+          [
+            23.73128,
+            37.94106
+          ],
+          [
+            23.7287,
+            37.93966
+          ],
+          [
+            23.73077,
+            37.93834
+          ],
+          [
+            23.72947,
+            37.93579
+          ],
+          [
+            23.72716,
+            37.93102
+          ],
+          [
+            23.72667,
+            37.93004
+          ],
+          [
+            23.7264,
+            37.92936
+          ],
+          [
+            23.72602,
+            37.9281
+          ],
+          [
+            23.72587,
+            37.9274
+          ],
+          [
+            23.72544,
+            37.9264
+          ],
+          [
+            23.72459,
+            37.92523
+          ],
+          [
+            23.72362,
+            37.92381
+          ],
+          [
+            23.7221,
+            37.92164
+          ],
+          [
+            23.72151,
+            37.9208
+          ],
+          [
+            23.72019,
+            37.91843
+          ],
+          [
+            23.71964,
+            37.91779
+          ],
+          [
+            23.7189,
+            37.91708
+          ],
+          [
+            23.71767,
+            37.91593
+          ],
+          [
+            23.71702,
+            37.91534
+          ],
+          [
+            23.71575,
+            37.9143
+          ],
+          [
+            23.71511,
+            37.91378
+          ],
+          [
+            23.71273,
+            37.91525
+          ],
+          [
+            23.711,
+            37.91372
+          ],
+          [
+            23.71139,
+            37.91346
+          ],
+          [
+            23.71181,
+            37.91323
+          ],
+          [
+            23.71212,
+            37.91302
+          ],
+          [
+            23.71249,
+            37.91265
+          ]
+        ]
+      },
+      "properties": {
+        "type": "route_path",
+        "RouteCode": "4917"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.737017,
+          37.948945
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "10285",
+        "StopID": "84",
+        "StopDescr": "ΣΤ. ΔΑΦΝΗ",
+        "StopOrder": "1",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7359961,
+          37.9484342
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "170051",
+        "StopID": "170051",
+        "StopDescr": "ΠΑΠΑΝΑΣΤΑΣΙΟΥ",
+        "StopOrder": "2",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.734346,
+          37.9451948
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "40013",
+        "StopID": "040013",
+        "StopDescr": "ΔΗΜΑΡΧΕΙΟ",
+        "StopOrder": "3",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7327951,
+          37.942875
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "40014",
+        "StopID": "040014",
+        "StopDescr": "ΣΧΟΛΕΙΟ",
+        "StopOrder": "4",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7308788,
+          37.9409329
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "40015",
+        "StopID": "040015",
+        "StopDescr": "ΠΛ. ΑΣΤΥΝΟΜΙΑΣ",
+        "StopOrder": "5",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7290071,
+          37.9392792
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "40016",
+        "StopID": "040016",
+        "StopDescr": "ΝΕΚΡΟΤΑΦΕΙΟ",
+        "StopOrder": "6",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7305352,
+          37.9384355
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "40017",
+        "StopID": "040017",
+        "StopDescr": "ΠΗΛΕΩΣ",
+        "StopOrder": "7",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7295424,
+          37.9360538
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "40018",
+        "StopID": "040018",
+        "StopDescr": "ΠΛ. ΒΕΝΙΖΕΛΟΥ",
+        "StopOrder": "8",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7284806,
+          37.9339153
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "40019",
+        "StopID": "040019",
+        "StopDescr": "ΣΧΟΛΕΙΟ",
+        "StopOrder": "9",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7269443,
+          37.9308564
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "40020",
+        "StopID": "040020",
+        "StopDescr": "ΣΑΡΩΝΙΚΟΣ",
+        "StopOrder": "10",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7257723,
+          37.9277622
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "40021",
+        "StopID": "040021",
+        "StopDescr": "ΓΕΦΥΡΑ",
+        "StopOrder": "11",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.72453,
+          37.9252627
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "40022",
+        "StopID": "040022",
+        "StopDescr": "1η ΚΑΛΑΜΑΚΙΟΥ",
+        "StopOrder": "12",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7232964,
+          37.9234933
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "40023",
+        "StopID": "040023",
+        "StopDescr": "ΥΠΟΥΡΓΕΙΟ",
+        "StopOrder": "13",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7219721,
+          37.9216515
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "40024",
+        "StopID": "040024",
+        "StopDescr": "ΓΗΠΕΔΟ",
+        "StopOrder": "14",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7207966,
+          37.9196118
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "80019",
+        "StopID": "080019",
+        "StopDescr": "5η ΚΑΛΑΜΑΚΙΟΥ",
+        "StopOrder": "15",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7188831,
+          37.9171647
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "80020",
+        "StopID": "080020",
+        "StopDescr": "6η ΚΑΛΑΜΑΚΙΟΥ",
+        "StopOrder": "16",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7164906,
+          37.915059
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "80021",
+        "StopID": "080021",
+        "StopDescr": "7η ΚΑΛΑΜΑΚΙΟΥ",
+        "StopOrder": "17",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7151979,
+          37.9139743
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "80022",
+        "StopID": "080022",
+        "StopDescr": "8η ΚΑΛΑΜΑΚΙΟΥ",
+        "StopOrder": "18",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7132185,
+          37.9150375
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "10981",
+        "StopID": "080148",
+        "StopDescr": "ΝΙΚΗΣ",
+        "StopOrder": "19",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.710529,
+          37.9141535
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "12142",
+        "StopID": "084",
+        "StopDescr": "ΜΕΤΑΜΟΡΦΩΣΗ - ΚΑΛΑΜΑΚΙ",
+        "StopOrder": "20",
+        "StopType": "0"
+      }
+    }
+  ]
+}

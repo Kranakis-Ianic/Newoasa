@@ -1,0 +1,791 @@
+{
+  "type": "FeatureCollection",
+  "properties": {
+    "LineCode": "1436",
+    "LineID": "725",
+    "LineDescr": "ΑΧΑΡΝΑΙ (ΜΕΣΟΝΥΧΙ) - ΘΡΑΚΟΜΑΚΕΔΟΝΕΣ (ΑΠΟ ΠΛ.ΑΡΙΣΤΟΤΕΛΟΥΣ ΕΩΣ ΜΕΣΟΝΥΧΙ)",
+    "RouteCode": "4358",
+    "RouteDescr": "ΑΧΑΡΝΑΙ [ΜΕΣΟΝΥΧΙ] - ΘΡΑΚΟΜΑΚΕΔΟΝΕΣ [ΑΠΟ ΠΛ. ΑΡΙΣΤΟΤΕΛΟΥΣ ΕΩΣ ΜΕΣΟΝΥΧΙ] ",
+    "RouteType": "1"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            23.75655,
+            38.13003
+          ],
+          [
+            23.75647,
+            38.12976
+          ],
+          [
+            23.75655,
+            38.12938
+          ],
+          [
+            23.75679,
+            38.12909
+          ],
+          [
+            23.75711,
+            38.12897
+          ],
+          [
+            23.75754,
+            38.1289
+          ],
+          [
+            23.75787,
+            38.12896
+          ],
+          [
+            23.75823,
+            38.12914
+          ],
+          [
+            23.75846,
+            38.12941
+          ],
+          [
+            23.75852,
+            38.1298
+          ],
+          [
+            23.76417,
+            38.13043
+          ],
+          [
+            23.76409,
+            38.12923
+          ],
+          [
+            23.76395,
+            38.12846
+          ],
+          [
+            23.76363,
+            38.12789
+          ],
+          [
+            23.76352,
+            38.12738
+          ],
+          [
+            23.76184,
+            38.12467
+          ],
+          [
+            23.76065,
+            38.12535
+          ],
+          [
+            23.75953,
+            38.12639
+          ],
+          [
+            23.75856,
+            38.1277
+          ],
+          [
+            23.75752,
+            38.12599
+          ],
+          [
+            23.75578,
+            38.12317
+          ],
+          [
+            23.7545,
+            38.12083
+          ],
+          [
+            23.75331,
+            38.11952
+          ],
+          [
+            23.75247,
+            38.11969
+          ],
+          [
+            23.75062,
+            38.11974
+          ],
+          [
+            23.74904,
+            38.11974
+          ],
+          [
+            23.74529,
+            38.11971
+          ],
+          [
+            23.74546,
+            38.12049
+          ],
+          [
+            23.74577,
+            38.12145
+          ],
+          [
+            23.74588,
+            38.12174
+          ],
+          [
+            23.74603,
+            38.12219
+          ],
+          [
+            23.74616,
+            38.12257
+          ],
+          [
+            23.74627,
+            38.12297
+          ],
+          [
+            23.74644,
+            38.12338
+          ],
+          [
+            23.74658,
+            38.12382
+          ],
+          [
+            23.74708,
+            38.12424
+          ],
+          [
+            23.74761,
+            38.12454
+          ],
+          [
+            23.74868,
+            38.12529
+          ],
+          [
+            23.75003,
+            38.12613
+          ],
+          [
+            23.75003,
+            38.12617
+          ],
+          [
+            23.74999,
+            38.1262
+          ],
+          [
+            23.74989,
+            38.12612
+          ],
+          [
+            23.74879,
+            38.12548
+          ],
+          [
+            23.74836,
+            38.12519
+          ],
+          [
+            23.74785,
+            38.12487
+          ],
+          [
+            23.74733,
+            38.12452
+          ],
+          [
+            23.74688,
+            38.12421
+          ],
+          [
+            23.7465,
+            38.12401
+          ],
+          [
+            23.74627,
+            38.1233
+          ],
+          [
+            23.74574,
+            38.12166
+          ],
+          [
+            23.74535,
+            38.12046
+          ],
+          [
+            23.74519,
+            38.11964
+          ],
+          [
+            23.74497,
+            38.11499
+          ],
+          [
+            23.74451,
+            38.11352
+          ],
+          [
+            23.74423,
+            38.11213
+          ],
+          [
+            23.7431,
+            38.109
+          ],
+          [
+            23.74305,
+            38.10849
+          ],
+          [
+            23.74285,
+            38.10505
+          ],
+          [
+            23.74293,
+            38.10469
+          ],
+          [
+            23.74259,
+            38.10375
+          ],
+          [
+            23.74166,
+            38.1022
+          ],
+          [
+            23.74109,
+            38.10249
+          ],
+          [
+            23.74069,
+            38.10243
+          ],
+          [
+            23.73771,
+            38.10232
+          ],
+          [
+            23.73667,
+            38.1022
+          ],
+          [
+            23.73642,
+            38.10303
+          ],
+          [
+            23.7363,
+            38.10339
+          ],
+          [
+            23.7367,
+            38.10365
+          ],
+          [
+            23.7368,
+            38.1034
+          ],
+          [
+            23.73699,
+            38.10287
+          ]
+        ]
+      },
+      "properties": {
+        "type": "route_path",
+        "RouteCode": "4358"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.757092,
+          38.1298505
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "10301",
+        "StopID": "000100",
+        "StopDescr": "ΘΡΑΚΟΜΑΚΕΔΟΝΕΣ",
+        "StopOrder": "1",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.757142,
+          38.1288747
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "810037",
+        "StopID": "810037",
+        "StopDescr": "ΠΛ. ΑΡΙΣΤΟΤΕΛΟΥΣ",
+        "StopOrder": "2",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7586012,
+          38.1295876
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "10803",
+        "StopID": "000037",
+        "StopDescr": "2η ΠΛ. ΑΡΙΣΤΟΤΕΛΟΥΣ",
+        "StopOrder": "3",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7622251,
+          38.1300525
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "810006",
+        "StopID": "810006",
+        "StopDescr": "ΗΦΑΙΣΤΙΩΝΟΣ",
+        "StopOrder": "4",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7638035,
+          38.1279738
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "810033",
+        "StopID": "810033",
+        "StopDescr": "ΔΗΜΟΚΡΙΤΟΥ",
+        "StopOrder": "5",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7617965,
+          38.1250226
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "810004",
+        "StopID": "810004",
+        "StopDescr": "ΣΧΟΛΕΙΟ",
+        "StopOrder": "6",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.760075,
+          38.1259405
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "810038",
+        "StopID": "810038",
+        "StopDescr": "ΟΛΥΜΠΙΩΝ",
+        "StopOrder": "7",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7581167,
+          38.1268626
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "810039",
+        "StopID": "810039",
+        "StopDescr": "2η ΜΑΚΕΔΟΝΟΜΑΧΩΝ",
+        "StopOrder": "8",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7556084,
+          38.1228829
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "810040",
+        "StopID": "810040",
+        "StopDescr": "ΦΙΛΙΠΠΟΥ",
+        "StopOrder": "9",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7539884,
+          38.1201168
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "810041",
+        "StopID": "810041",
+        "StopDescr": "ΜΕΛΑ",
+        "StopOrder": "10",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7524512,
+          38.1196471
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "130084",
+        "StopID": "130084",
+        "StopDescr": "12η ΘΡΑΚΟΜΑΚΕΔΟΝΩΝ",
+        "StopOrder": "11",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7508214,
+          38.1197298
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "130085",
+        "StopID": "130085",
+        "StopDescr": "11η ΘΡΑΚΟΜΑΚΕΔΟΝΩΝ",
+        "StopOrder": "12",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7482373,
+          38.1197298
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "130086",
+        "StopID": "130086",
+        "StopDescr": "10η ΘΡΑΚΟΜΑΚΕΔΟΝΩΝ",
+        "StopOrder": "13",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.749186,
+          38.12577
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "11859",
+        "StopID": "130522",
+        "StopDescr": "2η ΟΛΥΜΠΙΑΔΟΣ",
+        "StopOrder": "14",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7463605,
+          38.1234175
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "11857",
+        "StopID": "130520",
+        "StopDescr": "2η ΛΑΜΠΕΡΟΥ ",
+        "StopOrder": "15",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.74543,
+          38.120896
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "11855",
+        "StopID": "130517",
+        "StopDescr": "2η ΑΝΘΑΓΟΡΑΣ ",
+        "StopOrder": "16",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7451492,
+          38.1191715
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "130433",
+        "StopID": "130433",
+        "StopDescr": "ΓΑΛΗΝΗ",
+        "StopOrder": "17",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.745164,
+          38.1179659
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "130087",
+        "StopID": "130087",
+        "StopDescr": "9η ΘΡΑΚΟΜΑΚΕΔΟΝΩΝ",
+        "StopOrder": "18",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.744912,
+          38.1151001
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "130088",
+        "StopID": "130088",
+        "StopDescr": "8η ΘΡΑΚΟΜΑΚΕΔΟΝΩΝ",
+        "StopOrder": "19",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7444057,
+          38.112855
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "130089",
+        "StopID": "130089",
+        "StopDescr": "7η ΘΡΑΚΟΜΑΚΕΔΟΝΩΝ",
+        "StopOrder": "20",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7436596,
+          38.1109066
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "130090",
+        "StopID": "130090",
+        "StopDescr": "6η ΘΡΑΚΟΜΑΚΕΔΟΝΩΝ",
+        "StopOrder": "21",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7429263,
+          38.1085708
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "130091",
+        "StopID": "130091",
+        "StopDescr": "5η ΘΡΑΚΟΜΑΚΕΔΟΝΩΝ",
+        "StopOrder": "22",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7426726,
+          38.1061097
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "130092",
+        "StopID": "130092",
+        "StopDescr": "4η ΘΡΑΚΟΜΑΚΕΔΟΝΩΝ",
+        "StopOrder": "23",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7418637,
+          38.1026201
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "130307",
+        "StopID": "130307",
+        "StopDescr": "ΘΡΑΚΟΜΑΚΕΔΟΝΩΝ",
+        "StopOrder": "24",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.740665,
+          38.1024553
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "130202",
+        "StopID": "130202",
+        "StopDescr": "ΜΕΣΟΝΥΧΙΟΥ",
+        "StopOrder": "25",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7377015,
+          38.1023675
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "130322",
+        "StopID": "130322",
+        "StopDescr": "ΤΕΡΜΑ - ΑΠΟΒΙΒΑΣΗ",
+        "StopOrder": "26",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.736935,
+          38.1031635
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "10223",
+        "StopID": "57",
+        "StopDescr": "ΑΧΑΡΝΑΙ",
+        "StopOrder": "27",
+        "StopType": "0"
+      }
+    }
+  ]
+}
