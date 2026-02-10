@@ -4,24 +4,8 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Close
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
@@ -30,14 +14,14 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
+import com.example.newoasa.data.Stop
+import com.example.newoasa.data.StopInfoState
 import com.example.newoasa.data.TransitLine
 import com.google.gson.JsonObject
 import kotlinx.coroutines.Dispatchers
@@ -61,18 +45,6 @@ import org.maplibre.geojson.FeatureCollection
 import org.maplibre.geojson.Point
 import org.maplibre.android.style.layers.SymbolLayer
 import newoasa.composeapp.generated.resources.Res
-import androidx.compose.ui.unit.dp
-
-data class Stop(
-    val name: String,
-    val stopCode: String,
-    val order: String,
-    val coordinate: LatLng
-)
-
-data class StopInfoState(
-    val stop: Stop
-)
 
 @Composable
 actual fun MapView(
@@ -179,12 +151,12 @@ actual fun MapView(
                                             val currentZoom = map.cameraPosition.zoom
                                             val newCameraPosition = CameraPosition.Builder()
                                                 .target(stopCoord)
-                                                .zoom(if (currentZoom < 14) 14.0 else currentZoom) // Zoom in slightly if too far out
+                                                .zoom(if (currentZoom < 14) 14.0 else currentZoom)
                                                 .build()
                                             
                                             map.animateCamera(
                                                 CameraUpdateFactory.newCameraPosition(newCameraPosition),
-                                                300 // Quick 300ms animation
+                                                300
                                             )
                                             
                                             // Show info window after animation completes
@@ -196,13 +168,14 @@ actual fun MapView(
                                                         name = stopName,
                                                         stopCode = stopCode,
                                                         order = order,
-                                                        coordinate = stopCoord
+                                                        latitude = stopCoord.latitude,
+                                                        longitude = stopCoord.longitude
                                                     )
                                                 )
                                             }
                                         }
                                         
-                                        return@addOnMapClickListener true // Consume the event
+                                        return@addOnMapClickListener true
                                     }
                                 } else {
                                     // Clicked outside of stops, close info window
@@ -227,77 +200,11 @@ actual fun MapView(
             }
         )
         
-        // Info window overlay - centered on screen, above center point
+        // Info card overlay - using shared StopInfoCard component
         selectedStopInfo?.let { info ->
-            StopInfoWindow(
+            StopInfoCard(
                 stop = info.stop,
                 onClose = { selectedStopInfo = null }
-            )
-        }
-    }
-}
-
-@Composable
-fun StopInfoWindow(
-    stop: Stop,
-    onClose: () -> Unit
-) {
-    // Position the window centered horizontally and in the upper portion of screen
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .clickable(onClick = onClose), // Close when clicking outside
-        contentAlignment = Alignment.Center // Center the content
-    ) {
-        Column(
-            modifier = Modifier
-                .width(300.dp)
-                .padding(bottom = 200.dp) // Offset upward so it appears above the centered pin
-                .shadow(8.dp, RoundedCornerShape(12.dp))
-                .background(
-                    color = MaterialTheme.colorScheme.surface,
-                    shape = RoundedCornerShape(12.dp)
-                )
-                .padding(16.dp)
-                .clickable(onClick = {}), // Prevent closing when clicking inside
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            // Header with close button
-            Row(
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(
-                    text = stop.name,
-                    style = MaterialTheme.typography.titleLarge,
-                    modifier = Modifier.weight(1f)
-                )
-                IconButton(
-                    onClick = onClose,
-                    modifier = Modifier.size(24.dp)
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.Close,
-                        contentDescription = "Close",
-                        tint = MaterialTheme.colorScheme.onSurface
-                    )
-                }
-            }
-            
-            Spacer(modifier = Modifier.height(8.dp))
-            
-            // Stop details
-            Text(
-                text = "Stop Code: ${stop.stopCode}",
-                style = MaterialTheme.typography.bodyLarge,
-                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f)
-            )
-            
-            Spacer(modifier = Modifier.height(4.dp))
-            
-            Text(
-                text = "Order: ${stop.order}",
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
             )
         }
     }
@@ -366,7 +273,7 @@ private suspend fun displayTransitLine(
         
         val allCoordinates = mutableListOf<LatLng>()
         val allStops = mutableListOf<Stop>()
-        val loadedGeoJsonData = mutableListOf<Pair<Int, String>>() // index to geoJson
+        val loadedGeoJsonData = mutableListOf<Pair<Int, String>>()
         
         // Load all GeoJSON files sequentially in IO dispatcher
         kotlinx.coroutines.CoroutineScope(Dispatchers.IO).launch {
@@ -386,7 +293,7 @@ private suspend fun displayTransitLine(
                     
                     val geoJson = JSONObject(geoJsonString)
                     
-                    // Validate that it has features - type check relaxed to allow FeatureCollection or manual parsing
+                    // Validate that it has features
                     val features = geoJson.optJSONArray("features")
                     if (features != null) {
                         for (i in 0 until features.length()) {
@@ -397,11 +304,11 @@ private suspend fun displayTransitLine(
                             val featureType = properties?.optString("type")
                             val geometryType = geometry?.optString("type")
                             
-                            // Check for route path (either explicit type or LineString geometry)
+                            // Check for route path
                             val isRoute = featureType == "route_path" || 
                                          (featureType.isNullOrEmpty() && (geometryType == "LineString" || geometryType == "MultiLineString"))
                             
-                            // Check for stop (either explicit type or Point geometry)
+                            // Check for stop
                             val isStop = featureType == "stop" || 
                                         (featureType.isNullOrEmpty() && (geometryType == "Point" || geometryType == "MultiPoint"))
 
@@ -409,7 +316,6 @@ private suspend fun displayTransitLine(
                                 // Extract route coordinates for bounds calculation
                                 val coords = geometry?.optJSONArray("coordinates")
                                 coords?.let {
-                                    // Handle LineString (array of points)
                                     if (geometryType == "LineString") {
                                         for (j in 0 until it.length()) {
                                             val coord = it.getJSONArray(j)
@@ -418,7 +324,6 @@ private suspend fun displayTransitLine(
                                             allCoordinates.add(LatLng(lat, lng))
                                         }
                                     }
-                                    // Basic support for MultiLineString if needed
                                     else if (geometryType == "MultiLineString") {
                                          for (k in 0 until it.length()) {
                                             val lineString = it.getJSONArray(k)
@@ -446,7 +351,8 @@ private suspend fun displayTransitLine(
                                             name = stopName,
                                             stopCode = stopCode,
                                             order = order,
-                                            coordinate = LatLng(lat, lng)
+                                            latitude = lat,
+                                            longitude = lng
                                         )
                                     )
                                 }
@@ -456,7 +362,6 @@ private suspend fun displayTransitLine(
                     
                     // Store loaded data (only the route LineString, not stops)
                     val routeOnlyGeoJson = extractRoutePathOnly(geoJson)
-                    // Only add if we actually found a route
                     if (routeOnlyGeoJson != "{}") {
                         loadedGeoJsonData.add(index to routeOnlyGeoJson)
                         println("Successfully loaded GeoJSON for route: $path")
@@ -473,15 +378,12 @@ private suspend fun displayTransitLine(
             println("Finished loading all routes. Total stops: ${allStops.size}")
             
             // Create stops map for quick lookup
-            stopsMap = allStops.associateBy { "${it.coordinate.latitude},${it.coordinate.longitude}" }
+            stopsMap = allStops.associateBy { "${it.latitude},${it.longitude}" }
             
             // Now add all sources and layers on main thread sequentially
             withContext(Dispatchers.Main) {
-                // Add line color based on type
-                val lineColor = if (line.category.equals("metro", ignoreCase = true)) "#F44336" // Red for Metro
-                               else if (line.category.equals("tram", ignoreCase = true)) "#4CAF50" // Green for Tram
-                               else if (line.isBus) "#2196F3" // Blue for Bus
-                               else "#9C27B0" // Purple for Trolley
+                // Use LineColors from commonMain to get consistent color
+                val lineColor = LineColors.getHexColorForCategory(line.category, line.isBus)
                 
                 // Add route lines
                 loadedGeoJsonData.forEach { (index, geoJsonString) ->
@@ -509,7 +411,7 @@ private suspend fun displayTransitLine(
                 // Add stops as markers
                 if (allStops.isNotEmpty()) {
                     try {
-                        // Create pin marker bitmap (bigger size)
+                        // Create pin marker bitmap
                         val pinBitmap = createPinBitmap(Color.parseColor(lineColor))
                         style.addImage("stop-pin", pinBitmap)
                         println("Added pin image to style")
@@ -522,7 +424,7 @@ private suspend fun displayTransitLine(
                             properties.addProperty("order", stop.order)
                             
                             Feature.fromGeometry(
-                                Point.fromLngLat(stop.coordinate.longitude, stop.coordinate.latitude),
+                                Point.fromLngLat(stop.longitude, stop.latitude),
                                 properties
                             )
                         }
@@ -536,7 +438,7 @@ private suspend fun displayTransitLine(
                         // 1. Add invisible hit area layer (for clicking)
                         val hitAreaLayer = CircleLayer("transit-stops-hit-area", "transit-stops-source")
                             .withProperties(
-                                PropertyFactory.circleRadius(15f), // Clickable radius
+                                PropertyFactory.circleRadius(15f),
                                 PropertyFactory.circleColor(Color.TRANSPARENT),
                                 PropertyFactory.circleOpacity(0f)
                             )
@@ -559,12 +461,11 @@ private suspend fun displayTransitLine(
                                 PropertyFactory.textSize(12f),
                                 PropertyFactory.textOffset(arrayOf(0f, 1.5f)),
                                 PropertyFactory.textAnchor("top"),
-                                // FIX: Ensure both branches return Int for textColor
                                 PropertyFactory.textColor(if (line.category == "metro") Color.parseColor(lineColor) else Color.BLACK), 
                                 PropertyFactory.textHaloColor(Color.WHITE),
                                 PropertyFactory.textHaloWidth(1f)
                             )
-                        labelsLayer.minZoom = 14f // Only show labels when zoomed in
+                        labelsLayer.minZoom = 14f
                         style.addLayer(labelsLayer)
                         
                     } catch (e: Exception) {
@@ -580,10 +481,9 @@ private suspend fun displayTransitLine(
                         allCoordinates.forEach { boundsBuilder.include(it) }
                         val bounds = boundsBuilder.build()
                         
-                        // Animate to bounds with padding
                         map.animateCamera(
                             CameraUpdateFactory.newLatLngBounds(bounds, 100),
-                            1000 // 1 second animation
+                            1000
                         )
                         println("Camera animated to show all routes")
                     } catch (e: Exception) {
@@ -613,15 +513,13 @@ private fun extractRoutePathOnly(geoJson: JSONObject): String {
                 val featureType = properties?.optString("type")
                 val geometryType = geometry?.optString("type")
                 
-                // Return if explicit route_path OR fallback to LineString/MultiLineString geometry
                 if (featureType == "route_path" || 
                    (featureType.isNullOrEmpty() && (geometryType == "LineString" || geometryType == "MultiLineString"))) {
-                    // Return just this feature as a FeatureCollection
                     return """{"type":"FeatureCollection","features":[$feature]}"""
                 }
             }
         }
-        "{}" // Return empty if no route_path found
+        "{}"
     } catch (e: Exception) {
         e.printStackTrace()
         "{}"
@@ -631,13 +529,30 @@ private fun extractRoutePathOnly(geoJson: JSONObject): String {
 @OptIn(ExperimentalResourceApi::class)
 private suspend fun loadGeoJsonFromResources(path: String): String {
     return try {
-        // Path already includes "files/" prefix from TransitLineRepository
-        // e.g., "files/geojson/buses/035/route_2953.geojson"
         val bytes = Res.readBytes(path)
         bytes.decodeToString()
     } catch (e: Exception) {
         println("Failed to load GeoJSON from composeResources path: $path")
         e.printStackTrace()
-        "{}" // Return empty GeoJSON on error
+        "{}"
     }
+}
+
+/**
+ * Create a pin bitmap for stop markers
+ */
+private fun createPinBitmap(color: Int): Bitmap {
+    val size = 64
+    val bitmap = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888)
+    val canvas = Canvas(bitmap)
+    val paint = Paint(Paint.ANTI_ALIAS_FLAG)
+    
+    paint.color = color
+    paint.style = Paint.Style.FILL
+    canvas.drawCircle(size / 2f, size / 2f, size / 3f, paint)
+    
+    paint.color = Color.WHITE
+    canvas.drawCircle(size / 2f, size / 2f, size / 5f, paint)
+    
+    return bitmap
 }
