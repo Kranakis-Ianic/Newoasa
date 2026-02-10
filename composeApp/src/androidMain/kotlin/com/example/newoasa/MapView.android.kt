@@ -99,6 +99,13 @@ private fun getTransitLineColor(line: TransitLine): String {
             "T7" -> "#b9348b" // Pink
             else -> "#000000" // Default to black
         }
+        line.isSuburban -> when (line.lineNumber.uppercase()) {
+            "A1" -> "#ffcd00" // Yellow
+            "A2" -> "#753bbd" // Purple
+            "A3" -> "#78be20" // Light green
+            "A4" -> "#00a3e0" // Light blue
+            else -> "#000000" // Default to black
+        }
         line.isBus -> "#009cc7" // Cyan
         line.isTrolley -> "#f07c00" // Orange
         else -> "#000000" // Default to black
@@ -109,12 +116,16 @@ private fun getTransitLineColor(line: TransitLine): String {
  * Get Compose Color for a line ID string (for UI display)
  */
 private fun getLineComposeColor(lineId: String): ComposeColor {
-    return when (lineId) {
-        "1" -> ComposeColor(0xFF00734c) // Green
-        "2" -> ComposeColor(0xFFe60000) // Red
-        "3" -> ComposeColor(0xFF002673) // Blue
-        "T6" -> ComposeColor(0xFFa7c636) // Lime green
-        "T7" -> ComposeColor(0xFFb9348b) // Pink
+    return when (lineId.uppercase()) {
+        "1" -> ComposeColor(0xFF00734c) // Green - Metro 1
+        "2" -> ComposeColor(0xFFe60000) // Red - Metro 2
+        "3" -> ComposeColor(0xFF002673) // Blue - Metro 3
+        "T6" -> ComposeColor(0xFFa7c636) // Lime green - Tram T6
+        "T7" -> ComposeColor(0xFFb9348b) // Pink - Tram T7
+        "A1" -> ComposeColor(0xFFffcd00) // Yellow - Suburban A1
+        "A2" -> ComposeColor(0xFF753bbd) // Purple - Suburban A2
+        "A3" -> ComposeColor(0xFF78be20) // Light green - Suburban A3
+        "A4" -> ComposeColor(0xFF00a3e0) // Light blue - Suburban A4
         else -> ComposeColor(0xFF000000) // Default to black
     }
 }
@@ -130,7 +141,7 @@ actual fun MapView(
     val lifecycleOwner = LocalLifecycleOwner.current
     val coroutineScope = rememberCoroutineScope()
     var isMapReady by remember { mutableStateOf(false) }
-    var baseLinesLoaded by remember { mutableStateOf(false) }
+    var stationsLoaded by remember { mutableStateOf(false) }
     var currentDisplayedLine by remember { mutableStateOf<TransitLine?>(null) }
     var allStopsMap by remember { mutableStateOf<Map<String, Stop>>(emptyMap()) }
     var selectedStopInfo by remember { mutableStateOf<StopInfoState?>(null) }
@@ -170,28 +181,17 @@ actual fun MapView(
         }
     }
 
-    // Load base transit lines (metro and tram) after map is ready
+    // Load combined stations only (not persistent lines) after map is ready
     LaunchedEffect(isMapReady) {
-        if (isMapReady && !baseLinesLoaded) {
+        if (isMapReady && !stationsLoaded) {
             mapView.getMapAsync { map ->
                 coroutineScope.launch {
-                    // Load all metro lines
-                    val metroLines = TransitLineRepository.getMetroLines()
-                    metroLines.forEach { metroLine ->
-                        displayPersistentTransitLine(map, metroLine, context, "metro")
-                    }
-                    
-                    // Load all tram lines
-                    val tramLines = TransitLineRepository.getTramLines()
-                    tramLines.forEach { tramLine ->
-                        displayPersistentTransitLine(map, tramLine, context, "tram")
-                    }
-                    
-                    // Load combined stations
+                    // Only load combined stations (station dots)
+                    // Do NOT load persistent metro/tram/suburban lines to avoid clutter
                     displayCombinedStations(map, context)
                     
-                    baseLinesLoaded = true
-                    println("Base transit lines loaded: ${metroLines.size} metro + ${tramLines.size} tram")
+                    stationsLoaded = true
+                    println("Combined stations loaded")
                 }
             }
         }
@@ -367,7 +367,8 @@ fun StopInfoWindow(
 fun LineBadge(lineId: String) {
     val displayText = when {
         lineId.toIntOrNull() != null -> "M$lineId"  // Metro lines
-        lineId.startsWith("T") -> lineId  // Tram lines already have T
+        lineId.startsWith("T", ignoreCase = true) -> lineId.uppercase()  // Tram lines
+        lineId.startsWith("A", ignoreCase = true) -> lineId.uppercase()  // Suburban lines
         else -> lineId
     }
     
@@ -488,100 +489,6 @@ private suspend fun displayCombinedStations(
     }
 }
 
-/**
- * Display a persistent transit line (metro or tram) that stays on the map
- * Does NOT display individual stops - those are handled by combined stations
- */
-@OptIn(ExperimentalResourceApi::class)
-private suspend fun displayPersistentTransitLine(
-    map: MapLibreMap,
-    line: TransitLine,
-    context: android.content.Context,
-    prefix: String
-) = withContext(Dispatchers.Main) {
-    map.getStyle { style ->
-        val allCoordinates = mutableListOf<LatLng>()
-        val loadedGeoJsonData = mutableListOf<Pair<String, String>>()
-        
-        kotlinx.coroutines.CoroutineScope(Dispatchers.IO).launch {
-            line.routePaths.forEachIndexed { index, path ->
-                try {
-                    val geoJsonString = loadGeoJsonFromResources(path)
-                    
-                    if (geoJsonString.isBlank() || geoJsonString == "{}") {
-                        return@forEachIndexed
-                    }
-                    
-                    val geoJson = JSONObject(geoJsonString)
-                    val features = geoJson.optJSONArray("features")
-                    
-                    if (features != null) {
-                        for (i in 0 until features.length()) {
-                            val feature = features.getJSONObject(i)
-                            val geometry = feature.optJSONObject("geometry")
-                            val geometryType = geometry?.optString("type")
-                            
-                            // Only process routes, not stops
-                            if (geometryType == "LineString" || geometryType == "MultiLineString") {
-                                val coords = geometry.optJSONArray("coordinates")
-                                coords?.let {
-                                    if (geometryType == "LineString") {
-                                        for (j in 0 until it.length()) {
-                                            val coord = it.getJSONArray(j)
-                                            allCoordinates.add(LatLng(coord.getDouble(1), coord.getDouble(0)))
-                                        }
-                                    } else if (geometryType == "MultiLineString") {
-                                        for (k in 0 until it.length()) {
-                                            val lineString = it.getJSONArray(k)
-                                            for (j in 0 until lineString.length()) {
-                                                val coord = lineString.getJSONArray(j)
-                                                allCoordinates.add(LatLng(coord.getDouble(1), coord.getDouble(0)))
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    
-                    val routeOnlyGeoJson = extractRoutePathOnly(geoJson)
-                    if (routeOnlyGeoJson != "{}") {
-                        val layerId = "${prefix}-${line.lineNumber}-$index"
-                        loadedGeoJsonData.add(layerId to routeOnlyGeoJson)
-                    }
-                } catch (e: Exception) {
-                    println("Error loading persistent route $path: ${e.message}")
-                }
-            }
-            
-            withContext(Dispatchers.Main) {
-                val lineColor = getTransitLineColor(line)
-                
-                // Add route lines only (stops handled by combined stations)
-                loadedGeoJsonData.forEach { (layerId, geoJsonString) ->
-                    try {
-                        val sourceId = "source-$layerId"
-                        
-                        if (style.getSource(sourceId) == null) {
-                            val source = GeoJsonSource(sourceId, geoJsonString)
-                            style.addSource(source)
-                            
-                            val lineLayer = LineLayer(layerId, sourceId).withProperties(
-                                PropertyFactory.lineColor(lineColor),
-                                PropertyFactory.lineWidth(4f),
-                                PropertyFactory.lineOpacity(0.8f)
-                            )
-                            style.addLayer(lineLayer)
-                        }
-                    } catch (e: Exception) {
-                        println("Error adding persistent layer: ${e.message}")
-                    }
-                }
-            }
-        }
-    }
-}
-
 @OptIn(ExperimentalResourceApi::class)
 private suspend fun displayTransitLine(
     map: MapLibreMap,
@@ -591,7 +498,7 @@ private suspend fun displayTransitLine(
     var stopsMap = emptyMap<String, Stop>()
     
     map.getStyle { style ->
-        // Remove ONLY temporary transit line layers (not metro/tram base layers)
+        // Remove ONLY temporary transit line layers
         for (i in 0 until 50) {
             try {
                 val layerId = "transit-line-layer-$i"
