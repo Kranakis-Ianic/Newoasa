@@ -23,9 +23,7 @@ import org.maplibre.android.style.layers.LineLayer
 import org.maplibre.android.style.layers.PropertyFactory.*
 import org.maplibre.android.style.layers.CircleLayer
 import org.maplibre.android.style.sources.GeoJsonSource
-import org.maplibre.geojson.Feature
-import org.maplibre.geojson.FeatureCollection
-import org.maplibre.geojson.Point
+import org.maplibre.android.style.expressions.Expression.*
 import java.io.BufferedReader
 import java.io.InputStreamReader
 
@@ -132,52 +130,50 @@ actual fun MapView(
                                     val lineLayerId = "route-line-$index"
                                     val stopsLayerId = "route-stops-$index"
                                     
-                                    // Parse GeoJSON
-                                    val featureCollection = FeatureCollection.fromJson(geoJsonString)
+                                    // Add source
+                                    val source = GeoJsonSource(sourceId, geoJsonString)
+                                    style.addSource(source)
                                     
-                                    // Extract coordinates for bounds calculation
-                                    featureCollection.features()?.forEach { feature ->
-                                        val geometry = feature.geometry()
-                                        if (geometry is org.maplibre.geojson.LineString) {
-                                            geometry.coordinates().forEach { point ->
-                                                allCoordinates.add(LatLng(point.latitude(), point.longitude()))
+                                    // Parse to extract coordinates for bounds
+                                    try {
+                                        val featureCollection = org.maplibre.geojson.FeatureCollection.fromJson(geoJsonString)
+                                        featureCollection.features()?.forEach { feature ->
+                                            val geometry = feature.geometry()
+                                            if (geometry is org.maplibre.geojson.LineString) {
+                                                geometry.coordinates().forEach { point ->
+                                                    allCoordinates.add(LatLng(point.latitude(), point.longitude()))
+                                                }
                                             }
                                         }
+                                    } catch (e: Exception) {
+                                        Log.w("MapView", "Could not parse coordinates for bounds", e)
                                     }
-                                    
-                                    // Add source
-                                    val source = GeoJsonSource(sourceId, featureCollection)
-                                    style.addSource(source)
                                     
                                     // Add line layer for route
                                     val lineLayer = LineLayer(lineLayerId, sourceId)
                                         .withProperties(
                                             lineColor(lineColor),
-                                            lineWidth(4f),
-                                            lineOpacity(0.9f)
+                                            lineWidth(5f),
+                                            lineOpacity(0.85f),
+                                            lineCap("round"),
+                                            lineJoin("round")
                                         )
                                         .withFilter(
-                                            com.mapbox.mapboxsdk.style.expressions.Expression.eq(
-                                                com.mapbox.mapboxsdk.style.expressions.Expression.geometryType(),
-                                                com.mapbox.mapboxsdk.style.expressions.Expression.literal("LineString")
-                                            )
+                                            eq(geometryType(), literal("LineString"))
                                         )
                                     style.addLayer(lineLayer)
                                     
                                     // Add circle layer for stops
                                     val circleLayer = CircleLayer(stopsLayerId, sourceId)
                                         .withProperties(
-                                            circleRadius(5f),
+                                            circleRadius(6f),
                                             circleColor(lineColor),
-                                            circleStrokeWidth(2f),
+                                            circleStrokeWidth(2.5f),
                                             circleStrokeColor("#FFFFFF"),
-                                            circleOpacity(0.9f)
+                                            circleOpacity(1.0f)
                                         )
                                         .withFilter(
-                                            com.mapbox.mapboxsdk.style.expressions.Expression.eq(
-                                                com.mapbox.mapboxsdk.style.expressions.Expression.geometryType(),
-                                                com.mapbox.mapboxsdk.style.expressions.Expression.literal("Point")
-                                            )
+                                            eq(geometryType(), literal("Point"))
                                         )
                                     style.addLayer(circleLayer)
                                 }
