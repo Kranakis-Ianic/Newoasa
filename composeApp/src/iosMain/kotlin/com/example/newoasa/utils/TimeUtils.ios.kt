@@ -4,8 +4,8 @@ import platform.Foundation.NSDate
 
 /**
  * iOS implementation of currentTimeMillis
- * NSDate.timeIntervalSince1970 is a property, not a method
+ * In Kotlin/Native, Objective-C properties are accessed as functions
  */
 actual fun currentTimeMillis(): Long {
-    return (NSDate().timeIntervalSince1970 * 1000).toLong()
+    return (NSDate().timeIntervalSince1970() * 1000).toLong()
 }
