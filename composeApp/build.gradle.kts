@@ -6,7 +6,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
-    id("com.google.devtools.ksp") version "2.0.21-1.0.25"
+    id("com.google.devtools.ksp") version "2.1.0-1.0.29"
 }
 
 kotlin {
@@ -94,6 +94,6 @@ android {
 dependencies {
     debugImplementation(libs.compose.uiTooling)
     
-    // Room compiler - must be in dependencies block
-    ksp("androidx.room:room-compiler:2.6.1")
+    // Room compiler - use kspAndroid for Android-specific processing
+    add("kspAndroid", "androidx.room:room-compiler:2.6.1")
 }
