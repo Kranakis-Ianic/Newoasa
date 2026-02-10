@@ -2,22 +2,20 @@ package com.example.newoasa.database.room.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.newoasa.utils.currentTimeMillis
 
 /**
- * Transit line entity for Room database
- * Represents a single transit line (bus, metro, tram, etc.)
+ * Unified entity for all types of transit lines
+ * Works for buses, trolleys, metro, tram, and suburban railway
  */
 @Entity(tableName = "transit_lines")
 data class TransitLineEntity(
-    @PrimaryKey
-    val lineId: String,
-    val lineNumber: String,
-    val displayName: String,
-    val transportType: String, // "bus", "metro", "tram", "trolley", "railway"
+    @PrimaryKey(autoGenerate = true)
+    val id: Long = 0,
+    
+    val lineCode: String,
+    val lineName: String,
+    val category: String, // "buses", "trolleys", "metro", "tram", "suburban_railway"
+    val transportType: String, // Specific type within category
     val color: String, // Hex color code
-    val routeIds: String, // JSON array of route IDs
-    val routePaths: String, // JSON array of route geometries
-    val isActive: Boolean = true,
-    val lastUpdated: Long = currentTimeMillis()
+    val routePaths: List<String> // List of GeoJSON resource paths
 )
