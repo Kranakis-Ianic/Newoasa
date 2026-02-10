@@ -3,6 +3,7 @@ package com.example.newoasa.utils
 import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -12,6 +13,8 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import com.example.newoasa.data.TransitLine
 import com.example.newoasa.theme.LineColors
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import org.maplibre.android.MapLibre
 import org.maplibre.android.camera.CameraPosition
 import org.maplibre.android.camera.CameraUpdateFactory
@@ -24,8 +27,6 @@ import org.maplibre.android.style.layers.PropertyFactory.*
 import org.maplibre.android.style.layers.CircleLayer
 import org.maplibre.android.style.sources.GeoJsonSource
 import org.maplibre.android.style.expressions.Expression.*
-import java.io.BufferedReader
-import java.io.InputStreamReader
 
 @Composable
 actual fun MapView(
@@ -102,99 +103,120 @@ actual fun MapView(
         onDispose { }
     }
     
-    // Handle selected line changes
-    DisposableEffect(selectedLine) {
+    // Handle selected line changes - load and display routes
+    LaunchedEffect(selectedLine) {
         if (selectedLine != null) {
-            mapView.getMapAsync { map ->
-                map.getStyle { style ->
+            withContext(Dispatchers.IO) {
+                // Load all GeoJSON files for this line
+                val routeData = mutableListOf<Pair<Int, String>>()
+                
+                selectedLine.routePaths.forEachIndexed { index, routePath ->
                     try {
-                        // Clear previous line layers and sources
-                        clearTransitLayers(style)
-                        
-                        // Get line color
-                        val lineColor = when (selectedLine.category) {
-                            "metro", "tram" -> LineColors.getHexColorForLine(selectedLine.lineNumber)
-                            else -> LineColors.getHexColorForCategory(selectedLine.category, selectedLine.isBus)
-                        }
-                        
-                        val allCoordinates = mutableListOf<LatLng>()
-                        
-                        // Load and display each route
-                        selectedLine.routePaths.forEachIndexed { index, routePath ->
-                            try {
-                                // Load GeoJSON from assets
-                                val geoJsonString = loadGeoJsonFromAssets(context, routePath)
-                                
-                                if (geoJsonString != null) {
-                                    val sourceId = "route-source-$index"
-                                    val lineLayerId = "route-line-$index"
-                                    val stopsLayerId = "route-stops-$index"
-                                    
-                                    // Add source
-                                    val source = GeoJsonSource(sourceId, geoJsonString)
-                                    style.addSource(source)
-                                    
-                                    // Parse to extract coordinates for bounds
-                                    try {
-                                        val featureCollection = org.maplibre.geojson.FeatureCollection.fromJson(geoJsonString)
-                                        featureCollection.features()?.forEach { feature ->
-                                            val geometry = feature.geometry()
-                                            if (geometry is org.maplibre.geojson.LineString) {
-                                                geometry.coordinates().forEach { point ->
-                                                    allCoordinates.add(LatLng(point.latitude(), point.longitude()))
-                                                }
-                                            }
-                                        }
-                                    } catch (e: Exception) {
-                                        Log.w("MapView", "Could not parse coordinates for bounds", e)
-                                    }
-                                    
-                                    // Add line layer for route
-                                    val lineLayer = LineLayer(lineLayerId, sourceId)
-                                        .withProperties(
-                                            lineColor(lineColor),
-                                            lineWidth(5f),
-                                            lineOpacity(0.85f),
-                                            lineCap("round"),
-                                            lineJoin("round")
-                                        )
-                                        .withFilter(
-                                            eq(geometryType(), literal("LineString"))
-                                        )
-                                    style.addLayer(lineLayer)
-                                    
-                                    // Add circle layer for stops
-                                    val circleLayer = CircleLayer(stopsLayerId, sourceId)
-                                        .withProperties(
-                                            circleRadius(6f),
-                                            circleColor(lineColor),
-                                            circleStrokeWidth(2.5f),
-                                            circleStrokeColor("#FFFFFF"),
-                                            circleOpacity(1.0f)
-                                        )
-                                        .withFilter(
-                                            eq(geometryType(), literal("Point"))
-                                        )
-                                    style.addLayer(circleLayer)
-                                }
-                            } catch (e: Exception) {
-                                Log.e("MapView", "Error loading route $routePath", e)
-                            }
-                        }
-                        
-                        // Zoom to fit all routes
-                        if (allCoordinates.isNotEmpty()) {
-                            val boundsBuilder = LatLngBounds.Builder()
-                            allCoordinates.forEach { boundsBuilder.include(it) }
-                            val bounds = boundsBuilder.build()
-                            
-                            map.animateCamera(
-                                CameraUpdateFactory.newLatLngBounds(bounds, 100),
-                                1000
-                            )
+                        val geoJsonString = loadGeoJsonFromResources(routePath)
+                        if (geoJsonString != null) {
+                            routeData.add(index to geoJsonString)
+                        } else {
+                            Log.w("MapView", "Failed to load GeoJSON from $routePath")
                         }
                     } catch (e: Exception) {
-                        Log.e("MapView", "Error displaying transit line", e)
+                        Log.e("MapView", "Error loading route $routePath", e)
+                    }
+                }
+                
+                // Display on map
+                withContext(Dispatchers.Main) {
+                    mapView.getMapAsync { map ->
+                        map.getStyle { style ->
+                            try {
+                                // Clear previous line layers and sources
+                                clearTransitLayers(style)
+                                
+                                // Get line color
+                                val lineColor = when (selectedLine.category) {
+                                    "metro", "tram" -> LineColors.getHexColorForLine(selectedLine.lineNumber)
+                                    else -> LineColors.getHexColorForCategory(selectedLine.category, selectedLine.isBus)
+                                }
+                                
+                                val allCoordinates = mutableListOf<LatLng>()
+                                
+                                // Display each loaded route
+                                routeData.forEach { (index, geoJsonString) ->
+                                    try {
+                                        val sourceId = "route-source-$index"
+                                        val lineLayerId = "route-line-$index"
+                                        val stopsLayerId = "route-stops-$index"
+                                        
+                                        // Add source
+                                        val source = GeoJsonSource(sourceId, geoJsonString)
+                                        style.addSource(source)
+                                        
+                                        // Parse to extract coordinates for bounds
+                                        try {
+                                            val featureCollection = org.maplibre.geojson.FeatureCollection.fromJson(geoJsonString)
+                                            featureCollection.features()?.forEach { feature ->
+                                                val geometry = feature.geometry()
+                                                if (geometry is org.maplibre.geojson.LineString) {
+                                                    geometry.coordinates().forEach { point ->
+                                                        allCoordinates.add(LatLng(point.latitude(), point.longitude()))
+                                                    }
+                                                }
+                                            }
+                                        } catch (e: Exception) {
+                                            Log.w("MapView", "Could not parse coordinates for bounds", e)
+                                        }
+                                        
+                                        // Add line layer for route
+                                        val lineLayer = LineLayer(lineLayerId, sourceId)
+                                            .withProperties(
+                                                lineColor(lineColor),
+                                                lineWidth(5f),
+                                                lineOpacity(0.85f),
+                                                lineCap("round"),
+                                                lineJoin("round")
+                                            )
+                                            .withFilter(
+                                                eq(geometryType(), literal("LineString"))
+                                            )
+                                        style.addLayer(lineLayer)
+                                        
+                                        // Add circle layer for stops
+                                        val circleLayer = CircleLayer(stopsLayerId, sourceId)
+                                            .withProperties(
+                                                circleRadius(6f),
+                                                circleColor(lineColor),
+                                                circleStrokeWidth(2.5f),
+                                                circleStrokeColor("#FFFFFF"),
+                                                circleOpacity(1.0f)
+                                            )
+                                            .withFilter(
+                                                eq(geometryType(), literal("Point"))
+                                            )
+                                        style.addLayer(circleLayer)
+                                        
+                                        Log.d("MapView", "Successfully added route $index for line ${selectedLine.lineNumber}")
+                                    } catch (e: Exception) {
+                                        Log.e("MapView", "Error displaying route $index", e)
+                                    }
+                                }
+                                
+                                // Zoom to fit all routes
+                                if (allCoordinates.isNotEmpty()) {
+                                    val boundsBuilder = LatLngBounds.Builder()
+                                    allCoordinates.forEach { boundsBuilder.include(it) }
+                                    val bounds = boundsBuilder.build()
+                                    
+                                    map.animateCamera(
+                                        CameraUpdateFactory.newLatLngBounds(bounds, 100),
+                                        1000
+                                    )
+                                    Log.d("MapView", "Zoomed to bounds for line ${selectedLine.lineNumber}")
+                                } else {
+                                    Log.w("MapView", "No coordinates found for line ${selectedLine.lineNumber}")
+                                }
+                            } catch (e: Exception) {
+                                Log.e("MapView", "Error displaying transit line", e)
+                            }
+                        }
                     }
                 }
             }
@@ -213,8 +235,6 @@ actual fun MapView(
                 }
             }
         }
-        
-        onDispose { }
     }
     
     AndroidView(
@@ -245,29 +265,4 @@ private fun clearTransitLayers(style: Style) {
     
     layersToRemove.forEach { style.removeLayer(it) }
     sourcesToRemove.forEach { style.removeSource(it) }
-}
-
-/**
- * Load GeoJSON file from assets
- */
-private fun loadGeoJsonFromAssets(context: android.content.Context, path: String): String? {
-    return try {
-        val assetManager = context.assets
-        val inputStream = assetManager.open(path)
-        val reader = BufferedReader(InputStreamReader(inputStream))
-        val stringBuilder = StringBuilder()
-        var line: String?
-        
-        while (reader.readLine().also { line = it } != null) {
-            stringBuilder.append(line)
-        }
-        
-        reader.close()
-        inputStream.close()
-        
-        stringBuilder.toString()
-    } catch (e: Exception) {
-        Log.e("MapView", "Error loading GeoJSON from $path", e)
-        null
-    }
 }
