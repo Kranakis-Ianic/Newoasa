@@ -9,6 +9,7 @@ A comprehensive transit application for Athens, Greece, featuring interactive ma
 - 🗺️ **Interactive Transit Map** - View Athens Metro, Tram, and Suburban railway lines
 - 🚇 **Station Information** - Click on any station to see details and connecting lines
 - 🌐 **Multi-line Stations** - Automatically shows all lines serving each station
+- 🎨 **Official Colors** - Uses authentic Athens public transport line colors
 - 📱 **Cross-platform** - Works on Android and iOS
 
 ## Project Structure
@@ -89,12 +90,32 @@ in your IDE's toolbar or open the [/iosApp](./iosApp) directory in Xcode and run
 - **TransitStation** - Data model for stations with support for multiple lines
 - **StationParser** - Utilities for parsing GeoJSON and clustering nearby stations
 - **StationCard** - UI component displaying station information and connected lines
+- **LineColors** - Official Athens public transport line colors
 
 ### Transit Lines
 
-- Metro Lines (M1, M2, M3) - 🟢 Always visible on map
-- Tram Lines (T6, T7, T7A) - 🟪 Always visible on map
-- Suburban Railway (S1, S2) - 🔵 Always visible on map
+The app displays Athens public transport with their official colors:
+
+#### Metro Lines
+- **M1** 🟢 Green Line (`#00A651`) - Piraeus to Kifissia
+- **M2** 🔴 Red Line (`#ED1C24`) - Anthoupoli to Elliniko
+- **M3** 🔵 Blue Line (`#0066B3`) - Dimotiko Theatro to Airport
+
+#### Tram Lines
+- **T6** 🟢 Green (`#00A651`)
+- **T7** 🟢 Green (`#00A651`)
+
+#### Suburban Railway (Proastiakos)
+- **A1** 🟡 Yellow (`#FFD600`) - Piraeus to Airport
+- **A2** 🟣 Purple (`#9C27B0`) - Ano Liosia to Airport
+- **A3** 🟢 Lime Green (`#8BC34A`) - Athens to Chalcis
+- **A4** 🔵 Sky Blue (`#87CEEB`) - Piraeus to Kiato
+
+#### Other Transit
+- **Trolleys** 🟠 Orange (`#F27C02`)
+- **Buses** 🔵 Cyan Blue (`#009EC6`)
+
+All lines use their authentic colors as defined by OASA (Athens Urban Transport Organisation) and STASY (Fixed Track Transport Company).
 
 ## Data Processing
 
