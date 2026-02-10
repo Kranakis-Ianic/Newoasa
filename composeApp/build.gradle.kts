@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
+    id("com.google.devtools.ksp") version "2.0.21-1.0.25"
 }
 
 kotlin {
@@ -31,6 +32,10 @@ kotlin {
             implementation(libs.androidx.activity.compose)
             // Native MapLibre SDK for Android
             implementation("org.maplibre.gl:android-sdk:11.5.0")
+            
+            // Room dependencies
+            implementation("androidx.room:room-runtime:2.6.1")
+            implementation("androidx.room:room-ktx:2.6.1")
         }
         commonMain.dependencies {
             implementation(libs.compose.runtime)
@@ -49,6 +54,9 @@ kotlin {
             
             // GeoJSON parsing library for Kotlin Multiplatform (Spatial K)
             implementation("org.maplibre.spatialk:geojson:0.6.1")
+            
+            // Coroutines
+            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -85,4 +93,7 @@ android {
 
 dependencies {
     debugImplementation(libs.compose.uiTooling)
+    
+    // Room compiler - must be in dependencies block
+    ksp("androidx.room:room-compiler:2.6.1")
 }
