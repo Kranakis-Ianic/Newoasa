@@ -1,0 +1,747 @@
+{
+  "type": "FeatureCollection",
+  "properties": {
+    "LineCode": "1469",
+    "LineID": "250",
+    "LineDescr": "ΠΑΝΕΠΙΣΤΗΜΙΟΥΠΟΛΗ - ΣΤ. ΕΥΑΓΓΕΛΙΣΜΟΣ (ΑΠΟ ΣΤΑΣΗ ΕΥΑΓΓΕΛΙΣΜΟΣ)",
+    "RouteCode": "3818",
+    "RouteDescr": "ΠΑΝΕΠΙΣΤΗΜΙΟΥΠΟΛΗ - ΣΤ. ΕΥΑΓΓΕΛΙΣΜΟΣ [ΑΠΟ ΣΤΑΣΗ ΕΥΑΓΓΕΛΙΣΜΟΣ]",
+    "RouteType": "1"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            23.74605,
+            37.97533
+          ],
+          [
+            23.74577,
+            37.9759
+          ],
+          [
+            23.74808,
+            37.9764
+          ],
+          [
+            23.74858,
+            37.97643
+          ],
+          [
+            23.74898,
+            37.97633
+          ],
+          [
+            23.74932,
+            37.9762
+          ],
+          [
+            23.74973,
+            37.97582
+          ],
+          [
+            23.74992,
+            37.97535
+          ],
+          [
+            23.75002,
+            37.97499
+          ],
+          [
+            23.7509,
+            37.97403
+          ],
+          [
+            23.75165,
+            37.97321
+          ],
+          [
+            23.75221,
+            37.97263
+          ],
+          [
+            23.75245,
+            37.97249
+          ],
+          [
+            23.75249,
+            37.97243
+          ],
+          [
+            23.75328,
+            37.97237
+          ],
+          [
+            23.75587,
+            37.97208
+          ],
+          [
+            23.75712,
+            37.97191
+          ],
+          [
+            23.75835,
+            37.97172
+          ],
+          [
+            23.75851,
+            37.97173
+          ],
+          [
+            23.7586,
+            37.97175
+          ],
+          [
+            23.75874,
+            37.97187
+          ],
+          [
+            23.75892,
+            37.97192
+          ],
+          [
+            23.76055,
+            37.97142
+          ],
+          [
+            23.76135,
+            37.97104
+          ],
+          [
+            23.76297,
+            37.97025
+          ],
+          [
+            23.76332,
+            37.97003
+          ],
+          [
+            23.76365,
+            37.96978
+          ],
+          [
+            23.76436,
+            37.9691
+          ],
+          [
+            23.765,
+            37.9685
+          ],
+          [
+            23.76534,
+            37.96825
+          ],
+          [
+            23.76574,
+            37.96805
+          ],
+          [
+            23.7662,
+            37.96785
+          ],
+          [
+            23.76651,
+            37.96778
+          ],
+          [
+            23.76678,
+            37.96771
+          ],
+          [
+            23.76772,
+            37.9676
+          ],
+          [
+            23.77055,
+            37.96733
+          ],
+          [
+            23.77089,
+            37.96729
+          ],
+          [
+            23.77181,
+            37.96706
+          ],
+          [
+            23.77275,
+            37.967
+          ],
+          [
+            23.77456,
+            37.96724
+          ],
+          [
+            23.77507,
+            37.96727
+          ],
+          [
+            23.77552,
+            37.96709
+          ],
+          [
+            23.77637,
+            37.96682
+          ],
+          [
+            23.77734,
+            37.96674
+          ],
+          [
+            23.78026,
+            37.96705
+          ],
+          [
+            23.78078,
+            37.96707
+          ],
+          [
+            23.78128,
+            37.96701
+          ],
+          [
+            23.78213,
+            37.96671
+          ],
+          [
+            23.78303,
+            37.96652
+          ],
+          [
+            23.78392,
+            37.96636
+          ],
+          [
+            23.78501,
+            37.96621
+          ],
+          [
+            23.78593,
+            37.96608
+          ],
+          [
+            23.78631,
+            37.96604
+          ],
+          [
+            23.78655,
+            37.96609
+          ],
+          [
+            23.78664,
+            37.96618
+          ],
+          [
+            23.78694,
+            37.9674
+          ],
+          [
+            23.78716,
+            37.96799
+          ],
+          [
+            23.787,
+            37.96819
+          ],
+          [
+            23.78612,
+            37.96841
+          ],
+          [
+            23.78462,
+            37.96856
+          ],
+          [
+            23.78255,
+            37.96898
+          ],
+          [
+            23.78224,
+            37.96911
+          ],
+          [
+            23.78201,
+            37.97001
+          ],
+          [
+            23.78176,
+            37.97032
+          ],
+          [
+            23.77922,
+            37.96979
+          ],
+          [
+            23.77627,
+            37.96976
+          ],
+          [
+            23.77539,
+            37.96971
+          ],
+          [
+            23.7747,
+            37.96919
+          ],
+          [
+            23.77437,
+            37.96876
+          ],
+          [
+            23.7747,
+            37.96772
+          ],
+          [
+            23.77468,
+            37.96753
+          ],
+          [
+            23.77447,
+            37.96732
+          ],
+          [
+            23.77312,
+            37.96712
+          ],
+          [
+            23.7722,
+            37.9671
+          ],
+          [
+            23.77125,
+            37.96728
+          ],
+          [
+            23.77036,
+            37.96746
+          ],
+          [
+            23.76739,
+            37.9677
+          ],
+          [
+            23.76642,
+            37.96788
+          ],
+          [
+            23.76614,
+            37.96798
+          ],
+          [
+            23.76533,
+            37.96839
+          ],
+          [
+            23.76467,
+            37.96895
+          ],
+          [
+            23.76403,
+            37.96956
+          ],
+          [
+            23.76336,
+            37.97012
+          ],
+          [
+            23.76182,
+            37.97091
+          ],
+          [
+            23.76094,
+            37.97134
+          ],
+          [
+            23.76032,
+            37.97164
+          ]
+        ]
+      },
+      "properties": {
+        "type": "route_path",
+        "RouteCode": "3818"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7460115,
+          37.975275
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "11609",
+        "StopID": "251",
+        "StopDescr": "ΕΥΑΓΓΕΛΙΣΜΟΣ",
+        "StopOrder": "1",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7478818,
+          37.9763365
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60590",
+        "StopID": "060590",
+        "StopDescr": "ΝΟΣΟΚΟΜΕΙΟ ΕΥΑΓΓΕΛΙΣΜΟΣ",
+        "StopOrder": "2",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7509348,
+          37.9738772
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60762",
+        "StopID": "060762",
+        "StopDescr": "ΚΑΡΑΒΕΛ",
+        "StopOrder": "3",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7541134,
+          37.9722392
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "230029",
+        "StopID": "230029",
+        "StopDescr": "ΕΥΦΡΟΝΙΟΥ",
+        "StopOrder": "4",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7569849,
+          37.9719152
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "230025",
+        "StopID": "230025",
+        "StopDescr": "2η ΣΧΟΛΕΙΟ",
+        "StopOrder": "5",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7593572,
+          37.9717648
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "200093",
+        "StopID": "200093",
+        "StopDescr": "ΠΥΛΗ",
+        "StopOrder": "6",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7636351,
+          37.9697203
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "200094",
+        "StopID": "200094",
+        "StopDescr": "1η ΠΑΝΕΠΙΣΤΗΜΙΟΥΠΟΛΗΣ",
+        "StopOrder": "7",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7664829,
+          37.9677197
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "200095",
+        "StopID": "200095",
+        "StopDescr": "2η ΠΑΝΕΠΙΣΤΗΜΙΟΥΠΟΛΗΣ",
+        "StopOrder": "8",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7706628,
+          37.967266
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "200096",
+        "StopID": "200096",
+        "StopDescr": "3η ΠΑΝΕΠΙΣΤΗΜΙΟΥΠΟΛΗΣ",
+        "StopOrder": "9",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7742817,
+          37.9671803
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "10956",
+        "StopID": "200107",
+        "StopDescr": "ΠΥΛΗ ΚΑΙΣΑΡΙΑΝΗΣ",
+        "StopOrder": "10",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7840721,
+          37.9662701
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "200100",
+        "StopID": "200100",
+        "StopDescr": "ΓΕΩΛΟΓΙΑ",
+        "StopOrder": "11",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7870143,
+          37.9673814
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "200101",
+        "StopID": "200101",
+        "StopDescr": "ΓΡΑΜΜΑΤΕΙΑ",
+        "StopOrder": "12",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7848068,
+          37.9686345
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "200102",
+        "StopID": "200102",
+        "StopDescr": "ΧΗΜΙΚΟ",
+        "StopOrder": "13",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.782473,
+          37.9691608
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "200105",
+        "StopID": "200105",
+        "StopDescr": "ΦΥΣΙΚΟ",
+        "StopOrder": "14",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7803548,
+          37.9700932
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "200103",
+        "StopID": "200103",
+        "StopDescr": "ΦΙΛΟΣΟΦΙΚΗ",
+        "StopOrder": "15",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7744558,
+          37.9690462
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "200104",
+        "StopID": "200104",
+        "StopDescr": "ΘΕΟΛΟΓΙΚΗ",
+        "StopOrder": "16",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7742059,
+          37.9673384
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "200097",
+        "StopID": "200097",
+        "StopDescr": "4η ΠΑΝΕΠΙΣΤΗΜΙΟΥΠΟΛΗΣ",
+        "StopOrder": "17",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7703792,
+          37.967564
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "200098",
+        "StopID": "200098",
+        "StopDescr": "5η ΠΑΝΕΠΙΣΤΗΜΙΟΥΠΟΛΗΣ",
+        "StopOrder": "18",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.766241,
+          37.9680371
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "200099",
+        "StopID": "200099",
+        "StopDescr": "6η ΠΑΝΕΠΙΣΤΗΜΙΟΥΠΟΛΗΣ",
+        "StopOrder": "19",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7638621,
+          37.9698968
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "10522",
+        "StopID": "200090",
+        "StopDescr": "7η ΠΑΝΕΠΙΣΤΗΜΙΟΥΠΟΛΗΣ",
+        "StopOrder": "20",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7602385,
+          37.9717425
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "10384",
+        "StopID": "000171",
+        "StopDescr": "ΠΑΝΕΠΙΣΤΗΜΙΟΥΠΟΛΗ",
+        "StopOrder": "21",
+        "StopType": "0"
+      }
+    }
+  ]
+}
