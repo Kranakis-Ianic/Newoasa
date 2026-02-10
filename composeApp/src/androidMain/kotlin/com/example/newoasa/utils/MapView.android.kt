@@ -1,5 +1,6 @@
 package com.example.newoasa.utils
 
+import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.remember
@@ -10,10 +11,23 @@ import androidx.compose.ui.viewinterop.AndroidView
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import com.example.newoasa.data.TransitLine
+import com.example.newoasa.theme.LineColors
 import org.maplibre.android.MapLibre
 import org.maplibre.android.camera.CameraPosition
+import org.maplibre.android.camera.CameraUpdateFactory
 import org.maplibre.android.geometry.LatLng
+import org.maplibre.android.geometry.LatLngBounds
 import org.maplibre.android.maps.MapView as MapLibreMapView
+import org.maplibre.android.maps.Style
+import org.maplibre.android.style.layers.LineLayer
+import org.maplibre.android.style.layers.PropertyFactory.*
+import org.maplibre.android.style.layers.CircleLayer
+import org.maplibre.android.style.sources.GeoJsonSource
+import org.maplibre.geojson.Feature
+import org.maplibre.geojson.FeatureCollection
+import org.maplibre.geojson.Point
+import java.io.BufferedReader
+import java.io.InputStreamReader
 
 @Composable
 actual fun MapView(
@@ -40,7 +54,7 @@ actual fun MapView(
                     "https://tiles.openfreemap.org/styles/bright"
                 }
                 
-                map.setStyle(styleUrl) {
+                map.setStyle(styleUrl) { style ->
                     // Center on Athens, Greece
                     val athensCenter = LatLng(37.9838, 23.7275)
                     val position = CameraPosition.Builder()
@@ -90,8 +104,174 @@ actual fun MapView(
         onDispose { }
     }
     
+    // Handle selected line changes
+    DisposableEffect(selectedLine) {
+        if (selectedLine != null) {
+            mapView.getMapAsync { map ->
+                map.getStyle { style ->
+                    try {
+                        // Clear previous line layers and sources
+                        clearTransitLayers(style)
+                        
+                        // Get line color
+                        val lineColor = when (selectedLine.category) {
+                            "metro", "tram" -> LineColors.getHexColorForLine(selectedLine.lineNumber)
+                            else -> LineColors.getHexColorForCategory(selectedLine.category, selectedLine.isBus)
+                        }
+                        
+                        val allCoordinates = mutableListOf<LatLng>()
+                        
+                        // Load and display each route
+                        selectedLine.routePaths.forEachIndexed { index, routePath ->
+                            try {
+                                // Load GeoJSON from assets
+                                val geoJsonString = loadGeoJsonFromAssets(context, routePath)
+                                
+                                if (geoJsonString != null) {
+                                    val sourceId = "route-source-$index"
+                                    val lineLayerId = "route-line-$index"
+                                    val stopsLayerId = "route-stops-$index"
+                                    
+                                    // Parse GeoJSON
+                                    val featureCollection = FeatureCollection.fromJson(geoJsonString)
+                                    
+                                    // Extract coordinates for bounds calculation
+                                    featureCollection.features()?.forEach { feature ->
+                                        val geometry = feature.geometry()
+                                        if (geometry is org.maplibre.geojson.LineString) {
+                                            geometry.coordinates().forEach { point ->
+                                                allCoordinates.add(LatLng(point.latitude(), point.longitude()))
+                                            }
+                                        }
+                                    }
+                                    
+                                    // Add source
+                                    val source = GeoJsonSource(sourceId, featureCollection)
+                                    style.addSource(source)
+                                    
+                                    // Add line layer for route
+                                    val lineLayer = LineLayer(lineLayerId, sourceId)
+                                        .withProperties(
+                                            lineColor(lineColor),
+                                            lineWidth(4f),
+                                            lineOpacity(0.9f)
+                                        )
+                                        .withFilter(
+                                            com.mapbox.mapboxsdk.style.expressions.Expression.eq(
+                                                com.mapbox.mapboxsdk.style.expressions.Expression.geometryType(),
+                                                com.mapbox.mapboxsdk.style.expressions.Expression.literal("LineString")
+                                            )
+                                        )
+                                    style.addLayer(lineLayer)
+                                    
+                                    // Add circle layer for stops
+                                    val circleLayer = CircleLayer(stopsLayerId, sourceId)
+                                        .withProperties(
+                                            circleRadius(5f),
+                                            circleColor(lineColor),
+                                            circleStrokeWidth(2f),
+                                            circleStrokeColor("#FFFFFF"),
+                                            circleOpacity(0.9f)
+                                        )
+                                        .withFilter(
+                                            com.mapbox.mapboxsdk.style.expressions.Expression.eq(
+                                                com.mapbox.mapboxsdk.style.expressions.Expression.geometryType(),
+                                                com.mapbox.mapboxsdk.style.expressions.Expression.literal("Point")
+                                            )
+                                        )
+                                    style.addLayer(circleLayer)
+                                }
+                            } catch (e: Exception) {
+                                Log.e("MapView", "Error loading route $routePath", e)
+                            }
+                        }
+                        
+                        // Zoom to fit all routes
+                        if (allCoordinates.isNotEmpty()) {
+                            val boundsBuilder = LatLngBounds.Builder()
+                            allCoordinates.forEach { boundsBuilder.include(it) }
+                            val bounds = boundsBuilder.build()
+                            
+                            map.animateCamera(
+                                CameraUpdateFactory.newLatLngBounds(bounds, 100),
+                                1000
+                            )
+                        }
+                    } catch (e: Exception) {
+                        Log.e("MapView", "Error displaying transit line", e)
+                    }
+                }
+            }
+        } else {
+            // Clear lines when no line is selected
+            mapView.getMapAsync { map ->
+                map.getStyle { style ->
+                    clearTransitLayers(style)
+                    
+                    // Return to Athens view
+                    val athensCenter = LatLng(37.9838, 23.7275)
+                    map.animateCamera(
+                        CameraUpdateFactory.newLatLngZoom(athensCenter, 11.0),
+                        1000
+                    )
+                }
+            }
+        }
+        
+        onDispose { }
+    }
+    
     AndroidView(
         factory = { mapView },
         modifier = modifier
     )
+}
+
+/**
+ * Clear all transit line layers and sources from the map
+ */
+private fun clearTransitLayers(style: Style) {
+    // Remove all route layers and sources
+    val layersToRemove = mutableListOf<String>()
+    val sourcesToRemove = mutableListOf<String>()
+    
+    style.layers.forEach { layer ->
+        if (layer.id.startsWith("route-")) {
+            layersToRemove.add(layer.id)
+        }
+    }
+    
+    style.sources.forEach { source ->
+        if (source.id.startsWith("route-")) {
+            sourcesToRemove.add(source.id)
+        }
+    }
+    
+    layersToRemove.forEach { style.removeLayer(it) }
+    sourcesToRemove.forEach { style.removeSource(it) }
+}
+
+/**
+ * Load GeoJSON file from assets
+ */
+private fun loadGeoJsonFromAssets(context: android.content.Context, path: String): String? {
+    return try {
+        val assetManager = context.assets
+        val inputStream = assetManager.open(path)
+        val reader = BufferedReader(InputStreamReader(inputStream))
+        val stringBuilder = StringBuilder()
+        var line: String?
+        
+        while (reader.readLine().also { line = it } != null) {
+            stringBuilder.append(line)
+        }
+        
+        reader.close()
+        inputStream.close()
+        
+        stringBuilder.toString()
+    } catch (e: Exception) {
+        Log.e("MapView", "Error loading GeoJSON from $path", e)
+        null
+    }
 }
