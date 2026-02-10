@@ -7,7 +7,8 @@ This guide explains how to integrate the station card feature into the map view.
 The station system consists of:
 1. **TransitStation** - Data model for stations with multiple line support
 2. **StationParser** - Utilities to parse stations from GeoJSON and cluster nearby stations
-3. **StationCard** - UI component to display station information
+3. **StationCard** - UI component to display station information with official line colors
+4. **LineColors** - Official Athens public transport line colors
 
 ## Quick Start
 
@@ -32,6 +33,7 @@ Add station loading to your MapViewModel or MapView:
 ```kotlin
 import com.example.newoasa.model.TransitStation
 import com.example.newoasa.utils.StationParser
+import com.example.newoasa.theme.LineColors
 import newoasa.composeapp.generated.resources.Res
 
 class MapViewModel {
@@ -110,6 +112,7 @@ In your MapView composable:
 
 ```kotlin
 import com.example.newoasa.ui.components.StationCard
+import com.example.newoasa.theme.LineColors
 
 @Composable
 fun MapView(viewModel: MapViewModel) {
@@ -123,6 +126,9 @@ fun MapView(viewModel: MapViewModel) {
         ) {
             // Add station markers
             viewModel.allStations.forEach { station ->
+                // Determine marker color based on station's primary line
+                val markerColor = getStationMarkerColor(station)
+                
                 CircleLayer(
                     id = "station-${station.id}",
                     source = PointSource(
@@ -133,8 +139,8 @@ fun MapView(viewModel: MapViewModel) {
                 ) {
                     circleRadius = 6.0
                     circleColor = Color.White
-                    circleStrokeColor = Color.Black
-                    circleStrokeWidth = 2.0
+                    circleStrokeColor = markerColor
+                    circleStrokeWidth = 2.5
                     
                     onClick = {
                         viewModel.selectStation(station)
@@ -159,32 +165,72 @@ fun MapView(viewModel: MapViewModel) {
         }
     }
 }
+
+// Helper function to get station marker color
+fun getStationMarkerColor(station: TransitStation): Color {
+    // Use the color of the first line, or category-based color
+    val firstLine = station.lines.firstOrNull() ?: return LineColors.Bus
+    
+    val lineCode = when (firstLine.category.lowercase()) {
+        "metro" -> "M${firstLine.lineNumber}"
+        "tram" -> "T${firstLine.lineNumber}"
+        "suburban" -> firstLine.lineNumber
+        else -> firstLine.lineNumber
+    }
+    
+    return LineColors.getColorForLine(lineCode)
+}
 ```
 
 ### 4. Always Show Metro/Tram/Suburban Lines
 
-To make these lines always visible:
+To make these lines always visible with official colors:
 
 ```kotlin
+import com.example.newoasa.theme.LineColors
+
 @Composable
 fun MapView(viewModel: MapViewModel) {
     MapLibreMap(
         // ... config
     ) {
-        // Metro lines (always visible)
+        // Metro Line 1 (Green)
         LineLayer(
-            id = "metro-lines",
+            id = "metro-1",
             source = GeoJsonSource(
-                id = "metro-source",
-                data = Res.readBytes("files/geojson/combined_metro_lines.geojson")
-                    .decodeToString()
+                id = "metro-1-source",
+                data = Res.readBytes("files/geojson/Metro lines/1/...").decodeToString()
             )
         ) {
-            lineColor = Color(0xFF007A33)
+            lineColor = LineColors.Metro1
             lineWidth = 3.0
         }
         
-        // Tram lines (always visible)
+        // Metro Line 2 (Red)
+        LineLayer(
+            id = "metro-2",
+            source = GeoJsonSource(
+                id = "metro-2-source",
+                data = Res.readBytes("files/geojson/Metro lines/2/...").decodeToString()
+            )
+        ) {
+            lineColor = LineColors.Metro2
+            lineWidth = 3.0
+        }
+        
+        // Metro Line 3 (Blue)
+        LineLayer(
+            id = "metro-3",
+            source = GeoJsonSource(
+                id = "metro-3-source",
+                data = Res.readBytes("files/geojson/Metro lines/3/...").decodeToString()
+            )
+        ) {
+            lineColor = LineColors.Metro3
+            lineWidth = 3.0
+        }
+        
+        // Tram lines (Green - same as Metro 1)
         LineLayer(
             id = "tram-lines",
             source = GeoJsonSource(
@@ -193,11 +239,11 @@ fun MapView(viewModel: MapViewModel) {
                     .decodeToString()
             )
         ) {
-            lineColor = Color(0xFFFFD100)
+            lineColor = LineColors.Tram6 // Green
             lineWidth = 3.0
         }
         
-        // Suburban lines (always visible)
+        // Suburban Railway (Yellow for A1 as default)
         LineLayer(
             id = "suburban-lines",
             source = GeoJsonSource(
@@ -206,7 +252,7 @@ fun MapView(viewModel: MapViewModel) {
                     .decodeToString()
             )
         ) {
-            lineColor = Color(0xFF0066CC)
+            lineColor = LineColors.SuburbanA1 // Yellow
             lineWidth = 3.0
         }
         
@@ -214,6 +260,49 @@ fun MapView(viewModel: MapViewModel) {
         // ...
     }
 }
+```
+
+## Official Line Colors
+
+The app uses official Athens public transport colors defined in `LineColors.kt`:
+
+### Metro Lines
+- **M1** (Green Line): `#00A651` - Piraeus to Kifissia
+- **M2** (Red Line): `#ED1C24` - Anthoupoli to Elliniko
+- **M3** (Blue Line): `#0066B3` - Dimotiko Theatro to Airport
+- **M4** (Yellow - planned): `#FFC107`
+
+### Tram Lines
+- **T6** (Green): `#00A651`
+- **T7** (Green): `#00A651`
+
+### Suburban Railway
+- **A1** (Yellow): `#FFD600` - Piraeus to Airport
+- **A2** (Purple): `#9C27B0` - Ano Liosia to Airport
+- **A3** (Lime Green): `#8BC34A` - Athens to Chalcis
+- **A4** (Sky Blue): `#87CEEB` - Piraeus to Kiato
+
+### Other Transit
+- **Trolleys**: `#F27C02` (Orange)
+- **Buses**: `#009EC6` (Cyan Blue)
+
+## Using LineColors
+
+```kotlin
+import com.example.newoasa.theme.LineColors
+
+// Get color by line code
+val metro1Color = LineColors.getColorForLine("M1")  // or "1"
+val tram6Color = LineColors.getColorForLine("T6")   // or "6"
+val suburbanA1 = LineColors.getColorForLine("A1")
+
+// Get color by category (uses default line for category)
+val metroColor = LineColors.getColorForCategory("metro")      // Green (M1)
+val tramColor = LineColors.getColorForCategory("tram")        // Green (T6)
+val suburbanColor = LineColors.getColorForCategory("suburban") // Yellow (A1)
+
+// Get hex string (useful for MapLibre style JSON)
+val hexColor = LineColors.getHexColorForLine("M2")  // "#ED1C24"
 ```
 
 ## Station Clustering
@@ -241,27 +330,48 @@ data class TransitStation(
 )
 
 data class StationLine(
-    val lineNumber: String,      // e.g., "1", "2", "3"
+    val lineNumber: String,      // e.g., "1", "2", "3", "A1", "A2"
     val category: String         // "metro", "tram", "suburban"
 )
 ```
 
 ## Styling Recommendations
 
-### Station Markers by Category
+### Station Markers by Line
 
 ```kotlin
-val markerColor = when {
-    station.lines.any { it.category == "metro" } -> Color(0xFF007A33)
-    station.lines.any { it.category == "tram" } -> Color(0xFFFFD100)
-    station.lines.any { it.category == "suburban" } -> Color(0xFF0066CC)
-    else -> Color.White
+fun getStationMarkerColor(station: TransitStation): Color {
+    // Get color from first line
+    val firstLine = station.lines.firstOrNull() ?: return Color.Gray
+    
+    val lineCode = when (firstLine.category.lowercase()) {
+        "metro" -> "M${firstLine.lineNumber}"
+        "tram" -> "T${firstLine.lineNumber}"
+        "suburban" -> firstLine.lineNumber  // Already has A prefix
+        else -> firstLine.lineNumber
+    }
+    
+    return LineColors.getColorForLine(lineCode)
 }
 ```
 
-### Multi-line Stations
+### Multi-line Transfer Stations
 
-For stations serving multiple lines, use a multi-color ring or show the primary line color.
+For stations serving multiple lines, you can:
+
+1. **Use primary line color** (first line in the list)
+2. **Use white marker with colored ring**
+3. **Create multi-color ring marker**
+
+```kotlin
+// Example: White center with colored stroke
+CircleLayer(...) {
+    circleRadius = 6.0
+    circleColor = Color.White
+    circleStrokeColor = getStationMarkerColor(station)
+    circleStrokeWidth = 2.5
+}
+```
 
 ## Performance Considerations
 
@@ -286,6 +396,12 @@ CircleLayer(...) {
 2. Verify the file path in `Res.readBytes()`
 3. Check console for parsing errors
 4. Ensure zoom level is appropriate (> 11)
+
+### Wrong Line Colors
+
+1. Ensure you're using `LineColors.getColorForLine(lineCode)`
+2. Verify line codes follow the format: M1, M2, T6, A1, etc.
+3. Check that category names match: "metro", "tram", "suburban"
 
 ### Station Names Not Showing
 
