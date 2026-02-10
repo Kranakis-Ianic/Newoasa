@@ -2,6 +2,7 @@ package com.example.newoasa.database.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.example.newoasa.utils.currentTimeMillis
 
 @Entity(tableName = "bus_lines")
 data class BusLineEntity(
@@ -17,7 +18,7 @@ data class BusLineEntity(
     val isNightService: Boolean = false, // Night bus service
     val operatingHours: String = "",
     val frequency: String = "", // Average frequency
-    val lastUpdated: Long = System.currentTimeMillis()
+    val lastUpdated: Long = currentTimeMillis()
 )
 
 @Entity(tableName = "bus_stops")
@@ -33,5 +34,5 @@ data class BusStopEntity(
     val hasShelter: Boolean = false,
     val hasRealTimeInfo: Boolean = false,
     val hasTicketMachine: Boolean = false,
-    val lastUpdated: Long = System.currentTimeMillis()
+    val lastUpdated: Long = currentTimeMillis()
 )

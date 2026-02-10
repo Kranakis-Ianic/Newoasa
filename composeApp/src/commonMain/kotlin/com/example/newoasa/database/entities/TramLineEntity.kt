@@ -2,6 +2,7 @@ package com.example.newoasa.database.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.example.newoasa.utils.currentTimeMillis
 
 @Entity(tableName = "tram_lines")
 data class TramLineEntity(
@@ -10,11 +11,11 @@ data class TramLineEntity(
     val lineNumber: String,
     val displayName: String,
     val color: String,
-    val routeIds: String, // JSON string of route IDs
-    val routePaths: String, // JSON string of route paths
+    val routeIds: String,
+    val routePaths: String,
     val isActive: Boolean = true,
-    val operatingHours: String = "", // Operating hours info
-    val lastUpdated: Long = System.currentTimeMillis()
+    val tramType: String = "standard", // standard, modern, vintage
+    val lastUpdated: Long = currentTimeMillis()
 )
 
 @Entity(tableName = "tram_stops")
@@ -25,9 +26,8 @@ data class TramStopEntity(
     val stopCode: String,
     val latitude: Double,
     val longitude: Double,
-    val lineId: String, // Foreign key to tram_lines
+    val lineId: String,
     val order: Int,
-    val hasShelter: Boolean = false,
-    val hasTicketMachine: Boolean = false,
-    val lastUpdated: Long = System.currentTimeMillis()
+    val hasAccessiblePlatform: Boolean = false,
+    val lastUpdated: Long = currentTimeMillis()
 )

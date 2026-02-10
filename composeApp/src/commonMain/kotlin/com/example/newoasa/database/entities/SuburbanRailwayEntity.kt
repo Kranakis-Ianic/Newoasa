@@ -2,37 +2,37 @@ package com.example.newoasa.database.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.example.newoasa.utils.currentTimeMillis
 
 @Entity(tableName = "suburban_railway_lines")
-data class SuburbanRailwayLineEntity(
+data class SuburbanRailwayEntity(
     @PrimaryKey
     val lineId: String,
-    val lineNumber: String,
+    val lineNumber: String, // R1, R2, etc.
     val displayName: String,
     val color: String,
-    val routeIds: String, // JSON string of route IDs
-    val routePaths: String, // JSON string of route paths
+    val routeIds: String,
+    val routePaths: String,
     val isActive: Boolean = true,
-    val trainType: String = "", // Type of train (e.g., "Proastiakos")
-    val operatingHours: String = "",
-    val frequency: String = "",
-    val lastUpdated: Long = System.currentTimeMillis()
+    val operator: String = "",
+    val serviceType: String = "commuter", // commuter, regional
+    val lastUpdated: Long = currentTimeMillis()
 )
 
-@Entity(tableName = "suburban_railway_stations")
-data class SuburbanRailwayStationEntity(
+@Entity(tableName = "railway_stations")
+data class RailwayStationEntity(
     @PrimaryKey
     val stationId: String,
     val name: String,
     val stationCode: String,
     val latitude: Double,
     val longitude: Double,
-    val lineId: String, // Foreign key to suburban_railway_lines
+    val lineId: String,
     val order: Int,
-    val isAccessible: Boolean = false,
+    val hasTicketOffice: Boolean = false,
+    val hasParkingRide: Boolean = false,
     val hasElevator: Boolean = false,
-    val hasParkingLot: Boolean = false,
-    val hasIntermodalConnection: Boolean = false, // Connection to other transit types
-    val connectedLines: String = "", // JSON string of connected line IDs
-    val lastUpdated: Long = System.currentTimeMillis()
+    val isInterchange: Boolean = false,
+    val interchangeLines: String = "",
+    val lastUpdated: Long = currentTimeMillis()
 )
