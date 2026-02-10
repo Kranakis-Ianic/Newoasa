@@ -11,6 +11,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.newoasa.model.TransitStation
+import com.example.newoasa.theme.LineColors
 
 @Composable
 fun StationCard(
@@ -76,7 +77,7 @@ fun StationCard(
             
             Spacer(modifier = Modifier.height(8.dp))
             
-            // Line badges
+            // Line badges - sorted by category and line number
             FlowRow(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
@@ -108,15 +109,24 @@ private fun LineBadge(
     lineNumber: String,
     category: String
 ) {
-    val backgroundColor = when (category.lowercase()) {
-        "metro" -> Color(0xFF007A33) // Metro green
-        "tram" -> Color(0xFFFFD100) // Tram yellow
-        "suburban" -> Color(0xFF0066CC) // Suburban blue
-        "trolleys" -> Color(0xFFFF6600) // Trolley orange
-        else -> Color(0xFF666666)
+    // Get the proper line color using LineColors utility
+    val lineCode = when (category.lowercase()) {
+        "metro" -> "M$lineNumber"
+        "tram" -> "T$lineNumber"
+        "suburban" -> lineNumber // Suburban uses A1, A2, etc.
+        else -> lineNumber
     }
     
-    val textColor = if (category.lowercase() == "tram") Color.Black else Color.White
+    // Get official color for this specific line
+    val backgroundColor = LineColors.getColorForLine(lineCode)
+    
+    // Determine text color based on background brightness
+    // Using relative luminance formula: (0.299*R + 0.587*G + 0.114*B)
+    val red = (backgroundColor.value shr 16 and 0xFF) / 255f
+    val green = (backgroundColor.value shr 8 and 0xFF) / 255f
+    val blue = (backgroundColor.value and 0xFF) / 255f
+    val luminance = 0.299f * red + 0.587f * green + 0.114f * blue
+    val textColor = if (luminance > 0.5f) Color.Black else Color.White
     
     Surface(
         shape = RoundedCornerShape(16.dp),
@@ -130,12 +140,19 @@ private fun LineBadge(
             val prefix = when (category.lowercase()) {
                 "metro" -> "M"
                 "tram" -> "T"
-                "suburban" -> "S"
+                "suburban" -> "" // Suburban lines already have A1, A2 format
+                "trolleys" -> ""
                 else -> ""
             }
             
+            val displayText = if (prefix.isNotEmpty() && !lineNumber.startsWith(prefix)) {
+                "$prefix$lineNumber"
+            } else {
+                lineNumber
+            }
+            
             Text(
-                text = if (prefix.isNotEmpty()) "$prefix$lineNumber" else lineNumber,
+                text = displayText,
                 color = textColor,
                 fontSize = 14.sp,
                 fontWeight = FontWeight.Bold
