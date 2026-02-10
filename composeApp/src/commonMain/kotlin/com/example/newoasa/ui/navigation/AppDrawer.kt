@@ -31,19 +31,22 @@ fun AppDrawer(
             
             HorizontalDivider()
             
-            Spacer(modifier = Modifier.height(16.dp))
+            // Push theme selector to bottom
+            Spacer(modifier = Modifier.weight(1f))
             
-            Text(
-                text = "Appearance",
-                style = MaterialTheme.typography.titleMedium,
-                modifier = Modifier.padding(bottom = 12.dp)
-            )
-            
-            // Segmented button theme selector
-            ThemeSegmentedSelector(
-                currentMode = currentThemeMode,
-                onModeChange = onThemeChange
-            )
+            // Theme selector at bottom
+            Column {
+                Text(
+                    text = "Appearance",
+                    style = MaterialTheme.typography.titleMedium,
+                    modifier = Modifier.padding(bottom = 12.dp)
+                )
+                
+                ThemeSegmentedSelector(
+                    currentMode = currentThemeMode,
+                    onModeChange = onThemeChange
+                )
+            }
         }
     }
 }
