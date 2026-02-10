@@ -187,35 +187,49 @@ actual fun MapView(
         if (isMapReady && !baseLinesLoaded) {
             mapView.getMapAsync { map ->
                 coroutineScope.launch {
+                    println("Starting to load base transit lines...")
+                    
                     // Load all metro lines
                     try {
                         val metroLines = TransitLineRepository.getMetroLines()
+                        println("Loading ${metroLines.size} metro lines")
                         metroLines.forEach { metroLine ->
                             displayPersistentTransitLine(map, metroLine, context, "metro")
                         }
-                    } catch (e: Exception) { println("Error loading metro lines: ${e.message}") }
+                    } catch (e: Exception) { 
+                        println("Error loading metro lines: ${e.message}")
+                        e.printStackTrace()
+                    }
                     
                     // Load all tram lines
                     try {
                         val tramLines = TransitLineRepository.getTramLines()
+                        println("Loading ${tramLines.size} tram lines")
                         tramLines.forEach { tramLine ->
                             displayPersistentTransitLine(map, tramLine, context, "tram")
                         }
-                    } catch (e: Exception) { println("Error loading tram lines: ${e.message}") }
+                    } catch (e: Exception) { 
+                        println("Error loading tram lines: ${e.message}")
+                        e.printStackTrace()
+                    }
                     
                     // Load all suburban lines
                     try {
                         val suburbanLines = TransitLineRepository.getSuburbanLines()
+                        println("Loading ${suburbanLines.size} suburban lines")
                         suburbanLines.forEach { suburbanLine ->
                             displayPersistentTransitLine(map, suburbanLine, context, "suburban")
                         }
-                    } catch (e: Exception) { println("Error loading suburban lines: ${e.message}") }
+                    } catch (e: Exception) { 
+                        println("Error loading suburban lines: ${e.message}")
+                        e.printStackTrace()
+                    }
                     
                     // Load combined stations AFTER lines so dots appear on top
                     displayCombinedStations(map, context)
                     
                     baseLinesLoaded = true
-                    println("Base transit lines and stations loaded")
+                    println("✓ Base transit lines and stations loaded")
                 }
             }
         }
@@ -484,26 +498,26 @@ private suspend fun displayCombinedStations(
                             "combined-stations-hit-area",
                             sourceId
                         ).withProperties(
-                            PropertyFactory.circleRadius(15f),  // Smaller clickable area
+                            PropertyFactory.circleRadius(15f),
                             PropertyFactory.circleColor(Color.TRANSPARENT),
                             PropertyFactory.circleOpacity(0f)
                         )
                         style.addLayer(hitAreaLayer)
                         
                         // 2. Outer white circle with black stroke (for all stations)
+                        // Use explicit hex color #FFFFFF for white
                         val outerLayer = CircleLayer(
                             "combined-stations-outer",
                             sourceId
                         ).withProperties(
-                            PropertyFactory.circleRadius(5f),  // Smaller radius (was 7f)
-                            PropertyFactory.circleColor(Color.WHITE),
-                            PropertyFactory.circleStrokeWidth(2f),  // Thinner stroke (was 3f)
+                            PropertyFactory.circleRadius(5f),
+                            PropertyFactory.circleColor("#FFFFFF"),  // Explicit white hex
+                            PropertyFactory.circleStrokeWidth(2f),
                             PropertyFactory.circleStrokeColor("#000000")
                         )
                         style.addLayer(outerLayer)
                         
                         // 3. Center black dot (ONLY for connection stations with 2+ lines)
-                        // Use data-driven styling based on line_count property
                         val centerDotLayer = CircleLayer(
                             "combined-stations-center",
                             sourceId
@@ -511,8 +525,8 @@ private suspend fun displayCombinedStations(
                             PropertyFactory.circleRadius(
                                 Expression.step(
                                     Expression.get("line_count"),
-                                    Expression.literal(0f),  // 0 radius for single-line stations
-                                    Expression.stop(2, 2f)   // 2f radius for 2+ lines (was 3f)
+                                    Expression.literal(0f),  // 0 radius for single-line
+                                    Expression.stop(2, 2f)   // 2f radius for 2+ lines
                                 )
                             ),
                             PropertyFactory.circleColor("#000000")
@@ -528,14 +542,14 @@ private suspend fun displayCombinedStations(
                             PropertyFactory.textSize(12f),
                             PropertyFactory.textOffset(arrayOf(0f, 2.0f)),
                             PropertyFactory.textAnchor("top"),
-                            PropertyFactory.textColor(Color.BLACK),
-                            PropertyFactory.textHaloColor(Color.WHITE),
+                            PropertyFactory.textColor("#000000"),  // Explicit black hex
+                            PropertyFactory.textHaloColor("#FFFFFF"),  // Explicit white hex
                             PropertyFactory.textHaloWidth(2f)
                         )
                         labelsLayer.minZoom = 14f
                         style.addLayer(labelsLayer)
                         
-                        println("Added ${features.length()} combined stations (smaller dots)")
+                        println("✓ Added ${features.length()} combined stations (white dots with conditional center)")
                     } catch (e: Exception) {
                         println("Error adding combined stations to map: ${e.message}")
                         e.printStackTrace()
@@ -573,6 +587,7 @@ private suspend fun displayPersistentTransitLine(
                     val geoJsonString = loadGeoJsonFromResources(path)
                     
                     if (geoJsonString.isBlank() || geoJsonString == "{}") {
+                        println("  Empty GeoJSON for $path")
                         return@forEachIndexed
                     }
                     
@@ -584,9 +599,12 @@ private suspend fun displayPersistentTransitLine(
                     if (routeOnlyGeoJson != "{}" && routeOnlyGeoJson != """{"type":"FeatureCollection","features":[]}""") {
                         val layerId = "${prefix}-${line.lineNumber}-$index"
                         loadedGeoJsonData.add(layerId to routeOnlyGeoJson)
+                    } else {
+                        println("  No route geometry found in $path")
                     }
                 } catch (e: Exception) {
-                    println("Error loading persistent route $path: ${e.message}")
+                    println("  Error loading persistent route $path: ${e.message}")
+                    e.printStackTrace()
                 }
             }
             
@@ -600,10 +618,17 @@ private suspend fun displayPersistentTransitLine(
                     else -> 4f               // Standard width for metro
                 }
                 
+                var layersAdded = 0
                 // Add route lines with appropriate styling
                 loadedGeoJsonData.forEach { (layerId, geoJsonString) ->
                     try {
                         val sourceId = "source-$layerId"
+                        
+                        // Check if layer/source already exists
+                        if (style.getLayer(layerId) != null) {
+                            println("  Layer $layerId already exists, skipping")
+                            return@forEach
+                        }
                         
                         if (style.getSource(sourceId) == null) {
                             val source = GeoJsonSource(sourceId, geoJsonString)
@@ -638,10 +663,16 @@ private suspend fun displayPersistentTransitLine(
                                 )
                                 style.addLayer(lineLayer)
                             }
+                            layersAdded++
                         }
                     } catch (e: Exception) {
-                        println("Error adding persistent layer: ${e.message}")
+                        println("  Error adding persistent layer $layerId: ${e.message}")
+                        e.printStackTrace()
                     }
+                }
+                
+                if (layersAdded > 0) {
+                    println("  ✓ Added $layersAdded route layer(s) for ${line.lineNumber}")
                 }
             }
         }
@@ -857,7 +888,7 @@ private suspend fun displayTransitLine(
                         val stopsLayer = CircleLayer("transit-stops-dots-layer", "transit-stops-source")
                             .withProperties(
                                 PropertyFactory.circleRadius(5f),
-                                PropertyFactory.circleColor(Color.WHITE),
+                                PropertyFactory.circleColor("#FFFFFF"),  // Explicit white hex
                                 PropertyFactory.circleStrokeWidth(2f),
                                 PropertyFactory.circleStrokeColor(lineColor)
                             )
@@ -870,7 +901,7 @@ private suspend fun displayTransitLine(
                                 PropertyFactory.textOffset(arrayOf(0f, 1.5f)),
                                 PropertyFactory.textAnchor("top"),
                                 PropertyFactory.textColor(Color.parseColor(lineColor)), 
-                                PropertyFactory.textHaloColor(Color.WHITE),
+                                PropertyFactory.textHaloColor("#FFFFFF"),  // Explicit white hex
                                 PropertyFactory.textHaloWidth(1f)
                             )
                         labelsLayer.minZoom = 14f
