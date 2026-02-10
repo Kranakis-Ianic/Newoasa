@@ -19,71 +19,77 @@ interface TransitLineDao {
     /**
      * Get all transit lines
      */
-    @Query("SELECT * FROM transit_lines ORDER BY lineNumber ASC")
-    fun getAllLines(): Flow<List<TransitLineEntity>>
+    @Query("SELECT * FROM transit_lines ORDER BY lineCode ASC")
+    fun getAll(): Flow<List<TransitLineEntity>>
     
     /**
      * Get a specific transit line by ID
      */
-    @Query("SELECT * FROM transit_lines WHERE lineId = :lineId")
-    suspend fun getLineById(lineId: String): TransitLineEntity?
+    @Query("SELECT * FROM transit_lines WHERE id = :id")
+    suspend fun getById(id: Long): TransitLineEntity?
     
     /**
-     * Get all active transit lines
+     * Get a specific transit line by line code
      */
-    @Query("SELECT * FROM transit_lines WHERE isActive = 1 ORDER BY lineNumber ASC")
-    fun getActiveLines(): Flow<List<TransitLineEntity>>
+    @Query("SELECT * FROM transit_lines WHERE lineCode = :lineCode")
+    suspend fun getByLineCode(lineCode: String): TransitLineEntity?
+    
+    /**
+     * Get lines by category
+     */
+    @Query("SELECT * FROM transit_lines WHERE category = :category ORDER BY lineCode ASC")
+    fun getByCategory(category: String): Flow<List<TransitLineEntity>>
     
     /**
      * Get lines by transport type
      */
-    @Query("SELECT * FROM transit_lines WHERE transportType = :type ORDER BY lineNumber ASC")
-    fun getLinesByType(type: String): Flow<List<TransitLineEntity>>
+    @Query("SELECT * FROM transit_lines WHERE transportType = :type ORDER BY lineCode ASC")
+    fun getByType(type: String): Flow<List<TransitLineEntity>>
     
     /**
-     * Search lines by number or name
+     * Search lines by code or name
      */
     @Query(
         """SELECT * FROM transit_lines 
-           WHERE lineNumber LIKE '%' || :query || '%' 
-           OR displayName LIKE '%' || :query || '%'
-           ORDER BY lineNumber ASC"""
+           WHERE lineCode LIKE :query 
+           OR lineName LIKE :query
+           ORDER BY lineCode ASC"""
     )
-    fun searchLines(query: String): Flow<List<TransitLineEntity>>
+    fun search(query: String): Flow<List<TransitLineEntity>>
     
     /**
      * Insert a new transit line
      */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertLine(line: TransitLineEntity)
+    suspend fun insert(line: TransitLineEntity)
     
     /**
      * Insert multiple transit lines
      */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertLines(lines: List<TransitLineEntity>)
+    suspend fun insertAll(lines: List<TransitLineEntity>)
     
     /**
      * Update an existing transit line
      */
     @Update
-    suspend fun updateLine(line: TransitLineEntity)
+    suspend fun update(line: TransitLineEntity)
     
     /**
      * Delete a transit line
      */
     @Delete
-    suspend fun deleteLine(line: TransitLineEntity)
+    suspend fun delete(line: TransitLineEntity)
     
     /**
      * Delete all transit lines
      */
     @Query("DELETE FROM transit_lines")
-    suspend fun deleteAllLines()
+    suspend fun deleteAll()
     
     /**
      * Get count of all lines
      */
     @Query("SELECT COUNT(*) FROM transit_lines")
-    suspend fun getLineCount(): Int
+    suspend fun getCount(): Int
 }

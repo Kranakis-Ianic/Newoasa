@@ -19,31 +19,43 @@ interface StationDao {
     /**
      * Get all stations
      */
-    @Query("SELECT * FROM stations ORDER BY name ASC")
-    fun getAllStations(): Flow<List<StationEntity>>
+    @Query("SELECT * FROM stations ORDER BY stationName ASC")
+    fun getAll(): Flow<List<StationEntity>>
     
     /**
      * Get a specific station by ID
      */
-    @Query("SELECT * FROM stations WHERE stationId = :stationId")
-    suspend fun getStationById(stationId: String): StationEntity?
+    @Query("SELECT * FROM stations WHERE id = :id")
+    suspend fun getById(id: Long): StationEntity?
+    
+    /**
+     * Get a specific station by station code
+     */
+    @Query("SELECT * FROM stations WHERE stationCode = :stationCode")
+    suspend fun getByStationCode(stationCode: String): StationEntity?
     
     /**
      * Get all stations for a specific line
      */
-    @Query("SELECT * FROM stations WHERE lineId = :lineId ORDER BY stationOrder ASC")
-    fun getStationsByLine(lineId: String): Flow<List<StationEntity>>
+    @Query("SELECT * FROM stations WHERE lineCode = :lineCode ORDER BY `order` ASC")
+    fun getByLineCode(lineCode: String): Flow<List<StationEntity>>
+    
+    /**
+     * Get all stations by transport type
+     */
+    @Query("SELECT * FROM stations WHERE transportType = :type ORDER BY stationName ASC")
+    fun getByTransportType(type: String): Flow<List<StationEntity>>
     
     /**
      * Search stations by name
      */
     @Query(
         """SELECT * FROM stations 
-           WHERE name LIKE '%' || :query || '%' 
-           OR stationCode LIKE '%' || :query || '%'
-           ORDER BY name ASC"""
+           WHERE stationName LIKE :query 
+           OR stationCode LIKE :query
+           ORDER BY stationName ASC"""
     )
-    fun searchStations(query: String): Flow<List<StationEntity>>
+    fun search(query: String): Flow<List<StationEntity>>
     
     /**
      * Get nearby stations within a certain radius
@@ -53,9 +65,9 @@ interface StationDao {
         """SELECT * FROM stations 
            WHERE latitude BETWEEN :minLat AND :maxLat 
            AND longitude BETWEEN :minLon AND :maxLon
-           ORDER BY name ASC"""
+           ORDER BY stationName ASC"""
     )
-    fun getStationsInArea(
+    fun getInArea(
         minLat: Double,
         maxLat: Double,
         minLon: Double,
@@ -66,47 +78,47 @@ interface StationDao {
      * Insert a new station
      */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertStation(station: StationEntity)
+    suspend fun insert(station: StationEntity)
     
     /**
      * Insert multiple stations
      */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertStations(stations: List<StationEntity>)
+    suspend fun insertAll(stations: List<StationEntity>)
     
     /**
      * Update an existing station
      */
     @Update
-    suspend fun updateStation(station: StationEntity)
+    suspend fun update(station: StationEntity)
     
     /**
      * Delete a station
      */
     @Delete
-    suspend fun deleteStation(station: StationEntity)
+    suspend fun delete(station: StationEntity)
     
     /**
      * Delete all stations for a specific line
      */
-    @Query("DELETE FROM stations WHERE lineId = :lineId")
-    suspend fun deleteStationsByLine(lineId: String)
+    @Query("DELETE FROM stations WHERE lineCode = :lineCode")
+    suspend fun deleteByLineCode(lineCode: String)
     
     /**
      * Delete all stations
      */
     @Query("DELETE FROM stations")
-    suspend fun deleteAllStations()
+    suspend fun deleteAll()
     
     /**
      * Get count of all stations
      */
     @Query("SELECT COUNT(*) FROM stations")
-    suspend fun getStationCount(): Int
+    suspend fun getCount(): Int
     
     /**
      * Get count of stations for a specific line
      */
-    @Query("SELECT COUNT(*) FROM stations WHERE lineId = :lineId")
-    suspend fun getStationCountByLine(lineId: String): Int
+    @Query("SELECT COUNT(*) FROM stations WHERE lineCode = :lineCode")
+    suspend fun getCountByLineCode(lineCode: String): Int
 }

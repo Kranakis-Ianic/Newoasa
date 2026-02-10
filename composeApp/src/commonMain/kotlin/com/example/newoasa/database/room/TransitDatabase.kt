@@ -4,6 +4,7 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.RoomDatabaseConstructor
 import androidx.room.ConstructedBy
+import androidx.room.TypeConverters
 import com.example.newoasa.database.room.dao.StationDao
 import com.example.newoasa.database.room.dao.TransitLineDao
 import com.example.newoasa.database.room.entities.StationEntity
@@ -27,6 +28,7 @@ import com.example.newoasa.database.room.entities.TransitLineEntity
     version = 1,
     exportSchema = true
 )
+@TypeConverters(Converters::class)
 @ConstructedBy(TransitDatabaseConstructor::class)
 abstract class TransitDatabase : RoomDatabase() {
     abstract fun transitLineDao(): TransitLineDao
