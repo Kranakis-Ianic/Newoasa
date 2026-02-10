@@ -2,6 +2,8 @@ package com.example.newoasa.database.room
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import androidx.room.RoomDatabaseConstructor
+import androidx.room.ConstructedBy
 import com.example.newoasa.database.room.dao.StationDao
 import com.example.newoasa.database.room.dao.TransitLineDao
 import com.example.newoasa.database.room.entities.StationEntity
@@ -15,7 +17,7 @@ import com.example.newoasa.database.room.entities.TransitLineEntity
  * - Transit lines (buses, trolleys, metro, tram, suburban railway)
  * - Stations/stops with detailed information for each transport type
  * 
- * Room 2.7+ automatically generates the implementation.
+ * Room 2.7+ requires @ConstructedBy for multiplatform support
  */
 @Database(
     entities = [
@@ -25,7 +27,14 @@ import com.example.newoasa.database.room.entities.TransitLineEntity
     version = 1,
     exportSchema = true
 )
+@ConstructedBy(TransitDatabaseConstructor::class)
 abstract class TransitDatabase : RoomDatabase() {
     abstract fun transitLineDao(): TransitLineDao
     abstract fun stationDao(): StationDao
 }
+
+/**
+ * Room database constructor
+ * Room generates the implementation automatically
+ */
+expect object TransitDatabaseConstructor : RoomDatabaseConstructor<TransitDatabase>
