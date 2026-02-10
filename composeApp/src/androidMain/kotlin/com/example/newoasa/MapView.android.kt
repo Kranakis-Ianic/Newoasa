@@ -141,7 +141,7 @@ actual fun MapView(
     val lifecycleOwner = LocalLifecycleOwner.current
     val coroutineScope = rememberCoroutineScope()
     var isMapReady by remember { mutableStateOf(false) }
-    var stationsLoaded by remember { mutableStateOf(false) }
+    var baseLinesLoaded by remember { mutableStateOf(false) }
     var currentDisplayedLine by remember { mutableStateOf<TransitLine?>(null) }
     var allStopsMap by remember { mutableStateOf<Map<String, Stop>>(emptyMap()) }
     var selectedStopInfo by remember { mutableStateOf<StopInfoState?>(null) }
@@ -181,17 +181,40 @@ actual fun MapView(
         }
     }
 
-    // Load combined stations only (not persistent lines) after map is ready
+    // Load base transit lines (metro, tram, suburban) after map is ready
     LaunchedEffect(isMapReady) {
-        if (isMapReady && !stationsLoaded) {
+        if (isMapReady && !baseLinesLoaded) {
             mapView.getMapAsync { map ->
                 coroutineScope.launch {
-                    // Only load combined stations (station dots)
-                    // Do NOT load persistent metro/tram/suburban lines to avoid clutter
+                    // Load all metro lines
+                    try {
+                        val metroLines = TransitLineRepository.getMetroLines()
+                        metroLines.forEach { metroLine ->
+                            displayPersistentTransitLine(map, metroLine, context, "metro")
+                        }
+                    } catch (e: Exception) { println("Error loading metro lines: ${e.message}") }
+                    
+                    // Load all tram lines
+                    try {
+                        val tramLines = TransitLineRepository.getTramLines()
+                        tramLines.forEach { tramLine ->
+                            displayPersistentTransitLine(map, tramLine, context, "tram")
+                        }
+                    } catch (e: Exception) { println("Error loading tram lines: ${e.message}") }
+                    
+                    // Load all suburban lines
+                    try {
+                        val suburbanLines = TransitLineRepository.getSuburbanLines()
+                        suburbanLines.forEach { suburbanLine ->
+                            displayPersistentTransitLine(map, suburbanLine, context, "suburban")
+                        }
+                    } catch (e: Exception) { println("Error loading suburban lines: ${e.message}") }
+                    
+                    // Load combined stations
                     displayCombinedStations(map, context)
                     
-                    stationsLoaded = true
-                    println("Combined stations loaded")
+                    baseLinesLoaded = true
+                    println("Base transit lines and stations loaded")
                 }
             }
         }
@@ -484,6 +507,73 @@ private suspend fun displayCombinedStations(
             } catch (e: Exception) {
                 println("Error loading combined stations: ${e.message}")
                 e.printStackTrace()
+            }
+        }
+    }
+}
+
+/**
+ * Display a persistent transit line (metro, tram, or suburban) that stays on the map
+ * Does NOT display individual stops - those are handled by combined stations
+ * CAREFUL: Filters only for LineString/MultiLineString to avoid drawing stops as lines
+ */
+@OptIn(ExperimentalResourceApi::class)
+private suspend fun displayPersistentTransitLine(
+    map: MapLibreMap,
+    line: TransitLine,
+    context: android.content.Context,
+    prefix: String
+) = withContext(Dispatchers.Main) {
+    map.getStyle { style ->
+        val loadedGeoJsonData = mutableListOf<Pair<String, String>>()
+        
+        kotlinx.coroutines.CoroutineScope(Dispatchers.IO).launch {
+            line.routePaths.forEachIndexed { index, path ->
+                try {
+                    val geoJsonString = loadGeoJsonFromResources(path)
+                    
+                    if (geoJsonString.isBlank() || geoJsonString == "{}") {
+                        return@forEachIndexed
+                    }
+                    
+                    val geoJson = JSONObject(geoJsonString)
+                    
+                    // Extract only the ROUTE geometry (ignore stops)
+                    // This is crucial to avoid "random lines" zig-zagging between stops
+                    val routeOnlyGeoJson = extractRoutePathOnly(geoJson)
+                    
+                    if (routeOnlyGeoJson != "{}" && routeOnlyGeoJson != """{"type":"FeatureCollection","features":[]}""") {
+                        val layerId = "${prefix}-${line.lineNumber}-$index"
+                        loadedGeoJsonData.add(layerId to routeOnlyGeoJson)
+                    }
+                } catch (e: Exception) {
+                    println("Error loading persistent route $path: ${e.message}")
+                }
+            }
+            
+            withContext(Dispatchers.Main) {
+                val lineColor = getTransitLineColor(line)
+                
+                // Add route lines only (stops handled by combined stations)
+                loadedGeoJsonData.forEach { (layerId, geoJsonString) ->
+                    try {
+                        val sourceId = "source-$layerId"
+                        
+                        if (style.getSource(sourceId) == null) {
+                            val source = GeoJsonSource(sourceId, geoJsonString)
+                            style.addSource(source)
+                            
+                            val lineLayer = LineLayer(layerId, sourceId).withProperties(
+                                PropertyFactory.lineColor(lineColor),
+                                PropertyFactory.lineWidth(4f),
+                                PropertyFactory.lineOpacity(0.8f)
+                            )
+                            style.addLayer(lineLayer)
+                        }
+                    } catch (e: Exception) {
+                        println("Error adding persistent layer: ${e.message}")
+                    }
+                }
             }
         }
     }
