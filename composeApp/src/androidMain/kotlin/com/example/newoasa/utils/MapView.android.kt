@@ -5,14 +5,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.viewinterop.AndroidView
 import com.example.newoasa.data.TransitLine
-import com.mapbox.mapboxsdk.Mapbox
-import com.mapbox.mapboxsdk.camera.CameraPosition
-import com.mapbox.mapboxsdk.geometry.LatLng
-import com.mapbox.mapboxsdk.maps.MapView as MapLibreMapView
-import com.mapbox.mapboxsdk.maps.Style
+import org.maplibre.android.geometry.LatLng
+import org.maplibre.compose.MapLibre
+import org.maplibre.compose.camera.MapViewCamera
+import org.maplibre.compose.ramani.MapLibreComposable
 
 @Composable
 actual fun MapView(
@@ -21,49 +18,33 @@ actual fun MapView(
     selectedLine: TransitLine?,
     onMapReady: () -> Unit
 ) {
-    val context = LocalContext.current
+    // Athens center coordinates
+    val athensCenter = remember { LatLng(37.9838, 23.7275) }
     
-    // Initialize MapLibre
+    val camera = remember {
+        MapViewCamera(
+            center = athensCenter,
+            zoom = 11.0
+        )
+    }
+    
+    // Map style based on theme
+    val styleUrl = if (isDark) {
+        "https://demotiles.maplibre.org/style.json" // MapLibre demo dark style
+    } else {
+        "https://demotiles.maplibre.org/style.json" // MapLibre demo light style
+    }
+    
     LaunchedEffect(Unit) {
-        Mapbox.getInstance(context)
+        onMapReady()
     }
     
-    val mapView = remember {
-        MapLibreMapView(context).apply {
-            getMapAsync { map ->
-                // Set map style based on theme
-                val styleUrl = if (isDark) {
-                    Style.DARK
-                } else {
-                    Style.MAPBOX_STREETS
-                }
-                
-                map.setStyle(styleUrl) { style ->
-                    // Center on Athens, Greece
-                    val athensCenter = LatLng(37.9838, 23.7275)
-                    val cameraPosition = CameraPosition.Builder()
-                        .target(athensCenter)
-                        .zoom(11.0)
-                        .build()
-                    
-                    map.cameraPosition = cameraPosition
-                    onMapReady()
-                }
-            }
-        }
-    }
-    
-    AndroidView(
-        factory = { mapView },
+    MapLibreComposable(
         modifier = modifier.fillMaxSize(),
-        update = { view ->
-            // Update map style when theme changes
-            view.getMapAsync { map ->
-                val styleUrl = if (isDark) Style.DARK else Style.MAPBOX_STREETS
-                if (map.style?.uri != styleUrl) {
-                    map.setStyle(styleUrl)
-                }
-            }
-        }
-    )
+        styleUrl = styleUrl,
+        camera = camera
+    ) {
+        // Map content and layers can be added here
+        // e.g., markers, polylines for transit routes, etc.
+    }
 }
