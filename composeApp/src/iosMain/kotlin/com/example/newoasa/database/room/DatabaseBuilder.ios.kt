@@ -1,6 +1,7 @@
 package com.example.newoasa.database.room
 
 import androidx.room.Room
+import androidx.room.RoomDatabase
 import androidx.sqlite.driver.bundled.BundledSQLiteDriver
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
@@ -25,12 +26,13 @@ actual object DatabaseBuilder {
             )
             val dbPath = requireNotNull(documentDirectory?.path) + "/transit_database.db"
             
-            instance = Room.databaseBuilder<TransitDatabase>(
+            val dbBuilder = Room.databaseBuilder<TransitDatabase>(
                 name = dbPath
             )
-            .setDriver(BundledSQLiteDriver())
-            .setQueryCoroutineContext(Dispatchers.IO)
-            .build()
+            instance = dbBuilder
+                .setDriver(BundledSQLiteDriver())
+                .setQueryCoroutineContext(Dispatchers.IO)
+                .build()
         }
         return instance!!
     }
