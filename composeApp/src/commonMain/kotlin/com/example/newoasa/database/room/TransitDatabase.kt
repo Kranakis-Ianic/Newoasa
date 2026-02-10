@@ -33,9 +33,7 @@ abstract class TransitDatabase : RoomDatabase() {
 
 /**
  * Database constructor for Room Multiplatform
- * Platform-specific implementations use expect/actual
+ * Room 2.7+ automatically generates the platform-specific implementations
+ * No need for manual expect/actual declarations
  */
-@Suppress("NO_ACTUAL_FOR_EXPECT")
-expect object TransitDatabaseConstructor : RoomDatabaseConstructor<TransitDatabase> {
-    override fun initialize(): TransitDatabase
-}
+expect object TransitDatabaseConstructor : RoomDatabaseConstructor<TransitDatabase>
