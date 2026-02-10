@@ -677,10 +677,12 @@ private suspend fun displayTransitLine(
                             
                             // Check for route path (either explicit type or LineString geometry)
                             val isRoute = featureType == "route_path" || 
+                                         featureType == "Line" ||
                                          (featureType.isNullOrEmpty() && (geometryType == "LineString" || geometryType == "MultiLineString"))
                             
                             // Check for stop (either explicit type or Point geometry)
                             val isStop = featureType == "stop" || 
+                                        featureType == "Station" ||
                                         (featureType.isNullOrEmpty() && (geometryType == "Point" || geometryType == "MultiPoint"))
 
                             if (isRoute) {
@@ -887,8 +889,9 @@ private fun extractRoutePathOnly(geoJson: JSONObject): String {
                 val featureType = properties?.optString("type")
                 val geometryType = geometry?.optString("type")
                 
-                // Return if explicit route_path OR fallback to LineString/MultiLineString geometry
+                // Return if explicit route_path OR Line type OR fallback to LineString/MultiLineString geometry
                 if (featureType == "route_path" || 
+                    featureType == "Line" ||
                    (featureType.isNullOrEmpty() && (geometryType == "LineString" || geometryType == "MultiLineString"))) {
                     // Return just this feature as a FeatureCollection
                     return """{"type":"FeatureCollection","features":[$feature]}"""
