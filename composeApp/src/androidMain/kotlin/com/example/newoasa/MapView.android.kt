@@ -210,7 +210,7 @@ actual fun MapView(
                         }
                     } catch (e: Exception) { println("Error loading suburban lines: ${e.message}") }
                     
-                    // Load combined stations
+                    // Load combined stations AFTER lines so dots appear on top
                     displayCombinedStations(map, context)
                     
                     baseLinesLoaded = true
@@ -458,7 +458,8 @@ private suspend fun displayCombinedStations(
                             val source = GeoJsonSource(sourceId, combinedStationsJson)
                             style.addSource(source)
                             
-                            // 1. Hit area layer (invisible, for clicking)
+                            // Add layers in order (they render bottom-to-top)
+                            // 1. Hit area layer (invisible, for clicking) - add first so it's at bottom
                             val hitAreaLayer = CircleLayer(
                                 "combined-stations-hit-area",
                                 sourceId
@@ -469,7 +470,7 @@ private suspend fun displayCombinedStations(
                             )
                             style.addLayer(hitAreaLayer)
                             
-                            // 2. Visible dots layer (larger for combined stations)
+                            // 2. Visible dots layer (larger for combined stations) - on top of lines
                             val dotsLayer = CircleLayer(
                                 "combined-stations-dots",
                                 sourceId
@@ -481,7 +482,7 @@ private suspend fun displayCombinedStations(
                             )
                             style.addLayer(dotsLayer)
                             
-                            // 3. Labels layer (only visible when zoomed in)
+                            // 3. Labels layer (only visible when zoomed in) - on top of dots
                             val labelsLayer = SymbolLayer(
                                 "combined-stations-labels",
                                 sourceId
@@ -515,7 +516,10 @@ private suspend fun displayCombinedStations(
 /**
  * Display a persistent transit line (metro, tram, or suburban) that stays on the map
  * Does NOT display individual stops - those are handled by combined stations
- * CAREFUL: Filters only for LineString/MultiLineString to avoid drawing stops as lines
+ * Applies different styling based on line type:
+ * - Metro: 4px solid lines
+ * - Tram: 2.5px solid lines (thinner)
+ * - Suburban: 4px dashed lines (alternating line color and white)
  */
 @OptIn(ExperimentalResourceApi::class)
 private suspend fun displayPersistentTransitLine(
@@ -539,7 +543,6 @@ private suspend fun displayPersistentTransitLine(
                     val geoJson = JSONObject(geoJsonString)
                     
                     // Extract only the ROUTE geometry (ignore stops)
-                    // This is crucial to avoid "random lines" zig-zagging between stops
                     val routeOnlyGeoJson = extractRoutePathOnly(geoJson)
                     
                     if (routeOnlyGeoJson != "{}" && routeOnlyGeoJson != """{"type":"FeatureCollection","features":[]}""") {
@@ -554,7 +557,14 @@ private suspend fun displayPersistentTransitLine(
             withContext(Dispatchers.Main) {
                 val lineColor = getTransitLineColor(line)
                 
-                // Add route lines only (stops handled by combined stations)
+                // Determine line width and pattern based on type
+                val lineWidth = when {
+                    line.isTram -> 2.5f      // Thinner for trams
+                    line.isSuburban -> 4f    // Standard width for suburban
+                    else -> 4f               // Standard width for metro
+                }
+                
+                // Add route lines with appropriate styling
                 loadedGeoJsonData.forEach { (layerId, geoJsonString) ->
                     try {
                         val sourceId = "source-$layerId"
@@ -563,12 +573,35 @@ private suspend fun displayPersistentTransitLine(
                             val source = GeoJsonSource(sourceId, geoJsonString)
                             style.addSource(source)
                             
-                            val lineLayer = LineLayer(layerId, sourceId).withProperties(
-                                PropertyFactory.lineColor(lineColor),
-                                PropertyFactory.lineWidth(4f),
-                                PropertyFactory.lineOpacity(0.8f)
-                            )
-                            style.addLayer(lineLayer)
+                            // For suburban lines: create dashed pattern with line color and white
+                            if (line.isSuburban) {
+                                val lineLayer = LineLayer(layerId, sourceId).withProperties(
+                                    PropertyFactory.lineColor(lineColor),
+                                    PropertyFactory.lineWidth(lineWidth),
+                                    PropertyFactory.lineOpacity(0.9f),
+                                    PropertyFactory.lineDasharray(arrayOf(2f, 1f))  // Dash pattern
+                                )
+                                style.addLayer(lineLayer)
+                                
+                                // Add white background layer for dashed effect
+                                val whiteLayerId = "${layerId}-white"
+                                val whiteLayer = LineLayer(whiteLayerId, sourceId).withProperties(
+                                    PropertyFactory.lineColor("#FFFFFF"),
+                                    PropertyFactory.lineWidth(lineWidth),
+                                    PropertyFactory.lineOpacity(0.9f),
+                                    PropertyFactory.lineDasharray(arrayOf(1f, 2f))  // Inverse pattern
+                                )
+                                // Add white layer first (below colored layer)
+                                style.addLayerBelow(whiteLayer, layerId)
+                            } else {
+                                // Solid lines for metro and tram
+                                val lineLayer = LineLayer(layerId, sourceId).withProperties(
+                                    PropertyFactory.lineColor(lineColor),
+                                    PropertyFactory.lineWidth(lineWidth),
+                                    PropertyFactory.lineOpacity(0.8f)
+                                )
+                                style.addLayer(lineLayer)
+                            }
                         }
                     } catch (e: Exception) {
                         println("Error adding persistent layer: ${e.message}")
@@ -611,14 +644,6 @@ private suspend fun displayTransitLine(
         
         // Remove previous stops layers and sources
         try {
-            style.getLayer("transit-stops-hit-area")?.let { 
-                style.removeLayer(it)
-            }
-        } catch (e: Exception) {
-            // Ignore
-        }
-        
-        try {
             style.getLayer("transit-stops-labels-layer")?.let { 
                 style.removeLayer(it)
             }
@@ -628,6 +653,14 @@ private suspend fun displayTransitLine(
 
         try {
             style.getLayer("transit-stops-dots-layer")?.let { 
+                style.removeLayer(it)
+            }
+        } catch (e: Exception) {
+            // Ignore
+        }
+        
+        try {
+            style.getLayer("transit-stops-hit-area")?.let { 
                 style.removeLayer(it)
             }
         } catch (e: Exception) {
@@ -783,14 +816,9 @@ private suspend fun displayTransitLine(
                     }
                 }
                 
-                // Add stops as markers (for buses and trolleys only)
+                // Add stops as markers (for buses and trolleys) - layers added in correct order
                 if (allStops.isNotEmpty()) {
                     try {
-                        // Create pin marker bitmap (bigger size)
-                        val pinBitmap = createPinBitmap(Color.parseColor(lineColor))
-                        style.addImage("stop-pin", pinBitmap)
-                        println("Added pin image to style")
-                        
                         // Create GeoJSON features for stops with properties
                         val stopFeatures = allStops.map { stop ->
                             val properties = JsonObject()
@@ -810,7 +838,8 @@ private suspend fun displayTransitLine(
                         val stopsSource = GeoJsonSource("transit-stops-source", featureCollection)
                         style.addSource(stopsSource)
                         
-                        // 1. Add invisible hit area layer (for clicking)
+                        // Add layers in order (bottom to top)
+                        // 1. Add invisible hit area layer (for clicking) first
                         val hitAreaLayer = CircleLayer("transit-stops-hit-area", "transit-stops-source")
                             .withProperties(
                                 PropertyFactory.circleRadius(15f), // Clickable radius
@@ -819,7 +848,7 @@ private suspend fun displayTransitLine(
                             )
                         style.addLayer(hitAreaLayer)
                         
-                        // 2. Add visible dots layer (CircleLayer)
+                        // 2. Add visible dots layer (CircleLayer) on top of lines
                         val stopsLayer = CircleLayer("transit-stops-dots-layer", "transit-stops-source")
                             .withProperties(
                                 PropertyFactory.circleRadius(5f),
@@ -829,7 +858,7 @@ private suspend fun displayTransitLine(
                             )
                         style.addLayer(stopsLayer)
 
-                        // 3. Add labels layer (SymbolLayer) - visible only when zoomed in
+                        // 3. Add labels layer (SymbolLayer) - visible only when zoomed in, on top
                         val labelsLayer = SymbolLayer("transit-stops-labels-layer", "transit-stops-source")
                             .withProperties(
                                 PropertyFactory.textField("{name}"),
