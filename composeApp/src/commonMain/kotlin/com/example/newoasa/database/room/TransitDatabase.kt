@@ -35,6 +35,10 @@ abstract class TransitDatabase : RoomDatabase() {
 
 /**
  * Room database constructor
- * Room generates the implementation automatically
+ * Room generates the actual implementation automatically via KSP
+ * The @Suppress annotation tells Kotlin compiler to not expect a manual implementation
  */
-expect object TransitDatabaseConstructor : RoomDatabaseConstructor<TransitDatabase>
+@Suppress("NO_ACTUAL_FOR_EXPECT")
+expect object TransitDatabaseConstructor : RoomDatabaseConstructor<TransitDatabase> {
+    override fun initialize(): TransitDatabase
+}
