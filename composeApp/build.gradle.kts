@@ -142,13 +142,12 @@ android {
 dependencies {
     debugImplementation(libs.compose.uiTooling)
     
-    // Room KSP - only for targets that exist
-    add("kspCommonMainMetadata", libs.room.compiler)
+    // Room KSP - platform-specific only (NOT commonMainMetadata)
     add("kspAndroid", libs.room.compiler)
     add("kspIosArm64", libs.room.compiler)
     add("kspIosSimulatorArm64", libs.room.compiler)
     
-    // Ktorfit KSP - only for targets that exist
+    // Ktorfit KSP - for all targets including metadata
     add("kspCommonMainMetadata", libs.ktorfit.ksp)
     add("kspAndroid", libs.ktorfit.ksp)
     add("kspIosArm64", libs.ktorfit.ksp)
