@@ -4,27 +4,8 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ExperimentalLayoutApi
-import androidx.compose.foundation.layout.FlowRow
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Close
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
@@ -33,16 +14,15 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.graphics.Color as ComposeColor
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
+import com.example.newoasa.data.Stop
+import com.example.newoasa.data.StopInfoState
 import com.example.newoasa.data.TransitLine
 import com.example.newoasa.data.TransitLineRepository
 import com.google.gson.JsonObject
@@ -68,20 +48,6 @@ import org.maplibre.geojson.FeatureCollection
 import org.maplibre.geojson.Point
 import org.maplibre.android.style.layers.SymbolLayer
 import newoasa.composeapp.generated.resources.Res
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-
-data class Stop(
-    val name: String,
-    val stopCode: String,
-    val order: String,
-    val coordinate: LatLng
-)
-
-data class StopInfoState(
-    val stop: Stop,
-    val lines: List<String> = emptyList()  // Lines that pass through this stop
-)
 
 /**
  * Get the color for a transit line based on its category and line number
@@ -305,16 +271,16 @@ actual fun MapView(
                                                 selectedStopInfo = StopInfoState(
                                                     stop = Stop(
                                                         name = stopName,
-                                                        stopCode = "",
-                                                        order = "",
-                                                        coordinate = stopCoord
-                                                    ),
-                                                    lines = lines
+                                                        stopCode = stopCode,
+                                                        order = order,
+                                                        latitude = stopCoord.latitude,
+                                                        longitude = stopCoord.longitude
+                                                    )
                                                 )
                                             }
                                         }
                                         
-                                        handled = true
+                                        return@addOnMapClickListener true
                                     }
                                 }
                                 
@@ -340,368 +306,12 @@ actual fun MapView(
             }
         )
         
-        // Info window overlay
+        // Info card overlay - using shared StopInfoCard component
         selectedStopInfo?.let { info ->
-            StopInfoWindow(
-                stopInfo = info,
+            StopInfoCard(
+                stop = info.stop,
                 onClose = { selectedStopInfo = null }
             )
-        }
-    }
-}
-
-@OptIn(ExperimentalLayoutApi::class)
-@Composable
-fun StopInfoWindow(
-    stopInfo: StopInfoState,
-    onClose: () -> Unit
-) {
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .clickable(onClick = onClose),
-        contentAlignment = Alignment.Center
-    ) {
-        Column(
-            modifier = Modifier
-                .width(300.dp)
-                .padding(bottom = 200.dp)
-                .shadow(8.dp, RoundedCornerShape(16.dp))
-                .background(
-                    color = ComposeColor(0xFF1565C0), // Nice blue background
-                    shape = RoundedCornerShape(16.dp)
-                )
-                .padding(20.dp)
-                .clickable(onClick = {}),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            // Station name at top
-            Text(
-                text = stopInfo.stop.name,
-                style = MaterialTheme.typography.headlineSmall,
-                color = ComposeColor.White,
-                fontWeight = FontWeight.Bold
-            )
-            
-            Spacer(modifier = Modifier.height(16.dp))
-            
-            // Show line badges if available
-            if (stopInfo.lines.isNotEmpty()) {
-                FlowRow(
-                    modifier = Modifier.padding(vertical = 4.dp),
-                    horizontalArrangement = Arrangement.spacedBy(8.dp),
-                    verticalArrangement = Arrangement.spacedBy(8.dp)
-                ) {
-                    stopInfo.lines.forEach { lineId ->
-                        LineBadge(lineId = lineId)
-                    }
-                }
-            }
-        }
-    }
-}
-
-@Composable
-fun LineBadge(lineId: String) {
-    val displayText = when {
-        lineId.toIntOrNull() != null -> "M$lineId"  // Metro lines
-        lineId.startsWith("T", ignoreCase = true) -> lineId.uppercase()  // Tram lines
-        lineId.startsWith("A", ignoreCase = true) -> lineId.uppercase()  // Suburban lines
-        else -> lineId
-    }
-    
-    val backgroundColor = getLineComposeColor(lineId)
-    
-    Box(
-        modifier = Modifier
-            .background(
-                color = backgroundColor,
-                shape = RoundedCornerShape(8.dp)
-            )
-            .padding(horizontal = 16.dp, vertical = 8.dp),
-        contentAlignment = Alignment.Center
-    ) {
-        Text(
-            text = displayText,
-            color = ComposeColor.White,
-            fontSize = 18.sp,
-            fontWeight = FontWeight.Bold
-        )
-    }
-}
-
-/**
- * Display combined metro and tram stations
- * Station appearance:
- * - Single-line stations: White circle with black border
- * - Connection stations (2+ lines): White circle + black center dot + black border
- * Uses data-driven styling based on line_count property (calculated from lines array)
- */
-@OptIn(ExperimentalResourceApi::class)
-private suspend fun displayCombinedStations(
-    map: MapLibreMap,
-    context: android.content.Context
-) = withContext(Dispatchers.Main) {
-    map.getStyle { style ->
-        kotlinx.coroutines.CoroutineScope(Dispatchers.IO).launch {
-            try {
-                // Try to load combined stations file
-                val combinedStationsJson = try {
-                    val bytes = Res.readBytes("files/combined_metro_tram_stations.json")
-                    bytes.decodeToString()
-                } catch (e: Exception) {
-                    println("Combined stations file not found. Run combine_metro_tram_stations.py to generate it.")
-                    return@launch
-                }
-                
-                if (combinedStationsJson.isBlank()) {
-                    println("Combined stations file is empty")
-                    return@launch
-                }
-                
-                val geoJson = JSONObject(combinedStationsJson)
-                val features = geoJson.optJSONArray("features")
-                
-                if (features == null || features.length() == 0) {
-                    println("No features in combined stations file")
-                    return@launch
-                }
-                
-                // Parse and add line_count property to each feature
-                val modifiedFeatures = org.json.JSONArray()
-                for (i in 0 until features.length()) {
-                    val feature = features.getJSONObject(i)
-                    val properties = feature.optJSONObject("properties")
-                    
-                    if (properties != null) {
-                        // Get the "lines" array and calculate line_count
-                        val linesArray = properties.optJSONArray("lines")
-                        val lineCount = linesArray?.length() ?: 0
-                        
-                        // Add line_count property
-                        properties.put("line_count", lineCount)
-                    }
-                    
-                    modifiedFeatures.put(feature)
-                }
-                
-                // Create new GeoJSON with line_count added
-                val modifiedGeoJson = JSONObject()
-                modifiedGeoJson.put("type", "FeatureCollection")
-                modifiedGeoJson.put("features", modifiedFeatures)
-                val modifiedGeoJsonString = modifiedGeoJson.toString()
-                
-                withContext(Dispatchers.Main) {
-                    try {
-                        val sourceId = "combined-stations-source"
-                        
-                        // Remove existing station layers if present (to re-add on top)
-                        listOf(
-                            "combined-stations-labels",
-                            "combined-stations-center",
-                            "combined-stations-outer",
-                            "combined-stations-hit-area"
-                        ).forEach { layerId ->
-                            try {
-                                style.getLayer(layerId)?.let { style.removeLayer(it) }
-                            } catch (e: Exception) {}
-                        }
-                        
-                        // Remove source if exists
-                        try {
-                            style.getSource(sourceId)?.let { style.removeSource(it) }
-                        } catch (e: Exception) {}
-                        
-                        // Create GeoJSON source with modified data
-                        val source = GeoJsonSource(sourceId, modifiedGeoJsonString)
-                        style.addSource(source)
-                        
-                        // Add layers (they will be on top because added last)
-                        // 1. Hit area layer (invisible, for clicking)
-                        val hitAreaLayer = CircleLayer(
-                            "combined-stations-hit-area",
-                            sourceId
-                        ).withProperties(
-                            PropertyFactory.circleRadius(15f),
-                            PropertyFactory.circleColor(Color.TRANSPARENT),
-                            PropertyFactory.circleOpacity(0f)
-                        )
-                        style.addLayer(hitAreaLayer)
-                        
-                        // 2. Outer white circle with black stroke (for all stations)
-                        // Increased radius from 5f to 6f for better visibility
-                        val outerLayer = CircleLayer(
-                            "combined-stations-outer",
-                            sourceId
-                        ).withProperties(
-                            PropertyFactory.circleRadius(6f),  // Increased from 5f
-                            PropertyFactory.circleColor("#FFFFFF"),  // Explicit white hex
-                            PropertyFactory.circleStrokeWidth(2f),
-                            PropertyFactory.circleStrokeColor("#000000")
-                        )
-                        style.addLayer(outerLayer)
-                        
-                        // 3. Center black dot (ONLY for connection stations with 2+ lines)
-                        // Now uses line_count property that we calculated
-                        val centerDotLayer = CircleLayer(
-                            "combined-stations-center",
-                            sourceId
-                        ).withProperties(
-                            PropertyFactory.circleRadius(
-                                Expression.step(
-                                    Expression.get("line_count"),
-                                    Expression.literal(0f),  // 0 radius for single-line stations (line_count = 1)
-                                    Expression.stop(2, 2.5f)   // 2.5f radius for connection stations (line_count >= 2)
-                                )
-                            ),
-                            PropertyFactory.circleColor("#000000")
-                        )
-                        style.addLayer(centerDotLayer)
-                        
-                        // 4. Labels layer (only visible when zoomed in)
-                        val labelsLayer = SymbolLayer(
-                            "combined-stations-labels",
-                            sourceId
-                        ).withProperties(
-                            PropertyFactory.textField("{name}"),
-                            PropertyFactory.textSize(12f),
-                            PropertyFactory.textOffset(arrayOf(0f, 2.0f)),
-                            PropertyFactory.textAnchor("top"),
-                            PropertyFactory.textColor("#000000"),  // Explicit black hex
-                            PropertyFactory.textHaloColor("#FFFFFF"),  // Explicit white hex
-                            PropertyFactory.textHaloWidth(2f)
-                        )
-                        labelsLayer.minZoom = 14f
-                        style.addLayer(labelsLayer)
-                        
-                        println("✓ Added ${features.length()} combined stations (white dots with conditional center)")
-                    } catch (e: Exception) {
-                        println("Error adding combined stations to map: ${e.message}")
-                        e.printStackTrace()
-                    }
-                }
-            } catch (e: Exception) {
-                println("Error loading combined stations: ${e.message}")
-                e.printStackTrace()
-            }
-        }
-    }
-}
-
-/**
- * Display a persistent transit line (metro, tram, or suburban) that stays on the map
- * Does NOT display individual stops - those are handled by combined stations
- * Applies different styling based on line type:
- * - Metro: 4px solid lines
- * - Tram: 2.5px solid lines (thinner)
- * - Suburban: 4px dashed lines (alternating line color and white)
- */
-@OptIn(ExperimentalResourceApi::class)
-private suspend fun displayPersistentTransitLine(
-    map: MapLibreMap,
-    line: TransitLine,
-    context: android.content.Context,
-    prefix: String
-) = withContext(Dispatchers.Main) {
-    map.getStyle { style ->
-        val loadedGeoJsonData = mutableListOf<Pair<String, String>>()
-        
-        kotlinx.coroutines.CoroutineScope(Dispatchers.IO).launch {
-            line.routePaths.forEachIndexed { index, path ->
-                try {
-                    val geoJsonString = loadGeoJsonFromResources(path)
-                    
-                    if (geoJsonString.isBlank() || geoJsonString == "{}") {
-                        println("  Empty GeoJSON for $path")
-                        return@forEachIndexed
-                    }
-                    
-                    val geoJson = JSONObject(geoJsonString)
-                    
-                    // Extract only the ROUTE geometry (ignore stops)
-                    val routeOnlyGeoJson = extractRoutePathOnly(geoJson)
-                    
-                    if (routeOnlyGeoJson != "{}" && routeOnlyGeoJson != """{"type":"FeatureCollection","features":[]}""") {
-                        val layerId = "${prefix}-${line.lineNumber}-$index"
-                        loadedGeoJsonData.add(layerId to routeOnlyGeoJson)
-                    } else {
-                        println("  ⚠ No route geometry found in $path")
-                    }
-                } catch (e: Exception) {
-                    println("  ✗ Error loading persistent route $path: ${e.message}")
-                    e.printStackTrace()
-                }
-            }
-            
-            withContext(Dispatchers.Main) {
-                val lineColor = getTransitLineColor(line)
-                
-                // Determine line width and pattern based on type
-                val lineWidth = when {
-                    line.isTram -> 2.5f      // Thinner for trams
-                    line.isSuburban -> 4f    // Standard width for suburban
-                    else -> 4f               // Standard width for metro
-                }
-                
-                var layersAdded = 0
-                // Add route lines with appropriate styling
-                loadedGeoJsonData.forEach { (layerId, geoJsonString) ->
-                    try {
-                        val sourceId = "source-$layerId"
-                        
-                        // Check if layer/source already exists
-                        if (style.getLayer(layerId) != null) {
-                            println("  Layer $layerId already exists, skipping")
-                            return@forEach
-                        }
-                        
-                        if (style.getSource(sourceId) == null) {
-                            val source = GeoJsonSource(sourceId, geoJsonString)
-                            style.addSource(source)
-                            
-                            // For suburban lines: create dashed pattern with line color and white
-                            if (line.isSuburban) {
-                                // Add white background layer first (below)
-                                val whiteLayerId = "${layerId}-white"
-                                val whiteLayer = LineLayer(whiteLayerId, sourceId).withProperties(
-                                    PropertyFactory.lineColor("#FFFFFF"),
-                                    PropertyFactory.lineWidth(lineWidth),
-                                    PropertyFactory.lineOpacity(0.9f),
-                                    PropertyFactory.lineDasharray(arrayOf(1f, 2f))  // Inverse pattern
-                                )
-                                style.addLayer(whiteLayer)
-                                
-                                // Add colored layer on top
-                                val lineLayer = LineLayer(layerId, sourceId).withProperties(
-                                    PropertyFactory.lineColor(lineColor),
-                                    PropertyFactory.lineWidth(lineWidth),
-                                    PropertyFactory.lineOpacity(0.9f),
-                                    PropertyFactory.lineDasharray(arrayOf(2f, 1f))  // Dash pattern
-                                )
-                                style.addLayer(lineLayer)
-                            } else {
-                                // Solid lines for metro and tram
-                                val lineLayer = LineLayer(layerId, sourceId).withProperties(
-                                    PropertyFactory.lineColor(lineColor),
-                                    PropertyFactory.lineWidth(lineWidth),
-                                    PropertyFactory.lineOpacity(0.8f)
-                                )
-                                style.addLayer(lineLayer)
-                            }
-                            layersAdded++
-                        }
-                    } catch (e: Exception) {
-                        println("  Error adding persistent layer $layerId: ${e.message}")
-                        e.printStackTrace()
-                    }
-                }
-                
-                if (layersAdded > 0) {
-                    println("  ✓ Added $layersAdded route layer(s) for ${line.lineNumber}")
-                } else {
-                    println("  ⚠ No routes rendered for ${line.lineNumber}")
-                }
-            }
         }
     }
 }
@@ -784,6 +394,8 @@ private suspend fun displayTransitLine(
                     }
                     
                     val geoJson = JSONObject(geoJsonString)
+                    
+                    // Validate that it has features
                     val features = geoJson.optJSONArray("features")
                     if (features != null) {
                         for (i in 0 until features.length()) {
@@ -794,10 +406,12 @@ private suspend fun displayTransitLine(
                             val featureType = properties?.optString("type")
                             val geometryType = geometry?.optString("type")
                             
+                            // Check for route path
                             val isRoute = featureType == "route_path" || 
                                          featureType == "Line" ||
                                          (featureType.isNullOrEmpty() && (geometryType == "LineString" || geometryType == "MultiLineString"))
                             
+                            // Check for stop
                             val isStop = featureType == "stop" || 
                                         featureType == "Station" ||
                                         (featureType.isNullOrEmpty() && (geometryType == "Point" || geometryType == "MultiPoint"))
@@ -810,7 +424,8 @@ private suspend fun displayTransitLine(
                                             val coord = it.getJSONArray(j)
                                             allCoordinates.add(LatLng(coord.getDouble(1), coord.getDouble(0)))
                                         }
-                                    } else if (geometryType == "MultiLineString") {
+                                    }
+                                    else if (geometryType == "MultiLineString") {
                                          for (k in 0 until it.length()) {
                                             val lineString = it.getJSONArray(k)
                                             for (j in 0 until lineString.length()) {
@@ -832,7 +447,8 @@ private suspend fun displayTransitLine(
                                             name = stopName,
                                             stopCode = stopCode,
                                             order = order,
-                                            coordinate = LatLng(coordinates.getDouble(1), coordinates.getDouble(0))
+                                            latitude = lat,
+                                            longitude = lng
                                         )
                                     )
                                 }
@@ -850,10 +466,14 @@ private suspend fun displayTransitLine(
                 }
             }
             
-            stopsMap = allStops.associateBy { "${it.coordinate.latitude},${it.coordinate.longitude}" }
+            println("Finished loading all routes. Total stops: ${allStops.size}")
+            
+            // Create stops map for quick lookup
+            stopsMap = allStops.associateBy { "${it.latitude},${it.longitude}" }
             
             withContext(Dispatchers.Main) {
-                val lineColor = getTransitLineColor(line)
+                // Use LineColors from commonMain to get consistent color
+                val lineColor = LineColors.getHexColorForCategory(line.category, line.isBus)
                 
                 // Add route lines below stations
                 loadedGeoJsonData.forEach { (index, geoJsonString) ->
@@ -888,6 +508,12 @@ private suspend fun displayTransitLine(
                 // Add stops as markers (for buses and trolleys)
                 if (allStops.isNotEmpty()) {
                     try {
+                        // Create pin marker bitmap
+                        val pinBitmap = createPinBitmap(Color.parseColor(lineColor))
+                        style.addImage("stop-pin", pinBitmap)
+                        println("Added pin image to style")
+                        
+                        // Create GeoJSON features for stops with properties
                         val stopFeatures = allStops.map { stop ->
                             val properties = JsonObject()
                             properties.addProperty("name", stop.name)
@@ -895,7 +521,7 @@ private suspend fun displayTransitLine(
                             properties.addProperty("order", stop.order)
                             
                             Feature.fromGeometry(
-                                Point.fromLngLat(stop.coordinate.longitude, stop.coordinate.latitude),
+                                Point.fromLngLat(stop.longitude, stop.latitude),
                                 properties
                             )
                         }
@@ -927,8 +553,8 @@ private suspend fun displayTransitLine(
                                 PropertyFactory.textSize(12f),
                                 PropertyFactory.textOffset(arrayOf(0f, 1.5f)),
                                 PropertyFactory.textAnchor("top"),
-                                PropertyFactory.textColor(Color.parseColor(lineColor)), 
-                                PropertyFactory.textHaloColor("#FFFFFF"),  // Explicit white hex
+                                PropertyFactory.textColor(if (line.category == "metro") Color.parseColor(lineColor) else Color.BLACK), 
+                                PropertyFactory.textHaloColor(Color.WHITE),
                                 PropertyFactory.textHaloWidth(1f)
                             )
                         labelsLayer.minZoom = 14f
@@ -983,7 +609,6 @@ private fun extractRoutePathOnly(geoJson: JSONObject): String {
                 }
             }
         }
-        
         "{}"
     } catch (e: Exception) {
         e.printStackTrace()
@@ -1003,23 +628,21 @@ private suspend fun loadGeoJsonFromResources(path: String): String {
     }
 }
 
+/**
+ * Create a pin bitmap for stop markers
+ */
 private fun createPinBitmap(color: Int): Bitmap {
-    val size = 48
+    val size = 64
     val bitmap = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888)
     val canvas = Canvas(bitmap)
-    val paint = Paint().apply {
-        isAntiAlias = true
-    }
+    val paint = Paint(Paint.ANTI_ALIAS_FLAG)
     
-    // Draw pin shape (circle)
     paint.color = color
+    paint.style = Paint.Style.FILL
     canvas.drawCircle(size / 2f, size / 2f, size / 3f, paint)
     
-    // Draw white border
-    paint.style = Paint.Style.STROKE
-    paint.strokeWidth = 3f
     paint.color = Color.WHITE
-    canvas.drawCircle(size / 2f, size / 2f, size / 3f, paint)
+    canvas.drawCircle(size / 2f, size / 2f, size / 5f, paint)
     
     return bitmap
 }
