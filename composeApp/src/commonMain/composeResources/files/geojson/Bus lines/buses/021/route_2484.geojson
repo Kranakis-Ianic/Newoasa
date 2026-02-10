@@ -1,0 +1,597 @@
+{
+  "type": "FeatureCollection",
+  "properties": {
+    "LineCode": "1151",
+    "LineID": "021",
+    "LineDescr": "ΠΛΑΤΕΙΑ ΚΑΝΙΓΓΟΣ - ΓΚΥΖH (ΚΥΚΛΙΚΗ)",
+    "RouteCode": "2484",
+    "RouteDescr": "ΠΛΑΤΕΙΑ ΚΑΝΙΓΓΟΣ - ΓΚΥΖΗ",
+    "RouteType": "1"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            23.73153,
+            37.98545
+          ],
+          [
+            23.73147,
+            37.98522
+          ],
+          [
+            23.73144,
+            37.98513
+          ],
+          [
+            23.73231,
+            37.98409
+          ],
+          [
+            23.73323,
+            37.98283
+          ],
+          [
+            23.73352,
+            37.98303
+          ],
+          [
+            23.73433,
+            37.98348
+          ],
+          [
+            23.73501,
+            37.98382
+          ],
+          [
+            23.73633,
+            37.9845
+          ],
+          [
+            23.738,
+            37.98537
+          ],
+          [
+            23.73947,
+            37.98613
+          ],
+          [
+            23.74093,
+            37.98688
+          ],
+          [
+            23.74236,
+            37.98759
+          ],
+          [
+            23.74324,
+            37.98807
+          ],
+          [
+            23.74464,
+            37.98878
+          ],
+          [
+            23.74531,
+            37.98917
+          ],
+          [
+            23.74566,
+            37.98938
+          ],
+          [
+            23.74584,
+            37.98955
+          ],
+          [
+            23.74594,
+            37.98998
+          ],
+          [
+            23.74607,
+            37.99047
+          ],
+          [
+            23.74622,
+            37.99101
+          ],
+          [
+            23.74784,
+            37.99073
+          ],
+          [
+            23.74831,
+            37.99064
+          ],
+          [
+            23.74874,
+            37.99202
+          ],
+          [
+            23.749,
+            37.99278
+          ],
+          [
+            23.74991,
+            37.99334
+          ],
+          [
+            23.75003,
+            37.99342
+          ],
+          [
+            23.74996,
+            37.99356
+          ],
+          [
+            23.74947,
+            37.99334
+          ],
+          [
+            23.74867,
+            37.99295
+          ],
+          [
+            23.74891,
+            37.99282
+          ],
+          [
+            23.74842,
+            37.99115
+          ],
+          [
+            23.74781,
+            37.98911
+          ],
+          [
+            23.74809,
+            37.98895
+          ],
+          [
+            23.7412,
+            37.98558
+          ],
+          [
+            23.74016,
+            37.98507
+          ],
+          [
+            23.73822,
+            37.98407
+          ],
+          [
+            23.73667,
+            37.98334
+          ],
+          [
+            23.73557,
+            37.98278
+          ],
+          [
+            23.73509,
+            37.98254
+          ],
+          [
+            23.73354,
+            37.98444
+          ],
+          [
+            23.7322,
+            37.98612
+          ],
+          [
+            23.73174,
+            37.98618
+          ],
+          [
+            23.73159,
+            37.98562
+          ]
+        ]
+      },
+      "properties": {
+        "type": "route_path",
+        "RouteCode": "2484"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.73113,
+          37.98566
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "10175",
+        "StopID": "18",
+        "StopDescr": "ΠΛ. ΚΑΝΙΓΓΟΣ",
+        "StopOrder": "1",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7349122,
+          37.9837048
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60010",
+        "StopID": "060010",
+        "StopDescr": "ΝΑΥΑΡΙΝΟΥ",
+        "StopOrder": "2",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7374186,
+          37.9849398
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60011",
+        "StopID": "060011",
+        "StopDescr": "ΑΡΑΧΩΒΗΣ",
+        "StopOrder": "3",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7392359,
+          37.985911
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60012",
+        "StopID": "060012",
+        "StopDescr": "ΚΑΛΛΙΔΡΟΜΙΟΥ",
+        "StopOrder": "4",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7411863,
+          37.9869527
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60013",
+        "StopID": "060013",
+        "StopDescr": "ΤΣΙΜΙΣΚΗ",
+        "StopOrder": "5",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7439909,
+          37.9884026
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60014",
+        "StopID": "060014",
+        "StopDescr": "ΛΑΣΚΑΡΕΩΣ",
+        "StopOrder": "6",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7465462,
+          37.9909293
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60017",
+        "StopID": "060017",
+        "StopDescr": "ΑΓ. ΕΛΕΥΘΕΡΙΟΣ",
+        "StopOrder": "7",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7479147,
+          37.9906755
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60018",
+        "StopID": "060018",
+        "StopDescr": "ΜΟΜΦΕΡΑΤΟΥ",
+        "StopOrder": "8",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7489433,
+          37.9924673
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60019",
+        "StopID": "060019",
+        "StopDescr": "ΣΚΑΛΑΚΙΑ",
+        "StopOrder": "9",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.749251,
+          37.9933834
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60020",
+        "StopID": "060020",
+        "StopDescr": "ΠΛ. ΓΚΥΖΗ",
+        "StopOrder": "10",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7485723,
+          37.992021
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60021",
+        "StopID": "060021",
+        "StopDescr": "ΣΚΑΛΑΚΙΑ",
+        "StopOrder": "11",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7482344,
+          37.9909207
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60022",
+        "StopID": "060022",
+        "StopDescr": "ΜΟΜΦΕΡΑΤΟΥ",
+        "StopOrder": "12",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7479189,
+          37.9899376
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60023",
+        "StopID": "060023",
+        "StopDescr": "ΠΑΡΑΣΧΟΥ",
+        "StopOrder": "13",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7468308,
+          37.9884301
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60024",
+        "StopID": "060024",
+        "StopDescr": "ΙΠΠΟΚΡΑΤΟΥΣ (ΑΦΕΤΗΡΙΑ)",
+        "StopOrder": "14",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7437954,
+          37.9869545
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60666",
+        "StopID": "060666",
+        "StopDescr": "ΛΑΣΚΑΡΕΩΣ",
+        "StopOrder": "15",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7418287,
+          37.9859948
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60667",
+        "StopID": "060667",
+        "StopDescr": "ΤΣΙΜΙΣΚΗ",
+        "StopOrder": "16",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7394074,
+          37.9847817
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60668",
+        "StopID": "060668",
+        "StopDescr": "ΚΑΛΛΙΔΡΟΜΙΟΥ",
+        "StopOrder": "17",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7369407,
+          37.9835505
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "61109",
+        "StopID": "061109",
+        "StopDescr": "ΔΙΔΟΤΟΥ",
+        "StopOrder": "18",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.735213,
+          37.9826814
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60767",
+        "StopID": "060767",
+        "StopDescr": "ΣΟΛΩΝΟΣ",
+        "StopOrder": "19",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.733688,
+          37.9843568
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60030",
+        "StopID": "060030",
+        "StopDescr": "ΖΩΟΔΟΧΟΣ ΠΗΓΗ",
+        "StopOrder": "20",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7326812,
+          37.9855885
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60031",
+        "StopID": "060031",
+        "StopDescr": "ΜΠΟΤΑΣΗ",
+        "StopOrder": "21",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.73113,
+          37.98566
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "10175",
+        "StopID": "18",
+        "StopDescr": "ΠΛ. ΚΑΝΙΓΓΟΣ",
+        "StopOrder": "22",
+        "StopType": "0"
+      }
+    }
+  ]
+}

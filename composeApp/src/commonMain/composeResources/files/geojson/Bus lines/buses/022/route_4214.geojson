@@ -1,0 +1,417 @@
+{
+  "type": "FeatureCollection",
+  "properties": {
+    "LineCode": "1579",
+    "LineID": "022",
+    "LineDescr": "ΑΚΑΔΗΜΙΑ - Ν. ΚΥΨΕΛΗ (ΕΩΣ ΚΥΨΕΛΗ)",
+    "RouteCode": "4214",
+    "RouteDescr": "ΑΚΑΔΗΜΙΑ - Ν. ΚΥΨΕΛΗ [ΕΩΣ ΚΥΨΕΛΗ] [Προσωρινή λόγω έργων]",
+    "RouteType": "1"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            23.73423,
+            37.97961
+          ],
+          [
+            23.73413,
+            37.97956
+          ],
+          [
+            23.73381,
+            37.97935
+          ],
+          [
+            23.72993,
+            37.98381
+          ],
+          [
+            23.72869,
+            37.98405
+          ],
+          [
+            23.72816,
+            37.98453
+          ],
+          [
+            23.7295,
+            37.9901
+          ],
+          [
+            23.72968,
+            37.99013
+          ],
+          [
+            23.73033,
+            37.99005
+          ],
+          [
+            23.73047,
+            37.99005
+          ],
+          [
+            23.73184,
+            37.98988
+          ],
+          [
+            23.73214,
+            37.99104
+          ],
+          [
+            23.73272,
+            37.99287
+          ],
+          [
+            23.7332,
+            37.99494
+          ],
+          [
+            23.73337,
+            37.99531
+          ],
+          [
+            23.73352,
+            37.99536
+          ],
+          [
+            23.73396,
+            37.99534
+          ],
+          [
+            23.73524,
+            37.99622
+          ],
+          [
+            23.73765,
+            37.99793
+          ],
+          [
+            23.73789,
+            37.99813
+          ],
+          [
+            23.73797,
+            37.99826
+          ],
+          [
+            23.7381,
+            37.99844
+          ],
+          [
+            23.7385,
+            37.99904
+          ],
+          [
+            23.73872,
+            37.99932
+          ],
+          [
+            23.73888,
+            37.99951
+          ],
+          [
+            23.73951,
+            38.00008
+          ],
+          [
+            23.73969,
+            38.00022
+          ],
+          [
+            23.74172,
+            38.00211
+          ],
+          [
+            23.74211,
+            38.00255
+          ],
+          [
+            23.74235,
+            38.00272
+          ],
+          [
+            23.7437,
+            38.00222
+          ],
+          [
+            23.74523,
+            38.00118
+          ],
+          [
+            23.74537,
+            38.00129
+          ],
+          [
+            23.74574,
+            38.00124
+          ],
+          [
+            23.74611,
+            38.00121
+          ]
+        ]
+      },
+      "properties": {
+        "type": "route_path",
+        "RouteCode": "4214"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.734821,
+          37.980083
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "10292",
+        "StopID": "91",
+        "StopDescr": "ΑΦΕΤΗΡΙΑ - ΣΙΝΑ",
+        "StopOrder": "1",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7335091,
+          37.9798734
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "61000",
+        "StopID": "061000",
+        "StopDescr": "ΑΚΑΔΗΜΙΑ",
+        "StopOrder": "2",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7310565,
+          37.982726
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60116",
+        "StopID": "060116",
+        "StopDescr": "ΡΕΞ",
+        "StopOrder": "3",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7285925,
+          37.9858267
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60118",
+        "StopID": "060118",
+        "StopDescr": "ΠΛ. ΛΑΥΡΙΟΥ",
+        "StopOrder": "4",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.73032,
+          37.9900089
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60065",
+        "StopID": "060065",
+        "StopDescr": "ΠΑΤΗΣΙΩΝ",
+        "StopOrder": "5",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7322183,
+          37.9910421
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60066",
+        "StopID": "060066",
+        "StopDescr": "ΑΙΓΥΠΤΟΥ",
+        "StopOrder": "6",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.733133,
+          37.9941861
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60550",
+        "StopID": "060550",
+        "StopDescr": "ΠΑΝΕΛΛΗΝΙΟΣ",
+        "StopOrder": "7",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7352559,
+          37.9961709
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60551",
+        "StopID": "060551",
+        "StopDescr": "ΕΠΤΑΝΗΣΟΥ",
+        "StopOrder": "8",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7373941,
+          37.9976955
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60552",
+        "StopID": "060552",
+        "StopDescr": "ΙΘΑΚΗΣ",
+        "StopOrder": "9",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7389319,
+          37.9994663
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60553",
+        "StopID": "060553",
+        "StopDescr": "ΖΑΚΥΝΘΟΥ",
+        "StopOrder": "10",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7406598,
+          38.0010166
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60554",
+        "StopID": "060554",
+        "StopDescr": "ΣΚΥΡΟΥ",
+        "StopOrder": "11",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7420444,
+          38.0023813
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60555",
+        "StopID": "060555",
+        "StopDescr": "ΠΛ  ΚΥΨΕΛΗΣ (ΤΕΡΜΑ 036)",
+        "StopOrder": "12",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7437771,
+          38.0020239
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60556",
+        "StopID": "060556",
+        "StopDescr": "ΦΙΛΟΤΙΜΟΥ",
+        "StopOrder": "13",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.746045,
+          38.0014215
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "10186",
+        "StopID": "27",
+        "StopDescr": "Ν. ΚΥΨΕΛΗ",
+        "StopOrder": "14",
+        "StopType": "0"
+      }
+    }
+  ]
+}

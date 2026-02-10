@@ -1,0 +1,3271 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/360017697",
+        "int_name": "Metamorfosi",
+        "name": "Μεταμόρφωση",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "1",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467443",
+            "reltags": {
+              "colour": "#9B26B6",
+              "from": "Άνω Λιόσια",
+              "name": "Προαστιακός A2: Άνω Λιόσια → Αεροδρόμιο",
+              "name:ca": "Rodalies A2: Ano Liosia → Aeroport",
+              "name:el": "Προαστιακός A2: Άνω Λιόσια → Αεροδρόμιο",
+              "name:en": "Train A2: Ano Liosia → Airport",
+              "name:fr": "Train A2: Ano Liosia → Aéroport",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A2",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2017-07-30",
+              "to": "Αεροδρόμιο",
+              "type": "route",
+              "via": "Μεταμόρφωση",
+              "wikidata": "Q17853551",
+              "wikipedia": "el:Γραμμή 4 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7562064,
+          38.0600674
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/936668282",
+        "railway": "milestone",
+        "railway:milestone:catenary_mast": "yes",
+        "railway:position": "1.8"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7382599,
+          38.065477
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/936804010",
+        "int_name": "Kifisias",
+        "name": "Κηφισίας",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "1",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467443",
+            "reltags": {
+              "colour": "#9B26B6",
+              "from": "Άνω Λιόσια",
+              "name": "Προαστιακός A2: Άνω Λιόσια → Αεροδρόμιο",
+              "name:ca": "Rodalies A2: Ano Liosia → Aeroport",
+              "name:el": "Προαστιακός A2: Άνω Λιόσια → Αεροδρόμιο",
+              "name:en": "Train A2: Ano Liosia → Airport",
+              "name:fr": "Train A2: Ano Liosia → Aéroport",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A2",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2017-07-30",
+              "to": "Αεροδρόμιο",
+              "type": "route",
+              "via": "Μεταμόρφωση",
+              "wikidata": "Q17853551",
+              "wikipedia": "el:Γραμμή 4 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8040729,
+          38.041921
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/936804085",
+        "int_name": "Iraklio",
+        "name": "Ηράκλειο",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "1",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467443",
+            "reltags": {
+              "colour": "#9B26B6",
+              "from": "Άνω Λιόσια",
+              "name": "Προαστιακός A2: Άνω Λιόσια → Αεροδρόμιο",
+              "name:ca": "Rodalies A2: Ano Liosia → Aeroport",
+              "name:el": "Προαστιακός A2: Άνω Λιόσια → Αεροδρόμιο",
+              "name:en": "Train A2: Ano Liosia → Airport",
+              "name:fr": "Train A2: Ano Liosia → Aéroport",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A2",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2017-07-30",
+              "to": "Αεροδρόμιο",
+              "type": "route",
+              "via": "Μεταμόρφωση",
+              "wikidata": "Q17853551",
+              "wikipedia": "el:Γραμμή 4 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7721113,
+          38.0568003
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/936804443",
+        "int_name": "Neratziotissa",
+        "name": "Νερατζιώτισσα",
+        "name:el": "Νερατζιώτισσα",
+        "name:en": "Neratziotissa",
+        "name:fr": "Neratziotissa",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "1",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467443",
+            "reltags": {
+              "colour": "#9B26B6",
+              "from": "Άνω Λιόσια",
+              "name": "Προαστιακός A2: Άνω Λιόσια → Αεροδρόμιο",
+              "name:ca": "Rodalies A2: Ano Liosia → Aeroport",
+              "name:el": "Προαστιακός A2: Άνω Λιόσια → Αεροδρόμιο",
+              "name:en": "Train A2: Ano Liosia → Airport",
+              "name:fr": "Train A2: Ano Liosia → Aéroport",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A2",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2017-07-30",
+              "to": "Αεροδρόμιο",
+              "type": "route",
+              "via": "Μεταμόρφωση",
+              "wikidata": "Q17853551",
+              "wikipedia": "el:Γραμμή 4 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7941064,
+          38.0447682
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/937378118",
+        "int_name": "Pallini",
+        "name": "Παλλήνη",
+        "name:en": "Pallini",
+        "name:ru": "Паллини",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "1",
+        "train": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467443",
+            "reltags": {
+              "colour": "#9B26B6",
+              "from": "Άνω Λιόσια",
+              "name": "Προαστιακός A2: Άνω Λιόσια → Αεροδρόμιο",
+              "name:ca": "Rodalies A2: Ano Liosia → Aeroport",
+              "name:el": "Προαστιακός A2: Άνω Λιόσια → Αεροδρόμιο",
+              "name:en": "Train A2: Ano Liosia → Airport",
+              "name:fr": "Train A2: Ano Liosia → Aéroport",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A2",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2017-07-30",
+              "to": "Αεροδρόμιο",
+              "type": "route",
+              "via": "Μεταμόρφωση",
+              "wikidata": "Q17853551",
+              "wikipedia": "el:Γραμμή 4 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8696405,
+          38.0054925
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/937892783",
+        "int_name": "Peania-Kantza",
+        "name": "Παιανία-Κάντζα",
+        "name:en": "Peania-Kantza",
+        "name:ru": "Пеанья-Кантза",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "1",
+        "short_int_name": "Kantza",
+        "short_name": "Κάντζα",
+        "train": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467443",
+            "reltags": {
+              "colour": "#9B26B6",
+              "from": "Άνω Λιόσια",
+              "name": "Προαστιακός A2: Άνω Λιόσια → Αεροδρόμιο",
+              "name:ca": "Rodalies A2: Ano Liosia → Aeroport",
+              "name:el": "Προαστιακός A2: Άνω Λιόσια → Αεροδρόμιο",
+              "name:en": "Train A2: Ano Liosia → Airport",
+              "name:fr": "Train A2: Ano Liosia → Aéroport",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A2",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2017-07-30",
+              "to": "Αεροδρόμιο",
+              "type": "route",
+              "via": "Μεταμόρφωση",
+              "wikidata": "Q17853551",
+              "wikipedia": "el:Γραμμή 4 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8698255,
+          37.9839819
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/937892866",
+        "int_name": "Peania-Kantza",
+        "name": "Παιανία-Κάντζα",
+        "name:en": "Peania-Kantza",
+        "name:ru": "Пеанья-Кантза",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Αεροδρόμιο",
+        "short_int_name": "Kantza",
+        "short_name": "Κάντζα",
+        "subway": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8700731,
+          37.9849428
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2142437054",
+        "int_name": "Doukissis Plakentias",
+        "name": "Δουκίσσης Πλακεντίας",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "short_alt_name": "Plakentias",
+        "short_name": "Πλακεντίας",
+        "source:short_name": "sign",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467443",
+            "reltags": {
+              "colour": "#9B26B6",
+              "from": "Άνω Λιόσια",
+              "name": "Προαστιακός A2: Άνω Λιόσια → Αεροδρόμιο",
+              "name:ca": "Rodalies A2: Ano Liosia → Aeroport",
+              "name:el": "Προαστιακός A2: Άνω Λιόσια → Αεροδρόμιο",
+              "name:en": "Train A2: Ano Liosia → Airport",
+              "name:fr": "Train A2: Ano Liosia → Aéroport",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A2",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2017-07-30",
+              "to": "Αεροδρόμιο",
+              "type": "route",
+              "via": "Μεταμόρφωση",
+              "wikidata": "Q17853551",
+              "wikipedia": "el:Γραμμή 4 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8338693,
+          38.0247026
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2354656162",
+        "int_name": "Sidirodromiko Kentro Acharnon",
+        "name": "Σιδηροδρομικό Κέντρο Αχαρνών",
+        "name:en": "Acharnai Railway Center",
+        "network": "Προαστιακός Αθήνας",
+        "operator": "ΟΣΕ",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "short_int_name": "S.K.A.",
+        "short_name": "Σ.Κ.Α.",
+        "source": "sign",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467443",
+            "reltags": {
+              "colour": "#9B26B6",
+              "from": "Άνω Λιόσια",
+              "name": "Προαστιακός A2: Άνω Λιόσια → Αεροδρόμιο",
+              "name:ca": "Rodalies A2: Ano Liosia → Aeroport",
+              "name:el": "Προαστιακός A2: Άνω Λιόσια → Αεροδρόμιο",
+              "name:en": "Train A2: Ano Liosia → Airport",
+              "name:fr": "Train A2: Ano Liosia → Aéroport",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A2",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2017-07-30",
+              "to": "Αεροδρόμιο",
+              "type": "route",
+              "via": "Μεταμόρφωση",
+              "wikidata": "Q17853551",
+              "wikipedia": "el:Γραμμή 4 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7376508,
+          38.0656438
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2539677958",
+        "noexit": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.944051,
+          37.9360144
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2539677966",
+        "noexit": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.9456663,
+          37.9377194
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2541985702",
+        "noexit": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7954521,
+          38.0444119
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2541985704",
+        "noexit": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7909819,
+          38.0457308
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2542055392",
+        "noexit": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8026958,
+          38.0423442
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2542055393",
+        "noexit": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8043691,
+          38.0418603
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/3147765086",
+        "noexit": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7565231,
+          38.0600651
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/3147765095",
+        "noexit": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7549012,
+          38.0602864
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/3781391905",
+        "int_name": "Pentelis",
+        "name": "Πεντέλης",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467443",
+            "reltags": {
+              "colour": "#9B26B6",
+              "from": "Άνω Λιόσια",
+              "name": "Προαστιακός A2: Άνω Λιόσια → Αεροδρόμιο",
+              "name:ca": "Rodalies A2: Ano Liosia → Aeroport",
+              "name:el": "Προαστιακός A2: Άνω Λιόσια → Αεροδρόμιο",
+              "name:en": "Train A2: Ano Liosia → Airport",
+              "name:fr": "Train A2: Ano Liosia → Aéroport",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A2",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2017-07-30",
+              "to": "Αεροδρόμιο",
+              "type": "route",
+              "via": "Μεταμόρφωση",
+              "wikidata": "Q17853551",
+              "wikipedia": "el:Γραμμή 4 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8225838,
+          38.0328796
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/5777457451",
+        "int_name": "Ano Liosia",
+        "name": "Άνω Λιόσια",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop_entry_only",
+            "rel": "8467443",
+            "reltags": {
+              "colour": "#9B26B6",
+              "from": "Άνω Λιόσια",
+              "name": "Προαστιακός A2: Άνω Λιόσια → Αεροδρόμιο",
+              "name:ca": "Rodalies A2: Ano Liosia → Aeroport",
+              "name:el": "Προαστιακός A2: Άνω Λιόσια → Αεροδρόμιο",
+              "name:en": "Train A2: Ano Liosia → Airport",
+              "name:fr": "Train A2: Ano Liosia → Aéroport",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A2",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2017-07-30",
+              "to": "Αεροδρόμιο",
+              "type": "route",
+              "via": "Μεταμόρφωση",
+              "wikidata": "Q17853551",
+              "wikipedia": "el:Γραμμή 4 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7100051,
+          38.0707953
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/5777457454",
+        "alt_name": "Διεθνής Αερολιμένας Αθηνών",
+        "int_name": "Athens Airport (AIA)",
+        "name": "Αεροδρόμιο",
+        "name:en": "Airport",
+        "name:ru": "Аэропорт",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "source:alt_name:en": "sign",
+        "train": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop_exit_only",
+            "rel": "8467443",
+            "reltags": {
+              "colour": "#9B26B6",
+              "from": "Άνω Λιόσια",
+              "name": "Προαστιακός A2: Άνω Λιόσια → Αεροδρόμιο",
+              "name:ca": "Rodalies A2: Ano Liosia → Aeroport",
+              "name:el": "Προαστιακός A2: Άνω Λιόσια → Αεροδρόμιο",
+              "name:en": "Train A2: Ano Liosia → Airport",
+              "name:fr": "Train A2: Ano Liosia → Aéroport",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A2",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2017-07-30",
+              "to": "Αεροδρόμιο",
+              "type": "route",
+              "via": "Μεταμόρφωση",
+              "wikidata": "Q17853551",
+              "wikipedia": "el:Γραμμή 4 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.944847,
+          37.9368156
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7792675962",
+        "noexit": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7705978,
+          38.0574638
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7792675963",
+        "noexit": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7721202,
+          38.0568127
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/10700888533",
+        "description": "Ο σταθμός του μετρό της Παλλήνης είναι κατασκευασμένος επί της Λεωφόρου Μαραθώνος στο μεσαίο διάζωμα της Αττικής Οδου. Εξυπηρετεί τις ευρήτερες περιοχές της Παλλήνης, του Γέρακα και της Ανθούσας.",
+        "int_name": "Pallini",
+        "name": "Παλλήνη",
+        "name:en": "Pallini",
+        "name:ru": "Паллини",
+        "network": "Γραμμή 3 Μετρό Αθήνας",
+        "operator": "ΣΤΑΣΥ",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "24 προς Αεροδρόμιο",
+        "subway": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.86995,
+          38.0045807
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/10700888561",
+        "noexit": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8697961,
+          37.9835533
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/10700888563",
+        "int_name": "Koropi",
+        "name": "Κορωπί",
+        "name:en": "Koropi",
+        "name:ru": "Коропи",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "1",
+        "train": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467443",
+            "reltags": {
+              "colour": "#9B26B6",
+              "from": "Άνω Λιόσια",
+              "name": "Προαστιακός A2: Άνω Λιόσια → Αεροδρόμιο",
+              "name:ca": "Rodalies A2: Ano Liosia → Aeroport",
+              "name:el": "Προαστιακός A2: Άνω Λιόσια → Αεροδρόμιο",
+              "name:en": "Train A2: Ano Liosia → Airport",
+              "name:fr": "Train A2: Ano Liosia → Aéroport",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A2",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2017-07-30",
+              "to": "Αεροδρόμιο",
+              "type": "route",
+              "via": "Μεταμόρφωση",
+              "wikidata": "Q17853551",
+              "wikipedia": "el:Γραμμή 4 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8955043,
+          37.913305
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/10700888565",
+        "int_name": "Koropi",
+        "name": "Κορωπί",
+        "name:el": "Κορωπί",
+        "name:en": "Koropi",
+        "name:fr": "Koropi",
+        "name:ru": "Коропи",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Αεροδρόμιο",
+        "subway": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8960768,
+          37.912537
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/10993208508",
+        "bus": "yes",
+        "name": "ΣΚΑ-ΑΧΑΡΝΑΙ",
+        "name:el": "ΣΚΑ-ΑΧΑΡΝΑΙ",
+        "name:en": "SKA-ACHARNAI",
+        "network": "ΟΣΥ",
+        "operator": "ΟΑΣΑ",
+        "public_transport": "stop_position",
+        "ref": "130465"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7389294,
+          38.0652973
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Line",
+        "name": "Προαστιακός A2: Άνω Λιόσια → Αεροδρόμιο",
+        "ref": "A2",
+        "colour": "#9B26B6",
+        "network": "Προαστιακός Αθήνας",
+        "operator": "Hellenic Train",
+        "from": "Άνω Λιόσια",
+        "to": "Αεροδρόμιο",
+        "route": "train"
+      },
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              23.7100051,
+              38.0707953
+            ],
+            [
+              23.710994,
+              38.0706689
+            ],
+            [
+              23.7123423,
+              38.0704962
+            ],
+            [
+              23.7126754,
+              38.0704654
+            ],
+            [
+              23.7131946,
+              38.0704251
+            ],
+            [
+              23.7134694,
+              38.0703972
+            ],
+            [
+              23.7138368,
+              38.0703493
+            ],
+            [
+              23.7176065,
+              38.0698672
+            ],
+            [
+              23.7181942,
+              38.069782
+            ],
+            [
+              23.7187801,
+              38.0696859
+            ],
+            [
+              23.7191884,
+              38.069612
+            ],
+            [
+              23.7194655,
+              38.0695674
+            ],
+            [
+              23.7201378,
+              38.0694276
+            ],
+            [
+              23.7206837,
+              38.0693126
+            ],
+            [
+              23.7209156,
+              38.0692679
+            ],
+            [
+              23.7210677,
+              38.0692448
+            ],
+            [
+              23.7212345,
+              38.0692262
+            ],
+            [
+              23.7214436,
+              38.069193
+            ],
+            [
+              23.7225698,
+              38.0689626
+            ],
+            [
+              23.722763,
+              38.0689296
+            ],
+            [
+              23.7229164,
+              38.0689102
+            ],
+            [
+              23.7231066,
+              38.0688842
+            ],
+            [
+              23.7233298,
+              38.0688484
+            ],
+            [
+              23.723796,
+              38.0687538
+            ],
+            [
+              23.7240402,
+              38.0687065
+            ],
+            [
+              23.7243567,
+              38.0686475
+            ],
+            [
+              23.7249947,
+              38.0685403
+            ],
+            [
+              23.7254633,
+              38.0684573
+            ],
+            [
+              23.7259872,
+              38.0683578
+            ],
+            [
+              23.7271149,
+              38.0680782
+            ],
+            [
+              23.7287992,
+              38.0676616
+            ],
+            [
+              23.7328768,
+              38.0668183
+            ],
+            [
+              23.7332424,
+              38.0667371
+            ],
+            [
+              23.7345649,
+              38.0664341
+            ],
+            [
+              23.7353346,
+              38.066244
+            ],
+            [
+              23.7359138,
+              38.0661038
+            ],
+            [
+              23.7376508,
+              38.0656438
+            ],
+            [
+              23.7382599,
+              38.065477
+            ],
+            [
+              23.7389294,
+              38.0652973
+            ],
+            [
+              23.7400982,
+              38.0649826
+            ],
+            [
+              23.7403698,
+              38.0649014
+            ],
+            [
+              23.7411592,
+              38.0646682
+            ],
+            [
+              23.7416388,
+              38.064534
+            ],
+            [
+              23.7421001,
+              38.0643845
+            ],
+            [
+              23.7430487,
+              38.0640769
+            ],
+            [
+              23.744017,
+              38.0637616
+            ],
+            [
+              23.7449088,
+              38.0634691
+            ],
+            [
+              23.7459301,
+              38.0631377
+            ],
+            [
+              23.7483591,
+              38.0623441
+            ],
+            [
+              23.7491625,
+              38.0620816
+            ],
+            [
+              23.7500523,
+              38.0617929
+            ],
+            [
+              23.7508892,
+              38.0615193
+            ],
+            [
+              23.7520698,
+              38.0611387
+            ],
+            [
+              23.753038,
+              38.0608188
+            ],
+            [
+              23.7536129,
+              38.0606369
+            ],
+            [
+              23.7541094,
+              38.0604775
+            ],
+            [
+              23.7545714,
+              38.0603469
+            ],
+            [
+              23.7548943,
+              38.0602661
+            ],
+            [
+              23.7553626,
+              38.0601753
+            ],
+            [
+              23.7556257,
+              38.0601324
+            ],
+            [
+              23.7558655,
+              38.0601027
+            ],
+            [
+              23.7562064,
+              38.0600674
+            ],
+            [
+              23.7565314,
+              38.0600417
+            ],
+            [
+              23.7585196,
+              38.0599773
+            ],
+            [
+              23.7606553,
+              38.0599256
+            ],
+            [
+              23.7616264,
+              38.0598949
+            ],
+            [
+              23.7621563,
+              38.0598739
+            ],
+            [
+              23.7626532,
+              38.0598525
+            ],
+            [
+              23.7630638,
+              38.0598157
+            ],
+            [
+              23.7634239,
+              38.0597814
+            ],
+            [
+              23.763792,
+              38.0597391
+            ],
+            [
+              23.7641313,
+              38.0596923
+            ],
+            [
+              23.7644367,
+              38.0596328
+            ],
+            [
+              23.7647112,
+              38.0595834
+            ],
+            [
+              23.7650063,
+              38.059514
+            ],
+            [
+              23.7652884,
+              38.059452
+            ],
+            [
+              23.7655843,
+              38.059373
+            ],
+            [
+              23.7658745,
+              38.0592948
+            ],
+            [
+              23.7661701,
+              38.0592059
+            ],
+            [
+              23.7664895,
+              38.059099
+            ],
+            [
+              23.7668177,
+              38.0589823
+            ],
+            [
+              23.7671298,
+              38.058861
+            ],
+            [
+              23.7675995,
+              38.0586727
+            ],
+            [
+              23.7684059,
+              38.058359
+            ],
+            [
+              23.7692285,
+              38.058023
+            ],
+            [
+              23.7702129,
+              38.0576206
+            ],
+            [
+              23.7705902,
+              38.057452
+            ],
+            [
+              23.7721113,
+              38.0568003
+            ],
+            [
+              23.7723317,
+              38.0567053
+            ],
+            [
+              23.7728713,
+              38.0564691
+            ],
+            [
+              23.7735089,
+              38.0561782
+            ],
+            [
+              23.7739148,
+              38.0559899
+            ],
+            [
+              23.7743128,
+              38.055801
+            ],
+            [
+              23.7747878,
+              38.0555573
+            ],
+            [
+              23.7751058,
+              38.0553923
+            ],
+            [
+              23.775553,
+              38.0551484
+            ],
+            [
+              23.7762154,
+              38.0547357
+            ],
+            [
+              23.7770751,
+              38.0542366
+            ],
+            [
+              23.7778668,
+              38.0537514
+            ],
+            [
+              23.7785802,
+              38.0532962
+            ],
+            [
+              23.7791755,
+              38.0529445
+            ],
+            [
+              23.779735,
+              38.052588
+            ],
+            [
+              23.7804264,
+              38.0521421
+            ],
+            [
+              23.7809387,
+              38.0518097
+            ],
+            [
+              23.7814286,
+              38.051496
+            ],
+            [
+              23.7818403,
+              38.051232
+            ],
+            [
+              23.7822976,
+              38.0509392
+            ],
+            [
+              23.7827304,
+              38.0506653
+            ],
+            [
+              23.7833734,
+              38.0502504
+            ],
+            [
+              23.7839914,
+              38.049855
+            ],
+            [
+              23.7846663,
+              38.0494207
+            ],
+            [
+              23.7852599,
+              38.0490394
+            ],
+            [
+              23.785827,
+              38.0486752
+            ],
+            [
+              23.7865946,
+              38.0481822
+            ],
+            [
+              23.7873772,
+              38.0476795
+            ],
+            [
+              23.7880713,
+              38.0472334
+            ],
+            [
+              23.7886325,
+              38.0468747
+            ],
+            [
+              23.7890606,
+              38.046614
+            ],
+            [
+              23.7894094,
+              38.0464111
+            ],
+            [
+              23.7897222,
+              38.0462473
+            ],
+            [
+              23.7900282,
+              38.0461011
+            ],
+            [
+              23.7904032,
+              38.0459344
+            ],
+            [
+              23.7907344,
+              38.0458006
+            ],
+            [
+              23.7909696,
+              38.0457093
+            ],
+            [
+              23.791379,
+              38.0455737
+            ],
+            [
+              23.7917913,
+              38.0454438
+            ],
+            [
+              23.7922065,
+              38.0453195
+            ],
+            [
+              23.7941064,
+              38.0447682
+            ],
+            [
+              23.795441,
+              38.0443881
+            ],
+            [
+              23.7965341,
+              38.0440936
+            ],
+            [
+              23.7974986,
+              38.0438154
+            ],
+            [
+              23.7983171,
+              38.0435806
+            ],
+            [
+              23.7997743,
+              38.04316
+            ],
+            [
+              23.8005299,
+              38.0429425
+            ],
+            [
+              23.8019042,
+              38.0425486
+            ],
+            [
+              23.8029409,
+              38.0422479
+            ],
+            [
+              23.8040729,
+              38.041921
+            ],
+            [
+              23.8058286,
+              38.0414318
+            ],
+            [
+              23.8066722,
+              38.0411738
+            ],
+            [
+              23.8073189,
+              38.0409787
+            ],
+            [
+              23.8078817,
+              38.0407989
+            ],
+            [
+              23.8100539,
+              38.0401184
+            ],
+            [
+              23.811379,
+              38.0397007
+            ],
+            [
+              23.8120714,
+              38.0394759
+            ],
+            [
+              23.8131933,
+              38.0391214
+            ],
+            [
+              23.8136323,
+              38.0389761
+            ],
+            [
+              23.814239,
+              38.0387737
+            ],
+            [
+              23.8144541,
+              38.0386906
+            ],
+            [
+              23.8148449,
+              38.0385389
+            ],
+            [
+              23.8152304,
+              38.0383786
+            ],
+            [
+              23.8156748,
+              38.0381793
+            ],
+            [
+              23.8161567,
+              38.0379383
+            ],
+            [
+              23.8166205,
+              38.0376913
+            ],
+            [
+              23.8170413,
+              38.0374442
+            ],
+            [
+              23.8174018,
+              38.0372182
+            ],
+            [
+              23.8177845,
+              38.0369659
+            ],
+            [
+              23.8181379,
+              38.0367141
+            ],
+            [
+              23.8184255,
+              38.0364945
+            ],
+            [
+              23.8187813,
+              38.0362109
+            ],
+            [
+              23.8191294,
+              38.0359226
+            ],
+            [
+              23.8194196,
+              38.0356781
+            ],
+            [
+              23.819886,
+              38.0352739
+            ],
+            [
+              23.820195,
+              38.0349927
+            ],
+            [
+              23.8204789,
+              38.0347486
+            ],
+            [
+              23.8207805,
+              38.0344816
+            ],
+            [
+              23.821197,
+              38.0341129
+            ],
+            [
+              23.8214469,
+              38.0338905
+            ],
+            [
+              23.8216361,
+              38.033719
+            ],
+            [
+              23.8223536,
+              38.0330898
+            ],
+            [
+              23.8225838,
+              38.0328796
+            ],
+            [
+              23.8227079,
+              38.032773
+            ],
+            [
+              23.8231134,
+              38.0324112
+            ],
+            [
+              23.8246989,
+              38.031017
+            ],
+            [
+              23.8264252,
+              38.0294956
+            ],
+            [
+              23.8274345,
+              38.0285724
+            ],
+            [
+              23.8280972,
+              38.0280087
+            ],
+            [
+              23.829056,
+              38.027277
+            ],
+            [
+              23.8299943,
+              38.0266313
+            ],
+            [
+              23.8304448,
+              38.0263569
+            ],
+            [
+              23.8310057,
+              38.0260308
+            ],
+            [
+              23.8315765,
+              38.0257273
+            ],
+            [
+              23.832101,
+              38.0254653
+            ],
+            [
+              23.8325308,
+              38.0252698
+            ],
+            [
+              23.8329721,
+              38.0250719
+            ],
+            [
+              23.8334152,
+              38.0248829
+            ],
+            [
+              23.8338693,
+              38.0247026
+            ],
+            [
+              23.8344408,
+              38.0244968
+            ],
+            [
+              23.8350606,
+              38.0242929
+            ],
+            [
+              23.8357509,
+              38.0240907
+            ],
+            [
+              23.8362118,
+              38.023963
+            ],
+            [
+              23.8366501,
+              38.0238539
+            ],
+            [
+              23.8371001,
+              38.02375
+            ],
+            [
+              23.8375244,
+              38.0236574
+            ],
+            [
+              23.8381424,
+              38.0235253
+            ],
+            [
+              23.838863,
+              38.0233654
+            ],
+            [
+              23.83965,
+              38.0231889
+            ],
+            [
+              23.8402161,
+              38.0230672
+            ],
+            [
+              23.8405429,
+              38.0230073
+            ],
+            [
+              23.8408998,
+              38.022946
+            ],
+            [
+              23.8410181,
+              38.0229313
+            ],
+            [
+              23.8450061,
+              38.0223821
+            ],
+            [
+              23.847313,
+              38.022052
+            ],
+            [
+              23.8477447,
+              38.021997
+            ],
+            [
+              23.8481525,
+              38.0219574
+            ],
+            [
+              23.8485551,
+              38.0219252
+            ],
+            [
+              23.8492714,
+              38.0218765
+            ],
+            [
+              23.849697,
+              38.0218513
+            ],
+            [
+              23.8501081,
+              38.0218129
+            ],
+            [
+              23.8505575,
+              38.0217577
+            ],
+            [
+              23.8529317,
+              38.0214297
+            ],
+            [
+              23.8538435,
+              38.021303
+            ],
+            [
+              23.8550456,
+              38.0211381
+            ],
+            [
+              23.8560327,
+              38.0210057
+            ],
+            [
+              23.8571474,
+              38.0208481
+            ],
+            [
+              23.8575956,
+              38.0207791
+            ],
+            [
+              23.858055,
+              38.0207017
+            ],
+            [
+              23.8584574,
+              38.0206238
+            ],
+            [
+              23.8587629,
+              38.0205605
+            ],
+            [
+              23.8591152,
+              38.0204801
+            ],
+            [
+              23.8594828,
+              38.0203829
+            ],
+            [
+              23.8598179,
+              38.0202877
+            ],
+            [
+              23.8601518,
+              38.0201876
+            ],
+            [
+              23.8604963,
+              38.0200722
+            ],
+            [
+              23.8608827,
+              38.0199297
+            ],
+            [
+              23.8611984,
+              38.0198054
+            ],
+            [
+              23.8615594,
+              38.0196514
+            ],
+            [
+              23.8619461,
+              38.019473
+            ],
+            [
+              23.8622932,
+              38.0193021
+            ],
+            [
+              23.8626805,
+              38.0190935
+            ],
+            [
+              23.8630245,
+              38.0188948
+            ],
+            [
+              23.8633951,
+              38.018662
+            ],
+            [
+              23.8637053,
+              38.0184559
+            ],
+            [
+              23.8640573,
+              38.0182051
+            ],
+            [
+              23.8643632,
+              38.0179678
+            ],
+            [
+              23.8646104,
+              38.0177705
+            ],
+            [
+              23.8649443,
+              38.017477
+            ],
+            [
+              23.8651962,
+              38.017239
+            ],
+            [
+              23.865417,
+              38.0170221
+            ],
+            [
+              23.8656087,
+              38.0168155
+            ],
+            [
+              23.8658486,
+              38.0165502
+            ],
+            [
+              23.8660539,
+              38.0163051
+            ],
+            [
+              23.8662195,
+              38.0160972
+            ],
+            [
+              23.8664253,
+              38.0158137
+            ],
+            [
+              23.8667179,
+              38.0153792
+            ],
+            [
+              23.8669339,
+              38.015019
+            ],
+            [
+              23.8671207,
+              38.0146744
+            ],
+            [
+              23.8672795,
+              38.0143527
+            ],
+            [
+              23.8673615,
+              38.0141684
+            ],
+            [
+              23.8674636,
+              38.013928
+            ],
+            [
+              23.8675319,
+              38.0137487
+            ],
+            [
+              23.8676211,
+              38.0134969
+            ],
+            [
+              23.8676937,
+              38.01328
+            ],
+            [
+              23.8677687,
+              38.0130197
+            ],
+            [
+              23.8678428,
+              38.0127353
+            ],
+            [
+              23.8679055,
+              38.0124662
+            ],
+            [
+              23.8679538,
+              38.0122326
+            ],
+            [
+              23.8679986,
+              38.0120089
+            ],
+            [
+              23.8680424,
+              38.0117544
+            ],
+            [
+              23.8681175,
+              38.0113325
+            ],
+            [
+              23.8681916,
+              38.0108874
+            ],
+            [
+              23.8683061,
+              38.0102023
+            ],
+            [
+              23.8683976,
+              38.0096526
+            ],
+            [
+              23.8684877,
+              38.0091273
+            ],
+            [
+              23.868539,
+              38.0088553
+            ],
+            [
+              23.8685869,
+              38.0086313
+            ],
+            [
+              23.868653,
+              38.0083373
+            ],
+            [
+              23.8687328,
+              38.0080425
+            ],
+            [
+              23.8688329,
+              38.0077062
+            ],
+            [
+              23.8689602,
+              38.0073123
+            ],
+            [
+              23.8690974,
+              38.0069391
+            ],
+            [
+              23.8693131,
+              38.0063584
+            ],
+            [
+              23.8694733,
+              38.0059384
+            ],
+            [
+              23.8696405,
+              38.0054925
+            ],
+            [
+              23.8697977,
+              38.0050389
+            ],
+            [
+              23.8698934,
+              38.0047575
+            ],
+            [
+              23.86995,
+              38.0045807
+            ],
+            [
+              23.8700086,
+              38.0043989
+            ],
+            [
+              23.8700648,
+              38.0042071
+            ],
+            [
+              23.870117,
+              38.0040289
+            ],
+            [
+              23.8702122,
+              38.0036864
+            ],
+            [
+              23.8702805,
+              38.0034336
+            ],
+            [
+              23.8703555,
+              38.0031694
+            ],
+            [
+              23.8706019,
+              38.0022656
+            ],
+            [
+              23.870752,
+              38.0017323
+            ],
+            [
+              23.8709308,
+              38.0011196
+            ],
+            [
+              23.871171,
+              38.0003202
+            ],
+            [
+              23.8714222,
+              37.9994609
+            ],
+            [
+              23.8717448,
+              37.9983763
+            ],
+            [
+              23.8719981,
+              37.9975104
+            ],
+            [
+              23.8722806,
+              37.9965459
+            ],
+            [
+              23.8723763,
+              37.996207
+            ],
+            [
+              23.872445,
+              37.9959626
+            ],
+            [
+              23.8725003,
+              37.9957374
+            ],
+            [
+              23.8725577,
+              37.9954614
+            ],
+            [
+              23.872597,
+              37.9952228
+            ],
+            [
+              23.8726384,
+              37.9949614
+            ],
+            [
+              23.8726607,
+              37.9947581
+            ],
+            [
+              23.8726725,
+              37.9945109
+            ],
+            [
+              23.8726785,
+              37.9942524
+            ],
+            [
+              23.8726824,
+              37.9940835
+            ],
+            [
+              23.8726745,
+              37.9938079
+            ],
+            [
+              23.8726538,
+              37.9934667
+            ],
+            [
+              23.8726124,
+              37.9930906
+            ],
+            [
+              23.8725418,
+              37.9926065
+            ],
+            [
+              23.8724561,
+              37.9922322
+            ],
+            [
+              23.8723713,
+              37.9918793
+            ],
+            [
+              23.8721882,
+              37.9912813
+            ],
+            [
+              23.8719434,
+              37.9905286
+            ],
+            [
+              23.8717656,
+              37.9899971
+            ],
+            [
+              23.8716858,
+              37.9897742
+            ],
+            [
+              23.8713208,
+              37.9886714
+            ],
+            [
+              23.8711134,
+              37.9880478
+            ],
+            [
+              23.8709551,
+              37.9875766
+            ],
+            [
+              23.8707805,
+              37.9870575
+            ],
+            [
+              23.870653,
+              37.9866787
+            ],
+            [
+              23.8705717,
+              37.9864378
+            ],
+            [
+              23.870405,
+              37.985942
+            ],
+            [
+              23.8702401,
+              37.9854329
+            ],
+            [
+              23.8700731,
+              37.9849428
+            ],
+            [
+              23.8699876,
+              37.9846752
+            ],
+            [
+              23.8699174,
+              37.9843951
+            ],
+            [
+              23.8698617,
+              37.984167
+            ],
+            [
+              23.8698255,
+              37.9839819
+            ],
+            [
+              23.8697999,
+              37.9838272
+            ],
+            [
+              23.869766,
+              37.9835002
+            ],
+            [
+              23.8697418,
+              37.9832049
+            ],
+            [
+              23.8697375,
+              37.982896
+            ],
+            [
+              23.8697477,
+              37.9825943
+            ],
+            [
+              23.8697689,
+              37.9823278
+            ],
+            [
+              23.8698017,
+              37.9820477
+            ],
+            [
+              23.8698476,
+              37.9817646
+            ],
+            [
+              23.8699072,
+              37.9814785
+            ],
+            [
+              23.8699772,
+              37.9812156
+            ],
+            [
+              23.8700637,
+              37.9809412
+            ],
+            [
+              23.870174,
+              37.9806318
+            ],
+            [
+              23.8702827,
+              37.9803749
+            ],
+            [
+              23.8704013,
+              37.9801224
+            ],
+            [
+              23.8705371,
+              37.9798681
+            ],
+            [
+              23.8706886,
+              37.9795958
+            ],
+            [
+              23.8708481,
+              37.979348
+            ],
+            [
+              23.871029,
+              37.9790827
+            ],
+            [
+              23.8712151,
+              37.978842
+            ],
+            [
+              23.8714128,
+              37.9786
+            ],
+            [
+              23.8716068,
+              37.9783786
+            ],
+            [
+              23.8719169,
+              37.9780601
+            ],
+            [
+              23.8723139,
+              37.9776755
+            ],
+            [
+              23.8730495,
+              37.9769661
+            ],
+            [
+              23.8739891,
+              37.976062
+            ],
+            [
+              23.87449,
+              37.9755948
+            ],
+            [
+              23.8755516,
+              37.9745755
+            ],
+            [
+              23.8770199,
+              37.9731661
+            ],
+            [
+              23.8791817,
+              37.9710907
+            ],
+            [
+              23.8800144,
+              37.9702913
+            ],
+            [
+              23.8811799,
+              37.9691717
+            ],
+            [
+              23.881629,
+              37.9687455
+            ],
+            [
+              23.8820393,
+              37.9683276
+            ],
+            [
+              23.8824285,
+              37.9679139
+            ],
+            [
+              23.8828075,
+              37.9674836
+            ],
+            [
+              23.8831674,
+              37.9670375
+            ],
+            [
+              23.8834865,
+              37.966628
+            ],
+            [
+              23.8837888,
+              37.9662018
+            ],
+            [
+              23.884052,
+              37.9658061
+            ],
+            [
+              23.884301,
+              37.9654129
+            ],
+            [
+              23.8845377,
+              37.9650047
+            ],
+            [
+              23.8847566,
+              37.964596
+            ],
+            [
+              23.8849781,
+              37.9641473
+            ],
+            [
+              23.8851891,
+              37.9636859
+            ],
+            [
+              23.8853772,
+              37.9632206
+            ],
+            [
+              23.8855625,
+              37.9627178
+            ],
+            [
+              23.8857301,
+              37.9622068
+            ],
+            [
+              23.8858044,
+              37.9619135
+            ],
+            [
+              23.8859036,
+              37.9615373
+            ],
+            [
+              23.885971,
+              37.961234
+            ],
+            [
+              23.8860316,
+              37.9609453
+            ],
+            [
+              23.8860846,
+              37.9606732
+            ],
+            [
+              23.8861314,
+              37.9603829
+            ],
+            [
+              23.8861844,
+              37.9599868
+            ],
+            [
+              23.8862233,
+              37.9595709
+            ],
+            [
+              23.8862562,
+              37.9590523
+            ],
+            [
+              23.8862655,
+              37.9580989
+            ],
+            [
+              23.8862474,
+              37.935645
+            ],
+            [
+              23.8862808,
+              37.9351017
+            ],
+            [
+              23.8863243,
+              37.9345605
+            ],
+            [
+              23.8863769,
+              37.9339901
+            ],
+            [
+              23.8864178,
+              37.9335079
+            ],
+            [
+              23.8864777,
+              37.9329349
+            ],
+            [
+              23.8865565,
+              37.9323681
+            ],
+            [
+              23.8866487,
+              37.9318086
+            ],
+            [
+              23.8867423,
+              37.9312335
+            ],
+            [
+              23.8868549,
+              37.9306832
+            ],
+            [
+              23.8869841,
+              37.930119
+            ],
+            [
+              23.8871149,
+              37.9295671
+            ],
+            [
+              23.8872595,
+              37.9290015
+            ],
+            [
+              23.8874205,
+              37.9284582
+            ],
+            [
+              23.8875969,
+              37.9279104
+            ],
+            [
+              23.8877578,
+              37.9274244
+            ],
+            [
+              23.8879284,
+              37.9269601
+            ],
+            [
+              23.8880908,
+              37.9265245
+            ],
+            [
+              23.8882967,
+              37.9259961
+            ],
+            [
+              23.8885245,
+              37.9254522
+            ],
+            [
+              23.8887638,
+              37.9249131
+            ],
+            [
+              23.8890146,
+              37.9243846
+            ],
+            [
+              23.889252,
+              37.923911
+            ],
+            [
+              23.8895121,
+              37.9234044
+            ],
+            [
+              23.8897734,
+              37.9229248
+            ],
+            [
+              23.8900508,
+              37.9224426
+            ],
+            [
+              23.8935875,
+              37.9165023
+            ],
+            [
+              23.894372,
+              37.9151963
+            ],
+            [
+              23.8948442,
+              37.9144022
+            ],
+            [
+              23.8950628,
+              37.9140236
+            ],
+            [
+              23.8952882,
+              37.9136404
+            ],
+            [
+              23.8954314,
+              37.9134141
+            ],
+            [
+              23.8955043,
+              37.913305
+            ],
+            [
+              23.8955662,
+              37.9132123
+            ],
+            [
+              23.8957276,
+              37.9129838
+            ],
+            [
+              23.8959674,
+              37.9126711
+            ],
+            [
+              23.8960768,
+              37.912537
+            ],
+            [
+              23.8964421,
+              37.9120896
+            ],
+            [
+              23.8967667,
+              37.9117094
+            ],
+            [
+              23.8975515,
+              37.9107732
+            ],
+            [
+              23.8980798,
+              37.9100613
+            ],
+            [
+              23.8982993,
+              37.9098101
+            ],
+            [
+              23.8984757,
+              37.9096218
+            ],
+            [
+              23.898638,
+              37.9094639
+            ],
+            [
+              23.8987814,
+              37.9093382
+            ],
+            [
+              23.8989367,
+              37.9092169
+            ],
+            [
+              23.8991254,
+              37.9090807
+            ],
+            [
+              23.8992994,
+              37.9089771
+            ],
+            [
+              23.8995006,
+              37.9088771
+            ],
+            [
+              23.8997297,
+              37.9087765
+            ],
+            [
+              23.8999398,
+              37.9086963
+            ],
+            [
+              23.9001905,
+              37.9086168
+            ],
+            [
+              23.900435,
+              37.908555
+            ],
+            [
+              23.9006592,
+              37.9085107
+            ],
+            [
+              23.9008912,
+              37.908478
+            ],
+            [
+              23.9011049,
+              37.9084577
+            ],
+            [
+              23.9013107,
+              37.9084461
+            ],
+            [
+              23.9015148,
+              37.9084463
+            ],
+            [
+              23.9017282,
+              37.9084554
+            ],
+            [
+              23.9020159,
+              37.9084766
+            ],
+            [
+              23.9022747,
+              37.9085188
+            ],
+            [
+              23.9025165,
+              37.9085739
+            ],
+            [
+              23.9027619,
+              37.9086428
+            ],
+            [
+              23.9029919,
+              37.9087111
+            ],
+            [
+              23.9034605,
+              37.9088844
+            ],
+            [
+              23.9043844,
+              37.9092625
+            ],
+            [
+              23.9049324,
+              37.909488
+            ],
+            [
+              23.9052489,
+              37.9096319
+            ],
+            [
+              23.90568,
+              37.9098365
+            ],
+            [
+              23.9060631,
+              37.9100227
+            ],
+            [
+              23.9065057,
+              37.9102356
+            ],
+            [
+              23.9069617,
+              37.9104552
+            ],
+            [
+              23.9076572,
+              37.910791
+            ],
+            [
+              23.9082403,
+              37.911074
+            ],
+            [
+              23.9091617,
+              37.9115189
+            ],
+            [
+              23.9094713,
+              37.9116662
+            ],
+            [
+              23.9098592,
+              37.9118465
+            ],
+            [
+              23.9101296,
+              37.9119688
+            ],
+            [
+              23.9104363,
+              37.9121023
+            ],
+            [
+              23.9106509,
+              37.9121879
+            ],
+            [
+              23.9108193,
+              37.912257
+            ],
+            [
+              23.91099,
+              37.9123242
+            ],
+            [
+              23.9111998,
+              37.9124022
+            ],
+            [
+              23.9114006,
+              37.9124759
+            ],
+            [
+              23.9116207,
+              37.9125532
+            ],
+            [
+              23.9118489,
+              37.9126278
+            ],
+            [
+              23.9120911,
+              37.912709
+            ],
+            [
+              23.9123289,
+              37.912782
+            ],
+            [
+              23.9125433,
+              37.9128455
+            ],
+            [
+              23.9127605,
+              37.912908
+            ],
+            [
+              23.9129974,
+              37.9129712
+            ],
+            [
+              23.9132471,
+              37.9130372
+            ],
+            [
+              23.9134686,
+              37.9130917
+            ],
+            [
+              23.913657,
+              37.9131357
+            ],
+            [
+              23.9139307,
+              37.9131977
+            ],
+            [
+              23.9142843,
+              37.9132743
+            ],
+            [
+              23.9146156,
+              37.9133424
+            ],
+            [
+              23.9150626,
+              37.9134302
+            ],
+            [
+              23.9160896,
+              37.9136365
+            ],
+            [
+              23.9178725,
+              37.9139896
+            ],
+            [
+              23.9189097,
+              37.9141934
+            ],
+            [
+              23.9199355,
+              37.9144009
+            ],
+            [
+              23.920517,
+              37.9145252
+            ],
+            [
+              23.9209132,
+              37.9146242
+            ],
+            [
+              23.9212937,
+              37.9147252
+            ],
+            [
+              23.9215946,
+              37.9148134
+            ],
+            [
+              23.921903,
+              37.9149145
+            ],
+            [
+              23.9222271,
+              37.9150286
+            ],
+            [
+              23.922497,
+              37.9151316
+            ],
+            [
+              23.9227728,
+              37.9152429
+            ],
+            [
+              23.9230953,
+              37.9153816
+            ],
+            [
+              23.9233693,
+              37.9155112
+            ],
+            [
+              23.9236136,
+              37.9156322
+            ],
+            [
+              23.9238201,
+              37.9157421
+            ],
+            [
+              23.9240446,
+              37.9158638
+            ],
+            [
+              23.9242847,
+              37.9160028
+            ],
+            [
+              23.9245154,
+              37.9161455
+            ],
+            [
+              23.9247343,
+              37.9162872
+            ],
+            [
+              23.9249993,
+              37.9164667
+            ],
+            [
+              23.92525,
+              37.9166452
+            ],
+            [
+              23.925452,
+              37.9167984
+            ],
+            [
+              23.9257656,
+              37.9170521
+            ],
+            [
+              23.9260387,
+              37.9172887
+            ],
+            [
+              23.9262528,
+              37.917487
+            ],
+            [
+              23.9265558,
+              37.9177849
+            ],
+            [
+              23.9269357,
+              37.9181758
+            ],
+            [
+              23.9278639,
+              37.9191595
+            ],
+            [
+              23.9283932,
+              37.9197191
+            ],
+            [
+              23.9286192,
+              37.9199517
+            ],
+            [
+              23.9322498,
+              37.9237366
+            ],
+            [
+              23.9388616,
+              37.9306704
+            ],
+            [
+              23.9393832,
+              37.9312192
+            ],
+            [
+              23.9401255,
+              37.9320117
+            ],
+            [
+              23.9417922,
+              37.9337611
+            ],
+            [
+              23.9430589,
+              37.9350827
+            ],
+            [
+              23.9432817,
+              37.9352901
+            ],
+            [
+              23.9438653,
+              37.9357933
+            ],
+            [
+              23.9440745,
+              37.9360027
+            ],
+            [
+              23.944847,
+              37.9368156
+            ]
+          ],
+          [
+            [
+              23.7565231,
+              38.0600651
+            ],
+            [
+              23.7562143,
+              38.0600892
+            ],
+            [
+              23.7561055,
+              38.0601005
+            ],
+            [
+              23.7560827,
+              38.0601029
+            ],
+            [
+              23.7559606,
+              38.0601156
+            ],
+            [
+              23.75587,
+              38.060125
+            ],
+            [
+              23.7554741,
+              38.0601817
+            ],
+            [
+              23.7553682,
+              38.0601978
+            ],
+            [
+              23.755314,
+              38.0602073
+            ],
+            [
+              23.7549012,
+              38.0602864
+            ]
+          ],
+          [
+            [
+              23.7705978,
+              38.0574638
+            ],
+            [
+              23.7721202,
+              38.0568127
+            ]
+          ],
+          [
+            [
+              23.7909819,
+              38.0457308
+            ],
+            [
+              23.7913895,
+              38.0455931
+            ],
+            [
+              23.7918007,
+              38.0454623
+            ],
+            [
+              23.7922152,
+              38.0453381
+            ],
+            [
+              23.7941152,
+              38.0447869
+            ],
+            [
+              23.7954521,
+              38.0444119
+            ]
+          ],
+          [
+            [
+              23.8043691,
+              38.0418603
+            ],
+            [
+              23.8037822,
+              38.04203
+            ],
+            [
+              23.8032173,
+              38.0421934
+            ],
+            [
+              23.8026958,
+              38.0423442
+            ]
+          ],
+          [
+            [
+              23.8698142,
+              38.0050424
+            ],
+            [
+              23.8697108,
+              38.0053409
+            ],
+            [
+              23.869657,
+              38.0054962
+            ],
+            [
+              23.8695939,
+              38.0056642
+            ],
+            [
+              23.8694897,
+              38.0059422
+            ]
+          ],
+          [
+            [
+              23.8697961,
+              37.9835533
+            ],
+            [
+              23.8698198,
+              37.9837459
+            ],
+            [
+              23.8698297,
+              37.9838267
+            ],
+            [
+              23.8698934,
+              37.9841656
+            ],
+            [
+              23.8699642,
+              37.9844753
+            ]
+          ],
+          [
+            [
+              23.8953181,
+              37.9136505
+            ],
+            [
+              23.895464,
+              37.9134193
+            ],
+            [
+              23.8956283,
+              37.9131787
+            ],
+            [
+              23.8957571,
+              37.9129904
+            ]
+          ],
+          [
+            [
+              23.944051,
+              37.9360144
+            ],
+            [
+              23.9441769,
+              37.9361473
+            ],
+            [
+              23.9445251,
+              37.9365148
+            ],
+            [
+              23.9446539,
+              37.9366508
+            ],
+            [
+              23.9446676,
+              37.9366652
+            ],
+            [
+              23.9450282,
+              37.9370458
+            ],
+            [
+              23.9450753,
+              37.9370956
+            ],
+            [
+              23.9451748,
+              37.9372006
+            ],
+            [
+              23.9454925,
+              37.9375359
+            ],
+            [
+              23.9456663,
+              37.9377194
+            ]
+          ],
+          [
+            [
+              23.7090785,
+              38.0708952
+            ],
+            [
+              23.7094213,
+              38.0708497
+            ],
+            [
+              23.7107551,
+              38.0706728
+            ],
+            [
+              23.7107457,
+              38.0706121
+            ],
+            [
+              23.7094067,
+              38.0707837
+            ],
+            [
+              23.7090669,
+              38.0708272
+            ],
+            [
+              23.7090785,
+              38.0708952
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

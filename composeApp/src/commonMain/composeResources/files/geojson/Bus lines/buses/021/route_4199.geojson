@@ -1,0 +1,309 @@
+{
+  "type": "FeatureCollection",
+  "properties": {
+    "LineCode": "1575",
+    "LineID": "021",
+    "LineDescr": "ΠΛΑΤΕΙΑ ΚΑΝΙΓΓΟΣ - ΓΚΥΖH (ΕΩΣ ΓΚΥΖΗ)",
+    "RouteCode": "4199",
+    "RouteDescr": "ΠΛΑΤΕΙΑ ΚΑΝΙΓΓΟΣ - ΓΚΥΖH [ΕΩΣ ΓΚΥΖΗ]",
+    "RouteType": "1"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            23.73153,
+            37.98545
+          ],
+          [
+            23.73147,
+            37.98522
+          ],
+          [
+            23.73144,
+            37.98513
+          ],
+          [
+            23.73231,
+            37.98409
+          ],
+          [
+            23.73323,
+            37.98283
+          ],
+          [
+            23.73352,
+            37.98303
+          ],
+          [
+            23.73433,
+            37.98348
+          ],
+          [
+            23.73501,
+            37.98382
+          ],
+          [
+            23.73633,
+            37.9845
+          ],
+          [
+            23.738,
+            37.98537
+          ],
+          [
+            23.73947,
+            37.98613
+          ],
+          [
+            23.74093,
+            37.98688
+          ],
+          [
+            23.74236,
+            37.98759
+          ],
+          [
+            23.74324,
+            37.98807
+          ],
+          [
+            23.74464,
+            37.98878
+          ],
+          [
+            23.74531,
+            37.98917
+          ],
+          [
+            23.74566,
+            37.98938
+          ],
+          [
+            23.74584,
+            37.98955
+          ],
+          [
+            23.74594,
+            37.98998
+          ],
+          [
+            23.74607,
+            37.99047
+          ],
+          [
+            23.7462,
+            37.99102
+          ],
+          [
+            23.74784,
+            37.99072
+          ],
+          [
+            23.74829,
+            37.99062
+          ],
+          [
+            23.74874,
+            37.99202
+          ],
+          [
+            23.749,
+            37.99278
+          ],
+          [
+            23.74991,
+            37.99334
+          ]
+        ]
+      },
+      "properties": {
+        "type": "route_path",
+        "RouteCode": "4199"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.73113,
+          37.98566
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "10175",
+        "StopID": "18",
+        "StopDescr": "ΠΛ. ΚΑΝΙΓΓΟΣ",
+        "StopOrder": "1",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7349122,
+          37.9837048
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60010",
+        "StopID": "060010",
+        "StopDescr": "ΝΑΥΑΡΙΝΟΥ",
+        "StopOrder": "2",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7374186,
+          37.9849398
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60011",
+        "StopID": "060011",
+        "StopDescr": "ΑΡΑΧΩΒΗΣ",
+        "StopOrder": "3",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7392359,
+          37.985911
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60012",
+        "StopID": "060012",
+        "StopDescr": "ΚΑΛΛΙΔΡΟΜΙΟΥ",
+        "StopOrder": "4",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7411863,
+          37.9869527
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60013",
+        "StopID": "060013",
+        "StopDescr": "ΤΣΙΜΙΣΚΗ",
+        "StopOrder": "5",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7439909,
+          37.9884026
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60014",
+        "StopID": "060014",
+        "StopDescr": "ΛΑΣΚΑΡΕΩΣ",
+        "StopOrder": "6",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7465462,
+          37.9909293
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60017",
+        "StopID": "060017",
+        "StopDescr": "ΑΓ. ΕΛΕΥΘΕΡΙΟΣ",
+        "StopOrder": "7",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7479147,
+          37.9906755
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60018",
+        "StopID": "060018",
+        "StopDescr": "ΜΟΜΦΕΡΑΤΟΥ",
+        "StopOrder": "8",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7489433,
+          37.9924673
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60019",
+        "StopID": "060019",
+        "StopDescr": "ΣΚΑΛΑΚΙΑ",
+        "StopOrder": "9",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7493223,
+          37.9933216
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "10176",
+        "StopID": "19",
+        "StopDescr": "ΠΛ. ΓΚΥΖΗ",
+        "StopOrder": "10",
+        "StopType": "0"
+      }
+    }
+  ]
+}

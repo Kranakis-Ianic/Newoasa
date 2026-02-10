@@ -1,0 +1,599 @@
+{
+  "type": "FeatureCollection",
+  "properties": {
+    "LineCode": "1057",
+    "LineID": "651",
+    "LineDescr": "ΨΥΧΙΚΟ - ΠΑΝΟΡΜΟΥ Α (ΚΥΚΛΙΚΗ)",
+    "RouteCode": "4947",
+    "RouteDescr": "ΨΥΧΙΚΟ - ΠΑΝΟΡΜΟΥ Α",
+    "RouteType": "1"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            23.76423,
+            38.00596
+          ],
+          [
+            23.76466,
+            38.00605
+          ],
+          [
+            23.76568,
+            38.00575
+          ],
+          [
+            23.76657,
+            38.00471
+          ],
+          [
+            23.76633,
+            38.00389
+          ],
+          [
+            23.7661,
+            38.00232
+          ],
+          [
+            23.76603,
+            38.00208
+          ],
+          [
+            23.76525,
+            38.00114
+          ],
+          [
+            23.76246,
+            38.00103
+          ],
+          [
+            23.76214,
+            38.00106
+          ],
+          [
+            23.76127,
+            38.00147
+          ],
+          [
+            23.76129,
+            38.00035
+          ],
+          [
+            23.7629,
+            37.99946
+          ],
+          [
+            23.7634,
+            37.99881
+          ],
+          [
+            23.7637,
+            37.99754
+          ],
+          [
+            23.76332,
+            37.99719
+          ],
+          [
+            23.76389,
+            37.99715
+          ],
+          [
+            23.76484,
+            37.99694
+          ],
+          [
+            23.76767,
+            37.99509
+          ],
+          [
+            23.76767,
+            37.99498
+          ],
+          [
+            23.76731,
+            37.99427
+          ],
+          [
+            23.76677,
+            37.99317
+          ],
+          [
+            23.76648,
+            37.99316
+          ],
+          [
+            23.76554,
+            37.99326
+          ],
+          [
+            23.7646,
+            37.99332
+          ],
+          [
+            23.76366,
+            37.99326
+          ],
+          [
+            23.76289,
+            37.99314
+          ],
+          [
+            23.76177,
+            37.99445
+          ],
+          [
+            23.76328,
+            37.99707
+          ],
+          [
+            23.7638,
+            37.99719
+          ],
+          [
+            23.76343,
+            37.99884
+          ],
+          [
+            23.76291,
+            37.9995
+          ],
+          [
+            23.76133,
+            38.0004
+          ],
+          [
+            23.76131,
+            38.00095
+          ],
+          [
+            23.76208,
+            38.001
+          ],
+          [
+            23.76239,
+            38.00097
+          ],
+          [
+            23.76322,
+            38.00058
+          ],
+          [
+            23.76575,
+            38.00062
+          ],
+          [
+            23.76593,
+            38.00089
+          ],
+          [
+            23.76567,
+            38.00113
+          ],
+          [
+            23.76554,
+            38.00131
+          ],
+          [
+            23.76559,
+            38.0015
+          ],
+          [
+            23.76589,
+            38.00187
+          ],
+          [
+            23.76609,
+            38.00209
+          ],
+          [
+            23.76635,
+            38.00205
+          ],
+          [
+            23.76641,
+            38.00225
+          ],
+          [
+            23.76619,
+            38.00237
+          ],
+          [
+            23.76628,
+            38.00329
+          ],
+          [
+            23.76639,
+            38.00397
+          ],
+          [
+            23.76663,
+            38.00478
+          ],
+          [
+            23.76687,
+            38.00542
+          ],
+          [
+            23.76466,
+            38.00609
+          ],
+          [
+            23.76445,
+            38.00631
+          ],
+          [
+            23.76423,
+            38.00639
+          ],
+          [
+            23.76373,
+            38.00634
+          ],
+          [
+            23.76398,
+            38.00608
+          ],
+          [
+            23.7641,
+            38.00599
+          ],
+          [
+            23.76422,
+            38.00597
+          ]
+        ]
+      },
+      "properties": {
+        "type": "route_path",
+        "RouteCode": "4947"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7641905,
+          38.005957
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "10474",
+        "StopID": "000222",
+        "StopDescr": "ΨΥΧΙΚΟ",
+        "StopOrder": "1",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7663894,
+          38.0046937
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "770025",
+        "StopID": "770025",
+        "StopDescr": "ΝΕΑ ΑΓΟΡΑ",
+        "StopOrder": "2",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7661094,
+          38.003197
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "770026",
+        "StopID": "770026",
+        "StopDescr": "8η ΨΥΧΙΚΟΥ",
+        "StopOrder": "3",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7654889,
+          38.0015668
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "12148",
+        "StopID": "770047",
+        "StopDescr": "ΜΟΥΣΩΝ",
+        "StopOrder": "4",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7647261,
+          38.0012024
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60652",
+        "StopID": "060652",
+        "StopDescr": "7η ΨΥΧΙΚΟΥ",
+        "StopOrder": "5",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7616729,
+          38.0014306
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60653",
+        "StopID": "060653",
+        "StopDescr": "6η ΨΥΧΙΚΟΥ",
+        "StopOrder": "6",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7622254,
+          37.9996382
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60654",
+        "StopID": "060654",
+        "StopDescr": "5η ΨΥΧΙΚΟΥ",
+        "StopOrder": "7",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7633373,
+          37.9974323
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60655",
+        "StopID": "060655",
+        "StopDescr": "4η ΨΥΧΙΚΟΥ",
+        "StopOrder": "8",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7651053,
+          37.9965886
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60572",
+        "StopID": "060572",
+        "StopDescr": "ΒΟΥΡΗ",
+        "StopOrder": "9",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7673765,
+          37.995115
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60940",
+        "StopID": "060940",
+        "StopDescr": "ΓΗΡΟΚΟΜΕΙΟ",
+        "StopOrder": "10",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.763542,
+          37.9933086
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "61319",
+        "StopID": "061319",
+        "StopDescr": "ΣΤ. ΠΑΝΟΡΜΟΥ",
+        "StopOrder": "11",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.762057,
+          37.9948167
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60647",
+        "StopID": "060647",
+        "StopDescr": "3η ΨΥΧΙΚΟΥ",
+        "StopOrder": "12",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7633614,
+          37.9970177
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60648",
+        "StopID": "060648",
+        "StopDescr": "4η ΨΥΧΙΚΟΥ",
+        "StopOrder": "13",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.763309,
+          37.9991357
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60649",
+        "StopID": "060649",
+        "StopDescr": "5η ΨΥΧΙΚΟΥ",
+        "StopOrder": "14",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7615588,
+          38.0009292
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "61220",
+        "StopID": "061220",
+        "StopDescr": "ΚΟΙΜΗΣΗ ΘΕΟΤΟΚΟΥ",
+        "StopOrder": "15",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.765455,
+          38.0005647
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60651",
+        "StopID": "060651",
+        "StopDescr": "7η ΨΥΧΙΚΟΥ",
+        "StopOrder": "16",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7659335,
+          38.0019012
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "770022",
+        "StopID": "770022",
+        "StopDescr": "8η ΨΥΧΙΚΟΥ",
+        "StopOrder": "17",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7667881,
+          38.0046675
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "770023",
+        "StopID": "770023",
+        "StopDescr": "9η ΨΥΧΙΚΟΥ",
+        "StopOrder": "18",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7641905,
+          38.005957
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "10474",
+        "StopID": "000222",
+        "StopDescr": "ΨΥΧΙΚΟ",
+        "StopOrder": "19",
+        "StopType": "0"
+      }
+    }
+  ]
+}

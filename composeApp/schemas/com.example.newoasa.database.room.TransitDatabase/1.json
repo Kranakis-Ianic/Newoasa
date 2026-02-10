@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "9218aa05122bba69d58063030918459a",
+    "identityHash": "8aa01f76b10d109335ba35e0ddbaefd5",
     "entities": [
       {
         "tableName": "transit_lines",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `lineNumber` TEXT NOT NULL, `category` TEXT NOT NULL, `displayName` TEXT NOT NULL, `routeCount` INTEGER NOT NULL, `routeIds` TEXT NOT NULL, `color` TEXT NOT NULL, `isActive` INTEGER NOT NULL, `description` TEXT, `createdAt` INTEGER NOT NULL, `updatedAt` INTEGER NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `lineCode` TEXT NOT NULL, `lineName` TEXT NOT NULL, `category` TEXT NOT NULL, `transportType` TEXT NOT NULL, `color` TEXT NOT NULL, `routePaths` TEXT NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -15,8 +15,14 @@
             "notNull": true
           },
           {
-            "fieldPath": "lineNumber",
-            "columnName": "lineNumber",
+            "fieldPath": "lineCode",
+            "columnName": "lineCode",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lineName",
+            "columnName": "lineName",
             "affinity": "TEXT",
             "notNull": true
           },
@@ -27,20 +33,8 @@
             "notNull": true
           },
           {
-            "fieldPath": "displayName",
-            "columnName": "displayName",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "routeCount",
-            "columnName": "routeCount",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "routeIds",
-            "columnName": "routeIds",
+            "fieldPath": "transportType",
+            "columnName": "transportType",
             "affinity": "TEXT",
             "notNull": true
           },
@@ -51,26 +45,9 @@
             "notNull": true
           },
           {
-            "fieldPath": "isActive",
-            "columnName": "isActive",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "description",
-            "columnName": "description",
-            "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "createdAt",
-            "columnName": "createdAt",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "updatedAt",
-            "columnName": "updatedAt",
-            "affinity": "INTEGER",
+            "fieldPath": "routePaths",
+            "columnName": "routePaths",
+            "affinity": "TEXT",
             "notNull": true
           }
         ],
@@ -79,32 +56,11 @@
           "columnNames": [
             "id"
           ]
-        },
-        "indices": [
-          {
-            "name": "index_transit_lines_lineNumber_category",
-            "unique": true,
-            "columnNames": [
-              "lineNumber",
-              "category"
-            ],
-            "orders": [],
-            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_transit_lines_lineNumber_category` ON `${TABLE_NAME}` (`lineNumber`, `category`)"
-          },
-          {
-            "name": "index_transit_lines_category",
-            "unique": false,
-            "columnNames": [
-              "category"
-            ],
-            "orders": [],
-            "createSql": "CREATE INDEX IF NOT EXISTS `index_transit_lines_category` ON `${TABLE_NAME}` (`category`)"
-          }
-        ]
+        }
       },
       {
         "tableName": "stations",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `lineId` INTEGER NOT NULL, `stationType` TEXT NOT NULL, `name` TEXT NOT NULL, `stopCode` TEXT NOT NULL, `orderOnLine` INTEGER NOT NULL, `latitude` REAL NOT NULL, `longitude` REAL NOT NULL, `address` TEXT, `direction` TEXT, `hasAccessibility` INTEGER NOT NULL, `hasElevators` INTEGER NOT NULL, `hasEscalators` INTEGER NOT NULL, `hasParking` INTEGER NOT NULL, `hasBikeParking` INTEGER NOT NULL, `ticketZone` INTEGER, `platforms` TEXT, `depthMeters` INTEGER, `levelType` TEXT, `platformType` TEXT, `hasShelter` INTEGER NOT NULL, `connections` TEXT, `isTransferStation` INTEGER NOT NULL, `openingYear` INTEGER, `notes` TEXT, `isActive` INTEGER NOT NULL, `createdAt` INTEGER NOT NULL, `updatedAt` INTEGER NOT NULL, FOREIGN KEY(`lineId`) REFERENCES `transit_lines`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `stationCode` TEXT NOT NULL, `stationName` TEXT NOT NULL, `transportType` TEXT NOT NULL, `lineCode` TEXT, `latitude` REAL NOT NULL, `longitude` REAL NOT NULL, `order` INTEGER, `address` TEXT, `accessibility` INTEGER NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -113,34 +69,27 @@
             "notNull": true
           },
           {
-            "fieldPath": "lineId",
-            "columnName": "lineId",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "stationType",
-            "columnName": "stationType",
+            "fieldPath": "stationCode",
+            "columnName": "stationCode",
             "affinity": "TEXT",
             "notNull": true
           },
           {
-            "fieldPath": "name",
-            "columnName": "name",
+            "fieldPath": "stationName",
+            "columnName": "stationName",
             "affinity": "TEXT",
             "notNull": true
           },
           {
-            "fieldPath": "stopCode",
-            "columnName": "stopCode",
+            "fieldPath": "transportType",
+            "columnName": "transportType",
             "affinity": "TEXT",
             "notNull": true
           },
           {
-            "fieldPath": "orderOnLine",
-            "columnName": "orderOnLine",
-            "affinity": "INTEGER",
-            "notNull": true
+            "fieldPath": "lineCode",
+            "columnName": "lineCode",
+            "affinity": "TEXT"
           },
           {
             "fieldPath": "latitude",
@@ -155,112 +104,18 @@
             "notNull": true
           },
           {
+            "fieldPath": "order",
+            "columnName": "order",
+            "affinity": "INTEGER"
+          },
+          {
             "fieldPath": "address",
             "columnName": "address",
             "affinity": "TEXT"
           },
           {
-            "fieldPath": "direction",
-            "columnName": "direction",
-            "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "hasAccessibility",
-            "columnName": "hasAccessibility",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "hasElevators",
-            "columnName": "hasElevators",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "hasEscalators",
-            "columnName": "hasEscalators",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "hasParking",
-            "columnName": "hasParking",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "hasBikeParking",
-            "columnName": "hasBikeParking",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "ticketZone",
-            "columnName": "ticketZone",
-            "affinity": "INTEGER"
-          },
-          {
-            "fieldPath": "platforms",
-            "columnName": "platforms",
-            "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "depthMeters",
-            "columnName": "depthMeters",
-            "affinity": "INTEGER"
-          },
-          {
-            "fieldPath": "levelType",
-            "columnName": "levelType",
-            "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "platformType",
-            "columnName": "platformType",
-            "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "hasShelter",
-            "columnName": "hasShelter",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "connections",
-            "columnName": "connections",
-            "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "isTransferStation",
-            "columnName": "isTransferStation",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "openingYear",
-            "columnName": "openingYear",
-            "affinity": "INTEGER"
-          },
-          {
-            "fieldPath": "notes",
-            "columnName": "notes",
-            "affinity": "TEXT"
-          },
-          {
-            "fieldPath": "isActive",
-            "columnName": "isActive",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "createdAt",
-            "columnName": "createdAt",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "updatedAt",
-            "columnName": "updatedAt",
+            "fieldPath": "accessibility",
+            "columnName": "accessibility",
             "affinity": "INTEGER",
             "notNull": true
           }
@@ -270,64 +125,12 @@
           "columnNames": [
             "id"
           ]
-        },
-        "indices": [
-          {
-            "name": "index_stations_stationType",
-            "unique": false,
-            "columnNames": [
-              "stationType"
-            ],
-            "orders": [],
-            "createSql": "CREATE INDEX IF NOT EXISTS `index_stations_stationType` ON `${TABLE_NAME}` (`stationType`)"
-          },
-          {
-            "name": "index_stations_lineId",
-            "unique": false,
-            "columnNames": [
-              "lineId"
-            ],
-            "orders": [],
-            "createSql": "CREATE INDEX IF NOT EXISTS `index_stations_lineId` ON `${TABLE_NAME}` (`lineId`)"
-          },
-          {
-            "name": "index_stations_stopCode",
-            "unique": true,
-            "columnNames": [
-              "stopCode"
-            ],
-            "orders": [],
-            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_stations_stopCode` ON `${TABLE_NAME}` (`stopCode`)"
-          },
-          {
-            "name": "index_stations_latitude_longitude",
-            "unique": false,
-            "columnNames": [
-              "latitude",
-              "longitude"
-            ],
-            "orders": [],
-            "createSql": "CREATE INDEX IF NOT EXISTS `index_stations_latitude_longitude` ON `${TABLE_NAME}` (`latitude`, `longitude`)"
-          }
-        ],
-        "foreignKeys": [
-          {
-            "table": "transit_lines",
-            "onDelete": "CASCADE",
-            "onUpdate": "NO ACTION",
-            "columns": [
-              "lineId"
-            ],
-            "referencedColumns": [
-              "id"
-            ]
-          }
-        ]
+        }
       }
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '9218aa05122bba69d58063030918459a')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '8aa01f76b10d109335ba35e0ddbaefd5')"
     ]
   }
 }

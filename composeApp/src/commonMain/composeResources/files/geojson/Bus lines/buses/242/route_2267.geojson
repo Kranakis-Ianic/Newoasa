@@ -1,0 +1,717 @@
+{
+  "type": "FeatureCollection",
+  "properties": {
+    "LineCode": "951",
+    "LineID": "242",
+    "LineDescr": "ΣΤ. ΚΑΤΕΧΑΚΗ - ΠΟΛΥΤΕΧΝΕΙΟΥΠΟΛΗ (ΚΥΚΛΙΚΗ)",
+    "RouteCode": "2267",
+    "RouteDescr": "ΣΤ. ΚΑΤΕΧΑΚΗ - ΠΟΛΥΤΕXNΕΙΟΥΠΟΛΗ [19:00 ΕΩΣ ΛΗΞΗ]",
+    "RouteType": "1"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            23.77895,
+            37.99644
+          ],
+          [
+            23.77916,
+            37.99584
+          ],
+          [
+            23.77916,
+            37.99584
+          ],
+          [
+            23.77921,
+            37.99548
+          ],
+          [
+            23.77844,
+            37.99507
+          ],
+          [
+            23.77754,
+            37.99454
+          ],
+          [
+            23.7769,
+            37.99413
+          ],
+          [
+            23.77604,
+            37.99345
+          ],
+          [
+            23.77595,
+            37.9934
+          ],
+          [
+            23.77595,
+            37.9934
+          ],
+          [
+            23.77587,
+            37.99314
+          ],
+          [
+            23.77597,
+            37.99287
+          ],
+          [
+            23.77642,
+            37.99237
+          ],
+          [
+            23.77682,
+            37.9917
+          ],
+          [
+            23.77707,
+            37.99097
+          ],
+          [
+            23.77752,
+            37.99031
+          ],
+          [
+            23.77867,
+            37.98889
+          ],
+          [
+            23.78018,
+            37.98719
+          ],
+          [
+            23.78111,
+            37.98621
+          ],
+          [
+            23.78146,
+            37.98575
+          ],
+          [
+            23.78248,
+            37.98437
+          ],
+          [
+            23.78459,
+            37.98174
+          ],
+          [
+            23.78388,
+            37.981
+          ],
+          [
+            23.784,
+            37.98081
+          ],
+          [
+            23.78434,
+            37.98072
+          ],
+          [
+            23.78491,
+            37.98043
+          ],
+          [
+            23.78601,
+            37.97916
+          ],
+          [
+            23.78707,
+            37.97789
+          ],
+          [
+            23.78866,
+            37.97608
+          ],
+          [
+            23.78887,
+            37.97563
+          ],
+          [
+            23.78863,
+            37.97507
+          ],
+          [
+            23.78798,
+            37.9745
+          ],
+          [
+            23.78747,
+            37.97435
+          ],
+          [
+            23.78544,
+            37.97426
+          ],
+          [
+            23.78356,
+            37.97421
+          ],
+          [
+            23.78264,
+            37.97415
+          ],
+          [
+            23.78167,
+            37.9743
+          ],
+          [
+            23.78035,
+            37.97462
+          ],
+          [
+            23.77951,
+            37.97496
+          ],
+          [
+            23.77888,
+            37.97552
+          ],
+          [
+            23.77863,
+            37.97597
+          ],
+          [
+            23.77797,
+            37.9765
+          ],
+          [
+            23.77763,
+            37.97677
+          ],
+          [
+            23.77757,
+            37.97705
+          ],
+          [
+            23.77766,
+            37.9775
+          ],
+          [
+            23.77752,
+            37.97776
+          ],
+          [
+            23.77693,
+            37.97835
+          ],
+          [
+            23.77634,
+            37.97892
+          ],
+          [
+            23.77622,
+            37.97909
+          ],
+          [
+            23.77623,
+            37.97918
+          ],
+          [
+            23.77634,
+            37.97936
+          ],
+          [
+            23.77655,
+            37.9795
+          ],
+          [
+            23.77695,
+            37.9795
+          ],
+          [
+            23.77777,
+            37.97927
+          ],
+          [
+            23.77875,
+            37.97928
+          ],
+          [
+            23.78105,
+            37.98035
+          ],
+          [
+            23.78174,
+            37.98086
+          ],
+          [
+            23.78256,
+            37.98106
+          ],
+          [
+            23.78337,
+            37.98098
+          ],
+          [
+            23.78385,
+            37.98087
+          ],
+          [
+            23.78394,
+            37.98092
+          ],
+          [
+            23.78469,
+            37.98174
+          ],
+          [
+            23.78471,
+            37.98185
+          ],
+          [
+            23.78271,
+            37.98444
+          ],
+          [
+            23.78128,
+            37.9863
+          ],
+          [
+            23.78067,
+            37.98696
+          ],
+          [
+            23.779,
+            37.98882
+          ],
+          [
+            23.77845,
+            37.9895
+          ],
+          [
+            23.77743,
+            37.99076
+          ],
+          [
+            23.77712,
+            37.99144
+          ],
+          [
+            23.77685,
+            37.99215
+          ],
+          [
+            23.77677,
+            37.99226
+          ],
+          [
+            23.77555,
+            37.99343
+          ],
+          [
+            23.77515,
+            37.99377
+          ],
+          [
+            23.77516,
+            37.9938
+          ],
+          [
+            23.77569,
+            37.99443
+          ],
+          [
+            23.77714,
+            37.99633
+          ],
+          [
+            23.77806,
+            37.99755
+          ],
+          [
+            23.77834,
+            37.99778
+          ],
+          [
+            23.77839,
+            37.99777
+          ],
+          [
+            23.77847,
+            37.99771
+          ],
+          [
+            23.77873,
+            37.99701
+          ],
+          [
+            23.77904,
+            37.99628
+          ]
+        ]
+      },
+      "properties": {
+        "type": "route_path",
+        "RouteCode": "2267"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7788835,
+          37.9967515
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "10202",
+        "StopID": "36",
+        "StopDescr": "ΕΛΛΗΝΟΡΩΣΩΝ",
+        "StopOrder": "1",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7785373,
+          37.9952357
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60689",
+        "StopID": "060689",
+        "StopDescr": "ΝΟΣ. ΘΩΡΑΚΟΣ",
+        "StopOrder": "2",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.776372,
+          37.992326
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "61329",
+        "StopID": "061329",
+        "StopDescr": "ΣΤΡΑΤΙΩΤΙΚΟ ΝΟΣΟΚΟΜΕΙΟ",
+        "StopOrder": "3",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7784537,
+          37.9889716
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "61312",
+        "StopID": "061312",
+        "StopDescr": "ΝΟΣΟΚΟΜΕΙΟ ΑΕΡΟΠΟΡΙΑΣ",
+        "StopOrder": "4",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.781391,
+          37.985841
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "60364",
+        "StopID": "060364",
+        "StopDescr": "ΕΘΝΙΚΗ ΓΛΥΠΤΟΘΗΚΗ",
+        "StopOrder": "5",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.784148,
+          37.980731
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "10496",
+        "StopID": "200106",
+        "StopDescr": "ΠΥΛΗ ΚΑΤΕΧΑΚΗ",
+        "StopOrder": "6",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.786776,
+          37.978193
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "200087",
+        "StopID": "200087",
+        "StopDescr": "ΚΤΙΡΙΟ ΝΑΥΠΗΓΩΝ",
+        "StopOrder": "7",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.786146,
+          37.974356
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "200021",
+        "StopID": "200021",
+        "StopDescr": "ΙΑΤΡΕΙΟ",
+        "StopOrder": "8",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7839746,
+          37.9742188
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "200057",
+        "StopID": "200057",
+        "StopDescr": "ΚΤΙΡΙΑ ΗΛΕΚ/ΓΩΝ-ΜΕΤΑΛ/ΓΩΝ",
+        "StopOrder": "9",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7813782,
+          37.9743763
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "200061",
+        "StopID": "200061",
+        "StopDescr": "ΦΟΙΤΗΤΙΚΗ ΕΣΤΙΑ",
+        "StopOrder": "10",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.778751,
+          37.975807
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "200088",
+        "StopID": "200088",
+        "StopDescr": "ΚΤΙΡΙΟ ΤΟΠΟΓΡΑΦΩΝ",
+        "StopOrder": "11",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.777692,
+          37.977608
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "200067",
+        "StopID": "200067",
+        "StopDescr": "ΚΤΙΡ. ΠΟΛΙΤΙΚΩΝ ΜΗΧΑΝΙΚΩΝ",
+        "StopOrder": "12",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7774946,
+          37.9794241
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "10996",
+        "StopID": "200108",
+        "StopDescr": "ΦΟΙΤΗΤΙΚΟΙ ΞΕΝΩΝΕΣ",
+        "StopOrder": "13",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.780701,
+          37.980137
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "200075",
+        "StopID": "200075",
+        "StopDescr": "ΠΥΛΗ ΚΟΚΚΙΝΟΠΟΥΛΟΥ",
+        "StopOrder": "14",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7831353,
+          37.9808688
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "200002",
+        "StopID": "200002",
+        "StopDescr": "ΘΥΡΩΡΕΙΟ",
+        "StopOrder": "15",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.780918,
+          37.986767
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "61320",
+        "StopID": "061320",
+        "StopDescr": "ΕΘΝΙΚΗ ΓΛΥΠΤΟΘΗΚΗ",
+        "StopOrder": "16",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7787783,
+          37.9892753
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "61314",
+        "StopID": "061314",
+        "StopDescr": "ΝΟΣΟΚΟΜΕΙΟ ΑΕΡΟΠΟΡΙΑΣ",
+        "StopOrder": "17",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.776919,
+          37.992233
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "61309",
+        "StopID": "061309",
+        "StopDescr": "ΣΤΡΑΤΙΩΤΙΚΟ ΝΟΣΟΚΟΜΕΙΟ",
+        "StopOrder": "18",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7776897,
+          37.9968474
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "61154",
+        "StopID": "061154",
+        "StopDescr": "ΒΛΑΧΟΥ",
+        "StopOrder": "19",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7788835,
+          37.9967515
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "10202",
+        "StopID": "36",
+        "StopDescr": "ΕΛΛΗΝΟΡΩΣΩΝ",
+        "StopOrder": "20",
+        "StopType": "0"
+      }
+    }
+  ]
+}

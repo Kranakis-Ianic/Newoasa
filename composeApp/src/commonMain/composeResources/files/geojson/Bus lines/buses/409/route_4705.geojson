@@ -1,0 +1,1259 @@
+{
+  "type": "FeatureCollection",
+  "properties": {
+    "LineCode": "1357",
+    "LineID": "409",
+    "LineDescr": "ΠΑΠΑΓΟΥ - ΣΤ. ΕΘΝ. ΑΜΥΝΑ  (ΚΥΚΛΙΚΗ)",
+    "RouteCode": "4705",
+    "RouteDescr": "ΠΑΠΑΓΟΥ - ΣΤ. ΕΘΝ. ΑΜΥΝΑ ",
+    "RouteType": "1"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            23.79563,
+            37.97934
+          ],
+          [
+            23.79555,
+            37.97923
+          ],
+          [
+            23.79524,
+            37.97869
+          ],
+          [
+            23.79483,
+            37.97802
+          ],
+          [
+            23.79466,
+            37.97784
+          ],
+          [
+            23.79437,
+            37.97736
+          ],
+          [
+            23.79434,
+            37.97718
+          ],
+          [
+            23.79431,
+            37.97664
+          ],
+          [
+            23.79425,
+            37.97623
+          ],
+          [
+            23.79416,
+            37.97603
+          ],
+          [
+            23.79332,
+            37.97638
+          ],
+          [
+            23.79237,
+            37.97674
+          ],
+          [
+            23.79125,
+            37.97781
+          ],
+          [
+            23.79049,
+            37.97845
+          ],
+          [
+            23.79088,
+            37.97884
+          ],
+          [
+            23.78942,
+            37.97985
+          ],
+          [
+            23.79151,
+            37.98186
+          ],
+          [
+            23.78908,
+            37.98347
+          ],
+          [
+            23.78985,
+            37.98416
+          ],
+          [
+            23.79019,
+            37.98403
+          ],
+          [
+            23.79087,
+            37.98375
+          ],
+          [
+            23.79193,
+            37.98332
+          ],
+          [
+            23.79266,
+            37.98294
+          ],
+          [
+            23.79593,
+            37.98323
+          ],
+          [
+            23.79559,
+            37.98376
+          ],
+          [
+            23.7953,
+            37.98395
+          ],
+          [
+            23.79401,
+            37.98425
+          ],
+          [
+            23.79373,
+            37.98443
+          ],
+          [
+            23.79319,
+            37.98567
+          ],
+          [
+            23.79295,
+            37.98605
+          ],
+          [
+            23.79252,
+            37.98669
+          ],
+          [
+            23.79156,
+            37.98793
+          ],
+          [
+            23.79091,
+            37.98867
+          ],
+          [
+            23.79011,
+            37.98938
+          ],
+          [
+            23.79109,
+            37.98941
+          ],
+          [
+            23.79326,
+            37.98944
+          ],
+          [
+            23.79346,
+            37.98944
+          ],
+          [
+            23.79377,
+            37.98951
+          ],
+          [
+            23.79415,
+            37.9896
+          ],
+          [
+            23.79546,
+            37.98994
+          ],
+          [
+            23.79663,
+            37.99026
+          ],
+          [
+            23.79752,
+            37.9906
+          ],
+          [
+            23.79911,
+            37.99131
+          ],
+          [
+            23.79986,
+            37.99169
+          ],
+          [
+            23.79906,
+            37.99221
+          ],
+          [
+            23.79858,
+            37.99245
+          ],
+          [
+            23.7978,
+            37.99296
+          ],
+          [
+            23.79413,
+            37.99543
+          ],
+          [
+            23.79086,
+            37.99759
+          ],
+          [
+            23.78801,
+            37.99949
+          ],
+          [
+            23.78644,
+            38.00057
+          ],
+          [
+            23.7849,
+            37.99961
+          ],
+          [
+            23.78421,
+            37.99911
+          ],
+          [
+            23.78609,
+            37.99756
+          ],
+          [
+            23.78764,
+            37.99632
+          ],
+          [
+            23.78831,
+            37.99572
+          ],
+          [
+            23.78919,
+            37.99477
+          ],
+          [
+            23.79104,
+            37.99652
+          ],
+          [
+            23.79415,
+            37.99447
+          ],
+          [
+            23.79744,
+            37.99227
+          ],
+          [
+            23.79769,
+            37.99207
+          ],
+          [
+            23.79874,
+            37.99232
+          ],
+          [
+            23.79972,
+            37.99166
+          ],
+          [
+            23.79751,
+            37.99066
+          ],
+          [
+            23.79627,
+            37.99022
+          ],
+          [
+            23.79467,
+            37.98977
+          ],
+          [
+            23.79381,
+            37.98959
+          ],
+          [
+            23.79336,
+            37.98981
+          ],
+          [
+            23.79302,
+            37.98951
+          ],
+          [
+            23.78838,
+            37.98938
+          ],
+          [
+            23.78816,
+            37.98866
+          ],
+          [
+            23.78806,
+            37.98815
+          ],
+          [
+            23.78805,
+            37.98788
+          ],
+          [
+            23.7883,
+            37.98724
+          ],
+          [
+            23.7896,
+            37.98707
+          ],
+          [
+            23.79207,
+            37.98685
+          ],
+          [
+            23.79229,
+            37.9868
+          ],
+          [
+            23.79267,
+            37.98636
+          ],
+          [
+            23.79308,
+            37.98561
+          ],
+          [
+            23.79365,
+            37.98438
+          ],
+          [
+            23.79393,
+            37.98418
+          ],
+          [
+            23.79463,
+            37.98403
+          ],
+          [
+            23.79533,
+            37.98385
+          ],
+          [
+            23.79554,
+            37.98371
+          ],
+          [
+            23.79568,
+            37.98349
+          ],
+          [
+            23.79574,
+            37.98337
+          ],
+          [
+            23.79572,
+            37.98328
+          ],
+          [
+            23.79345,
+            37.98308
+          ],
+          [
+            23.79278,
+            37.98302
+          ],
+          [
+            23.79128,
+            37.98363
+          ],
+          [
+            23.79022,
+            37.98408
+          ],
+          [
+            23.78975,
+            37.98423
+          ],
+          [
+            23.7895,
+            37.98396
+          ],
+          [
+            23.78896,
+            37.98346
+          ],
+          [
+            23.79139,
+            37.98184
+          ],
+          [
+            23.78925,
+            37.9799
+          ],
+          [
+            23.79091,
+            37.97874
+          ],
+          [
+            23.79154,
+            37.97829
+          ],
+          [
+            23.79195,
+            37.97802
+          ],
+          [
+            23.79251,
+            37.97744
+          ],
+          [
+            23.79273,
+            37.97724
+          ],
+          [
+            23.79297,
+            37.97701
+          ],
+          [
+            23.79305,
+            37.97713
+          ],
+          [
+            23.79308,
+            37.97753
+          ],
+          [
+            23.79319,
+            37.97777
+          ],
+          [
+            23.79342,
+            37.97814
+          ],
+          [
+            23.79362,
+            37.97834
+          ],
+          [
+            23.79402,
+            37.97834
+          ],
+          [
+            23.79428,
+            37.97839
+          ],
+          [
+            23.79453,
+            37.97875
+          ],
+          [
+            23.79501,
+            37.97956
+          ],
+          [
+            23.7954,
+            37.98019
+          ],
+          [
+            23.79597,
+            37.97999
+          ],
+          [
+            23.79589,
+            37.97977
+          ],
+          [
+            23.79576,
+            37.97959
+          ]
+        ]
+      },
+      "properties": {
+        "type": "route_path",
+        "RouteCode": "4705"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7957455,
+          37.9794445
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "10387",
+        "StopID": "000174",
+        "StopDescr": "ΠΑΠΑΓΟΥ",
+        "StopOrder": "1",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7943146,
+          37.9770667
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "710026",
+        "StopID": "710026",
+        "StopDescr": "22η ΠΑΠΑΓΟΥ",
+        "StopOrder": "2",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7933326,
+          37.9764562
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "710027",
+        "StopID": "710027",
+        "StopDescr": "21η ΠΑΠΑΓΟΥ",
+        "StopOrder": "3",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7909518,
+          37.9781202
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "710028",
+        "StopID": "710028",
+        "StopDescr": "20η ΠΑΠΑΓΟΥ",
+        "StopOrder": "4",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7900919,
+          37.9804708
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "710029",
+        "StopID": "710029",
+        "StopDescr": "19η ΠΑΠΑΓΟΥ",
+        "StopOrder": "5",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7913461,
+          37.9816277
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "710030",
+        "StopID": "710030",
+        "StopDescr": "18η ΠΑΠΑΓΟΥ",
+        "StopOrder": "6",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7891837,
+          37.9834217
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "710031",
+        "StopID": "710031",
+        "StopDescr": "17η ΠΑΠΑΓΟΥ",
+        "StopOrder": "7",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7925532,
+          37.9829969
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "710032",
+        "StopID": "710032",
+        "StopDescr": "16η ΠΑΠΑΓΟΥ",
+        "StopOrder": "8",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.795676,
+          37.9831855
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "710033",
+        "StopID": "710033",
+        "StopDescr": "15η ΠΑΠΑΓΟΥ",
+        "StopOrder": "9",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7934964,
+          37.9852406
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "710034",
+        "StopID": "710034",
+        "StopDescr": "14η ΠΑΠΑΓΟΥ",
+        "StopOrder": "10",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7926477,
+          37.9865799
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "710035",
+        "StopID": "710035",
+        "StopDescr": "ΠΙΝΔΟΥ",
+        "StopOrder": "11",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7906387,
+          37.989048
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "710036",
+        "StopID": "710036",
+        "StopDescr": "11η ΠΑΠΑΓΟΥ",
+        "StopOrder": "12",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7944068,
+          37.9895414
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "710037",
+        "StopID": "710037",
+        "StopDescr": "10η ΠΑΠΑΓΟΥ",
+        "StopOrder": "13",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7969785,
+          37.9902759
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "710038",
+        "StopID": "710038",
+        "StopDescr": "9η ΠΑΠΑΓΟΥ",
+        "StopOrder": "14",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7987416,
+          37.991045
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "710039",
+        "StopID": "710039",
+        "StopDescr": "8η ΠΑΠΑΓΟΥ",
+        "StopOrder": "15",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7992397,
+          37.9921364
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "490036",
+        "StopID": "490036",
+        "StopDescr": "7η ΠΑΠΑΓΟΥ",
+        "StopOrder": "16",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7958397,
+          37.9943657
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "490037",
+        "StopID": "490037",
+        "StopDescr": "ΕΡΑΤΟΥΣ",
+        "StopOrder": "17",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7928273,
+          37.9964244
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "490038",
+        "StopID": "490038",
+        "StopDescr": "ΑΝΑΣΤΑΣΕΩΣ",
+        "StopOrder": "18",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7900658,
+          37.9982581
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "490039",
+        "StopID": "490039",
+        "StopDescr": "ΒΟΥΤΣΙΝΑ",
+        "StopOrder": "19",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7873267,
+          37.9999888
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "490040",
+        "StopID": "490040",
+        "StopDescr": "2η ΧΟΛΑΡΓΟΥ",
+        "StopOrder": "20",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7848522,
+          37.9985275
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "710049",
+        "StopID": "710049",
+        "StopDescr": "ΕΘΝ. ΑΜΥΝΑ",
+        "StopOrder": "21",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7870382,
+          37.9967773
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "710004",
+        "StopID": "710004",
+        "StopDescr": "ΣΤΡΑΤΟΠΕΔΟ",
+        "StopOrder": "22",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7895453,
+          37.9950831
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "710005",
+        "StopID": "710005",
+        "StopDescr": "3η ΠΑΠΑΓΟΥ",
+        "StopOrder": "23",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7913131,
+          37.9962054
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "710006",
+        "StopID": "710006",
+        "StopDescr": "4η ΠΑΠΑΓΟΥ",
+        "StopOrder": "24",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7943938,
+          37.994192
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "710007",
+        "StopID": "710007",
+        "StopDescr": "5η ΠΑΠΑΓΟΥ",
+        "StopOrder": "25",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7958202,
+          37.993203
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "710008",
+        "StopID": "710008",
+        "StopDescr": "6η ΠΑΠΑΓΟΥ",
+        "StopOrder": "26",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7995255,
+          37.9917403
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "710009",
+        "StopID": "710009",
+        "StopDescr": "7η ΠΑΠΑΓΟΥ",
+        "StopOrder": "27",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7979106,
+          37.9909174
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "710010",
+        "StopID": "710010",
+        "StopDescr": "8η ΠΑΠΑΓΟΥ",
+        "StopOrder": "28",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7962609,
+          37.9903107
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "710011",
+        "StopID": "710011",
+        "StopDescr": "9η ΠΑΠΑΓΟΥ",
+        "StopOrder": "29",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7945131,
+          37.989782
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "710012",
+        "StopID": "710012",
+        "StopDescr": "10η ΠΑΠΑΓΟΥ",
+        "StopOrder": "30",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7907056,
+          37.9895709
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "710013",
+        "StopID": "710013",
+        "StopDescr": "11η ΠΑΠΑΓΟΥ",
+        "StopOrder": "31",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7885326,
+          37.9871174
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "710014",
+        "StopID": "710014",
+        "StopDescr": "12η ΠΑΠΑΓΟΥ",
+        "StopOrder": "32",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7920005,
+          37.9867251
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "710015",
+        "StopID": "710015",
+        "StopDescr": "13η ΠΑΠΑΓΟΥ",
+        "StopOrder": "33",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7928701,
+          37.985979
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "710016",
+        "StopID": "710016",
+        "StopDescr": "14η ΠΑΠΑΓΟΥ",
+        "StopOrder": "34",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7952385,
+          37.9832278
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "710017",
+        "StopID": "710017",
+        "StopDescr": "15η ΠΑΠΑΓΟΥ",
+        "StopOrder": "35",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7930633,
+          37.9830753
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "710018",
+        "StopID": "710018",
+        "StopDescr": "16η ΠΑΠΑΓΟΥ",
+        "StopOrder": "36",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7893694,
+          37.9838481
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "710019",
+        "StopID": "710019",
+        "StopDescr": "17η ΠΑΠΑΓΟΥ",
+        "StopOrder": "37",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7911443,
+          37.981995
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "710020",
+        "StopID": "710020",
+        "StopDescr": "18η ΠΑΠΑΓΟΥ",
+        "StopOrder": "38",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7903318,
+          37.9808739
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "710021",
+        "StopID": "710021",
+        "StopDescr": "19η ΠΑΠΑΓΟΥ",
+        "StopOrder": "39",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.790953,
+          37.9786207
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "710022",
+        "StopID": "710022",
+        "StopDescr": "20η ΠΑΠΑΓΟΥ",
+        "StopOrder": "40",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7924251,
+          37.9774787
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "710023",
+        "StopID": "710023",
+        "StopDescr": "21η ΠΑΠΑΓΟΥ",
+        "StopOrder": "41",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7942798,
+          37.978356
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "710024",
+        "StopID": "710024",
+        "StopDescr": "22η ΠΑΠΑΓΟΥ",
+        "StopOrder": "42",
+        "StopType": "0"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7957455,
+          37.9794445
+        ]
+      },
+      "properties": {
+        "type": "stop",
+        "StopCode": "10387",
+        "StopID": "000174",
+        "StopDescr": "ΠΑΠΑΓΟΥ",
+        "StopOrder": "43",
+        "StopType": "0"
+      }
+    }
+  ]
+}
