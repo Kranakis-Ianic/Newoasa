@@ -18,7 +18,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.newoasa.data.ThemePreferences
 import com.example.newoasa.data.TransitLine
-import com.example.newoasa.data.rememberThemeMode
 import com.example.newoasa.theme.NewOasaTheme
 import com.example.newoasa.ui.navigation.AppDrawer
 import com.example.newoasa.ui.navigation.BottomNavBar
@@ -43,7 +42,9 @@ fun App() {
     }
     
     // Load saved theme mode and persist changes automatically
-    var themeMode by rememberThemeMode(themePreferences)
+    var themeMode by remember { 
+        mutableStateOf(themePreferences.getThemeMode()) 
+    }
     
     // Calculate if we should use Dark Theme features (e.g. Map style)
     val isSystemDark = isSystemInDarkTheme()
@@ -72,7 +73,10 @@ fun App() {
             drawerContent = {
                 AppDrawer(
                     currentThemeMode = themeMode,
-                    onThemeChange = { themeMode = it }
+                    onThemeChange = { newMode ->
+                        themeMode = newMode
+                        themePreferences.setThemeMode(newMode)
+                    }
                 )
             }
         ) {

@@ -1,11 +1,7 @@
 package com.example.newoasa.data
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import com.example.newoasa.AppThemeMode
 
 /**
@@ -94,19 +90,4 @@ class InMemoryPreferenceStorage : PreferenceStorage {
 @Composable
 fun rememberThemePreferences(storage: PreferenceStorage = remember { InMemoryPreferenceStorage() }): ThemePreferences {
     return remember { ThemePreferences(storage) }
-}
-
-/**
- * Composable state holder for theme mode with persistence
- */
-@Composable
-fun rememberThemeMode(preferences: ThemePreferences): androidx.compose.runtime.MutableState<AppThemeMode> {
-    val themeMode = remember { mutableStateOf(preferences.getThemeMode()) }
-    
-    // Save theme mode whenever it changes
-    LaunchedEffect(themeMode.value) {
-        preferences.setThemeMode(themeMode.value)
-    }
-    
-    return themeMode
 }
