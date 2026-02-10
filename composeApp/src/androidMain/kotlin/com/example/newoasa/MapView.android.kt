@@ -435,7 +435,7 @@ fun LineBadge(lineId: String) {
  * Station appearance:
  * - Single-line stations: White circle with black border
  * - Connection stations (2+ lines): White circle + black center dot + black border
- * Uses data-driven styling based on line_count property
+ * Uses data-driven styling based on line_count property (calculated from lines array)
  */
 @OptIn(ExperimentalResourceApi::class)
 private suspend fun displayCombinedStations(
@@ -467,6 +467,30 @@ private suspend fun displayCombinedStations(
                     return@launch
                 }
                 
+                // Parse and add line_count property to each feature
+                val modifiedFeatures = org.json.JSONArray()
+                for (i in 0 until features.length()) {
+                    val feature = features.getJSONObject(i)
+                    val properties = feature.optJSONObject("properties")
+                    
+                    if (properties != null) {
+                        // Get the "lines" array and calculate line_count
+                        val linesArray = properties.optJSONArray("lines")
+                        val lineCount = linesArray?.length() ?: 0
+                        
+                        // Add line_count property
+                        properties.put("line_count", lineCount)
+                    }
+                    
+                    modifiedFeatures.put(feature)
+                }
+                
+                // Create new GeoJSON with line_count added
+                val modifiedGeoJson = JSONObject()
+                modifiedGeoJson.put("type", "FeatureCollection")
+                modifiedGeoJson.put("features", modifiedFeatures)
+                val modifiedGeoJsonString = modifiedGeoJson.toString()
+                
                 withContext(Dispatchers.Main) {
                     try {
                         val sourceId = "combined-stations-source"
@@ -488,8 +512,8 @@ private suspend fun displayCombinedStations(
                             style.getSource(sourceId)?.let { style.removeSource(it) }
                         } catch (e: Exception) {}
                         
-                        // Create GeoJSON source
-                        val source = GeoJsonSource(sourceId, combinedStationsJson)
+                        // Create GeoJSON source with modified data
+                        val source = GeoJsonSource(sourceId, modifiedGeoJsonString)
                         style.addSource(source)
                         
                         // Add layers (they will be on top because added last)
@@ -505,12 +529,12 @@ private suspend fun displayCombinedStations(
                         style.addLayer(hitAreaLayer)
                         
                         // 2. Outer white circle with black stroke (for all stations)
-                        // Use explicit hex color #FFFFFF for white
+                        // Increased radius from 5f to 6f for better visibility
                         val outerLayer = CircleLayer(
                             "combined-stations-outer",
                             sourceId
                         ).withProperties(
-                            PropertyFactory.circleRadius(5f),
+                            PropertyFactory.circleRadius(6f),  // Increased from 5f
                             PropertyFactory.circleColor("#FFFFFF"),  // Explicit white hex
                             PropertyFactory.circleStrokeWidth(2f),
                             PropertyFactory.circleStrokeColor("#000000")
@@ -518,6 +542,7 @@ private suspend fun displayCombinedStations(
                         style.addLayer(outerLayer)
                         
                         // 3. Center black dot (ONLY for connection stations with 2+ lines)
+                        // Now uses line_count property that we calculated
                         val centerDotLayer = CircleLayer(
                             "combined-stations-center",
                             sourceId
@@ -525,8 +550,8 @@ private suspend fun displayCombinedStations(
                             PropertyFactory.circleRadius(
                                 Expression.step(
                                     Expression.get("line_count"),
-                                    Expression.literal(0f),  // 0 radius for single-line
-                                    Expression.stop(2, 2f)   // 2f radius for 2+ lines
+                                    Expression.literal(0f),  // 0 radius for single-line stations (line_count = 1)
+                                    Expression.stop(2, 2.5f)   // 2.5f radius for connection stations (line_count >= 2)
                                 )
                             ),
                             PropertyFactory.circleColor("#000000")
@@ -600,10 +625,10 @@ private suspend fun displayPersistentTransitLine(
                         val layerId = "${prefix}-${line.lineNumber}-$index"
                         loadedGeoJsonData.add(layerId to routeOnlyGeoJson)
                     } else {
-                        println("  No route geometry found in $path")
+                        println("  ⚠ No route geometry found in $path")
                     }
                 } catch (e: Exception) {
-                    println("  Error loading persistent route $path: ${e.message}")
+                    println("  ✗ Error loading persistent route $path: ${e.message}")
                     e.printStackTrace()
                 }
             }
@@ -673,6 +698,8 @@ private suspend fun displayPersistentTransitLine(
                 
                 if (layersAdded > 0) {
                     println("  ✓ Added $layersAdded route layer(s) for ${line.lineNumber}")
+                } else {
+                    println("  ⚠ No routes rendered for ${line.lineNumber}")
                 }
             }
         }
@@ -956,6 +983,7 @@ private fun extractRoutePathOnly(geoJson: JSONObject): String {
                 }
             }
         }
+        
         "{}"
     } catch (e: Exception) {
         e.printStackTrace()
