@@ -2,39 +2,22 @@ package com.example.newoasa.database.room.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import androidx.room.Index
+import com.example.newoasa.utils.currentTimeMillis
 
 /**
- * Entity representing a transit line in the database
- * This entity stores information about bus, trolley, metro, tram, and suburban railway lines
- * Room Multiplatform compatible
+ * Transit line entity for Room database
+ * Represents a single transit line (bus, metro, tram, etc.)
  */
-@Entity(
-    tableName = "transit_lines",
-    indices = [
-        Index(value = ["lineNumber", "category"], unique = true),
-        Index(value = ["category"])
-    ]
-)
+@Entity(tableName = "transit_lines")
 data class TransitLineEntity(
-    @PrimaryKey(autoGenerate = true)
-    val id: Long = 0,
-    
+    @PrimaryKey
+    val lineId: String,
     val lineNumber: String,
-    val category: String,  // "bus", "trolley", "metro", "tram", "suburban"
     val displayName: String,
-    val routeCount: Int = 0,
-    val routeIds: String = "",  // Comma-separated list
-    val color: String,  // Hex color
+    val transportType: String, // "bus", "metro", "tram", "trolley", "railway"
+    val color: String, // Hex color code
+    val routeIds: String, // JSON array of route IDs
+    val routePaths: String, // JSON array of route geometries
     val isActive: Boolean = true,
-    val description: String? = null,
-    val createdAt: Long = 0L,
-    val updatedAt: Long = 0L
+    val lastUpdated: Long = currentTimeMillis()
 )
-
-/**
- * Extension function to get route IDs as a list
- */
-fun TransitLineEntity.getRouteIdsList(): List<String> {
-    return if (routeIds.isBlank()) emptyList() else routeIds.split(",")
-}
