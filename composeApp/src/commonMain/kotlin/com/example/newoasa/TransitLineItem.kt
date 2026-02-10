@@ -33,6 +33,8 @@ fun TransitLineItem(
     onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    val lineColor = LineColors.getColorForCategory(line.category, line.isBus)
+    
     Surface(
         onClick = onClick,
         modifier = modifier.fillMaxWidth(),
@@ -47,10 +49,7 @@ fun TransitLineItem(
             // Line number badge
             Card(
                 colors = CardDefaults.cardColors(
-                    containerColor = if (line.isBus) 
-                        MaterialTheme.colorScheme.primaryContainer 
-                    else 
-                        MaterialTheme.colorScheme.secondaryContainer
+                    containerColor = lineColor.copy(alpha = 0.2f)
                 ),
                 modifier = Modifier
                     .size(width = 56.dp, height = 40.dp)
@@ -64,10 +63,7 @@ fun TransitLineItem(
                         text = line.lineNumber,
                         style = MaterialTheme.typography.titleMedium,
                         fontWeight = FontWeight.Bold,
-                        color = if (line.isBus) 
-                            MaterialTheme.colorScheme.onPrimaryContainer 
-                        else 
-                            MaterialTheme.colorScheme.onSecondaryContainer
+                        color = lineColor
                     )
                 }
             }
