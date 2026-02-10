@@ -42,11 +42,11 @@ object LineColors {
     val SuburbanA4 = Color(0xFF87CEEB) // Official sky blue
     
     // ===== TROLLEY & BUSES =====
-    // Trolley - Purple (distinct from suburban A2)
-    val Trolley = Color(0xFF673AB7) // Purple
+    // Trolley - Orange (official OASA color)
+    val Trolley = Color(0xFFF27C02) // Official orange
     
-    // Buses - Default blue
-    val Bus = Color(0xFF1976D2) // Blue
+    // Buses - Cyan blue (official OASA color)
+    val Bus = Color(0xFF009EC6) // Official cyan blue
     
     /**
      * Get color by line code/number
@@ -110,7 +110,7 @@ object LineColors {
             lineCode.equals("A4", ignoreCase = true) -> "#87CEEB"
             
             // Default
-            else -> "#1976D2"
+            else -> "#009EC6"
         }
     }
     
@@ -121,10 +121,10 @@ object LineColors {
         return when (category.lowercase()) {
             "metro" -> "#00A651"
             "tram" -> "#00A651"
-            "trolleys" -> "#673AB7"
+            "trolleys" -> "#F27C02"
             "suburban", "proastiakos" -> "#FFD600"
-            "buses" -> "#1976D2"
-            else -> "#1976D2"
+            "buses" -> "#009EC6"
+            else -> "#009EC6"
         }
     }
 }
