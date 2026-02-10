@@ -199,14 +199,15 @@ actual fun MapView(
                                     }
                                 }
                                 
-                                // Zoom to fit all routes
+                                // Zoom to fit all routes with better padding
                                 if (allCoordinates.isNotEmpty()) {
                                     val boundsBuilder = LatLngBounds.Builder()
                                     allCoordinates.forEach { boundsBuilder.include(it) }
                                     val bounds = boundsBuilder.build()
                                     
+                                    // Use larger padding (200px instead of 100px) for better visual framing
                                     map.animateCamera(
-                                        CameraUpdateFactory.newLatLngBounds(bounds, 100),
+                                        CameraUpdateFactory.newLatLngBounds(bounds, 200),
                                         1000
                                     )
                                     Log.d("MapView", "Zoomed to bounds for line ${selectedLine.lineNumber}")
