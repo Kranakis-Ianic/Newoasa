@@ -62,7 +62,7 @@ fun StopInfoCard(
             }
 
             Spacer(modifier = Modifier.height(16.dp))
-            Divider()
+            HorizontalDivider()
             Spacer(modifier = Modifier.height(16.dp))
 
             // Arrival times section
