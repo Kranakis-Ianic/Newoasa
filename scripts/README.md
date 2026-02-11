@@ -1,65 +1,59 @@
-# Transit Data Processing Scripts
+# GeoJSON Processing Scripts
 
-This directory contains Python scripts for processing and combining transit data.
+## combine_geojson.py
 
-## Scripts
+Combines all individual metro line GeoJSON files into a single `final_all_lines.geojson` file.
 
-### `combine_transit_lines.py`
+### What it does:
 
-Combines all transit line GeoJSON files into category-specific files and extracts all stations.
+- ✅ Combines all `.geojson` files from `Metro lines/` directory
+- ✅ Includes **LineString** features (the transit lines)
+- ✅ Includes **Point** features (the stations)
+- ✅ Extracts `colour` property from nested relations if needed
+- ✅ Creates output at `files/geojson/final_all_lines.geojson`
 
-**Usage:**
+### How to run:
+
 ```bash
-python scripts/combine_transit_lines.py
+# From project root directory
+python3 scripts/combine_geojson.py
 ```
 
-**Output Files:**
-- `combined_metro_lines.geojson` - All metro line segments combined
-- `combined_tram_lines.geojson` - All tram line segments combined
-- `combined_suburban_lines.geojson` - All suburban line segments combined
-- `all_transit_stations.geojson` - All unique transit stations with line information
+### Output:
 
-**Features:**
-- Combines multiple route files per line into single files
-- Removes duplicate line segments
-- Extracts and deduplicates stations
-- Merges station information when the same station serves multiple lines
-- Adds line metadata to station properties
+The script will show:
+- Number of files processed
+- Total features combined
+- Count of lines vs stations
 
-### `generate_transit_repository.py` (existing)
+Example output:
+```
+🚇 Combining GeoJSON files...
+📁 Input: .../Metro lines
+📄 Output: .../final_all_lines.geojson
 
-Generates the Kotlin TransitLineRepository class from GeoJSON files.
+Processed: metro_1_Kifissia_→_Piraeus.geojson
+Processed: metro_2_Anthoupoli_→_Elliniko.geojson
+...
 
-**Usage:**
-```bash
-python scripts/generate_transit_repository.py
+✅ Combined 6 files
+📊 Total features: 450
+   - Lines: 6
+   - Stations: 444
+💾 Output: final_all_lines.geojson
+
+✨ Done!
 ```
 
-## Requirements
+### Requirements:
 
-Python 3.7 or higher with standard library only (no external dependencies).
+- Python 3.6+
+- No external dependencies needed (uses standard library)
 
-## Directory Structure
+### After running:
 
-```
-composeApp/src/commonMain/composeResources/files/geojson/
-├── Metro lines/
-│   ├── 1/
-│   │   ├── metro_1_Kifissia → Piraeus.geojson
-│   │   └── metro_1_Piraeus → Kifissia.geojson
-│   ├── 2/
-│   └── 3/
-├── Tram lines/
-├── Suburban lines/
-├── combined_metro_lines.geojson (generated)
-├── combined_tram_lines.geojson (generated)
-├── combined_suburban_lines.geojson (generated)
-└── all_transit_stations.geojson (generated)
-```
-
-## Notes
-
-- The scripts automatically handle Greek and English station names
-- Railway crossings are automatically filtered out
-- Stations serving multiple lines are merged with all line information preserved
-- GeoJSON output uses UTF-8 encoding to properly handle Greek characters
+1. The `final_all_lines.geojson` file will be created
+2. Rebuild your app to include the new resource file
+3. The map will now display:
+   - All transit lines with colors
+   - All stations as circles
