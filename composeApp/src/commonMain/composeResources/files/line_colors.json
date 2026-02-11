@@ -2,171 +2,341 @@
   "lineColors": {
     "metro": {
       "M1": {
-        "name": "Metro Line 1 (Kifissia - Piraeus)",
-        "nameEl": "Μετρό Γραμμή 1 (Κηφισιά - Πειραιάς)",
-        "color": "#00A651",
-        "colorRGB": [0, 166, 81],
-        "aliases": ["Μ1", "1", "Green Line", "Ηλεκτρικός"]
+        "ref": "Μ1",
+        "name": "Μετρό Μ1: Κηφισιά → Πειραιά",
+        "nameEl": "Μετρό Μ1: Κηφισιά → Πειραιά",
+        "nameEn": "Metro Μ1: Kifissia → Piraeus",
+        "nameDe": "U-Bahn Μ1: Kifisia → Piräus",
+        "nameFr": "Métro Μ1: Céphisie → Le Pirée",
+        "nameCa": "Metro Μ1: Kifisia → El Pireu",
+        "altName": "Ηλεκτρικός",
+        "altNameEn": "Electrikos",
+        "altNameDe": "Electrikos",
+        "altNameFr": "L'électrique",
+        "altNameCa": "L'elèctric",
+        "oldName": "ΗΣΑΠ",
+        "color": "#007A33",
+        "colorRGB": [0, 122, 51],
+        "from": "Κηφισιά",
+        "fromEn": "Kifissia",
+        "to": "Πειραιάς",
+        "toEn": "Piraeus",
+        "route": "subway",
+        "network": "Μετρό Αθήνας",
+        "networkEn": "Athens Metro",
+        "networkWikidata": "Q336488",
+        "networkWikipedia": "el:Μετρό Αθήνας",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operatorShort": "ΣΤΑΣΥ",
+        "operatorWikidata": "Q109331635",
+        "operatorWikipedia": "el:Σταθερές Συγκοινωνίες",
+        "wheelchair": "yes",
+        "startDate": "1860-02-27",
+        "wikidata": "Q6553095",
+        "wikipedia": "el:Γραμμή Ηλεκτρικού (Μετρό Αθήνας)",
+        "publicTransportVersion": "2"
       },
       "M2": {
-        "name": "Metro Line 2 (Anthoupoli - Elliniko)",
-        "nameEl": "Μετρό Γραμμή 2 (Ανθούπολη - Ελληνικό)",
+        "ref": "Μ2",
+        "name": "Μετρό Μ2: Ανθούπολη → Ελληνικό",
+        "nameEl": "Μετρό Μ2: Ανθούπολη → Ελληνικό",
+        "nameEn": "Metro M2: Anthoupoli → Elliniko",
         "color": "#ED1C24",
         "colorRGB": [237, 28, 36],
-        "aliases": ["Μ2", "2", "Red Line"]
+        "from": "Ανθούπολη",
+        "fromEn": "Anthoupoli",
+        "to": "Ελληνικό",
+        "toEn": "Elliniko",
+        "route": "subway",
+        "network": "Μετρό Αθήνας",
+        "networkEn": "Athens Metro",
+        "networkWikidata": "Q336488",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operatorShort": "ΣΤΑΣΥ",
+        "wheelchair": "yes"
       },
       "M3": {
-        "name": "Metro Line 3 (Nikaia - Airport)",
-        "nameEl": "Μετρό Γραμμή 3 (Νίκαια - Αεροδρόμιο)",
+        "ref": "Μ3",
+        "name": "Μετρό Μ3: Νίκαια → Αερoδρόμιο",
+        "nameEl": "Μετρό Μ3: Νίκαια → Αερoδρόμιο",
+        "nameEn": "Metro M3: Nikaia → Airport",
         "color": "#0066B3",
         "colorRGB": [0, 102, 179],
-        "aliases": ["Μ3", "3", "Blue Line"]
+        "from": "Νίκαια",
+        "fromEn": "Nikaia",
+        "to": "Αερoδρόμιο",
+        "toEn": "Airport",
+        "route": "subway",
+        "network": "Μετρό Αθήνας",
+        "networkEn": "Athens Metro",
+        "networkWikidata": "Q336488",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operatorShort": "ΣΤΑΣΥ",
+        "wheelchair": "yes"
       },
       "M4": {
-        "name": "Metro Line 4 (Under Construction)",
-        "nameEl": "Μετρό Γραμμή 4 (Υπό Κατασκευή)",
+        "ref": "Μ4",
+        "name": "Μετρό Μ4",
+        "nameEl": "Μετρό Μ4",
+        "nameEn": "Metro M4",
         "color": "#FFC107",
         "colorRGB": [255, 193, 7],
-        "aliases": ["Μ4", "4", "Yellow Line"]
+        "route": "subway",
+        "network": "Μετρό Αθήνας",
+        "networkEn": "Athens Metro",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operatorShort": "ΣΤΑΣΥ",
+        "status": "under_construction"
       }
     },
     "tram": {
       "T6": {
-        "name": "Tram Line 6 (Syntagma - Glyfada)",
-        "nameEl": "Τραμ Γραμμή 6 (Σύνταγμα - Γλυφάδα)",
+        "ref": "6",
+        "name": "Τραμ 6: Σύνταγμα → Γλυφάδα",
+        "nameEl": "Τραμ 6: Σύνταγμα → Γλυφάδα",
+        "nameEn": "Tram 6: Syntagma → Glyfada",
         "color": "#83B81A",
         "colorRGB": [131, 184, 26],
-        "aliases": ["6"]
+        "from": "Σύνταγμα",
+        "fromEn": "Syntagma",
+        "to": "Γλυφάδα",
+        "toEn": "Glyfada",
+        "route": "tram",
+        "network": "Τραμ Αθήνας",
+        "networkEn": "Athens Tram",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operatorShort": "ΣΤΑΣΥ"
       },
       "T7": {
-        "name": "Tram Line 7 (Syntagma - Voula)",
-        "nameEl": "Τραμ Γραμμή 7 (Σύνταγμα - Βούλα)",
+        "ref": "7",
+        "name": "Τραμ 7: Σύνταγμα → Βούλα",
+        "nameEl": "Τραμ 7: Σύνταγμα → Βούλα",
+        "nameEn": "Tram 7: Syntagma → Voula",
         "color": "#83B81A",
         "colorRGB": [131, 184, 26],
-        "aliases": ["7"]
+        "from": "Σύνταγμα",
+        "fromEn": "Syntagma",
+        "to": "Βούλα",
+        "toEn": "Voula",
+        "route": "tram",
+        "network": "Τραμ Αθήνας",
+        "networkEn": "Athens Tram",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operatorShort": "ΣΤΑΣΥ"
       }
     },
     "suburban": {
       "A1": {
-        "name": "Suburban Railway Line A1 (Athens - Corinth - Kiato)",
-        "nameEl": "Προαστιακός Α1 (Αθήνα - Κόρινθος - Κιάτο)",
+        "ref": "A1",
+        "name": "Προαστιακός A1: Αθήνα → Κόρινθος → Κιάτο",
+        "nameEl": "Προαστιακός A1: Αθήνα → Κόρινθος → Κιάτο",
+        "nameEn": "Suburban Railway A1: Athens → Corinth → Kiato",
         "color": "#FFD600",
         "colorRGB": [255, 214, 0],
-        "aliases": ["Proastiakos A1"]
+        "from": "Αθήνα",
+        "fromEn": "Athens",
+        "to": "Κιάτο",
+        "toEn": "Kiato",
+        "via": "Κόρινθος",
+        "viaEn": "Corinth",
+        "route": "train",
+        "network": "Προαστιακός Αθήνας",
+        "networkEn": "Athens Suburban Railway",
+        "operator": "Ελληνικά Τρένα",
+        "operatorEn": "Hellenic Train"
       },
       "A2": {
-        "name": "Suburban Railway Line A2 (Athens - Airport - Chalkida)",
-        "nameEl": "Προαστιακός Α2 (Αθήνα - Αεροδρόμιο - Χαλκίδα)",
+        "ref": "A2",
+        "name": "Προαστιακός A2: Αθήνα → Αεροδρόμιο → Χαλκίδα",
+        "nameEl": "Προαστιακός A2: Αθήνα → Αεροδρόμιο → Χαλκίδα",
+        "nameEn": "Suburban Railway A2: Athens → Airport → Chalkida",
         "color": "#9C27B0",
         "colorRGB": [156, 39, 176],
-        "aliases": ["Proastiakos A2"]
+        "from": "Αθήνα",
+        "fromEn": "Athens",
+        "to": "Χαλκίδα",
+        "toEn": "Chalkida",
+        "via": "Αεροδρόμιο",
+        "viaEn": "Airport",
+        "route": "train",
+        "network": "Προαστιακός Αθήνας",
+        "networkEn": "Athens Suburban Railway",
+        "operator": "Ελληνικά Τρένα",
+        "operatorEn": "Hellenic Train"
       },
       "A3": {
-        "name": "Suburban Railway Line A3 (Athens - Piraeus)",
-        "nameEl": "Προαστιακός Α3 (Αθήνα - Πειραιάς)",
+        "ref": "A3",
+        "name": "Προαστιακός A3: Αθήνα → Πειραιάς",
+        "nameEl": "Προαστιακός A3: Αθήνα → Πειραιάς",
+        "nameEn": "Suburban Railway A3: Athens → Piraeus",
         "color": "#8BC34A",
         "colorRGB": [139, 195, 74],
-        "aliases": ["Proastiakos A3"]
+        "from": "Αθήνα",
+        "fromEn": "Athens",
+        "to": "Πειραιάς",
+        "toEn": "Piraeus",
+        "route": "train",
+        "network": "Προαστιακός Αθήνας",
+        "networkEn": "Athens Suburban Railway",
+        "operator": "Ελληνικά Τρένα",
+        "operatorEn": "Hellenic Train"
       },
       "A4": {
-        "name": "Suburban Railway Line A4 (Piraeus - Airport)",
-        "nameEl": "Προαστιακός Α4 (Πειραιάς - Αεροδρόμιο)",
+        "ref": "A4",
+        "name": "Προαστιακός A4: Πειραιάς → Αεροδρόμιο",
+        "nameEl": "Προαστιακός A4: Πειραιάς → Αεροδρόμιο",
+        "nameEn": "Suburban Railway A4: Piraeus → Airport",
         "color": "#87CEEB",
         "colorRGB": [135, 206, 235],
-        "aliases": ["Proastiakos A4"]
+        "from": "Πειραιάς",
+        "fromEn": "Piraeus",
+        "to": "Αεροδρόμιο",
+        "toEn": "Airport",
+        "route": "train",
+        "network": "Προαστιακός Αθήνας",
+        "networkEn": "Athens Suburban Railway",
+        "operator": "Ελληνικά Τρένα",
+        "operatorEn": "Hellenic Train"
       }
     },
     "trolley": {
       "default": {
-        "name": "Trolley Lines",
+        "name": "Γραμμές Τρόλεϊ",
         "nameEl": "Γραμμές Τρόλεϊ",
+        "nameEn": "Trolley Lines",
         "color": "#F27C02",
         "colorRGB": [242, 124, 2],
-        "aliases": ["Trolley", "Τρόλεϊ"]
+        "route": "trolleybus",
+        "network": "ΟΑΣΑ",
+        "networkEn": "OASA",
+        "operator": "Ηλεκτροκίνητο Λεωφορείο",
+        "operatorShort": "ΗΛΕΚΤΡΟΚΙΝΗΤΟ"
       }
     },
     "bus": {
       "default": {
-        "name": "Bus Lines",
+        "name": "Γραμμές Λεωφορείων",
         "nameEl": "Γραμμές Λεωφορείων",
+        "nameEn": "Bus Lines",
         "color": "#009EC6",
         "colorRGB": [0, 158, 198],
-        "aliases": ["Bus", "Λεωφορείο"]
+        "route": "bus",
+        "network": "ΟΑΣΑ",
+        "networkEn": "OASA",
+        "operator": "Λεωφορεία Αθήνας"
       }
     }
   },
   "metadata": {
-    "version": "1.0.0",
+    "version": "2.0.0",
     "lastUpdated": "2026-02-11",
-    "source": "Athens Urban Transport Organisation (OASA)",
-    "notes": "Official colors for Athens public transport system"
+    "source": "Athens Urban Transport Organisation (OASA) & OpenStreetMap",
+    "notes": "Comprehensive line information including names, routes, operators, colors, and historical data",
+    "dataExtractedFrom": "GeoJSON transit data files"
   },
   "colorMatrix": [
     {
       "code": "M1",
       "type": "metro",
-      "color": "#00A651",
-      "name": "Green Line"
+      "color": "#007A33",
+      "name": "Green Line",
+      "nameEl": "Ηλεκτρικός",
+      "from": "Kifissia",
+      "to": "Piraeus",
+      "operator": "ΣΤΑΣΥ",
+      "wheelchair": true,
+      "startDate": "1860-02-27"
     },
     {
       "code": "M2",
       "type": "metro",
       "color": "#ED1C24",
-      "name": "Red Line"
+      "name": "Red Line",
+      "from": "Anthoupoli",
+      "to": "Elliniko",
+      "operator": "ΣΤΑΣΥ",
+      "wheelchair": true
     },
     {
       "code": "M3",
       "type": "metro",
       "color": "#0066B3",
-      "name": "Blue Line"
+      "name": "Blue Line",
+      "from": "Nikaia",
+      "to": "Airport",
+      "operator": "ΣΤΑΣΥ",
+      "wheelchair": true
     },
     {
       "code": "M4",
       "type": "metro",
       "color": "#FFC107",
-      "name": "Yellow Line"
+      "name": "Yellow Line",
+      "operator": "ΣΤΑΣΥ",
+      "status": "under_construction"
     },
     {
       "code": "T6",
       "type": "tram",
       "color": "#83B81A",
-      "name": "Tram 6"
+      "name": "Tram 6",
+      "from": "Syntagma",
+      "to": "Glyfada",
+      "operator": "ΣΤΑΣΥ"
     },
     {
       "code": "T7",
       "type": "tram",
       "color": "#83B81A",
-      "name": "Tram 7"
+      "name": "Tram 7",
+      "from": "Syntagma",
+      "to": "Voula",
+      "operator": "ΣΤΑΣΥ"
     },
     {
       "code": "A1",
       "type": "suburban",
       "color": "#FFD600",
-      "name": "Suburban A1"
+      "name": "Suburban A1",
+      "from": "Athens",
+      "to": "Kiato",
+      "via": "Corinth",
+      "operator": "Hellenic Train"
     },
     {
       "code": "A2",
       "type": "suburban",
       "color": "#9C27B0",
-      "name": "Suburban A2"
+      "name": "Suburban A2",
+      "from": "Athens",
+      "to": "Chalkida",
+      "via": "Airport",
+      "operator": "Hellenic Train"
     },
     {
       "code": "A3",
       "type": "suburban",
       "color": "#8BC34A",
-      "name": "Suburban A3"
+      "name": "Suburban A3",
+      "from": "Athens",
+      "to": "Piraeus",
+      "operator": "Hellenic Train"
     },
     {
       "code": "A4",
       "type": "suburban",
       "color": "#87CEEB",
-      "name": "Suburban A4"
+      "name": "Suburban A4",
+      "from": "Piraeus",
+      "to": "Airport",
+      "operator": "Hellenic Train"
     },
     {
       "code": "TROLLEY",
       "type": "trolley",
       "color": "#F27C02",
-      "name": "Trolley"
+      "name": "Trolley",
+      "operator": "ΗΛΕΚΤΡΟΚΙΝΗΤΟ"
     },
     {
       "code": "BUS",
