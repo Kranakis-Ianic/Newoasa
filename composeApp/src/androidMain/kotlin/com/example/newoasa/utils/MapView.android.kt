@@ -66,9 +66,10 @@ actual fun MapView(
                     
                     map.cameraPosition = position
                     
-                    // Load all transit lines
+                    // Load all transit lines and stations
                     coroutineScope.launch {
                         loadAllTransitLines(style, isDark)
+                        loadAllStations(style, isDark)
                     }
                     
                     onMapReady()
@@ -108,9 +109,10 @@ actual fun MapView(
                 "https://tiles.openfreemap.org/styles/bright"
             }
             map.setStyle(styleUrl) { style ->
-                // Reload all transit lines after style change
+                // Reload all transit lines and stations after style change
                 coroutineScope.launch {
                     loadAllTransitLines(style, isDark)
+                    loadAllStations(style, isDark)
                 }
             }
         }
@@ -256,7 +258,6 @@ actual fun MapView(
 
 /**
  * Load and display all transit lines from final_all_lines.geojson
- * This is always visible as the base layer
  */
 private suspend fun loadAllTransitLines(style: Style, isDark: Boolean) {
     try {
@@ -268,15 +269,13 @@ private suspend fun loadAllTransitLines(style: Style, isDark: Boolean) {
                 try {
                     // Check if source already exists and remove it first
                     if (style.getSource("all-lines-source") != null) {
-                        // Remove old layers first
-                        listOf("all-lines-layer", "all-stations-layer").forEach { layerId ->
-                            if (style.getLayer(layerId) != null) {
-                                style.removeLayer(layerId)
-                            }
+                        // Remove old layer first
+                        if (style.getLayer("all-lines-layer") != null) {
+                            style.removeLayer("all-lines-layer")
                         }
                         // Then remove source
                         style.removeSource("all-lines-source")
-                        Log.d("MapView", "Removed existing all-lines source and layers")
+                        Log.d("MapView", "Removed existing all-lines source and layer")
                     }
                     
                     // Add source for all lines
@@ -284,11 +283,9 @@ private suspend fun loadAllTransitLines(style: Style, isDark: Boolean) {
                     style.addSource(source)
                     
                     // Add line layer with data-driven styling based on 'colour' property
-                    // OpenStreetMap uses 'colour' property (British spelling)
                     val lineLayer = LineLayer("all-lines-layer", "all-lines-source")
                         .withProperties(
                             // Use the colour property from the GeoJSON features
-                            // Try 'colour' first, then fall back to 'color' or 'lineColor'
                             lineColor(
                                 coalesce(
                                     get("colour"),
@@ -307,11 +304,50 @@ private suspend fun loadAllTransitLines(style: Style, isDark: Boolean) {
                         )
                     style.addLayer(lineLayer)
                     
+                    Log.d("MapView", "Successfully loaded all transit lines")
+                } catch (e: Exception) {
+                    Log.e("MapView", "Error adding all lines to map", e)
+                }
+            }
+        } else {
+            Log.w("MapView", "Could not load final_all_lines.geojson")
+        }
+    } catch (e: Exception) {
+        Log.e("MapView", "Error loading all transit lines", e)
+    }
+}
+
+/**
+ * Load and display all stations from final_all_stations.geojson
+ */
+private suspend fun loadAllStations(style: Style, isDark: Boolean) {
+    try {
+        // Load the stations file
+        val allStationsJson = loadGeoJsonFromResources("files/geojson/final_all_stations.geojson")
+        
+        if (allStationsJson != null) {
+            withContext(Dispatchers.Main) {
+                try {
+                    // Check if source already exists and remove it first
+                    if (style.getSource("all-stations-source") != null) {
+                        // Remove old layer first
+                        if (style.getLayer("all-stations-layer") != null) {
+                            style.removeLayer("all-stations-layer")
+                        }
+                        // Then remove source
+                        style.removeSource("all-stations-source")
+                        Log.d("MapView", "Removed existing all-stations source and layer")
+                    }
+                    
+                    // Add source for all stations
+                    val source = GeoJsonSource("all-stations-source", allStationsJson)
+                    style.addSource(source)
+                    
                     // Add circle layer for all stations
                     val stationColor = if (isDark) "#FFFFFF" else "#333333"
                     val stationStrokeColor = if (isDark) "#333333" else "#FFFFFF"
                     
-                    val stationsLayer = CircleLayer("all-stations-layer", "all-lines-source")
+                    val stationsLayer = CircleLayer("all-stations-layer", "all-stations-source")
                         .withProperties(
                             circleRadius(
                                 interpolate(
@@ -342,16 +378,16 @@ private suspend fun loadAllTransitLines(style: Style, isDark: Boolean) {
                         )
                     style.addLayer(stationsLayer)
                     
-                    Log.d("MapView", "Successfully loaded all transit lines and stations")
+                    Log.d("MapView", "Successfully loaded all stations")
                 } catch (e: Exception) {
-                    Log.e("MapView", "Error adding all lines to map", e)
+                    Log.e("MapView", "Error adding all stations to map", e)
                 }
             }
         } else {
-            Log.w("MapView", "Could not load final_all_lines.geojson")
+            Log.w("MapView", "Could not load final_all_stations.geojson")
         }
     } catch (e: Exception) {
-        Log.e("MapView", "Error loading all transit lines", e)
+        Log.e("MapView", "Error loading all stations", e)
     }
 }
 
