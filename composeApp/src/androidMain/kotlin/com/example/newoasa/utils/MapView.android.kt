@@ -68,7 +68,7 @@ actual fun MapView(
                     
                     // Load all transit lines
                     coroutineScope.launch {
-                        loadAllTransitLines(style)
+                        loadAllTransitLines(style, isDark)
                     }
                     
                     onMapReady()
@@ -110,7 +110,7 @@ actual fun MapView(
             map.setStyle(styleUrl) { style ->
                 // Reload all transit lines after style change
                 coroutineScope.launch {
-                    loadAllTransitLines(style)
+                    loadAllTransitLines(style, isDark)
                 }
             }
         }
@@ -258,7 +258,7 @@ actual fun MapView(
  * Load and display all transit lines from final_all_lines.geojson
  * This is always visible as the base layer
  */
-private suspend fun loadAllTransitLines(style: Style) {
+private suspend fun loadAllTransitLines(style: Style, isDark: Boolean) {
     try {
         // Load the combined all lines file
         val allLinesJson = loadGeoJsonFromResources("files/geojson/final_all_lines.geojson")
@@ -268,13 +268,15 @@ private suspend fun loadAllTransitLines(style: Style) {
                 try {
                     // Check if source already exists and remove it first
                     if (style.getSource("all-lines-source") != null) {
-                        // Remove old layer first
-                        if (style.getLayer("all-lines-layer") != null) {
-                            style.removeLayer("all-lines-layer")
+                        // Remove old layers first
+                        listOf("all-lines-layer", "all-stations-layer").forEach { layerId ->
+                            if (style.getLayer(layerId) != null) {
+                                style.removeLayer(layerId)
+                            }
                         }
                         // Then remove source
                         style.removeSource("all-lines-source")
-                        Log.d("MapView", "Removed existing all-lines source and layer")
+                        Log.d("MapView", "Removed existing all-lines source and layers")
                     }
                     
                     // Add source for all lines
@@ -305,7 +307,42 @@ private suspend fun loadAllTransitLines(style: Style) {
                         )
                     style.addLayer(lineLayer)
                     
-                    Log.d("MapView", "Successfully loaded all transit lines")
+                    // Add circle layer for all stations
+                    val stationColor = if (isDark) "#FFFFFF" else "#333333"
+                    val stationStrokeColor = if (isDark) "#333333" else "#FFFFFF"
+                    
+                    val stationsLayer = CircleLayer("all-stations-layer", "all-lines-source")
+                        .withProperties(
+                            circleRadius(
+                                interpolate(
+                                    exponential(1.5f),
+                                    zoom(),
+                                    stop(10f, 2f),   // Small at zoom 10
+                                    stop(12f, 3.5f), // Medium at zoom 12
+                                    stop(14f, 5f),   // Larger at zoom 14
+                                    stop(16f, 7f)    // Largest at zoom 16
+                                )
+                            ),
+                            circleColor(stationColor),
+                            circleStrokeWidth(
+                                interpolate(
+                                    exponential(1.5f),
+                                    zoom(),
+                                    stop(10f, 0.5f),
+                                    stop(12f, 1f),
+                                    stop(14f, 1.5f),
+                                    stop(16f, 2f)
+                                )
+                            ),
+                            circleStrokeColor(stationStrokeColor),
+                            circleOpacity(0.9f)
+                        )
+                        .withFilter(
+                            eq(geometryType(), literal("Point"))
+                        )
+                    style.addLayer(stationsLayer)
+                    
+                    Log.d("MapView", "Successfully loaded all transit lines and stations")
                 } catch (e: Exception) {
                     Log.e("MapView", "Error adding all lines to map", e)
                 }
