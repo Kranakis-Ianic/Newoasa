@@ -62,10 +62,6 @@ actual fun MapView(
                         .build()
                     
                     map.cameraPosition = position
-                    
-                    // Load and display all transit lines
-                    loadAllTransitLines(style)
-                    
                     onMapReady()
                 }
             }
@@ -91,6 +87,15 @@ actual fun MapView(
         onDispose {
             lifecycleOwner.lifecycle.removeObserver(observer)
             mapView.onDestroy()
+        }
+    }
+    
+    // Load all transit lines when map is ready
+    LaunchedEffect(Unit) {
+        mapView.getMapAsync { map ->
+            map.getStyle { style ->
+                loadAllTransitLines(style)
+            }
         }
     }
     
@@ -252,37 +257,43 @@ actual fun MapView(
  * Load and display all transit lines from final_all_lines.geojson
  * This is always visible as the base layer
  */
-private fun loadAllTransitLines(style: Style) {
+private suspend fun loadAllTransitLines(style: Style) {
     try {
         // Load the combined all lines file
         val allLinesJson = loadGeoJsonFromResources("files/geojson/final_all_lines.geojson")
         
         if (allLinesJson != null) {
-            // Add source for all lines
-            val source = GeoJsonSource("all-lines-source", allLinesJson)
-            style.addSource(source)
-            
-            // Add line layer with data-driven styling based on lineColor property
-            val lineLayer = LineLayer("all-lines-layer", "all-lines-source")
-                .withProperties(
-                    // Use the lineColor property from the GeoJSON features
-                    lineColor(
-                        coalesce(
-                            get("lineColor"),
-                            literal("#666666")  // Fallback color
+            withContext(Dispatchers.Main) {
+                try {
+                    // Add source for all lines
+                    val source = GeoJsonSource("all-lines-source", allLinesJson)
+                    style.addSource(source)
+                    
+                    // Add line layer with data-driven styling based on lineColor property
+                    val lineLayer = LineLayer("all-lines-layer", "all-lines-source")
+                        .withProperties(
+                            // Use the lineColor property from the GeoJSON features
+                            lineColor(
+                                coalesce(
+                                    get("lineColor"),
+                                    literal("#666666")  // Fallback color
+                                )
+                            ),
+                            lineWidth(3.5f),
+                            lineOpacity(0.75f),
+                            lineCap("round"),
+                            lineJoin("round")
                         )
-                    ),
-                    lineWidth(3.5f),
-                    lineOpacity(0.75f),
-                    lineCap("round"),
-                    lineJoin("round")
-                )
-                .withFilter(
-                    eq(geometryType(), literal("LineString"))
-                )
-            style.addLayer(lineLayer)
-            
-            Log.d("MapView", "Successfully loaded all transit lines")
+                        .withFilter(
+                            eq(geometryType(), literal("LineString"))
+                        )
+                    style.addLayer(lineLayer)
+                    
+                    Log.d("MapView", "Successfully loaded all transit lines")
+                } catch (e: Exception) {
+                    Log.e("MapView", "Error adding all lines to map", e)
+                }
+            }
         } else {
             Log.w("MapView", "Could not load final_all_lines.geojson")
         }
