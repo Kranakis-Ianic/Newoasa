@@ -11,42 +11,24 @@ import androidx.compose.ui.graphics.Color
  */
 object LineColors {
     // ===== ATHENS METRO =====
-    // Line 1 (Green Line) - Piraeus to Kifissia
-    val Metro1 = Color(0xFF00A651) // Official green
-    
-    // Line 2 (Red Line) - Anthoupoli to Elliniko
-    val Metro2 = Color(0xFFED1C24) // Official red
-    
-    // Line 3 (Blue Line) - Dimotiko Theatro to Airport
-    val Metro3 = Color(0xFF0066B3) // Official blue
-    
-    // Line 4 (planned) - Using yellow as distinctive color
-    val Metro4 = Color(0xFFFFC107) // Yellow (future line)
+    val Metro1 = Color(0xFF00A651)
+    val Metro2 = Color(0xFFED1C24)
+    val Metro3 = Color(0xFF0066B3)
+    val Metro4 = Color(0xFFFFC107)
     
     // ===== ATHENS TRAM =====
-    // Line 6 & 7 (both Green according to official sources)
-    val Tram6 = Color(0xFF00A651) // Green (same as Metro Line 1)
-    val Tram7 = Color(0xFF00A651) // Green (same as Metro Line 1)
+    val Tram6 = Color(0xFF83B81A)
+    val Tram7 = Color(0xFF83B81A)
     
     // ===== ATHENS SUBURBAN RAILWAY (PROASTIAKOS) =====
-    // Line A1 - Piraeus to Airport (Yellow)
-    val SuburbanA1 = Color(0xFFFFD600) // Official yellow
-    
-    // Line A2 - Ano Liosia to Airport (Purple)
-    val SuburbanA2 = Color(0xFF9C27B0) // Official purple
-    
-    // Line A3 - Athens to Chalcis (Lime green)
-    val SuburbanA3 = Color(0xFF8BC34A) // Official lime green
-    
-    // Line A4 - Piraeus to Kiato (Sky blue)
-    val SuburbanA4 = Color(0xFF87CEEB) // Official sky blue
+    val SuburbanA1 = Color(0xFFFFD600)
+    val SuburbanA2 = Color(0xFF9C27B0)
+    val SuburbanA3 = Color(0xFF8BC34A)
+    val SuburbanA4 = Color(0xFF87CEEB)
     
     // ===== TROLLEY & BUSES =====
-    // Trolley - Orange (official OASA color)
-    val Trolley = Color(0xFFF27C02) // Official orange
-    
-    // Buses - Cyan blue (official OASA color)
-    val Bus = Color(0xFF009EC6) // Official cyan blue
+    val Trolley = Color(0xFFF27C02)
+    val Bus = Color(0xFF009EC6)
     
     /**
      * Get color by line code/number
@@ -100,8 +82,8 @@ object LineColors {
             lineCode.equals("M4", ignoreCase = true) || lineCode.equals("4", ignoreCase = true) -> "#FFC107"
             
             // Tram
-            lineCode.equals("T6", ignoreCase = true) || lineCode.equals("6", ignoreCase = true) -> "#00A651"
-            lineCode.equals("T7", ignoreCase = true) || lineCode.equals("7", ignoreCase = true) -> "#00A651"
+            lineCode.equals("T6", ignoreCase = true) || lineCode.equals("6", ignoreCase = true) -> "#83B81A"
+            lineCode.equals("T7", ignoreCase = true) || lineCode.equals("7", ignoreCase = true) -> "#83B81A"
             
             // Suburban Railway
             lineCode.equals("A1", ignoreCase = true) -> "#FFD600"
