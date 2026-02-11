@@ -1,18 +1,26 @@
 package com.example.newoasa.utils
 
 import android.util.Log
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
+import com.example.newoasa.data.Station
 import com.example.newoasa.data.TransitLine
+import com.example.newoasa.presentation.components.StationCard
 import com.example.newoasa.theme.LineColors
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -29,6 +37,7 @@ import org.maplibre.android.style.layers.PropertyFactory.*
 import org.maplibre.android.style.layers.CircleLayer
 import org.maplibre.android.style.sources.GeoJsonSource
 import org.maplibre.android.style.expressions.Expression.*
+import org.maplibre.geojson.Point
 
 @Composable
 actual fun MapView(
@@ -40,6 +49,7 @@ actual fun MapView(
     val context = LocalContext.current
     val lifecycleOwner = LocalLifecycleOwner.current
     val coroutineScope = rememberCoroutineScope()
+    var selectedStation by remember { mutableStateOf<Station?>(null) }
     
     // Initialize MapLibre instance
     remember {
@@ -70,6 +80,56 @@ actual fun MapView(
                     coroutineScope.launch {
                         loadAllTransitLines(style, isDark)
                         loadAllStations(style, isDark)
+                    }
+                    
+                    // Add click listener for stations
+                    map.addOnMapClickListener { point ->
+                        val screenPoint = map.projection.toScreenLocation(point)
+                        val features = map.queryRenderedFeatures(screenPoint, "all-stations-layer")
+                        
+                        if (features.isNotEmpty()) {
+                            val feature = features.first()
+                            val geometry = feature.geometry()
+                            
+                            if (geometry is Point) {
+                                val properties = feature.properties()
+                                
+                                // Extract station information
+                                val stationId = properties?.get("@id")?.asString ?: ""
+                                val stationName = properties?.get("name")?.asString ?: "Unknown Station"
+                                val stationNameEn = properties?.get("name:en")?.asString
+                                val wheelchair = properties?.get("wheelchair")?.asString == "yes"
+                                
+                                // Extract lines from @relations
+                                val lines = mutableListOf<String>()
+                                try {
+                                    val relations = properties?.get("@relations")?.asJsonArray
+                                    relations?.forEach { relation ->
+                                        val reltags = relation.asJsonObject.get("reltags")?.asJsonObject
+                                        val ref = reltags?.get("ref")?.asString
+                                        if (ref != null && !lines.contains(ref)) {
+                                            lines.add(ref)
+                                        }
+                                    }
+                                } catch (e: Exception) {
+                                    Log.w("MapView", "Error extracting lines from station", e)
+                                }
+                                
+                                val station = Station(
+                                    id = stationId,
+                                    name = stationName,
+                                    nameEn = stationNameEn,
+                                    latitude = geometry.latitude(),
+                                    longitude = geometry.longitude(),
+                                    lines = lines,
+                                    wheelchair = wheelchair
+                                )
+                                
+                                selectedStation = station
+                                Log.d("MapView", "Station clicked: $stationName with lines: $lines")
+                            }
+                        }
+                        true
                     }
                     
                     onMapReady()
@@ -250,10 +310,28 @@ actual fun MapView(
         }
     }
     
-    AndroidView(
-        factory = { mapView },
-        modifier = modifier
-    )
+    // Render map with StationCard overlay
+    Box(modifier = modifier.fillMaxSize()) {
+        AndroidView(
+            factory = { mapView },
+            modifier = Modifier.fillMaxSize()
+        )
+        
+        // Show StationCard when a station is selected
+        selectedStation?.let { station ->
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .align(Alignment.BottomCenter)
+            ) {
+                StationCard(
+                    station = station,
+                    onDismiss = { selectedStation = null },
+                    modifier = Modifier.align(Alignment.BottomCenter)
+                )
+            }
+        }
+    }
 }
 
 /**
