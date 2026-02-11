@@ -1,0 +1,178 @@
+{
+  "lineColors": {
+    "metro": {
+      "M1": {
+        "name": "Metro Line 1 (Kifissia - Piraeus)",
+        "nameEl": "Μετρό Γραμμή 1 (Κηφισιά - Πειραιάς)",
+        "color": "#00A651",
+        "colorRGB": [0, 166, 81],
+        "aliases": ["Μ1", "1", "Green Line", "Ηλεκτρικός"]
+      },
+      "M2": {
+        "name": "Metro Line 2 (Anthoupoli - Elliniko)",
+        "nameEl": "Μετρό Γραμμή 2 (Ανθούπολη - Ελληνικό)",
+        "color": "#ED1C24",
+        "colorRGB": [237, 28, 36],
+        "aliases": ["Μ2", "2", "Red Line"]
+      },
+      "M3": {
+        "name": "Metro Line 3 (Nikaia - Airport)",
+        "nameEl": "Μετρό Γραμμή 3 (Νίκαια - Αεροδρόμιο)",
+        "color": "#0066B3",
+        "colorRGB": [0, 102, 179],
+        "aliases": ["Μ3", "3", "Blue Line"]
+      },
+      "M4": {
+        "name": "Metro Line 4 (Under Construction)",
+        "nameEl": "Μετρό Γραμμή 4 (Υπό Κατασκευή)",
+        "color": "#FFC107",
+        "colorRGB": [255, 193, 7],
+        "aliases": ["Μ4", "4", "Yellow Line"]
+      }
+    },
+    "tram": {
+      "T6": {
+        "name": "Tram Line 6 (Syntagma - Glyfada)",
+        "nameEl": "Τραμ Γραμμή 6 (Σύνταγμα - Γλυφάδα)",
+        "color": "#83B81A",
+        "colorRGB": [131, 184, 26],
+        "aliases": ["6"]
+      },
+      "T7": {
+        "name": "Tram Line 7 (Syntagma - Voula)",
+        "nameEl": "Τραμ Γραμμή 7 (Σύνταγμα - Βούλα)",
+        "color": "#83B81A",
+        "colorRGB": [131, 184, 26],
+        "aliases": ["7"]
+      }
+    },
+    "suburban": {
+      "A1": {
+        "name": "Suburban Railway Line A1 (Athens - Corinth - Kiato)",
+        "nameEl": "Προαστιακός Α1 (Αθήνα - Κόρινθος - Κιάτο)",
+        "color": "#FFD600",
+        "colorRGB": [255, 214, 0],
+        "aliases": ["Proastiakos A1"]
+      },
+      "A2": {
+        "name": "Suburban Railway Line A2 (Athens - Airport - Chalkida)",
+        "nameEl": "Προαστιακός Α2 (Αθήνα - Αεροδρόμιο - Χαλκίδα)",
+        "color": "#9C27B0",
+        "colorRGB": [156, 39, 176],
+        "aliases": ["Proastiakos A2"]
+      },
+      "A3": {
+        "name": "Suburban Railway Line A3 (Athens - Piraeus)",
+        "nameEl": "Προαστιακός Α3 (Αθήνα - Πειραιάς)",
+        "color": "#8BC34A",
+        "colorRGB": [139, 195, 74],
+        "aliases": ["Proastiakos A3"]
+      },
+      "A4": {
+        "name": "Suburban Railway Line A4 (Piraeus - Airport)",
+        "nameEl": "Προαστιακός Α4 (Πειραιάς - Αεροδρόμιο)",
+        "color": "#87CEEB",
+        "colorRGB": [135, 206, 235],
+        "aliases": ["Proastiakos A4"]
+      }
+    },
+    "trolley": {
+      "default": {
+        "name": "Trolley Lines",
+        "nameEl": "Γραμμές Τρόλεϊ",
+        "color": "#F27C02",
+        "colorRGB": [242, 124, 2],
+        "aliases": ["Trolley", "Τρόλεϊ"]
+      }
+    },
+    "bus": {
+      "default": {
+        "name": "Bus Lines",
+        "nameEl": "Γραμμές Λεωφορείων",
+        "color": "#009EC6",
+        "colorRGB": [0, 158, 198],
+        "aliases": ["Bus", "Λεωφορείο"]
+      }
+    }
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2026-02-11",
+    "source": "Athens Urban Transport Organisation (OASA)",
+    "notes": "Official colors for Athens public transport system"
+  },
+  "colorMatrix": [
+    {
+      "code": "M1",
+      "type": "metro",
+      "color": "#00A651",
+      "name": "Green Line"
+    },
+    {
+      "code": "M2",
+      "type": "metro",
+      "color": "#ED1C24",
+      "name": "Red Line"
+    },
+    {
+      "code": "M3",
+      "type": "metro",
+      "color": "#0066B3",
+      "name": "Blue Line"
+    },
+    {
+      "code": "M4",
+      "type": "metro",
+      "color": "#FFC107",
+      "name": "Yellow Line"
+    },
+    {
+      "code": "T6",
+      "type": "tram",
+      "color": "#83B81A",
+      "name": "Tram 6"
+    },
+    {
+      "code": "T7",
+      "type": "tram",
+      "color": "#83B81A",
+      "name": "Tram 7"
+    },
+    {
+      "code": "A1",
+      "type": "suburban",
+      "color": "#FFD600",
+      "name": "Suburban A1"
+    },
+    {
+      "code": "A2",
+      "type": "suburban",
+      "color": "#9C27B0",
+      "name": "Suburban A2"
+    },
+    {
+      "code": "A3",
+      "type": "suburban",
+      "color": "#8BC34A",
+      "name": "Suburban A3"
+    },
+    {
+      "code": "A4",
+      "type": "suburban",
+      "color": "#87CEEB",
+      "name": "Suburban A4"
+    },
+    {
+      "code": "TROLLEY",
+      "type": "trolley",
+      "color": "#F27C02",
+      "name": "Trolley"
+    },
+    {
+      "code": "BUS",
+      "type": "bus",
+      "color": "#009EC6",
+      "name": "Bus"
+    }
+  ]
+}
