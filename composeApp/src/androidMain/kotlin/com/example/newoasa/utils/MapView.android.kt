@@ -5,6 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
@@ -14,6 +15,7 @@ import androidx.lifecycle.LifecycleEventObserver
 import com.example.newoasa.data.TransitLine
 import com.example.newoasa.theme.LineColors
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.maplibre.android.MapLibre
 import org.maplibre.android.camera.CameraPosition
@@ -37,6 +39,7 @@ actual fun MapView(
 ) {
     val context = LocalContext.current
     val lifecycleOwner = LocalLifecycleOwner.current
+    val coroutineScope = rememberCoroutineScope()
     
     // Initialize MapLibre instance
     remember {
@@ -94,13 +97,15 @@ actual fun MapView(
     LaunchedEffect(Unit) {
         mapView.getMapAsync { map ->
             map.getStyle { style ->
-                loadAllTransitLines(style)
+                coroutineScope.launch {
+                    loadAllTransitLines(style)
+                }
             }
         }
     }
     
     // Update map style when theme changes
-    DisposableEffect(isDark) {
+    LaunchedEffect(isDark) {
         mapView.getMapAsync { map ->
             val styleUrl = if (isDark) {
                 "https://tiles.openfreemap.org/styles/dark"
@@ -109,10 +114,11 @@ actual fun MapView(
             }
             map.setStyle(styleUrl) { style ->
                 // Reload all transit lines after style change
-                loadAllTransitLines(style)
+                coroutineScope.launch {
+                    loadAllTransitLines(style)
+                }
             }
         }
-        onDispose { }
     }
     
     // Handle selected line changes - highlight selected line
