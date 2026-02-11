@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.newoasa.data.Station
@@ -140,7 +141,11 @@ fun LineBadge(
     lineNumber: String,
     modifier: Modifier = Modifier
 ) {
+    // Get the actual line color from LineColors utility
     val lineColor = LineColors.getColorForLine(lineNumber)
+    
+    // Display text - normalize the line number for display
+    val displayText = normalizeLineNumber(lineNumber)
     
     Box(
         modifier = modifier
@@ -150,12 +155,40 @@ fun LineBadge(
         contentAlignment = Alignment.Center
     ) {
         Text(
-            text = lineNumber,
+            text = displayText,
             style = MaterialTheme.typography.labelLarge,
             fontWeight = FontWeight.Bold,
-            color = MaterialTheme.colorScheme.onPrimary
+            color = Color.White // Always white text on colored background
         )
     }
+}
+
+/**
+ * Normalize line number for display
+ * Converts "Μ1" or "M1" or "1" to just "M1" for metro, etc.
+ */
+private fun normalizeLineNumber(lineNumber: String): String {
+    val normalized = lineNumber.trim()
+    
+    // If it starts with Greek Μ (mu), replace with Latin M
+    val withLatinM = normalized.replace("Μ", "M")
+    
+    // If it's already in good format (M1, T6, A1, etc.), return it
+    if (withLatinM.matches(Regex("^[MTA]\\d+$"))) {
+        return withLatinM
+    }
+    
+    // If it's just a number, try to infer the prefix
+    if (withLatinM.matches(Regex("^\\d+$"))) {
+        val num = withLatinM.toIntOrNull()
+        return when (num) {
+            1, 2, 3, 4 -> "M$withLatinM" // Metro lines
+            6, 7 -> "T$withLatinM" // Tram lines
+            else -> withLatinM // Keep as is
+        }
+    }
+    
+    return withLatinM
 }
 
 @Composable
