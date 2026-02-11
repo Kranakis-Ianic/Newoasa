@@ -65,6 +65,12 @@ actual fun MapView(
                         .build()
                     
                     map.cameraPosition = position
+                    
+                    // Load all transit lines
+                    coroutineScope.launch {
+                        loadAllTransitLines(style)
+                    }
+                    
                     onMapReady()
                 }
             }
@@ -90,17 +96,6 @@ actual fun MapView(
         onDispose {
             lifecycleOwner.lifecycle.removeObserver(observer)
             mapView.onDestroy()
-        }
-    }
-    
-    // Load all transit lines when map is ready
-    LaunchedEffect(Unit) {
-        mapView.getMapAsync { map ->
-            map.getStyle { style ->
-                coroutineScope.launch {
-                    loadAllTransitLines(style)
-                }
-            }
         }
     }
     
@@ -271,6 +266,17 @@ private suspend fun loadAllTransitLines(style: Style) {
         if (allLinesJson != null) {
             withContext(Dispatchers.Main) {
                 try {
+                    // Check if source already exists and remove it first
+                    if (style.getSource("all-lines-source") != null) {
+                        // Remove old layer first
+                        if (style.getLayer("all-lines-layer") != null) {
+                            style.removeLayer("all-lines-layer")
+                        }
+                        // Then remove source
+                        style.removeSource("all-lines-source")
+                        Log.d("MapView", "Removed existing all-lines source and layer")
+                    }
+                    
                     // Add source for all lines
                     val source = GeoJsonSource("all-lines-source", allLinesJson)
                     style.addSource(source)
