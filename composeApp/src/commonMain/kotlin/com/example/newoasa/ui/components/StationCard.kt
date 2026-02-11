@@ -122,9 +122,9 @@ private fun LineBadge(
     
     // Determine text color based on background brightness
     // Using relative luminance formula: (0.299*R + 0.587*G + 0.114*B)
-    val red = (backgroundColor.value shr 16 and 0xFF) / 255f
-    val green = (backgroundColor.value shr 8 and 0xFF) / 255f
-    val blue = (backgroundColor.value and 0xFF) / 255f
+    val red = backgroundColor.red
+    val green = backgroundColor.green
+    val blue = backgroundColor.blue
     val luminance = 0.299f * red + 0.587f * green + 0.114f * blue
     val textColor = if (luminance > 0.5f) Color.Black else Color.White
     
