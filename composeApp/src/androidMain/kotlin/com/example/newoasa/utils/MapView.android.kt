@@ -62,6 +62,10 @@ actual fun MapView(
                         .build()
                     
                     map.cameraPosition = position
+                    
+                    // Load and display all transit lines
+                    loadAllTransitLines(style)
+                    
                     onMapReady()
                 }
             }
@@ -98,12 +102,15 @@ actual fun MapView(
             } else {
                 "https://tiles.openfreemap.org/styles/bright"
             }
-            map.setStyle(styleUrl)
+            map.setStyle(styleUrl) { style ->
+                // Reload all transit lines after style change
+                loadAllTransitLines(style)
+            }
         }
         onDispose { }
     }
     
-    // Handle selected line changes - load and display routes
+    // Handle selected line changes - highlight selected line
     LaunchedEffect(selectedLine) {
         if (selectedLine != null) {
             withContext(Dispatchers.IO) {
@@ -123,13 +130,13 @@ actual fun MapView(
                     }
                 }
                 
-                // Display on map
+                // Display highlighted line on map
                 withContext(Dispatchers.Main) {
                     mapView.getMapAsync { map ->
                         map.getStyle { style ->
                             try {
-                                // Clear previous line layers and sources
-                                clearTransitLayers(style)
+                                // Clear previous highlight layers
+                                clearHighlightLayers(style)
                                 
                                 // Get line color
                                 val lineColor = when (selectedLine.category) {
@@ -139,12 +146,12 @@ actual fun MapView(
                                 
                                 val allCoordinates = mutableListOf<LatLng>()
                                 
-                                // Display each loaded route
+                                // Display each loaded route as highlight
                                 routeData.forEach { (index, geoJsonString) ->
                                     try {
-                                        val sourceId = "route-source-$index"
-                                        val lineLayerId = "route-line-$index"
-                                        val stopsLayerId = "route-stops-$index"
+                                        val sourceId = "highlight-source-$index"
+                                        val lineLayerId = "highlight-line-$index"
+                                        val stopsLayerId = "highlight-stops-$index"
                                         
                                         // Add source
                                         val source = GeoJsonSource(sourceId, geoJsonString)
@@ -165,12 +172,12 @@ actual fun MapView(
                                             Log.w("MapView", "Could not parse coordinates for bounds", e)
                                         }
                                         
-                                        // Add line layer for route
+                                        // Add thicker highlighted line layer
                                         val lineLayer = LineLayer(lineLayerId, sourceId)
                                             .withProperties(
                                                 lineColor(lineColor),
-                                                lineWidth(5f),
-                                                lineOpacity(0.85f),
+                                                lineWidth(8f),  // Thicker for highlight
+                                                lineOpacity(0.95f),
                                                 lineCap("round"),
                                                 lineJoin("round")
                                             )
@@ -182,9 +189,9 @@ actual fun MapView(
                                         // Add circle layer for stops
                                         val circleLayer = CircleLayer(stopsLayerId, sourceId)
                                             .withProperties(
-                                                circleRadius(6f),
+                                                circleRadius(8f),  // Larger for highlight
                                                 circleColor(lineColor),
-                                                circleStrokeWidth(2.5f),
+                                                circleStrokeWidth(3f),
                                                 circleStrokeColor("#FFFFFF"),
                                                 circleOpacity(1.0f)
                                             )
@@ -193,39 +200,36 @@ actual fun MapView(
                                             )
                                         style.addLayer(circleLayer)
                                         
-                                        Log.d("MapView", "Successfully added route $index for line ${selectedLine.lineNumber}")
+                                        Log.d("MapView", "Successfully highlighted route $index for line ${selectedLine.lineNumber}")
                                     } catch (e: Exception) {
-                                        Log.e("MapView", "Error displaying route $index", e)
+                                        Log.e("MapView", "Error highlighting route $index", e)
                                     }
                                 }
                                 
-                                // Zoom to fit all routes with better padding
+                                // Zoom to fit selected line with padding
                                 if (allCoordinates.isNotEmpty()) {
                                     val boundsBuilder = LatLngBounds.Builder()
                                     allCoordinates.forEach { boundsBuilder.include(it) }
                                     val bounds = boundsBuilder.build()
                                     
-                                    // Use larger padding (200px instead of 100px) for better visual framing
                                     map.animateCamera(
                                         CameraUpdateFactory.newLatLngBounds(bounds, 200),
                                         1000
                                     )
                                     Log.d("MapView", "Zoomed to bounds for line ${selectedLine.lineNumber}")
-                                } else {
-                                    Log.w("MapView", "No coordinates found for line ${selectedLine.lineNumber}")
                                 }
                             } catch (e: Exception) {
-                                Log.e("MapView", "Error displaying transit line", e)
+                                Log.e("MapView", "Error highlighting transit line", e)
                             }
                         }
                     }
                 }
             }
         } else {
-            // Clear lines when no line is selected
+            // Clear highlight when no line is selected
             mapView.getMapAsync { map ->
                 map.getStyle { style ->
-                    clearTransitLayers(style)
+                    clearHighlightLayers(style)
                     
                     // Return to Athens view
                     val athensCenter = LatLng(37.9838, 23.7275)
@@ -245,21 +249,63 @@ actual fun MapView(
 }
 
 /**
- * Clear all transit line layers and sources from the map
+ * Load and display all transit lines from final_all_lines.geojson
+ * This is always visible as the base layer
  */
-private fun clearTransitLayers(style: Style) {
-    // Remove all route layers and sources
+private fun loadAllTransitLines(style: Style) {
+    try {
+        // Load the combined all lines file
+        val allLinesJson = loadGeoJsonFromResources("files/geojson/final_all_lines.geojson")
+        
+        if (allLinesJson != null) {
+            // Add source for all lines
+            val source = GeoJsonSource("all-lines-source", allLinesJson)
+            style.addSource(source)
+            
+            // Add line layer with data-driven styling based on lineColor property
+            val lineLayer = LineLayer("all-lines-layer", "all-lines-source")
+                .withProperties(
+                    // Use the lineColor property from the GeoJSON features
+                    lineColor(
+                        coalesce(
+                            get("lineColor"),
+                            literal("#666666")  // Fallback color
+                        )
+                    ),
+                    lineWidth(3.5f),
+                    lineOpacity(0.75f),
+                    lineCap("round"),
+                    lineJoin("round")
+                )
+                .withFilter(
+                    eq(geometryType(), literal("LineString"))
+                )
+            style.addLayer(lineLayer)
+            
+            Log.d("MapView", "Successfully loaded all transit lines")
+        } else {
+            Log.w("MapView", "Could not load final_all_lines.geojson")
+        }
+    } catch (e: Exception) {
+        Log.e("MapView", "Error loading all transit lines", e)
+    }
+}
+
+/**
+ * Clear highlight layers (not the base all-lines layer)
+ */
+private fun clearHighlightLayers(style: Style) {
     val layersToRemove = mutableListOf<String>()
     val sourcesToRemove = mutableListOf<String>()
     
     style.layers.forEach { layer ->
-        if (layer.id.startsWith("route-")) {
+        if (layer.id.startsWith("highlight-")) {
             layersToRemove.add(layer.id)
         }
     }
     
     style.sources.forEach { source ->
-        if (source.id.startsWith("route-")) {
+        if (source.id.startsWith("highlight-")) {
             sourcesToRemove.add(source.id)
         }
     }
