@@ -1,5 +1,6 @@
 package com.example.newoasa.utils
 
+import android.graphics.PointF
 import android.util.Log
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -31,6 +32,7 @@ import org.maplibre.android.camera.CameraUpdateFactory
 import org.maplibre.android.geometry.LatLng
 import org.maplibre.android.geometry.LatLngBounds
 import org.maplibre.android.maps.MapView as MapLibreMapView
+import org.maplibre.android.maps.MapLibreMap
 import org.maplibre.android.maps.Style
 import org.maplibre.android.style.layers.LineLayer
 import org.maplibre.android.style.layers.PropertyFactory.*
@@ -82,54 +84,9 @@ actual fun MapView(
                         loadAllStations(style, isDark)
                     }
                     
-                    // Add click listener for stations
-                    map.addOnMapClickListener { point ->
-                        val screenPoint = map.projection.toScreenLocation(point)
-                        val features = map.queryRenderedFeatures(screenPoint, "all-stations-layer")
-                        
-                        if (features.isNotEmpty()) {
-                            val feature = features.first()
-                            val geometry = feature.geometry()
-                            
-                            if (geometry is Point) {
-                                val properties = feature.properties()
-                                
-                                // Extract station information
-                                val stationId = properties?.get("@id")?.asString ?: ""
-                                val stationName = properties?.get("name")?.asString ?: "Unknown Station"
-                                val stationNameEn = properties?.get("name:en")?.asString
-                                val wheelchair = properties?.get("wheelchair")?.asString == "yes"
-                                
-                                // Extract lines from @relations
-                                val lines = mutableListOf<String>()
-                                try {
-                                    val relations = properties?.get("@relations")?.asJsonArray
-                                    relations?.forEach { relation ->
-                                        val reltags = relation.asJsonObject.get("reltags")?.asJsonObject
-                                        val ref = reltags?.get("ref")?.asString
-                                        if (ref != null && !lines.contains(ref)) {
-                                            lines.add(ref)
-                                        }
-                                    }
-                                } catch (e: Exception) {
-                                    Log.w("MapView", "Error extracting lines from station", e)
-                                }
-                                
-                                val station = Station(
-                                    id = stationId,
-                                    name = stationName,
-                                    nameEn = stationNameEn,
-                                    latitude = geometry.latitude(),
-                                    longitude = geometry.longitude(),
-                                    lines = lines,
-                                    wheelchair = wheelchair
-                                )
-                                
-                                selectedStation = station
-                                Log.d("MapView", "Station clicked: $stationName with lines: $lines")
-                            }
-                        }
-                        true
+                    // Set up click listener
+                    setupStationClickListener(map) { station ->
+                        selectedStation = station
                     }
                     
                     onMapReady()
@@ -173,6 +130,11 @@ actual fun MapView(
                 coroutineScope.launch {
                     loadAllTransitLines(style, isDark)
                     loadAllStations(style, isDark)
+                }
+                
+                // Re-setup click listener after style change
+                setupStationClickListener(map) { station ->
+                    selectedStation = station
                 }
             }
         }
@@ -335,6 +297,86 @@ actual fun MapView(
 }
 
 /**
+ * Set up click listener for stations with larger touch target
+ */
+private fun setupStationClickListener(
+    map: MapLibreMap,
+    onStationClick: (Station) -> Unit
+) {
+    map.addOnMapClickListener { point ->
+        Log.d("MapView", "Map clicked at: $point")
+        
+        val screenPoint = map.projection.toScreenLocation(point)
+        Log.d("MapView", "Screen point: $screenPoint")
+        
+        // Query with a larger radius for easier tapping (20 pixel radius)
+        val buffer = 20f
+        val rectF = android.graphics.RectF(
+            screenPoint.x - buffer,
+            screenPoint.y - buffer,
+            screenPoint.x + buffer,
+            screenPoint.y + buffer
+        )
+        
+        val features = map.queryRenderedFeatures(rectF, "all-stations-layer")
+        Log.d("MapView", "Found ${features.size} features")
+        
+        if (features.isNotEmpty()) {
+            val feature = features.first()
+            val geometry = feature.geometry()
+            
+            if (geometry is Point) {
+                try {
+                    val properties = feature.properties()
+                    
+                    // Extract station information
+                    val stationId = properties?.get("@id")?.asString ?: ""
+                    val stationName = properties?.get("name")?.asString ?: "Unknown Station"
+                    val stationNameEn = properties?.get("name:en")?.asString
+                    val stationIntName = properties?.get("int_name")?.asString
+                    val wheelchair = properties?.get("wheelchair")?.asString == "yes"
+                    
+                    // Use English or international name if available
+                    val displayNameEn = stationNameEn ?: stationIntName
+                    
+                    // Extract lines from @relations
+                    val lines = mutableListOf<String>()
+                    try {
+                        val relations = properties?.get("@relations")?.asJsonArray
+                        relations?.forEach { relation ->
+                            val reltags = relation.asJsonObject.get("reltags")?.asJsonObject
+                            val ref = reltags?.get("ref")?.asString
+                            if (ref != null && !lines.contains(ref)) {
+                                lines.add(ref)
+                            }
+                        }
+                    } catch (e: Exception) {
+                        Log.w("MapView", "Error extracting lines from station", e)
+                    }
+                    
+                    val station = Station(
+                        id = stationId,
+                        name = stationName,
+                        nameEn = displayNameEn,
+                        latitude = geometry.latitude(),
+                        longitude = geometry.longitude(),
+                        lines = lines.sorted(), // Sort for consistent display
+                        wheelchair = wheelchair
+                    )
+                    
+                    Log.d("MapView", "Station clicked: $stationName with lines: $lines")
+                    onStationClick(station)
+                    return@addOnMapClickListener true
+                } catch (e: Exception) {
+                    Log.e("MapView", "Error parsing station data", e)
+                }
+            }
+        }
+        false
+    }
+}
+
+/**
  * Load and display all transit lines from final_all_lines.geojson
  */
 private suspend fun loadAllTransitLines(style: Style, isDark: Boolean) {
@@ -431,10 +473,10 @@ private suspend fun loadAllStations(style: Style, isDark: Boolean) {
                                 interpolate(
                                     exponential(1.5f),
                                     zoom(),
-                                    stop(10f, 2f),   // Small at zoom 10
-                                    stop(12f, 3.5f), // Medium at zoom 12
-                                    stop(14f, 5f),   // Larger at zoom 14
-                                    stop(16f, 7f)    // Largest at zoom 16
+                                    stop(10f, 3f),   // Slightly larger at zoom 10
+                                    stop(12f, 4.5f), // Medium at zoom 12
+                                    stop(14f, 6f),   // Larger at zoom 14
+                                    stop(16f, 8f)    // Largest at zoom 16
                                 )
                             ),
                             circleColor(stationColor),
@@ -442,10 +484,10 @@ private suspend fun loadAllStations(style: Style, isDark: Boolean) {
                                 interpolate(
                                     exponential(1.5f),
                                     zoom(),
-                                    stop(10f, 0.5f),
-                                    stop(12f, 1f),
-                                    stop(14f, 1.5f),
-                                    stop(16f, 2f)
+                                    stop(10f, 1f),
+                                    stop(12f, 1.5f),
+                                    stop(14f, 2f),
+                                    stop(16f, 2.5f)
                                 )
                             ),
                             circleStrokeColor(stationStrokeColor),
