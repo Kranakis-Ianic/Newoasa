@@ -1,0 +1,1096 @@
+{
+  "type": "FeatureCollection",
+  "generator": "merged-line-stations-script",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/936668220",
+        "int_name": "Metamorfosi",
+        "name": "Μεταμόρφωση",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "2",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467444",
+            "reltags": {
+              "colour": "#9B26B6",
+              "from": "Αεροδρόμιο",
+              "name": "Προαστιακός A2: Αεροδρόμιο → Άνω Λιόσια",
+              "name:ca": "Rodalies A2: Aeroport → Ano Liosia",
+              "name:el": "Προαστιακός A2: Αεροδρόμιο → Άνω Λιόσια",
+              "name:en": "Train A2: Athens International Airport → Ano Liosia",
+              "name:fr": "Train A2: Aéroport → Ano Liosia",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A2",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2017-07-30",
+              "to": "Άνω Λιόσια",
+              "type": "route",
+              "via": "Μεταμόρφωση",
+              "wikidata": "Q17853551",
+              "wikipedia": "el:Γραμμή 4 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7549222,
+          38.0603471
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/936668282",
+        "railway": "milestone",
+        "railway:milestone:catenary_mast": "yes",
+        "railway:position": "1.8"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7382599,
+          38.065477
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/936804329",
+        "int_name": "Kifisias",
+        "name": "Κηφισίας",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "2",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467444",
+            "reltags": {
+              "colour": "#9B26B6",
+              "from": "Αεροδρόμιο",
+              "name": "Προαστιακός A2: Αεροδρόμιο → Άνω Λιόσια",
+              "name:ca": "Rodalies A2: Aeroport → Ano Liosia",
+              "name:el": "Προαστιακός A2: Αεροδρόμιο → Άνω Λιόσια",
+              "name:en": "Train A2: Athens International Airport → Ano Liosia",
+              "name:fr": "Train A2: Aéroport → Ano Liosia",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A2",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2017-07-30",
+              "to": "Άνω Λιόσια",
+              "type": "route",
+              "via": "Μεταμόρφωση",
+              "wikidata": "Q17853551",
+              "wikipedia": "el:Γραμμή 4 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8030044,
+          38.042363
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/936804379",
+        "int_name": "Iraklio",
+        "name": "Ηράκλειο",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "2",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467444",
+            "reltags": {
+              "colour": "#9B26B6",
+              "from": "Αεροδρόμιο",
+              "name": "Προαστιακός A2: Αεροδρόμιο → Άνω Λιόσια",
+              "name:ca": "Rodalies A2: Aeroport → Ano Liosia",
+              "name:el": "Προαστιακός A2: Αεροδρόμιο → Άνω Λιόσια",
+              "name:en": "Train A2: Athens International Airport → Ano Liosia",
+              "name:fr": "Train A2: Aéroport → Ano Liosia",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A2",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2017-07-30",
+              "to": "Άνω Λιόσια",
+              "type": "route",
+              "via": "Μεταμόρφωση",
+              "wikidata": "Q17853551",
+              "wikipedia": "el:Γραμμή 4 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7706495,
+          38.0575444
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/936882777",
+        "int_name": "Doukissis Plakentias",
+        "name": "Δουκίσσης Πλακεντίας",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "short_alt_name": "Plakentias",
+        "short_name": "Πλακεντίας",
+        "source:short_name": "sign",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467444",
+            "reltags": {
+              "colour": "#9B26B6",
+              "from": "Αεροδρόμιο",
+              "name": "Προαστιακός A2: Αεροδρόμιο → Άνω Λιόσια",
+              "name:ca": "Rodalies A2: Aeroport → Ano Liosia",
+              "name:el": "Προαστιακός A2: Αεροδρόμιο → Άνω Λιόσια",
+              "name:en": "Train A2: Athens International Airport → Ano Liosia",
+              "name:fr": "Train A2: Aéroport → Ano Liosia",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A2",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2017-07-30",
+              "to": "Άνω Λιόσια",
+              "type": "route",
+              "via": "Μεταμόρφωση",
+              "wikidata": "Q17853551",
+              "wikipedia": "el:Γραμμή 4 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8339306,
+          38.0248014
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/937378162",
+        "description": "Ο σταθμός του μετρό της Παλλήνης είναι κατασκευασμένος επί της Λεωφόρου Μαραθώνος στο μεσαίο διάζωμα της Αττικής Οδου. Εξυπηρετεί τις ευρήτερες περιοχές της Παλλήνης, του Γέρακα και της Ανθούσας.",
+        "int_name": "Pallini",
+        "name": "Παλλήνη",
+        "name:en": "Pallini",
+        "name:ru": "Паллини",
+        "network": "Γραμμή 3 Μετρό Αθήνας",
+        "operator": "ΣΤΑΣΥ",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "4 Προς Δημοτικό Θέατρο",
+        "subway": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8700746,
+          38.0046071
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/937378270",
+        "int_name": "Pallini",
+        "name": "Παλλήνη",
+        "name:en": "Pallini",
+        "name:ru": "Паллини",
+        "network": "Προαστιακός σιδηρόδρομος Αττικής",
+        "operator": "ΟΣΕ, HELLENIC TRAIN",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "2",
+        "train": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467444",
+            "reltags": {
+              "colour": "#9B26B6",
+              "from": "Αεροδρόμιο",
+              "name": "Προαστιακός A2: Αεροδρόμιο → Άνω Λιόσια",
+              "name:ca": "Rodalies A2: Aeroport → Ano Liosia",
+              "name:el": "Προαστιακός A2: Αεροδρόμιο → Άνω Λιόσια",
+              "name:en": "Train A2: Athens International Airport → Ano Liosia",
+              "name:fr": "Train A2: Aéroport → Ano Liosia",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A2",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2017-07-30",
+              "to": "Άνω Λιόσια",
+              "type": "route",
+              "via": "Μεταμόρφωση",
+              "wikidata": "Q17853551",
+              "wikipedia": "el:Γραμμή 4 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8697588,
+          38.00551
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/937892944",
+        "int_name": "Peania-Kantza",
+        "name": "Παιανία-Κάντζα",
+        "name:en": "Peania-Kantza",
+        "name:ru": "Пеанья-Кантза",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Δημοτικό Θέατρο",
+        "short_int_name": "Kantza",
+        "short_name": "Κάντζα",
+        "subway": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8702007,
+          37.9849186
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/939121389",
+        "int_name": "Koropi",
+        "name": "Κορωπί",
+        "name:en": "Koropi",
+        "name:ru": "Коропи",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "2",
+        "train": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467444",
+            "reltags": {
+              "colour": "#9B26B6",
+              "from": "Αεροδρόμιο",
+              "name": "Προαστιακός A2: Αεροδρόμιο → Άνω Λιόσια",
+              "name:ca": "Rodalies A2: Aeroport → Ano Liosia",
+              "name:el": "Προαστιακός A2: Αεροδρόμιο → Άνω Λιόσια",
+              "name:en": "Train A2: Athens International Airport → Ano Liosia",
+              "name:fr": "Train A2: Aéroport → Ano Liosia",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A2",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2017-07-30",
+              "to": "Άνω Λιόσια",
+              "type": "route",
+              "via": "Μεταμόρφωση",
+              "wikidata": "Q17853551",
+              "wikipedia": "el:Γραμμή 4 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.895645,
+          37.9133547
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/939169980",
+        "railway": "milestone",
+        "railway:milestone:catenary_mast": "no",
+        "railway:milestone:emergency_brake_override": "no",
+        "railway:position": "27",
+        "source": "estimate; survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.9178502,
+          37.9140778
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2354656162",
+        "int_name": "Sidirodromiko Kentro Acharnon",
+        "name": "Σιδηροδρομικό Κέντρο Αχαρνών",
+        "name:en": "Acharnai Railway Center",
+        "network": "Προαστιακός Αθήνας",
+        "operator": "ΟΣΕ",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "short_int_name": "S.K.A.",
+        "short_name": "Σ.Κ.Α.",
+        "source": "sign",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467444",
+            "reltags": {
+              "colour": "#9B26B6",
+              "from": "Αεροδρόμιο",
+              "name": "Προαστιακός A2: Αεροδρόμιο → Άνω Λιόσια",
+              "name:ca": "Rodalies A2: Aeroport → Ano Liosia",
+              "name:el": "Προαστιακός A2: Αεροδρόμιο → Άνω Λιόσια",
+              "name:en": "Train A2: Athens International Airport → Ano Liosia",
+              "name:fr": "Train A2: Aéroport → Ano Liosia",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A2",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2017-07-30",
+              "to": "Άνω Λιόσια",
+              "type": "route",
+              "via": "Μεταμόρφωση",
+              "wikidata": "Q17853551",
+              "wikipedia": "el:Γραμμή 4 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7376508,
+          38.0656438
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2539677978",
+        "noexit": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.9454884,
+          37.9378242
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2539677982",
+        "noexit": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.9438729,
+          37.9361207
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2541985703",
+        "noexit": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7910063,
+          38.0457733
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2541985705",
+        "noexit": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7954743,
+          38.0444596
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2541985709",
+        "int_name": "Neratziotissa",
+        "name": "Νερατζιώτισσα",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "2",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467444",
+            "reltags": {
+              "colour": "#9B26B6",
+              "from": "Αεροδρόμιο",
+              "name": "Προαστιακός A2: Αεροδρόμιο → Άνω Λιόσια",
+              "name:ca": "Rodalies A2: Aeroport → Ano Liosia",
+              "name:el": "Προαστιακός A2: Αεροδρόμιο → Άνω Λιόσια",
+              "name:en": "Train A2: Athens International Airport → Ano Liosia",
+              "name:fr": "Train A2: Aéroport → Ano Liosia",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A2",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2017-07-30",
+              "to": "Άνω Λιόσια",
+              "type": "route",
+              "via": "Μεταμόρφωση",
+              "wikidata": "Q17853551",
+              "wikipedia": "el:Γραμμή 4 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7922588,
+          38.0454313
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2542055388",
+        "noexit": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8027314,
+          38.0424154
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2542055390",
+        "noexit": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8043989,
+          38.0419295
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2786688268",
+        "int_name": "Pentelis",
+        "name": "Πεντέλης",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467444",
+            "reltags": {
+              "colour": "#9B26B6",
+              "from": "Αεροδρόμιο",
+              "name": "Προαστιακός A2: Αεροδρόμιο → Άνω Λιόσια",
+              "name:ca": "Rodalies A2: Aeroport → Ano Liosia",
+              "name:el": "Προαστιακός A2: Αεροδρόμιο → Άνω Λιόσια",
+              "name:en": "Train A2: Athens International Airport → Ano Liosia",
+              "name:fr": "Train A2: Aéroport → Ano Liosia",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A2",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2017-07-30",
+              "to": "Άνω Λιόσια",
+              "type": "route",
+              "via": "Μεταμόρφωση",
+              "wikidata": "Q17853551",
+              "wikipedia": "el:Γραμμή 4 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8215345,
+          38.0339566
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/3147765088",
+        "noexit": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7565369,
+          38.0601083
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/3147765096",
+        "noexit": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7549152,
+          38.0603269
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/5379670331",
+        "alt_name": "Διεθνής Αερολιμένας Αθηνών",
+        "int_name": "Athens Airport (AIA)",
+        "name": "Αεροδρόμιο",
+        "name:en": "Airport",
+        "name:ru": "Аэропорт",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "source:alt_name:en": "sign",
+        "train": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop_entry_only",
+            "rel": "8467444",
+            "reltags": {
+              "colour": "#9B26B6",
+              "from": "Αεροδρόμιο",
+              "name": "Προαστιακός A2: Αεροδρόμιο → Άνω Λιόσια",
+              "name:ca": "Rodalies A2: Aeroport → Ano Liosia",
+              "name:el": "Προαστιακός A2: Αεροδρόμιο → Άνω Λιόσια",
+              "name:en": "Train A2: Athens International Airport → Ano Liosia",
+              "name:fr": "Train A2: Aéroport → Ano Liosia",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A2",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2017-07-30",
+              "to": "Άνω Λιόσια",
+              "type": "route",
+              "via": "Μεταμόρφωση",
+              "wikidata": "Q17853551",
+              "wikipedia": "el:Γραμμή 4 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.9446202,
+          37.9369471
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/5380078374",
+        "int_name": "Peania-Kantza",
+        "name": "Παιανία-Κάντζα",
+        "name:en": "Peania-Kantza",
+        "name:ru": "Пеанья-Кантза",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "2",
+        "short_int_name": "Kantza",
+        "short_name": "Κάντζα",
+        "train": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467444",
+            "reltags": {
+              "colour": "#9B26B6",
+              "from": "Αεροδρόμιο",
+              "name": "Προαστιακός A2: Αεροδρόμιο → Άνω Λιόσια",
+              "name:ca": "Rodalies A2: Aeroport → Ano Liosia",
+              "name:el": "Προαστιακός A2: Αεροδρόμιο → Άνω Λιόσια",
+              "name:en": "Train A2: Athens International Airport → Ano Liosia",
+              "name:fr": "Train A2: Aéroport → Ano Liosia",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A2",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2017-07-30",
+              "to": "Άνω Λιόσια",
+              "type": "route",
+              "via": "Μεταμόρφωση",
+              "wikidata": "Q17853551",
+              "wikipedia": "el:Γραμμή 4 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8699722,
+          37.9839677
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/5777457451",
+        "int_name": "Ano Liosia",
+        "name": "Άνω Λιόσια",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop_exit_only",
+            "rel": "8467444",
+            "reltags": {
+              "colour": "#9B26B6",
+              "from": "Αεροδρόμιο",
+              "name": "Προαστιακός A2: Αεροδρόμιο → Άνω Λιόσια",
+              "name:ca": "Rodalies A2: Aeroport → Ano Liosia",
+              "name:el": "Προαστιακός A2: Αεροδρόμιο → Άνω Λιόσια",
+              "name:en": "Train A2: Athens International Airport → Ano Liosia",
+              "name:fr": "Train A2: Aéroport → Ano Liosia",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A2",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2017-07-30",
+              "to": "Άνω Λιόσια",
+              "type": "route",
+              "via": "Μεταμόρφωση",
+              "wikidata": "Q17853551",
+              "wikipedia": "el:Γραμμή 4 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7100051,
+          38.0707953
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7792675961",
+        "noexit": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7706411,
+          38.0575314
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7792675964",
+        "noexit": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7721662,
+          38.0568748
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/10700888562",
+        "noexit": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8698899,
+          37.9835491
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/10700888564",
+        "int_name": "Koropi",
+        "name": "Κορωπί",
+        "name:el": "Κορωπί",
+        "name:en": "Koropi",
+        "name:fr": "Koropi",
+        "name:ru": "Коропи",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Δημοτικό Θέατρο",
+        "subway": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8962247,
+          37.9126094
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/10993208508",
+        "bus": "yes",
+        "name": "ΣΚΑ-ΑΧΑΡΝΑΙ",
+        "name:el": "ΣΚΑ-ΑΧΑΡΝΑΙ",
+        "name:en": "SKA-ACHARNAI",
+        "network": "ΟΣΥ",
+        "operator": "ΟΑΣΑ",
+        "public_transport": "stop_position",
+        "ref": "130465"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7389294,
+          38.0652973
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/12479401562",
+        "railway": "milestone",
+        "railway:milestone:catenary_mast": "no",
+        "railway:milestone:emergency_brake_override": "no",
+        "railway:position": "30",
+        "source": "estimate; survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.9407333,
+          37.9327071
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/12479401563",
+        "railway": "milestone",
+        "railway:milestone:catenary_mast": "no",
+        "railway:milestone:emergency_brake_override": "no",
+        "railway:position": "29",
+        "source": "estimate; survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.9339139,
+          37.9255706
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/12479401564",
+        "railway": "milestone",
+        "railway:milestone:catenary_mast": "no",
+        "railway:milestone:emergency_brake_override": "no",
+        "railway:position": "28",
+        "source": "estimate; survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.9272449,
+          37.9185723
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/12479401565",
+        "railway": "milestone",
+        "railway:milestone:catenary_mast": "no",
+        "railway:milestone:emergency_brake_override": "no",
+        "railway:position": "24",
+        "source": "estimate; survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8924036,
+          37.9185868
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/12479401566",
+        "railway": "milestone",
+        "railway:milestone:catenary_mast": "no",
+        "railway:milestone:emergency_brake_override": "no",
+        "railway:position": "23",
+        "source": "estimate; survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8880569,
+          37.9267551
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/12479401567",
+        "railway": "milestone",
+        "railway:milestone:catenary_mast": "no",
+        "railway:milestone:emergency_brake_override": "no",
+        "railway:position": "22",
+        "source": "estimate; survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8863079,
+          37.9353789
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/12479401568",
+        "railway": "milestone",
+        "railway:milestone:catenary_mast": "no",
+        "railway:milestone:emergency_brake_override": "no",
+        "railway:position": "20",
+        "source": "estimate; survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8863076,
+          37.9537589
+        ]
+      }
+    }
+  ]
+}

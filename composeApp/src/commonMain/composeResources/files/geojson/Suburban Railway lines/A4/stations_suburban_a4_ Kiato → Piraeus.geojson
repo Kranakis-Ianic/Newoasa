@@ -1,0 +1,1279 @@
+{
+  "type": "FeatureCollection",
+  "generator": "merged-line-stations-script",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/354052660",
+        "int_name": "Korinthos",
+        "name": "Κόρινθος",
+        "name:de": "Korinth",
+        "name:el": "Κόρινθος",
+        "name:en": "Corinth",
+        "name:es": "Corinto",
+        "name:et": "Kórinthos",
+        "name:fi": "Korintti",
+        "name:fr": "Corinthe",
+        "name:it": "Corinto",
+        "name:ku": "Korînt",
+        "name:mi": "Koriniti",
+        "name:mk": "Коринт",
+        "name:nl": "Korinthe",
+        "name:ru": "Коринф",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "source:int_name": "sign",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467514",
+            "reltags": {
+              "colour": "#00A3E0",
+              "from": "Κιάτο",
+              "name": "Προαστιακός A4: Κιάτο → Πειραιά",
+              "name:ca": "Rodalies A4: Kiato → El Pireu",
+              "name:el": "Προαστιακός A4: Κιάτο → Πειραιά",
+              "name:en": "Train A4: Kiato → Piraeus",
+              "name:fr": "Train A4: Kiato → Le Pirée",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A4",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2005-09-27",
+              "to": "Πειραιά",
+              "type": "route",
+              "via": "Αθήνα",
+              "wikidata": "Q20552930",
+              "wikipedia": "el:Γραμμή 2 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.9324047,
+          37.9209312
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/361470406",
+        "int_name": "Magoula",
+        "name": "Μαγούλα",
+        "name:el": "Μαγούλα",
+        "name:en": "Magoula",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "train": "yes",
+        "wikidata": "Q16895562",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467514",
+            "reltags": {
+              "colour": "#00A3E0",
+              "from": "Κιάτο",
+              "name": "Προαστιακός A4: Κιάτο → Πειραιά",
+              "name:ca": "Rodalies A4: Kiato → El Pireu",
+              "name:el": "Προαστιακός A4: Κιάτο → Πειραιά",
+              "name:en": "Train A4: Kiato → Piraeus",
+              "name:fr": "Train A4: Kiato → Le Pirée",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A4",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2005-09-27",
+              "to": "Πειραιά",
+              "type": "route",
+              "via": "Αθήνα",
+              "wikidata": "Q20552930",
+              "wikipedia": "el:Γραμμή 2 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5298844,
+          38.0740597
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/795867270",
+        "int_name": "Kineta",
+        "name": "Κινέτα",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "source:name": "sign",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467514",
+            "reltags": {
+              "colour": "#00A3E0",
+              "from": "Κιάτο",
+              "name": "Προαστιακός A4: Κιάτο → Πειραιά",
+              "name:ca": "Rodalies A4: Kiato → El Pireu",
+              "name:el": "Προαστιακός A4: Κιάτο → Πειραιά",
+              "name:en": "Train A4: Kiato → Piraeus",
+              "name:fr": "Train A4: Kiato → Le Pirée",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A4",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2005-09-27",
+              "to": "Πειραιά",
+              "type": "route",
+              "via": "Αθήνα",
+              "wikidata": "Q20552930",
+              "wikipedia": "el:Γραμμή 2 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.2010645,
+          37.9654088
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/835280817",
+        "int_name": "Agioi Theodoroi",
+        "name": "Άγιοι Θεοδώροι",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467514",
+            "reltags": {
+              "colour": "#00A3E0",
+              "from": "Κιάτο",
+              "name": "Προαστιακός A4: Κιάτο → Πειραιά",
+              "name:ca": "Rodalies A4: Kiato → El Pireu",
+              "name:el": "Προαστιακός A4: Κιάτο → Πειραιά",
+              "name:en": "Train A4: Kiato → Piraeus",
+              "name:fr": "Train A4: Kiato → Le Pirée",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A4",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2005-09-27",
+              "to": "Πειραιά",
+              "type": "route",
+              "via": "Αθήνα",
+              "wikidata": "Q20552930",
+              "wikipedia": "el:Γραμμή 2 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.1370772,
+          37.9331432
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/836837808",
+        "int_name": "Megara",
+        "name": "Μέγαρα",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467514",
+            "reltags": {
+              "colour": "#00A3E0",
+              "from": "Κιάτο",
+              "name": "Προαστιακός A4: Κιάτο → Πειραιά",
+              "name:ca": "Rodalies A4: Kiato → El Pireu",
+              "name:el": "Προαστιακός A4: Κιάτο → Πειραιά",
+              "name:en": "Train A4: Kiato → Piraeus",
+              "name:fr": "Train A4: Kiato → Le Pirée",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A4",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2005-09-27",
+              "to": "Πειραιά",
+              "type": "route",
+              "via": "Αθήνα",
+              "wikidata": "Q20552930",
+              "wikipedia": "el:Γραμμή 2 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.3611209,
+          37.9909037
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/936622962",
+        "int_name": "Ano Liosia",
+        "name": "Άνω Λιόσια",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467514",
+            "reltags": {
+              "colour": "#00A3E0",
+              "from": "Κιάτο",
+              "name": "Προαστιακός A4: Κιάτο → Πειραιά",
+              "name:ca": "Rodalies A4: Kiato → El Pireu",
+              "name:el": "Προαστιακός A4: Κιάτο → Πειραιά",
+              "name:en": "Train A4: Kiato → Piraeus",
+              "name:fr": "Train A4: Kiato → Le Pirée",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A4",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2005-09-27",
+              "to": "Πειραιά",
+              "type": "route",
+              "via": "Αθήνα",
+              "wikidata": "Q20552930",
+              "wikipedia": "el:Γραμμή 2 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7099901,
+          38.0706893
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/936622988",
+        "railway": "signal",
+        "railway:signal:direction": "backward"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.708379,
+          38.0708999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/988420951",
+        "int_name": "Rentis",
+        "name": "Ρέντης",
+        "operator": "ΟΣΕ",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "2",
+        "source:name": "sign",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467514",
+            "reltags": {
+              "colour": "#00A3E0",
+              "from": "Κιάτο",
+              "name": "Προαστιακός A4: Κιάτο → Πειραιά",
+              "name:ca": "Rodalies A4: Kiato → El Pireu",
+              "name:el": "Προαστιακός A4: Κιάτο → Πειραιά",
+              "name:en": "Train A4: Kiato → Piraeus",
+              "name:fr": "Train A4: Kiato → Le Pirée",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A4",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2005-09-27",
+              "to": "Πειραιά",
+              "type": "route",
+              "via": "Αθήνα",
+              "wikidata": "Q20552930",
+              "wikipedia": "el:Γραμμή 2 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6682798,
+          37.9623809
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/1292319344",
+        "int_name": "Agioi Anargyroi",
+        "name": "Άγιοι Ανάργυροι",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467514",
+            "reltags": {
+              "colour": "#00A3E0",
+              "from": "Κιάτο",
+              "name": "Προαστιακός A4: Κιάτο → Πειραιά",
+              "name:ca": "Rodalies A4: Kiato → El Pireu",
+              "name:el": "Προαστιακός A4: Κιάτο → Πειραιά",
+              "name:en": "Train A4: Kiato → Piraeus",
+              "name:fr": "Train A4: Kiato → Le Pirée",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A4",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2005-09-27",
+              "to": "Πειραιά",
+              "type": "route",
+              "via": "Αθήνα",
+              "wikidata": "Q20552930",
+              "wikipedia": "el:Γραμμή 2 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.71838,
+          38.0211401
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/1407488629",
+        "alt_int_name": "Zevgolateio",
+        "alt_name": "Ζευγολατειό",
+        "int_name": "Zevgolatio",
+        "name": "Ζευγολατιό",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467514",
+            "reltags": {
+              "colour": "#00A3E0",
+              "from": "Κιάτο",
+              "name": "Προαστιακός A4: Κιάτο → Πειραιά",
+              "name:ca": "Rodalies A4: Kiato → El Pireu",
+              "name:el": "Προαστιακός A4: Κιάτο → Πειραιά",
+              "name:en": "Train A4: Kiato → Piraeus",
+              "name:fr": "Train A4: Kiato → Le Pirée",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A4",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2005-09-27",
+              "to": "Πειραιά",
+              "type": "route",
+              "via": "Αθήνα",
+              "wikidata": "Q20552930",
+              "wikipedia": "el:Γραμμή 2 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.8066635,
+          37.9255396
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/1672197088",
+        "disused:railway": "switch"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6562473,
+          37.9585968
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2137213049",
+        "int_name": "Piraeus",
+        "name": "Πειραιάς",
+        "name:ca": "el Pireu",
+        "name:de": "Piräus",
+        "name:el": "Πειραιάς",
+        "name:en": "Piraeus",
+        "name:fr": "Le Pirée",
+        "name:ml": "പിറേയസ്",
+        "name:ru": "Пирей",
+        "old_int_name": "Peiraieus",
+        "old_name": "Πειραιεύς",
+        "operator": "ΟΣΕ",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "3",
+        "source:name": "sign",
+        "source:old_name": "sign (in Line 1 station)",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop_exit_only",
+            "rel": "8467514",
+            "reltags": {
+              "colour": "#00A3E0",
+              "from": "Κιάτο",
+              "name": "Προαστιακός A4: Κιάτο → Πειραιά",
+              "name:ca": "Rodalies A4: Kiato → El Pireu",
+              "name:el": "Προαστιακός A4: Κιάτο → Πειραιά",
+              "name:en": "Train A4: Kiato → Piraeus",
+              "name:fr": "Train A4: Kiato → Le Pirée",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A4",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2005-09-27",
+              "to": "Πειραιά",
+              "type": "route",
+              "via": "Αθήνα",
+              "wikidata": "Q20552930",
+              "wikipedia": "el:Γραμμή 2 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6434169,
+          37.9490942
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2144975794",
+        "int_name": "Lefka",
+        "name": "Λεύκα",
+        "operator": "ΟΣΕ",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "2",
+        "source:name": "sign",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467514",
+            "reltags": {
+              "colour": "#00A3E0",
+              "from": "Κιάτο",
+              "name": "Προαστιακός A4: Κιάτο → Πειραιά",
+              "name:ca": "Rodalies A4: Kiato → El Pireu",
+              "name:el": "Προαστιακός A4: Κιάτο → Πειραιά",
+              "name:en": "Train A4: Kiato → Piraeus",
+              "name:fr": "Train A4: Kiato → Le Pirée",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A4",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2005-09-27",
+              "to": "Πειραιά",
+              "type": "route",
+              "via": "Αθήνα",
+              "wikidata": "Q20552930",
+              "wikipedia": "el:Γραμμή 2 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.653677,
+          37.9551432
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2148259063",
+        "noexit": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6673245,
+          37.9622085
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2148259097",
+        "noexit": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6691736,
+          37.9624342
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2148380434",
+        "noexit": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6925983,
+          37.9685958
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2148380439",
+        "alt_int_name": "Tauros",
+        "int_name": "Tavros",
+        "name": "Ταύρος",
+        "operator": "ΟΣΕ",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Πειραιά",
+        "source:alt_int_name": "sign",
+        "source:name": "sign",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467514",
+            "reltags": {
+              "colour": "#00A3E0",
+              "from": "Κιάτο",
+              "name": "Προαστιακός A4: Κιάτο → Πειραιά",
+              "name:ca": "Rodalies A4: Kiato → El Pireu",
+              "name:el": "Προαστιακός A4: Κιάτο → Πειραιά",
+              "name:en": "Train A4: Kiato → Piraeus",
+              "name:fr": "Train A4: Kiato → Le Pirée",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A4",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2005-09-27",
+              "to": "Πειραιά",
+              "type": "route",
+              "via": "Αθήνα",
+              "wikidata": "Q20552930",
+              "wikipedia": "el:Γραμμή 2 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6926743,
+          37.9686411
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2148380524",
+        "noexit": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6941865,
+          37.9690141
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2148529029",
+        "noexit": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7033592,
+          37.9731536
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2148529036",
+        "int_name": "Rouf",
+        "name": "Ρουφ",
+        "network": "Προαστιακός Αθήνας",
+        "operator": "ΟΣΕ",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "2",
+        "source": "Bing Aerial Imagery (2022-04-10)",
+        "source:name": "sign",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467514",
+            "reltags": {
+              "colour": "#00A3E0",
+              "from": "Κιάτο",
+              "name": "Προαστιακός A4: Κιάτο → Πειραιά",
+              "name:ca": "Rodalies A4: Kiato → El Pireu",
+              "name:el": "Προαστιακός A4: Κιάτο → Πειραιά",
+              "name:en": "Train A4: Kiato → Piraeus",
+              "name:fr": "Train A4: Kiato → Le Pirée",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A4",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2005-09-27",
+              "to": "Πειραιά",
+              "type": "route",
+              "via": "Αθήνα",
+              "wikidata": "Q20552930",
+              "wikipedia": "el:Γραμμή 2 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7039247,
+          37.9736618
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2148529055",
+        "noexit": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.704515,
+          37.9741529
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2343649802",
+        "int_name": "Pyrgos Vasilissis",
+        "name": "Πύργος Βασιλίσσης",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467514",
+            "reltags": {
+              "colour": "#00A3E0",
+              "from": "Κιάτο",
+              "name": "Προαστιακός A4: Κιάτο → Πειραιά",
+              "name:ca": "Rodalies A4: Kiato → El Pireu",
+              "name:el": "Προαστιακός A4: Κιάτο → Πειραιά",
+              "name:en": "Train A4: Kiato → Piraeus",
+              "name:fr": "Train A4: Kiato → Le Pirée",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A4",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2005-09-27",
+              "to": "Πειραιά",
+              "type": "route",
+              "via": "Αθήνα",
+              "wikidata": "Q20552930",
+              "wikipedia": "el:Γραμμή 2 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7271365,
+          38.0390975
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2343670486",
+        "int_name": "Kato Acharnai",
+        "name": "Κάτω Αχαρναί",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467514",
+            "reltags": {
+              "colour": "#00A3E0",
+              "from": "Κιάτο",
+              "name": "Προαστιακός A4: Κιάτο → Πειραιά",
+              "name:ca": "Rodalies A4: Kiato → El Pireu",
+              "name:el": "Προαστιακός A4: Κιάτο → Πειραιά",
+              "name:en": "Train A4: Kiato → Piraeus",
+              "name:fr": "Train A4: Kiato → Le Pirée",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A4",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2005-09-27",
+              "to": "Πειραιά",
+              "type": "route",
+              "via": "Αθήνα",
+              "wikidata": "Q20552930",
+              "wikipedia": "el:Γραμμή 2 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.732438,
+          38.0535159
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2661766284",
+        "int_name": "Kiato",
+        "name": "Κιάτο",
+        "name:el": "Κιάτο",
+        "name:en": "Kiato",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "train": "yes",
+        "wikidata": "Q12060995",
+        "@relations": [
+          {
+            "role": "stop_entry_only",
+            "rel": "8467514",
+            "reltags": {
+              "colour": "#00A3E0",
+              "from": "Κιάτο",
+              "name": "Προαστιακός A4: Κιάτο → Πειραιά",
+              "name:ca": "Rodalies A4: Kiato → El Pireu",
+              "name:el": "Προαστιακός A4: Κιάτο → Πειραιά",
+              "name:en": "Train A4: Kiato → Piraeus",
+              "name:fr": "Train A4: Kiato → Le Pirée",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A4",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2005-09-27",
+              "to": "Πειραιά",
+              "type": "route",
+              "via": "Αθήνα",
+              "wikidata": "Q20552930",
+              "wikipedia": "el:Γραμμή 2 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.7346807,
+          38.0139191
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2872124555",
+        "int_name": "Athina",
+        "name": "Αθήνα",
+        "name:el": "Αθήνα",
+        "name:en": "Athens",
+        "name:fr": "Athènes",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "10",
+        "source:int_name": "sign",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467514",
+            "reltags": {
+              "colour": "#00A3E0",
+              "from": "Κιάτο",
+              "name": "Προαστιακός A4: Κιάτο → Πειραιά",
+              "name:ca": "Rodalies A4: Kiato → El Pireu",
+              "name:el": "Προαστιακός A4: Κιάτο → Πειραιά",
+              "name:en": "Train A4: Kiato → Piraeus",
+              "name:fr": "Train A4: Kiato → Le Pirée",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A4",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2005-09-27",
+              "to": "Πειραιά",
+              "type": "route",
+              "via": "Αθήνα",
+              "wikidata": "Q20552930",
+              "wikipedia": "el:Γραμμή 2 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7200412,
+          37.9931674
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/3147804886",
+        "railway": "milestone",
+        "railway:milestone:catenary_mast": "no",
+        "railway:position": "99.0"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.9301606,
+          37.9206601
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/3147804891",
+        "railway": "milestone",
+        "railway:position": "98.4"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.9350866,
+          37.921302
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/3979025726",
+        "int_name": "Zefyri",
+        "name": "Ζεφύρι",
+        "operator": "ΟΣΕ",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467514",
+            "reltags": {
+              "colour": "#00A3E0",
+              "from": "Κιάτο",
+              "name": "Προαστιακός A4: Κιάτο → Πειραιά",
+              "name:ca": "Rodalies A4: Kiato → El Pireu",
+              "name:el": "Προαστιακός A4: Κιάτο → Πειραιά",
+              "name:en": "Train A4: Kiato → Piraeus",
+              "name:fr": "Train A4: Kiato → Le Pirée",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A4",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2005-09-27",
+              "to": "Πειραιά",
+              "type": "route",
+              "via": "Αθήνα",
+              "wikidata": "Q20552930",
+              "wikipedia": "el:Γραμμή 2 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.717562,
+          38.0696643
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/4919885662",
+        "int_name": "Nea Peramos",
+        "name": "Νέα Πέραμος",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467514",
+            "reltags": {
+              "colour": "#00A3E0",
+              "from": "Κιάτο",
+              "name": "Προαστιακός A4: Κιάτο → Πειραιά",
+              "name:ca": "Rodalies A4: Kiato → El Pireu",
+              "name:el": "Προαστιακός A4: Κιάτο → Πειραιά",
+              "name:en": "Train A4: Kiato → Piraeus",
+              "name:fr": "Train A4: Kiato → Le Pirée",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A4",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2005-09-27",
+              "to": "Πειραιά",
+              "type": "route",
+              "via": "Αθήνα",
+              "wikidata": "Q20552930",
+              "wikipedia": "el:Γραμμή 2 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.4157545,
+          38.0138939
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/5777574609",
+        "int_name": "Aspropyrgos",
+        "name": "Ασπρόπυργος",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "3",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467514",
+            "reltags": {
+              "colour": "#00A3E0",
+              "from": "Κιάτο",
+              "name": "Προαστιακός A4: Κιάτο → Πειραιά",
+              "name:ca": "Rodalies A4: Kiato → El Pireu",
+              "name:el": "Προαστιακός A4: Κιάτο → Πειραιά",
+              "name:en": "Train A4: Kiato → Piraeus",
+              "name:fr": "Train A4: Kiato → Le Pirée",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A4",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2005-09-27",
+              "to": "Πειραιά",
+              "type": "route",
+              "via": "Αθήνα",
+              "wikidata": "Q20552930",
+              "wikipedia": "el:Γραμμή 2 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6042869,
+          38.0810731
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/5777574610",
+        "int_name": "Aspropyrgos",
+        "name": "Ασπρόπυργος",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "2",
+        "train": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6042595,
+          38.0810388
+        ]
+      }
+    }
+  ]
+}
