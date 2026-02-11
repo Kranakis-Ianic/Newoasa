@@ -281,12 +281,16 @@ private suspend fun loadAllTransitLines(style: Style) {
                     val source = GeoJsonSource("all-lines-source", allLinesJson)
                     style.addSource(source)
                     
-                    // Add line layer with data-driven styling based on lineColor property
+                    // Add line layer with data-driven styling based on 'colour' property
+                    // OpenStreetMap uses 'colour' property (British spelling)
                     val lineLayer = LineLayer("all-lines-layer", "all-lines-source")
                         .withProperties(
-                            // Use the lineColor property from the GeoJSON features
+                            // Use the colour property from the GeoJSON features
+                            // Try 'colour' first, then fall back to 'color' or 'lineColor'
                             lineColor(
                                 coalesce(
+                                    get("colour"),
+                                    get("color"),
                                     get("lineColor"),
                                     literal("#666666")  // Fallback color
                                 )
