@@ -1,21 +1,26 @@
 package com.example.newoasa.ui.components
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.example.newoasa.model.TransitStation
+import com.example.newoasa.data.StationInfo
 import com.example.newoasa.theme.LineColors
 
 @Composable
 fun StationCard(
-    station: TransitStation,
+    station: StationInfo,
     onDismiss: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -23,80 +28,91 @@ fun StationCard(
         modifier = modifier
             .fillMaxWidth()
             .padding(16.dp),
-        shape = RoundedCornerShape(12.dp),
-        elevation = CardDefaults.cardElevation(defaultElevation = 8.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surface
-        )
+        shape = RoundedCornerShape(16.dp),
+        elevation = CardDefaults.cardElevation(defaultElevation = 8.dp)
     ) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp)
         ) {
-            // Header
+            // Header with station name and close button
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Column(modifier = Modifier.weight(1f)) {
-                    Text(
-                        text = station.name,
-                        fontSize = 20.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = MaterialTheme.colorScheme.onSurface
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.weight(1f)
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.LocationOn,
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.primary,
+                        modifier = Modifier.size(24.dp)
                     )
-                    if (!station.nameEn.isNullOrEmpty() && station.nameEn != station.name) {
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Column {
                         Text(
-                            text = station.nameEn,
-                            fontSize = 14.sp,
-                            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
+                            text = station.nameEn ?: station.name,
+                            style = MaterialTheme.typography.titleLarge,
+                            fontWeight = FontWeight.Bold
                         )
+                        if (station.nameEn != null && station.nameEn != station.name) {
+                            Text(
+                                text = station.name,
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        }
                     }
                 }
                 
                 IconButton(onClick = onDismiss) {
-                    Text(
-                        text = "✕",
-                        fontSize = 20.sp,
-                        color = MaterialTheme.colorScheme.onSurface
+                    Icon(
+                        imageVector = Icons.Default.Close,
+                        contentDescription = "Close"
                     )
                 }
             }
             
-            Spacer(modifier = Modifier.height(12.dp))
+            Spacer(modifier = Modifier.height(16.dp))
             
             // Lines section
             Text(
-                text = "Lines",
-                fontSize = 14.sp,
-                fontWeight = FontWeight.SemiBold,
-                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
+                text = "Lines stopping here",
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.SemiBold
             )
             
             Spacer(modifier = Modifier.height(8.dp))
             
-            // Line badges - sorted by category and line number
-            FlowRow(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
-                verticalArrangement = Arrangement.spacedBy(8.dp)
-            ) {
-                station.lines.sortedWith(
-                    compareBy<TransitStation.StationLine> { 
-                        when(it.category.lowercase()) {
-                            "metro" -> 0
-                            "tram" -> 1
-                            "suburban" -> 2
-                            "trolleys" -> 3
-                            else -> 4
-                        }
-                    }.thenBy { it.lineNumber }
-                ).forEach { line ->
-                    LineBadge(
-                        lineNumber = line.lineNumber,
-                        category = line.category
+            // List of lines
+            station.lines.forEach { line ->
+                LineItem(
+                    lineRef = line.ref,
+                    lineName = line.name,
+                    lineColor = line.colour,
+                    modifier = Modifier.padding(vertical = 4.dp)
+                )
+            }
+            
+            // Wheelchair accessibility
+            if (station.wheelchair) {
+                Spacer(modifier = Modifier.height(8.dp))
+                Row(
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
+                        text = "♿",
+                        style = MaterialTheme.typography.bodyMedium
+                    )
+                    Spacer(modifier = Modifier.width(4.dp))
+                    Text(
+                        text = "Wheelchair accessible",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
             }
@@ -105,75 +121,60 @@ fun StationCard(
 }
 
 @Composable
-private fun LineBadge(
-    lineNumber: String,
-    category: String
+private fun LineItem(
+    lineRef: String,
+    lineName: String?,
+    lineColor: String?,
+    modifier: Modifier = Modifier
 ) {
-    // Get the proper line color using LineColors utility
-    val lineCode = when (category.lowercase()) {
-        "metro" -> "M$lineNumber"
-        "tram" -> "T$lineNumber"
-        "suburban" -> lineNumber // Suburban uses A1, A2, etc.
-        else -> lineNumber
-    }
-    
-    // Get official color for this specific line
-    val backgroundColor = LineColors.getColorForLine(lineCode)
-    
-    // Determine text color based on background brightness
-    // Using relative luminance formula: (0.299*R + 0.587*G + 0.114*B)
-    val red = backgroundColor.red
-    val green = backgroundColor.green
-    val blue = backgroundColor.blue
-    val luminance = 0.299f * red + 0.587f * green + 0.114f * blue
-    val textColor = if (luminance > 0.5f) Color.Black else Color.White
-    
-    Surface(
-        shape = RoundedCornerShape(16.dp),
-        color = backgroundColor,
-        modifier = Modifier.height(32.dp)
+    Row(
+        modifier = modifier.fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically
     ) {
-        Row(
-            modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp),
-            verticalAlignment = Alignment.CenterVertically
+        // Line badge
+        Box(
+            modifier = Modifier
+                .size(40.dp)
+                .clip(CircleShape)
+                .background(
+                    color = try {
+                        Color(android.graphics.Color.parseColor(lineColor ?: "#666666"))
+                    } catch (e: Exception) {
+                        Color(0xFF666666)
+                    }
+                ),
+            contentAlignment = Alignment.Center
         ) {
-            val prefix = when (category.lowercase()) {
-                "metro" -> "M"
-                "tram" -> "T"
-                "suburban" -> "" // Suburban lines already have A1, A2 format
-                "trolleys" -> ""
-                else -> ""
-            }
-            
-            val displayText = if (prefix.isNotEmpty() && !lineNumber.startsWith(prefix)) {
-                "$prefix$lineNumber"
-            } else {
-                lineNumber
-            }
-            
             Text(
-                text = displayText,
-                color = textColor,
-                fontSize = 14.sp,
-                fontWeight = FontWeight.Bold
+                text = lineRef,
+                style = MaterialTheme.typography.labelLarge,
+                fontWeight = FontWeight.Bold,
+                color = Color.White
             )
         }
+        
+        Spacer(modifier = Modifier.width(12.dp))
+        
+        // Line name
+        Text(
+            text = extractLineDescription(lineName, lineRef),
+            style = MaterialTheme.typography.bodyMedium,
+            modifier = Modifier.weight(1f)
+        )
     }
 }
 
-@Composable
-private fun FlowRow(
-    modifier: Modifier = Modifier,
-    horizontalArrangement: Arrangement.Horizontal = Arrangement.Start,
-    verticalArrangement: Arrangement.Vertical = Arrangement.Top,
-    content: @Composable () -> Unit
-) {
-    // Simple FlowRow implementation
-    // For production, use androidx.compose.foundation.layout.FlowRow
-    Row(
-        modifier = modifier,
-        horizontalArrangement = horizontalArrangement
-    ) {
-        content()
+/**
+ * Extract a user-friendly description from the full line name
+ */
+private fun extractLineDescription(fullName: String?, lineRef: String): String {
+    if (fullName == null) return lineRef
+    
+    // Try to extract the English name part or direction
+    val parts = fullName.split(":")
+    return if (parts.size > 1) {
+        parts[1].trim().replace("→", "to")
+    } else {
+        fullName
     }
 }
