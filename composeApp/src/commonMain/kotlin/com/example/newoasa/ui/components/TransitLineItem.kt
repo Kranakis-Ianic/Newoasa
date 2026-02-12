@@ -26,11 +26,8 @@ fun TransitLineItem(
     onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    // Get the appropriate color for this line
-    val lineColor = when (transitLine.category) {
-        "metro", "tram" -> LineColors.getColorForLine(transitLine.lineNumber)
-        else -> LineColors.getColorForCategory(transitLine.category, transitLine.isBus)
-    }
+    // Get the appropriate color for this line - always use line number
+    val lineColor = LineColors.getColorForLine(transitLine.lineNumber)
 
     Row(
         modifier = modifier

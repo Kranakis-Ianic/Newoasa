@@ -167,11 +167,8 @@ actual fun MapView(
                                 // Clear previous highlight layers
                                 clearHighlightLayers(style)
                                 
-                                // Get line color
-                                val lineColor = when (selectedLine.category) {
-                                    "metro", "tram" -> LineColors.getHexColorForLine(selectedLine.lineNumber)
-                                    else -> LineColors.getHexColorForCategory(selectedLine.category, selectedLine.isBus)
-                                }
+                                // Get line color - always use line number
+                                val lineColor = LineColors.getHexColorForLine(selectedLine.lineNumber)
                                 
                                 val allCoordinates = mutableListOf<LatLng>()
                                 
