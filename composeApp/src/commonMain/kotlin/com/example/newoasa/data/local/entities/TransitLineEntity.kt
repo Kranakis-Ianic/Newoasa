@@ -1,21 +1,27 @@
 package com.example.newoasa.data.local.entities
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-/**
- * Unified entity for all types of transit lines
- * Works for buses, trolleys, metro, tram, and suburban railway
- */
 @Entity(tableName = "transit_lines")
 data class TransitLineEntity(
-    @PrimaryKey(autoGenerate = true)
-    val id: Long = 0,
-    
-    val lineCode: String,
-    val lineName: String,
-    val category: String, // "buses", "trolleys", "metro", "tram", "suburban_railway"
-    val transportType: String, // Specific type within category
-    val color: String, // Hex color code
-    val routePaths: List<String> // List of GeoJSON resource paths
+    @PrimaryKey
+    @ColumnInfo(name = "line_id")
+    val lineId: String,
+
+    @ColumnInfo(name = "line_code") // Added to resolve potential query errors
+    val lineCode: String? = null,
+
+    @ColumnInfo(name = "name")
+    val name: String,
+
+    @ColumnInfo(name = "category")
+    val category: String,
+
+    @ColumnInfo(name = "description")
+    val description: String? = null,
+
+    @ColumnInfo(name = "transport_type") // Added to resolve 'no such column: transportType'
+    val transportType: String? = null
 )
