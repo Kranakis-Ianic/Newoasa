@@ -37,11 +37,11 @@ fun LineBox(
     verticalPadding: androidx.compose.ui.unit.Dp = 6.dp,
     textColor: Color = Color.White
 ) {
-    // Get the actual line color from LineColors utility (reads from line_info.json)
-    val lineColor = LineColors.getColorForLine(lineNumber)
+    // Normalize the line number first (before color lookup AND display)
+    val normalizedLineNumber = normalizeLineNumber(lineNumber)
     
-    // Display text - normalize the line number for display
-    val displayText = normalizeLineNumber(lineNumber)
+    // Get the actual line color from LineColors utility using normalized line number
+    val lineColor = LineColors.getColorForLine(normalizedLineNumber)
     
     Box(
         modifier = modifier
@@ -51,7 +51,7 @@ fun LineBox(
         contentAlignment = Alignment.Center
     ) {
         Text(
-            text = displayText,
+            text = normalizedLineNumber,
             style = MaterialTheme.typography.labelLarge,
             fontWeight = FontWeight.Bold,
             color = textColor
@@ -60,15 +60,15 @@ fun LineBox(
 }
 
 /**
- * Normalize line number for display
- * Converts various formats to standard display format:
+ * Normalize line number for display and color lookup
+ * Converts various formats to standard format:
  * - "Μ1" (Greek) or "M1" (Latin) → "M1" for metro
  * - "1" → "M1" for metro lines 1-4
  * - "6", "7" → "T6", "T7" for tram lines
  * - Already formatted lines (M1, T6, A1) are returned as-is
  *
  * @param lineNumber The input line number in any format
- * @return Normalized line number for display
+ * @return Normalized line number for display and lookup
  */
 private fun normalizeLineNumber(lineNumber: String): String {
     val normalized = lineNumber.trim()
