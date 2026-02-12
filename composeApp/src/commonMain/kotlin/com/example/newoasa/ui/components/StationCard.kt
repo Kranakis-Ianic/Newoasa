@@ -136,13 +136,7 @@ private fun LineItem(
             modifier = Modifier
                 .size(40.dp)
                 .clip(CircleShape)
-                .background(
-                    color = try {
-                        Color(android.graphics.Color.parseColor(lineColor ?: "#666666"))
-                    } catch (e: Exception) {
-                        Color(0xFF666666)
-                    }
-                ),
+                .background(parseHexColor(lineColor)),
             contentAlignment = Alignment.Center
         ) {
             Text(
@@ -161,6 +155,41 @@ private fun LineItem(
             style = MaterialTheme.typography.bodyMedium,
             modifier = Modifier.weight(1f)
         )
+    }
+}
+
+/**
+ * Parse a hex color string to a Compose Color
+ * Supports formats: #RGB, #RRGGBB, #AARRGGBB
+ */
+private fun parseHexColor(colorString: String?): Color {
+    if (colorString.isNullOrBlank()) {
+        return Color(0xFF666666) // Default gray
+    }
+    
+    return try {
+        val hex = colorString.removePrefix("#")
+        
+        when (hex.length) {
+            3 -> {
+                // #RGB -> #RRGGBB
+                val r = hex[0].toString().repeat(2)
+                val g = hex[1].toString().repeat(2)
+                val b = hex[2].toString().repeat(2)
+                Color(0xFF000000 or (r.toInt(16) shl 16) or (g.toInt(16) shl 8) or b.toInt(16))
+            }
+            6 -> {
+                // #RRGGBB -> #FFRRGGBB
+                Color(0xFF000000 or hex.toLong(16))
+            }
+            8 -> {
+                // #AARRGGBB
+                Color(hex.toLong(16))
+            }
+            else -> Color(0xFF666666) // Invalid format, use gray
+        }
+    } catch (e: Exception) {
+        Color(0xFF666666) // Error parsing, use gray
     }
 }
 
