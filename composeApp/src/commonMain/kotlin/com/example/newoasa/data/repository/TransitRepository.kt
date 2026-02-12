@@ -5,109 +5,125 @@ import com.example.newoasa.data.local.dao.TransitLineDao
 import com.example.newoasa.data.local.entities.StationEntity
 import com.example.newoasa.data.local.entities.TransitLineEntity
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.first
 
-/**
- * Common repository for accessing transit data
- * Works across all platforms using the expect/actual database
- */
+// Define the missing data class here or in a separate file
+data class DatabaseStatistics(
+    val totalLines: Int,
+    val totalStations: Int,
+    val busLines: Int,
+    val trolleyLines: Int,
+    val metroLines: Int,
+    val tramLines: Int,
+    val suburbanLines: Int,
+    val otherLines: Int,
+    val busStations: Int,
+    val trolleyStations: Int,
+    val metroStations: Int,
+    val tramStations: Int,
+    val suburbanStations: Int,
+    val otherStations: Int,
+    val transferStations: Int
+)
+
 class TransitRepository(
     private val stationDao: StationDao,
     private val transitLineDao: TransitLineDao
 ) {
-
-    // === Transit Lines ===
+    // ----------------------------------------------------------------
+    // TRANSIT LINES
+    // ----------------------------------------------------------------
 
     fun getAllLines(): Flow<List<TransitLineEntity>> {
-        return transitLineDao.getAllLinesFlow()
+        return transitLineDao.getAllLines() // Changed from getAllLinesFlow
     }
 
     fun getLinesByCategory(category: String): Flow<List<TransitLineEntity>> {
-        return transitLineDao.getLinesByCategoryFlow(category)
-    }
-
-    fun getBusLines(): Flow<List<TransitLineEntity>> {
-        return transitLineDao.getLinesByCategoryFlow("bus")
-    }
-
-    fun getTrolleyLines(): Flow<List<TransitLineEntity>> {
-        return transitLineDao.getLinesByCategoryFlow("trolley")
-    }
-
-    fun getMetroLines(): Flow<List<TransitLineEntity>> {
-        return transitLineDao.getLinesByCategoryFlow("metro")
-    }
-
-    fun getTramLines(): Flow<List<TransitLineEntity>> {
-        return transitLineDao.getLinesByCategoryFlow("tram")
+        return transitLineDao.getLinesByCategory(category) // Changed from getLinesByCategoryFlow
     }
 
     fun searchLines(query: String): Flow<List<TransitLineEntity>> {
-        return transitLineDao.searchLinesFlow(query)
+        return transitLineDao.searchLines(query) // Changed from searchLinesFlow
     }
 
-    suspend fun getLineById(id: Long): TransitLineEntity? {
-        return transitLineDao.getLineById(id)
+    suspend fun getLineById(lineId: String): TransitLineEntity? {
+        return transitLineDao.getLineById(lineId)
     }
 
-    suspend fun insertLine(line: TransitLineEntity): Long {
-        return transitLineDao.insertLine(line)
+    suspend fun insertLine(line: TransitLineEntity) {
+        transitLineDao.insert(line) // Changed from insertLine
     }
 
-    suspend fun insertLines(lines: List<TransitLineEntity>): List<Long> {
-        return transitLineDao.insertLines(lines)
+    suspend fun insertLines(lines: List<TransitLineEntity>) {
+        transitLineDao.insertAll(lines) // Changed from insertLines
     }
 
-    // === Stations ===
+    suspend fun deleteAllLines() {
+        transitLineDao.deleteAll()
+    }
+
+    // ----------------------------------------------------------------
+    // STATIONS
+    // ----------------------------------------------------------------
 
     fun getAllStations(): Flow<List<StationEntity>> {
-        return stationDao.getAllStationsFlow()
+        return stationDao.getAllStations() // Changed from getAllStationsFlow
     }
 
-    fun getStationsByLine(lineId: Long): Flow<List<StationEntity>> {
-        return stationDao.getStationsByLineFlow(lineId)
+    fun getStationsByLine(lineId: String): Flow<List<StationEntity>> {
+        return stationDao.getStationsByLine(lineId) // Changed from getStationsByLineFlow
     }
 
     fun getStationsByType(type: String): Flow<List<StationEntity>> {
-        return stationDao.getStationsByTypeFlow(type)
+        return stationDao.getStationsByType(type) // Changed from getStationsByTypeFlow
     }
 
     fun searchStations(query: String): Flow<List<StationEntity>> {
-        return stationDao.searchStationsFlow(query)
-    }
-
-    fun getTransferStations(): Flow<List<StationEntity>> {
-        return stationDao.getTransferStationsFlow()
+        return stationDao.searchStations(query) // Changed from searchStationsFlow
     }
 
     suspend fun getStationByStopCode(stopCode: String): StationEntity? {
         return stationDao.getStationByStopCode(stopCode)
     }
 
-    suspend fun insertStation(station: StationEntity): Long {
-        return stationDao.insertStation(station)
+    suspend fun insertStation(station: StationEntity) {
+        stationDao.insert(station) // Changed from insertStation
     }
 
-    suspend fun insertStations(stations: List<StationEntity>): List<Long> {
-        return stationDao.insertStations(stations)
+    suspend fun insertStations(stations: List<StationEntity>) {
+        stationDao.insertAll(stations) // Changed from insertStations
     }
 
-    // === Statistics ===
+    suspend fun deleteAllStations() {
+        stationDao.deleteAll()
+    }
 
-    suspend fun getStatistics(): DatabaseStatistics {
+    // ----------------------------------------------------------------
+    // STATISTICS
+    // ----------------------------------------------------------------
+
+    suspend fun getDatabaseStatistics(): DatabaseStatistics {
+        // We use .first() to get the current value from the Flow
+        val lines = transitLineDao.getAllLines().first()
+        val stations = stationDao.getAllStations().first()
+
         return DatabaseStatistics(
-            totalLines = transitLineDao.getTotalLineCount(),
-            totalBuses = transitLineDao.getLinesByCategory("bus").size,
-            totalTrolleys = transitLineDao.getLinesByCategory("trolley").size,
-            totalMetro = transitLineDao.getLinesByCategory("metro").size,
-            totalTram = transitLineDao.getLinesByCategory("tram").size,
-            totalSuburban = transitLineDao.getLinesByCategory("suburban").size,
-            totalStations = stationDao.getTotalStationCount(),
-            totalBusStops = stationDao.getStationsByType(StationType.BUS_STOP).size,
-            totalTrolleyStops = stationDao.getStationsByType(StationType.TROLLEY_STOP).size,
-            totalMetroStations = stationDao.getStationsByType(StationType.METRO_STATION).size,
-            totalTramStops = stationDao.getStationsByType(StationType.TRAM_STOP).size,
-            totalSuburbanStations = stationDao.getStationsByType(StationType.SUBURBAN_STATION).size,
-            transferStations = stationDao.getTransferStations().size
+            totalLines = lines.size,
+            totalStations = stations.size,
+            busLines = lines.count { it.category == "Bus lines" },
+            trolleyLines = lines.count { it.category == "Trolley lines" },
+            metroLines = lines.count { it.category == "Metro lines" },
+            tramLines = lines.count { it.category == "Tram lines" },
+            suburbanLines = lines.count { it.category == "Suburban Railway lines" },
+            otherLines = lines.count { it.category == "Other" },
+            busStations = stations.count { it.lineCategory == "Bus lines" },
+            trolleyStations = stations.count { it.lineCategory == "Trolley lines" },
+            metroStations = stations.count { it.lineCategory == "Metro lines" },
+            tramStations = stations.count { it.lineCategory == "Tram lines" },
+            suburbanStations = stations.count { it.lineCategory == "Suburban Railway lines" },
+            otherStations = stations.count { it.lineCategory == "Other" },
+            // Estimate transfer stations by checking duplicates or specific logic
+            transferStations = 0 // Placeholder logic
         )
     }
 }
