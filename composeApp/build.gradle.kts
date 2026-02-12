@@ -1,5 +1,5 @@
-import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
@@ -18,7 +18,7 @@ kotlin {
             jvmTarget.set(JvmTarget.JVM_11)
         }
     }
-    
+
     listOf(
         iosArm64(),
         iosSimulatorArm64()
@@ -26,9 +26,10 @@ kotlin {
         iosTarget.binaries.framework {
             baseName = "ComposeApp"
             isStatic = true
+            binaryOption("bundleId", "com.example.newoasa.ComposeApp")
         }
     }
-    
+
     // Suppress "expect/actual classes are in Beta" warning
     sourceSets.all {
         languageSettings.optIn("kotlin.ExperimentalMultiplatform")
@@ -38,12 +39,11 @@ kotlin {
         androidMain.dependencies {
             implementation(libs.compose.uiToolingPreview)
             implementation(libs.androidx.activity.compose)
-            
-            // Ktor client for Android
-            implementation(libs.ktor.client.okhttp)
-            
-            // Koin for Android
+            implementation(libs.room.runtime)
+            implementation(libs.room.ktx)
             implementation(libs.koin.android)
+            implementation(libs.ktor.client.android)
+            implementation(libs.ktor.client.okhttp)
         }
         
         iosMain.dependencies {
@@ -54,51 +54,34 @@ kotlin {
         commonMain.dependencies {
             implementation(libs.compose.runtime)
             implementation(libs.compose.foundation)
-            implementation(compose.material3)
+            implementation(libs.compose.material3)
             implementation(libs.compose.ui)
             implementation(libs.compose.components.resources)
-            implementation(libs.androidx.lifecycle.viewmodelCompose)
-            implementation(libs.androidx.lifecycle.runtimeCompose)
-            
-            // Navigation
-            implementation("org.jetbrains.androidx.navigation:navigation-compose:2.7.0-alpha07")
-            implementation("org.jetbrains.compose.material:material-icons-extended:1.6.0")
-            
-            // MapLibre Compose - TEMPORARILY COMMENTED OUT
-            // Requires Kotlin 2.2.0, but we're using 2.1.0 for iOS stability
-            // TODO: Re-enable when MapLibre Compose releases Kotlin 2.1.0 compatible version
-            // implementation("org.maplibre.compose:maplibre-compose:0.11.1")
-            // implementation("org.maplibre.spatialk:geojson:0.6.1")
-            
-            // Coroutines
-            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")
-            
-            // Room Multiplatform
-            implementation(libs.room.runtime)
-            implementation(libs.sqlite.bundled)
-            
-            // Ktor Client
+            implementation(libs.compose.uiToolingPreview)
+            implementation(compose.materialIconsExtended)
+
+            implementation("org.maplibre.compose:maplibre-compose:0.11.1")
+            implementation("org.maplibre.spatialk:geojson:0.6.1")
+            implementation(libs.ktorfit.lib)
             implementation(libs.ktor.client.core)
             implementation(libs.ktor.client.content.negotiation)
             implementation(libs.ktor.serialization.kotlinx.json)
-            
-            // Ktorfit
-            implementation(libs.ktorfit.lib)
-            
-            // Serialization
-            implementation(libs.serialization.json)
-            
+
             // Koin
             implementation(libs.koin.core)
             implementation(libs.koin.compose)
             implementation(libs.koin.compose.viewmodel)
-            
-            // DataStore
-            implementation(libs.androidx.datastore.preferences)
-            
-            // Coil for image loading
+
+            // Room
+            implementation(libs.room.runtime)
+            implementation(libs.sqlite.bundled)
+
+            // Coil
             implementation(libs.coil.compose)
             implementation(libs.coil.network.ktor)
+
+            // DataStore
+            implementation(libs.androidx.datastore.preferences)
         }
         
         commonTest.dependencies {
@@ -167,12 +150,4 @@ dependencies {
     add("kspAndroid", libs.ktorfit.ksp)
     add("kspIosArm64", libs.ktorfit.ksp)
     add("kspIosSimulatorArm64", libs.ktorfit.ksp)
-}
-
-// Force specific versions to resolve potential conflicts
-configurations.all {
-    resolutionStrategy {
-        force("org.jetbrains.kotlin:kotlin-stdlib:2.1.0")
-        force("org.jetbrains.kotlin:kotlin-reflect:2.1.0")
-    }
 }
