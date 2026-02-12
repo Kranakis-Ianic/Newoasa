@@ -51,9 +51,13 @@ kotlin {
         }
     }
     
+    // Suppress "expect/actual classes are in Beta" warning
+    sourceSets.all {
+        languageSettings.optIn("kotlin.ExperimentalMultiplatform")
+    }
+    
     sourceSets {
         androidMain.dependencies {
-            // ui-tooling-preview is Android-only (no iOS support)
             implementation(libs.compose.uiToolingPreview)
             implementation(libs.androidx.activity.compose)
             
@@ -75,8 +79,8 @@ kotlin {
         commonMain.dependencies {
             implementation(libs.compose.runtime)
             implementation(libs.compose.foundation)
-            // Use compose.material3 provided by Compose Multiplatform plugin
-            implementation(compose.material3)
+            // Use explicit Material3 version from libs catalog
+            implementation(libs.compose.material3)
             implementation(libs.compose.ui)
             implementation(libs.compose.components.resources)
             implementation(libs.androidx.lifecycle.viewmodelCompose)
@@ -128,11 +132,26 @@ kotlin {
             implementation(libs.kotlinx.coroutines.test)
         }
     }
+    
+    // Pass compiler flags to suppress specific warnings
+    targets.all {
+        compilations.all {
+            compileTaskProvider.configure {
+                compilerOptions {
+                    freeCompilerArgs.add("-Xexpect-actual-classes")
+                }
+            }
+        }
+    }
 }
 
 // Room configuration
 room {
     schemaDirectory("$projectDir/schemas")
+}
+
+ksp {
+    arg("room.generateKotlin", "true")
 }
 
 android {
@@ -170,8 +189,7 @@ dependencies {
     add("kspIosArm64", libs.room.compiler)
     add("kspIosSimulatorArm64", libs.room.compiler)
     
-    // Ktorfit KSP - for all targets including metadata
-    add("kspCommonMainMetadata", libs.ktorfit.ksp)
+    // Ktorfit KSP - Platform specific only (remove kspCommonMainMetadata)
     add("kspAndroid", libs.ktorfit.ksp)
     add("kspIosArm64", libs.ktorfit.ksp)
     add("kspIosSimulatorArm64", libs.ktorfit.ksp)
