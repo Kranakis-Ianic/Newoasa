@@ -176,11 +176,11 @@ private fun parseHexColor(colorString: String?): Color {
                 val r = hex[0].toString().repeat(2)
                 val g = hex[1].toString().repeat(2)
                 val b = hex[2].toString().repeat(2)
-                Color(0xFF000000 or (r.toInt(16) shl 16) or (g.toInt(16) shl 8) or b.toInt(16))
+                Color((0xFF000000L or (r.toLong(16) shl 16) or (g.toLong(16) shl 8) or b.toLong(16)))
             }
             6 -> {
                 // #RRGGBB -> #FFRRGGBB
-                Color(0xFF000000 or hex.toLong(16))
+                Color((0xFF000000L or hex.toLong(16)))
             }
             8 -> {
                 // #AARRGGBB
