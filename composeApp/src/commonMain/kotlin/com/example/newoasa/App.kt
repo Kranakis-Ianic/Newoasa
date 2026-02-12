@@ -35,17 +35,17 @@ import kotlinx.coroutines.launch
 fun App() {
     // Get platform-specific preference storage
     val preferenceStorage = rememberPreferenceStorage()
-    
+
     // Create theme preferences manager
-    val themePreferences = remember { 
-        ThemePreferences(preferenceStorage) 
+    val themePreferences = remember {
+        ThemePreferences(preferenceStorage)
     }
-    
+
     // Load saved theme mode and persist changes automatically
-    var themeMode by remember { 
-        mutableStateOf(themePreferences.getThemeMode()) 
+    var themeMode by remember {
+        mutableStateOf(themePreferences.getThemeMode())
     }
-    
+
     // Calculate if we should use Dark Theme features (e.g. Map style)
     val isSystemDark = isSystemInDarkTheme()
     val isDark = when (themeMode) {
@@ -61,9 +61,18 @@ fun App() {
         val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
         val scope = rememberCoroutineScope()
 
-        // Handle Back Press to close drawer if open
-        BackHandler(enabled = drawerState.isOpen) {
-            scope.launch { drawerState.close() }
+        // Handle Back Press Priorities:
+        // 1. Close Drawer
+        // 2. Deselect Line (if on Map and line is selected)
+        // 3. Return to Map Tab (if on other tabs)
+        val backHandlingEnabled = drawerState.isOpen || selectedTransitLine != null || selectedBottomItem != BottomNavItem.Map
+
+        BackHandler(enabled = backHandlingEnabled) {
+            when {
+                drawerState.isOpen -> scope.launch { drawerState.close() }
+                selectedTransitLine != null -> selectedTransitLine = null
+                selectedBottomItem != BottomNavItem.Map -> selectedBottomItem = BottomNavItem.Map
+            }
         }
 
         ModalNavigationDrawer(
