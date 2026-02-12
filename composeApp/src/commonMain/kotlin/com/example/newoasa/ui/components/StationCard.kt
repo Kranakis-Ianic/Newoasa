@@ -1,6 +1,5 @@
 package com.example.newoasa.ui.components
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -11,12 +10,9 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.newoasa.data.Station
-import com.example.newoasa.theme.LineColors
 
 @Composable
 fun StationCard(
@@ -114,14 +110,15 @@ fun StationCard(
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 
-                // Display line badges
+                // Display line badges using the reusable LineBox component
                 FlowRow(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.spacedBy(8.dp),
                     verticalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
                     station.lines.forEach { lineNumber ->
-                        LineBadge(lineNumber = lineNumber)
+                        // Use the new LineBox component that reads colors from line_info.json
+                        LineBox(lineNumber = lineNumber)
                     }
                 }
             } else {
@@ -134,61 +131,6 @@ fun StationCard(
             }
         }
     }
-}
-
-@Composable
-fun LineBadge(
-    lineNumber: String,
-    modifier: Modifier = Modifier
-) {
-    // Get the actual line color from LineColors utility
-    val lineColor = LineColors.getColorForLine(lineNumber)
-    
-    // Display text - normalize the line number for display
-    val displayText = normalizeLineNumber(lineNumber)
-    
-    Box(
-        modifier = modifier
-            .clip(RoundedCornerShape(8.dp))
-            .background(lineColor)
-            .padding(horizontal = 12.dp, vertical = 6.dp),
-        contentAlignment = Alignment.Center
-    ) {
-        Text(
-            text = displayText,
-            style = MaterialTheme.typography.labelLarge,
-            fontWeight = FontWeight.Bold,
-            color = Color.White // Always white text on colored background
-        )
-    }
-}
-
-/**
- * Normalize line number for display
- * Converts "Μ1" or "M1" or "1" to just "M1" for metro, etc.
- */
-private fun normalizeLineNumber(lineNumber: String): String {
-    val normalized = lineNumber.trim()
-    
-    // If it starts with Greek Μ (mu), replace with Latin M
-    val withLatinM = normalized.replace("Μ", "M")
-    
-    // If it's already in good format (M1, T6, A1, etc.), return it
-    if (withLatinM.matches(Regex("^[MTA]\\d+$"))) {
-        return withLatinM
-    }
-    
-    // If it's just a number, try to infer the prefix
-    if (withLatinM.matches(Regex("^\\d+$"))) {
-        val num = withLatinM.toIntOrNull()
-        return when (num) {
-            1, 2, 3, 4 -> "M$withLatinM" // Metro lines
-            6, 7 -> "T$withLatinM" // Tram lines
-            else -> withLatinM // Keep as is
-        }
-    }
-    
-    return withLatinM
 }
 
 @Composable
