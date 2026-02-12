@@ -1,15 +1,20 @@
 package com.example.newoasa.theme
 
 import androidx.compose.ui.graphics.Color
+import com.example.newoasa.data.TransitLineRepository
+import com.example.newoasa.utils.GeoJsonColorExtractor
+import kotlinx.coroutines.runBlocking
 
 /**
  * Line colors for Athens public transport
- * Based on OASA official color scheme
+ * Reads colors from GeoJSON files with fallback to OASA standards
  */
 object LineColors {
+    private val colorCache = mutableMapOf<String, String>()
+    
     /**
      * Get color by line code/number
-     * Returns the appropriate color based on line category
+     * First tries to read from GeoJSON, then falls back to hardcoded colors
      */
     fun getColorForLine(lineCode: String): Color {
         return parseHexColor(getHexColorForLine(lineCode))
@@ -17,10 +22,58 @@ object LineColors {
     
     /**
      * Get hex color string by line code
+     * Attempts to read from GeoJSON files first
      */
     fun getHexColorForLine(lineCode: String): String {
         val normalized = normalizeLineRef(lineCode)
         
+        // Check cache first
+        colorCache[normalized]?.let { return it }
+        
+        // Try to get color from GeoJSON via TransitLineRepository
+        val colorFromGeoJson = tryGetColorFromGeoJson(normalized)
+        if (colorFromGeoJson != null) {
+            colorCache[normalized] = colorFromGeoJson
+            return colorFromGeoJson
+        }
+        
+        // Fallback to hardcoded colors
+        val hardcodedColor = getHardcodedColor(normalized)
+        colorCache[normalized] = hardcodedColor
+        return hardcodedColor
+    }
+    
+    /**
+     * Try to extract color from GeoJSON files
+     */
+    private fun tryGetColorFromGeoJson(lineRef: String): String? {
+        return try {
+            runBlocking {
+                // Find the line in the repository
+                val allLines = TransitLineRepository.getAllLines()
+                val matchingLine = allLines.find { line ->
+                    val normalizedLineNumber = normalizeLineRef(line.lineNumber)
+                    normalizedLineNumber == lineRef || line.lineNumber == lineRef
+                }
+                
+                if (matchingLine != null && matchingLine.routePaths.isNotEmpty()) {
+                    // Get the first route path and extract color
+                    val firstRoutePath = matchingLine.routePaths.first()
+                    GeoJsonColorExtractor.extractColorFromGeoJson(firstRoutePath)
+                } else {
+                    null
+                }
+            }
+        } catch (e: Exception) {
+            println("Error getting color from GeoJSON for $lineRef: ${e.message}")
+            null
+        }
+    }
+    
+    /**
+     * Get hardcoded color as fallback
+     */
+    private fun getHardcodedColor(normalized: String): String {
         // Metro lines
         return when {
             normalized.startsWith("M1") || normalized == "1" -> "#00A651" // Green Line
@@ -100,22 +153,7 @@ object LineColors {
             .replace("Ε", "E")
             .replace("Τ", "T")
         
-        // If already in standard format (M1, T6, A1, X95, etc.), return it
-        if (withLatin.matches(Regex("^[MTAXBEΓ]\\d+[ΑΒΤ]?$"))) {
-            return withLatin
-        }
-        
-        // If it's just a number, try to infer the prefix
-        if (withLatin.matches(Regex("^\\d+$"))) {
-            val num = withLatin.toIntOrNull()
-            return when (num) {
-                1, 2, 3, 4 -> "M$withLatin" // Metro lines
-                6, 7 -> "T$withLatin" // Tram lines
-                in 1..25 -> withLatin // Trolley lines (keep as number)
-                else -> withLatin // Keep as is for bus lines
-            }
-        }
-        
+        // Return normalized format
         return withLatin
     }
     
@@ -141,5 +179,13 @@ object LineColors {
         } catch (e: Exception) {
             Color(0xFF009EC6) // Error parsing, use default blue
         }
+    }
+    
+    /**
+     * Clear the color cache (useful for testing or reloading)
+     */
+    fun clearCache() {
+        colorCache.clear()
+        GeoJsonColorExtractor.clearCache()
     }
 }
