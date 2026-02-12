@@ -3,12 +3,12 @@ package com.example.newoasa.utils
 import com.example.newoasa.data.LineInfo
 import com.example.newoasa.data.Station
 import com.example.newoasa.data.StationInfo
-import com.example.newoasa.generated.resources.Res
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
 import org.jetbrains.compose.resources.ExperimentalResourceApi
+import newoasa.composeapp.generated.resources.Res
 
 /**
  * Loads line colors from the GeoJSON bundle (composeResources/files/geojson).
