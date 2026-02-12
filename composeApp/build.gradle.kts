@@ -10,12 +10,34 @@ plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.room)
     alias(libs.plugins.ktorfit)
+    // Add CocoaPods plugin for iOS dependency management
+    kotlin("native.cocoapods")
 }
 
 kotlin {
     androidTarget {
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_11)
+        }
+    }
+    
+    // Configure CocoaPods
+    cocoapods {
+        version = "1.0"
+        summary = "Compose App"
+        homepage = "https://github.com/Kranakis-Ianic/Newoasa"
+        
+        ios.deploymentTarget = "14.1"
+        
+        framework {
+            baseName = "ComposeApp"
+            isStatic = true
+        }
+        
+        // Add MapLibre pod dependency
+        pod("MapLibre") {
+            version = "6.17.1"
+            extraSpecAttributes["modular_headers"] = "true"
         }
     }
     
