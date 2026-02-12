@@ -8,11 +8,11 @@ import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
-import org.jetbrains.compose.resources.ExperimentalResourceApi
-import org.jetbrains.compose.resources.resource
 
 /**
  * Utility object to provide line information and extract colors from GeoJSON files
+ * Note: GeoJSON color extraction is disabled for now due to resource loading complexity
+ * Falls back to default colors based on line categories
  */
 object LineInfoLoader {
     private val json = Json { ignoreUnknownKeys = true }
@@ -28,44 +28,9 @@ object LineInfoLoader {
     )
     
     /**
-     * Extract color from a GeoJSON file
-     */
-    @OptIn(ExperimentalResourceApi::class)
-    private suspend fun extractColorFromGeoJson(geojsonPath: String): String? {
-        // Check cache first
-        colorCache[geojsonPath]?.let { return it }
-        
-        return try {
-            // Read the GeoJSON file
-            val fileContent = resource(geojsonPath).readBytes().decodeToString()
-            
-            // Parse JSON
-            val jsonObject = json.parseToJsonElement(fileContent).jsonObject
-            
-            // Get features array
-            val features = jsonObject["features"]?.jsonArray
-            
-            // Get the first feature's properties
-            val firstFeature = features?.firstOrNull()?.jsonObject
-            val properties = firstFeature?.get("properties")?.jsonObject
-            
-            // Extract color from properties
-            val color = properties?.get("colour")?.jsonPrimitive?.content
-                ?: properties?.get("color")?.jsonPrimitive?.content
-                ?: properties?.get("stroke")?.jsonPrimitive?.content
-            
-            // Cache the color if found
-            color?.let { colorCache[geojsonPath] = it }
-            
-            color
-        } catch (e: Exception) {
-            println("Error extracting color from GeoJSON $geojsonPath: ${e.message}")
-            null
-        }
-    }
-    
-    /**
-     * Get color for a specific line reference from GeoJSON files
+     * Get color for a specific line reference
+     * Currently returns default colors based on line type
+     * TODO: Implement GeoJSON color extraction when resource loading is set up
      */
     suspend fun getColorForLine(lineRef: String): String? {
         // Check cache first
@@ -73,34 +38,33 @@ object LineInfoLoader {
         colorCache[normalized]?.let { return it }
         
         return try {
-            // Find the line in TransitLineRepository
+            // Find the line in TransitLineRepository to get its category
             val allLines = TransitLineRepository.getAllLines()
             val matchingLine = allLines.find { line ->
                 val normalizedLineNumber = normalizeLineRef(line.lineNumber)
                 normalizedLineNumber == normalized || line.lineNumber == lineRef
             }
             
-            if (matchingLine != null && matchingLine.routePaths.isNotEmpty()) {
-                // Get the first route path and extract color
-                val firstRoutePath = matchingLine.routePaths.first()
-                val color = extractColorFromGeoJson(firstRoutePath)
-                
-                // Cache the color
-                color?.let { colorCache[normalized] = it }
-                
-                color
+            val color = if (matchingLine != null) {
+                // Use default color based on category for now
+                getDefaultColorForCategory(matchingLine.category)
             } else {
-                null
+                // Fallback to inferring from line ref
+                getColorFromLineRef(normalized)
             }
+            
+            // Cache the color
+            colorCache[normalized] = color
+            color
         } catch (e: Exception) {
-            println("Error getting color from GeoJSON for $lineRef: ${e.message}")
+            println("Error getting color for $lineRef: ${e.message}")
             null
         }
     }
     
     /**
      * Load line information
-     * Generates info from available lines with colors from GeoJSON
+     * Generates info from available lines with colors
      */
     suspend fun loadLineInfo(): Map<String, LineColorInfo> {
         // Return cached data if already loaded
@@ -134,7 +98,7 @@ object LineInfoLoader {
     }
     
     /**
-     * Convert a Station to StationInfo with full line information including colors from GeoJSON
+     * Convert a Station to StationInfo with full line information including colors
      */
     suspend fun toStationInfo(station: Station): StationInfo {
         val lineInfoList = station.lines.map { lineRef ->
@@ -183,6 +147,25 @@ object LineInfoLoader {
             "suburban", "proastiakos" -> "#009640"
             "buses", "bus" -> "#009EC6"
             else -> "#009EC6"
+        }
+    }
+    
+    /**
+     * Get color based on line reference pattern
+     */
+    private fun getColorFromLineRef(normalized: String): String {
+        return when {
+            normalized.startsWith("M1") || normalized == "1" -> "#00A651" // Green Line
+            normalized.startsWith("M2") || normalized == "2" -> "#ED1C24" // Red Line  
+            normalized.startsWith("M3") || normalized == "3" -> "#0066B3" // Blue Line
+            normalized.startsWith("M4") || normalized == "4" -> "#FFD200" // Yellow Line
+            normalized.startsWith("T6") || normalized == "6" -> "#FFA500" // Tram
+            normalized.startsWith("T7") || normalized == "7" -> "#FFA500" // Tram
+            normalized.matches(Regex("^0?[1-9]$|^1[0-9]$|^2[0-5]$")) -> "#F27C02" // Trolley
+            normalized.startsWith("X") || normalized.startsWith("Χ") -> "#E2231A" // Express
+            normalized.matches(Regex("^[AΑ]\\d+$")) -> "#009EC6" // Airport
+            normalized.matches(Regex("^[BΒ]\\d+$")) -> "#009EC6" // Airport
+            else -> "#009EC6" // Default bus blue
         }
     }
     
