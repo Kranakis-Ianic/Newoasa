@@ -2,6 +2,7 @@ package com.example.newoasa
 
 import android.app.Application
 import com.example.newoasa.database.databaseModule
+import com.example.newoasa.di.sharedModule // Import the new module
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -10,10 +11,9 @@ class NewOasaApplication : Application() {
         super.onCreate()
 
         startKoin {
-            // Android context
             androidContext(this@NewOasaApplication)
-            // Load modules
-            modules(databaseModule)
+            // Load BOTH modules: one for Android DB setup, one for shared Repositories
+            modules(databaseModule, sharedModule)
         }
     }
 }
