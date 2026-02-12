@@ -1,6 +1,5 @@
 package com.example.newoasa.utils
 
-import android.graphics.PointF
 import android.util.Log
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -21,7 +20,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import com.example.newoasa.data.Station
 import com.example.newoasa.data.TransitLine
-import com.example.newoasa.presentation.components.StationCard
+import com.example.newoasa.ui.components.StationCard
 import com.example.newoasa.theme.LineColors
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

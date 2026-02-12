@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.driver.bundled.BundledSQLiteDriver
+import com.example.newoasa.data.local.TransitDatabase
 import kotlinx.coroutines.Dispatchers
 
 private lateinit var appContext: Context

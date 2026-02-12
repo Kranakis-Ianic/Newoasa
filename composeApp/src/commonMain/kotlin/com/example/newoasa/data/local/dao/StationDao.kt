@@ -1,4 +1,4 @@
-package com.example.newoasa.database.room.dao
+package com.example.newoasa.data.local.dao
 
 import androidx.room.Dao
 import androidx.room.Delete
@@ -6,7 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
-import com.example.newoasa.database.room.entities.StationEntity
+import com.example.newoasa.data.local.entities.StationEntity
 import kotlinx.coroutines.flow.Flow
 
 /**

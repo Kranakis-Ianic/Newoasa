@@ -1,4 +1,4 @@
-package com.example.newoasa.database.room.entities
+package com.example.newoasa.data.local.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

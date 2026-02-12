@@ -1,7 +1,7 @@
 package com.example.newoasa.database
 
-import com.example.newoasa.database.models.Station
-import com.example.newoasa.database.models.TransitLine
+import com.example.newoasa.data.models.Station
+import com.example.newoasa.data.models.TransitLine
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
 

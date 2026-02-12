@@ -1,4 +1,4 @@
-package com.example.newoasa.database.room
+package com.example.newoasa.data.local
 
 import androidx.room.RoomDatabase
 

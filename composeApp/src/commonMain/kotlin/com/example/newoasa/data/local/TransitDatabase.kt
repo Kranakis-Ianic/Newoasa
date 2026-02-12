@@ -1,14 +1,14 @@
-package com.example.newoasa.database.room
+package com.example.newoasa.data.local
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.RoomDatabaseConstructor
 import androidx.room.ConstructedBy
 import androidx.room.TypeConverters
-import com.example.newoasa.database.room.dao.StationDao
-import com.example.newoasa.database.room.dao.TransitLineDao
-import com.example.newoasa.database.room.entities.StationEntity
-import com.example.newoasa.database.room.entities.TransitLineEntity
+import com.example.newoasa.data.local.dao.StationDao
+import com.example.newoasa.data.local.dao.TransitLineDao
+import com.example.newoasa.data.local.entities.StationEntity
+import com.example.newoasa.data.local.entities.TransitLineEntity
 
 /**
  * Main Room database for the transit application

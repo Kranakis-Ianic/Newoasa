@@ -1,4 +1,4 @@
-package com.example.newoasa.presentation.components
+package com.example.newoasa.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*

@@ -1,6 +1,4 @@
-package com.example.newoasa.database.room
-
-import androidx.room.RoomDatabase
+package com.example.newoasa.data.local
 
 /**
  * Platform-specific database builder

@@ -1,4 +1,4 @@
-package com.example.newoasa.database.models
+package com.example.newoasa.data.models
 
 /**
  * Common data model for transit lines

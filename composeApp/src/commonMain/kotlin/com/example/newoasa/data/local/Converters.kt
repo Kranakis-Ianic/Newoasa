@@ -1,7 +1,6 @@
-package com.example.newoasa.database.room
+package com.example.newoasa.data.local
 
 import androidx.room.TypeConverter
-import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 
 /**
