@@ -21,7 +21,8 @@ datastore = "1.1.2"
 
 # Ktor and related versions
 ktor = "3.3.3"
-ktorfit = "2.7.2"
+# Downgrade Ktorfit to 2.4.0 (compatible with KSP 1.0.29 / Kotlin 2.1.0)
+ktorfit = "2.4.0"
 # kotlinx-serialization 1.7.3 is compatible with Kotlin 2.1.0
 serialization = "1.7.3"
 koin = "4.1.1"
