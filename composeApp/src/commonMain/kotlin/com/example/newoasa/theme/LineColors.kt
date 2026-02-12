@@ -1,20 +1,19 @@
 package com.example.newoasa.theme
 
 import androidx.compose.ui.graphics.Color
-import com.example.newoasa.data.TransitLineRepository
-import com.example.newoasa.utils.GeoJsonColorExtractor
+import com.example.newoasa.utils.LineInfoLoader
 import kotlinx.coroutines.runBlocking
 
 /**
  * Line colors for Athens public transport
- * Reads colors from GeoJSON files with fallback to OASA standards
+ * Reads colors from GeoJSON files via LineInfoLoader with fallback to OASA standards
  */
 object LineColors {
     private val colorCache = mutableMapOf<String, String>()
     
     /**
      * Get color by line code/number
-     * First tries to read from GeoJSON, then falls back to hardcoded colors
+     * First tries to read from GeoJSON via LineInfoLoader, then falls back to hardcoded colors
      */
     fun getColorForLine(lineCode: String): Color {
         return parseHexColor(getHexColorForLine(lineCode))
@@ -22,7 +21,7 @@ object LineColors {
     
     /**
      * Get hex color string by line code
-     * Attempts to read from GeoJSON files first
+     * Attempts to read from GeoJSON files via LineInfoLoader first
      */
     fun getHexColorForLine(lineCode: String): String {
         val normalized = normalizeLineRef(lineCode)
@@ -30,7 +29,7 @@ object LineColors {
         // Check cache first
         colorCache[normalized]?.let { return it }
         
-        // Try to get color from GeoJSON via TransitLineRepository
+        // Try to get color from GeoJSON via LineInfoLoader
         val colorFromGeoJson = tryGetColorFromGeoJson(normalized)
         if (colorFromGeoJson != null) {
             colorCache[normalized] = colorFromGeoJson
@@ -44,25 +43,12 @@ object LineColors {
     }
     
     /**
-     * Try to extract color from GeoJSON files
+     * Try to extract color from GeoJSON files using LineInfoLoader
      */
     private fun tryGetColorFromGeoJson(lineRef: String): String? {
         return try {
             runBlocking {
-                // Find the line in the repository
-                val allLines = TransitLineRepository.getAllLines()
-                val matchingLine = allLines.find { line ->
-                    val normalizedLineNumber = normalizeLineRef(line.lineNumber)
-                    normalizedLineNumber == lineRef || line.lineNumber == lineRef
-                }
-                
-                if (matchingLine != null && matchingLine.routePaths.isNotEmpty()) {
-                    // Get the first route path and extract color
-                    val firstRoutePath = matchingLine.routePaths.first()
-                    GeoJsonColorExtractor.extractColorFromGeoJson(firstRoutePath)
-                } else {
-                    null
-                }
+                LineInfoLoader.getColorForLine(lineRef)
             }
         } catch (e: Exception) {
             println("Error getting color from GeoJSON for $lineRef: ${e.message}")
@@ -138,7 +124,7 @@ object LineColors {
     
     /**
      * Normalize line reference for lookup
-     * Converts "Μ1" -> "M1", "1" -> "M1" (for metro), etc.
+     * Converts "Μ1" -> "M1", etc.
      */
     private fun normalizeLineRef(lineRef: String): String {
         val normalized = lineRef.trim()
@@ -153,7 +139,6 @@ object LineColors {
             .replace("Ε", "E")
             .replace("Τ", "T")
         
-        // Return normalized format
         return withLatin
     }
     
@@ -186,6 +171,6 @@ object LineColors {
      */
     fun clearCache() {
         colorCache.clear()
-        GeoJsonColorExtractor.clearCache()
+        LineInfoLoader.clearCache()
     }
 }
