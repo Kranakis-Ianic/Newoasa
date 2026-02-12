@@ -3,6 +3,7 @@
 Script to generate line_stops.json from final_all_stations.geojson
 This extracts all metro, tram, and suburban railway stations and organizes them by route.
 Matches the exact format of the existing line_stops.json file.
+Skips duplicate bidirectional routes where stations are the same in reverse order.
 """
 
 import json
@@ -77,6 +78,58 @@ def extract_routes_and_stops(stations_data):
                 routes_dict[route_key]['stop_ids'].add(station_id)
     
     return routes_dict
+
+def routes_are_reverse(route1_stops, route2_stops):
+    """Check if two routes have the same stations in reverse order"""
+    if len(route1_stops) != len(route2_stops):
+        return False
+    
+    # Compare station IDs in reverse order
+    for i in range(len(route1_stops)):
+        if route1_stops[i]['id'] != route2_stops[-(i+1)]['id']:
+            return False
+    
+    return True
+
+def deduplicate_bidirectional_routes(routes_dict):
+    """Remove duplicate routes that are just reverse of each other"""
+    routes_to_keep = {}
+    routes_to_skip = set()
+    
+    route_keys = list(routes_dict.keys())
+    
+    for i, route_key1 in enumerate(route_keys):
+        if route_key1 in routes_to_skip:
+            continue
+        
+        route1 = routes_dict[route_key1]
+        line_ref1 = route1['line_ref']
+        
+        # Look for reverse route
+        found_reverse = False
+        for j, route_key2 in enumerate(route_keys):
+            if i >= j or route_key2 in routes_to_skip:
+                continue
+            
+            route2 = routes_dict[route_key2]
+            line_ref2 = route2['line_ref']
+            
+            # Check if same line and terminals are swapped
+            if (line_ref1 == line_ref2 and 
+                route1['from'] == route2['to'] and 
+                route1['to'] == route2['from']):
+                
+                # Check if stations are the same in reverse order
+                if routes_are_reverse(route1['stops'], route2['stops']):
+                    # Keep route1, skip route2
+                    routes_to_skip.add(route_key2)
+                    found_reverse = True
+                    print(f"  Skipping duplicate: {line_ref2} {route2['from']} → {route2['to']} (reverse of {route1['from']} → {route1['to']})")
+                    break
+        
+        routes_to_keep[route_key1] = route1
+    
+    return routes_to_keep
 
 def create_route_object(route_key, route_data, route_id):
     """Create a route object in the required format"""
@@ -192,7 +245,13 @@ def main():
     print(f"Processing {len(stations_data['features'])} station features...")
     routes_dict = extract_routes_and_stops(stations_data)
     
-    print(f"\nFound {len(routes_dict)} routes:")
+    print(f"\nFound {len(routes_dict)} routes before deduplication")
+    
+    # Remove duplicate bidirectional routes
+    print("\nDeduplicating bidirectional routes...")
+    routes_dict = deduplicate_bidirectional_routes(routes_dict)
+    
+    print(f"\nKept {len(routes_dict)} unique routes:")
     for route_key in sorted(routes_dict.keys()):
         route = routes_dict[route_key]
         print(f"  {route['line_ref']}: {route['from']} → {route['to']} ({len(route['stops'])} stops, {route['route_type']})")
