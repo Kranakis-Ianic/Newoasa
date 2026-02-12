@@ -34,10 +34,12 @@ kotlin {
             isStatic = true
         }
         
-        // Add MapLibre pod dependency
+        // Add MapLibre pod dependency - linkOnly to avoid cinterop conflict
+        // maplibre-compose already includes the bindings, we just need the framework binary
         pod("MapLibre") {
             version = "6.17.1"
             extraSpecAttributes["modular_headers"] = "true"
+            linkOnly = true
         }
     }
     
