@@ -1,50 +1,58 @@
 package com.example.newoasa.theme
 
 import androidx.compose.ui.graphics.Color
-import com.example.newoasa.utils.LineInfoLoader
-import kotlinx.coroutines.runBlocking
 
 /**
  * Line colors for Athens public transport
- * Dynamically loaded from line_info.json
+ * Based on OASA official color scheme
  */
 object LineColors {
-    // Cached line info
-    private var lineInfoCache: Map<String, LineInfoLoader.LineColorInfo>? = null
-    
-    /**
-     * Load line info (cached after first call)
-     */
-    private fun getLineInfo(): Map<String, LineInfoLoader.LineColorInfo> {
-        return lineInfoCache ?: runBlocking {
-            LineInfoLoader.loadLineInfo().also { lineInfoCache = it }
-        }
-    }
-    
     /**
      * Get color by line code/number
-     * Looks up color from line_info.json
+     * Returns the appropriate color based on line category
      */
     fun getColorForLine(lineCode: String): Color {
-        val info = getLineInfo()
-        
-        // Try to find color for this line reference
-        val colorHex = info[lineCode]?.color 
-            ?: info[normalizeLineRef(lineCode)]?.color
-            ?: "#009EC6" // Default blue
-        
-        return parseHexColor(colorHex)
+        return parseHexColor(getHexColorForLine(lineCode))
     }
     
     /**
      * Get hex color string by line code
      */
     fun getHexColorForLine(lineCode: String): String {
-        val info = getLineInfo()
+        val normalized = normalizeLineRef(lineCode)
         
-        return info[lineCode]?.color 
-            ?: info[normalizeLineRef(lineCode)]?.color
-            ?: "#009EC6"
+        // Metro lines
+        return when {
+            normalized.startsWith("M1") || normalized == "1" -> "#00A651" // Green Line
+            normalized.startsWith("M2") || normalized == "2" -> "#ED1C24" // Red Line  
+            normalized.startsWith("M3") || normalized == "3" -> "#0066B3" // Blue Line
+            normalized.startsWith("M4") || normalized == "4" -> "#FFD200" // Yellow Line (future)
+            
+            // Tram lines
+            normalized.startsWith("T6") || normalized == "6" -> "#FFA500" // Orange
+            normalized.startsWith("T7") || normalized == "7" -> "#FFA500" // Orange
+            
+            // Trolley lines
+            normalized.matches(Regex("^0?2[0-5]$")) -> "#F27C02" // Trolley lines
+            normalized.matches(Regex("^[1-9]$|^1[0-9]$|^2[0-1]$")) -> "#F27C02" // Trolley 1-21
+            
+            // Suburban Railway (Proastiakos)
+            normalized.startsWith("A") -> "#009640" // Green for suburban
+            
+            // Express bus lines (X prefix)
+            normalized.startsWith("X") || normalized.startsWith("Χ") -> "#E2231A" // Red for express
+            
+            // Airport buses (Α, Β prefix)
+            normalized.matches(Regex("^[ΑA]\\d+$")) -> "#009EC6" // Blue for airport
+            normalized.matches(Regex("^[ΒB]\\d+$")) -> "#009EC6" // Blue for airport
+            
+            // Special buses (Ε, Γ prefix)
+            normalized.matches(Regex("^[ΕE]\\d+$")) -> "#8B4789" // Purple for special
+            normalized.matches(Regex("^[ΓΓ]\\d+$")) -> "#8B4789" // Purple for special
+            
+            // Regular bus lines (default)
+            else -> "#009EC6" // Standard blue for buses
+        }
     }
     
     /**
@@ -52,12 +60,12 @@ object LineColors {
      */
     fun getColorForCategory(category: String, isBus: Boolean = false): Color {
         return when (category.lowercase()) {
-            "metro" -> getColorForLine("M1")
-            "tram" -> getColorForLine("T6")
-            "trolleys" -> parseHexColor("#F27C02")
-            "suburban", "proastiakos" -> getColorForLine("A1")
-            "buses" -> parseHexColor("#009EC6")
-            else -> parseHexColor("#009EC6")
+            "metro" -> parseHexColor("#00A651") // Metro green (line 1 representative)
+            "tram" -> parseHexColor("#FFA500") // Tram orange
+            "trolleys", "trolley" -> parseHexColor("#F27C02") // Trolley orange-red
+            "suburban", "proastiakos" -> parseHexColor("#009640") // Suburban green
+            "buses", "bus" -> parseHexColor("#009EC6") // Bus blue
+            else -> parseHexColor("#009EC6") // Default blue
         }
     }
     
@@ -66,41 +74,49 @@ object LineColors {
      */
     fun getHexColorForCategory(category: String, isBus: Boolean = false): String {
         return when (category.lowercase()) {
-            "metro" -> getHexColorForLine("M1")
-            "tram" -> getHexColorForLine("T6")
-            "trolleys" -> "#F27C02"
-            "suburban", "proastiakos" -> getHexColorForLine("A1")
-            "buses" -> "#009EC6"
+            "metro" -> "#00A651"
+            "tram" -> "#FFA500"
+            "trolleys", "trolley" -> "#F27C02"
+            "suburban", "proastiakos" -> "#009640"
+            "buses", "bus" -> "#009EC6"
             else -> "#009EC6"
         }
     }
     
     /**
      * Normalize line reference for lookup
-     * Converts "Μ1" -> "M1", "1" -> "M1", etc.
+     * Converts "Μ1" -> "M1", "1" -> "M1" (for metro), etc.
      */
     private fun normalizeLineRef(lineRef: String): String {
         val normalized = lineRef.trim()
         
-        // Replace Greek Mu with Latin M
-        val withLatinM = normalized.replace("Μ", "M")
+        // Replace Greek characters with Latin equivalents
+        val withLatin = normalized
+            .replace("Μ", "M")
+            .replace("Χ", "X")
+            .replace("Α", "A")
+            .replace("Β", "B")
+            .replace("Γ", "G")
+            .replace("Ε", "E")
+            .replace("Τ", "T")
         
-        // If already in standard format (M1, T6, A1, etc.), return it
-        if (withLatinM.matches(Regex("^[MTA]\\d+$"))) {
-            return withLatinM
+        // If already in standard format (M1, T6, A1, X95, etc.), return it
+        if (withLatin.matches(Regex("^[MTAXBEΓ]\\d+[ΑΒΤ]?$"))) {
+            return withLatin
         }
         
         // If it's just a number, try to infer the prefix
-        if (withLatinM.matches(Regex("^\\d+$"))) {
-            val num = withLatinM.toIntOrNull()
+        if (withLatin.matches(Regex("^\\d+$"))) {
+            val num = withLatin.toIntOrNull()
             return when (num) {
-                1, 2, 3, 4 -> "M$withLatinM" // Metro lines
-                6, 7 -> "T$withLatinM" // Tram lines
-                else -> withLatinM
+                1, 2, 3, 4 -> "M$withLatin" // Metro lines
+                6, 7 -> "T$withLatin" // Tram lines
+                in 1..25 -> withLatin // Trolley lines (keep as number)
+                else -> withLatin // Keep as is for bus lines
             }
         }
         
-        return withLatinM
+        return withLatin
     }
     
     /**
