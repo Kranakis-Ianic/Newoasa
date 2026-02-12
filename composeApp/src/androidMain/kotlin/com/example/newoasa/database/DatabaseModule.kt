@@ -5,15 +5,11 @@ import com.example.newoasa.database.room.getDatabase
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 
-/**
- * Koin module for Android-specific database dependencies.
- * Updated to use the KMP Room Database.
- */
 val databaseModule = module {
-    // Provide the KMP TransitDatabase using the KMP builder function
+    // Provide the TransitDatabase instance using the function we created
     single<TransitDatabase> { getDatabase(androidContext()) }
 
-    // Provide the DAOs via the database instance
+    // Provide DAOs
     single { get<TransitDatabase>().transitLineDao() }
     single { get<TransitDatabase>().stationDao() }
 }
