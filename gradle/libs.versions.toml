@@ -23,7 +23,8 @@ datastore = "1.1.2"
 # Ktor and related versions
 ktor = "3.3.3"
 ktorfit = "2.7.2"
-serialization = "1.10.0"
+# kotlinx-serialization 1.7.3 is compatible with Kotlin 2.2.0 (ABI 2.2.0)
+serialization = "1.7.3"
 koin = "4.1.1"
 room = "2.7.2"
 # KSP version matched to Kotlin 2.2.0 (KSP2 implementation 2.0.2+)
