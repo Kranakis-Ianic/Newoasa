@@ -48,8 +48,6 @@ kotlin {
         iosTarget.binaries.framework {
             baseName = "ComposeApp"
             isStatic = true
-            // Explicitly export MapLibre bindings if needed, though typically not for Compose wrapper
-            // export(project(":maplibre-compose")) 
         }
     }
     
@@ -176,4 +174,13 @@ dependencies {
     add("kspAndroid", libs.ktorfit.ksp)
     add("kspIosArm64", libs.ktorfit.ksp)
     add("kspIosSimulatorArm64", libs.ktorfit.ksp)
+}
+
+// Force specific versions to resolve potential conflicts
+configurations.all {
+    resolutionStrategy {
+        force("org.jetbrains.kotlin:kotlin-stdlib:2.1.0")
+        force("org.jetbrains.kotlin:kotlin-reflect:2.1.0")
+        force("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.1")
+    }
 }
