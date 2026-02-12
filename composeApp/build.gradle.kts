@@ -34,12 +34,10 @@ kotlin {
             isStatic = true
         }
         
-        // Add MapLibre pod dependency - linkOnly to avoid cinterop conflict
-        // maplibre-compose already includes the bindings, we just need the framework binary
+        // Add MapLibre pod dependency
         pod("MapLibre") {
             version = "6.17.1"
             extraSpecAttributes["modular_headers"] = "true"
-            linkOnly = true
         }
     }
     
@@ -50,6 +48,8 @@ kotlin {
         iosTarget.binaries.framework {
             baseName = "ComposeApp"
             isStatic = true
+            // Explicitly export MapLibre bindings if needed, though typically not for Compose wrapper
+            // export(project(":maplibre-compose")) 
         }
     }
     
