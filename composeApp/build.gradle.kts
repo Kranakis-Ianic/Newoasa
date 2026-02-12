@@ -79,8 +79,8 @@ kotlin {
         commonMain.dependencies {
             implementation(libs.compose.runtime)
             implementation(libs.compose.foundation)
-            // Use explicit Material3 version from libs catalog
-            implementation(libs.compose.material3)
+            // Use compose.material3 plugin accessor for Compose 1.7.1
+            implementation(compose.material3)
             implementation(libs.compose.ui)
             implementation(libs.compose.components.resources)
             implementation(libs.androidx.lifecycle.viewmodelCompose)
@@ -90,7 +90,7 @@ kotlin {
             implementation("org.jetbrains.androidx.navigation:navigation-compose:2.7.0-alpha07")
             implementation("org.jetbrains.compose.material:material-icons-extended:1.6.0")
             
-            // MapLibre Compose 0.11.1 - compatible with Kotlin 2.2.0 (ABI 2.2.0)
+            // MapLibre Compose 0.11.1 - compatible with Kotlin 2.1.0
             implementation("org.maplibre.compose:maplibre-compose:0.11.1")
             
             // GeoJSON parsing library for Kotlin Multiplatform (Spatial K)
@@ -198,7 +198,7 @@ dependencies {
 // Force specific versions to resolve potential conflicts
 configurations.all {
     resolutionStrategy {
-        force("org.jetbrains.kotlin:kotlin-stdlib:2.2.0")
-        force("org.jetbrains.kotlin:kotlin-reflect:2.2.0")
+        force("org.jetbrains.kotlin:kotlin-stdlib:2.1.0")
+        force("org.jetbrains.kotlin:kotlin-reflect:2.1.0")
     }
 }
