@@ -3,14 +3,11 @@ package com.example.newoasa.utils
 import com.example.newoasa.data.LineInfo
 import com.example.newoasa.data.Station
 import com.example.newoasa.data.StationInfo
-import kotlinx.serialization.json.Json
-import kotlinx.serialization.json.JsonObject
-import kotlinx.serialization.json.jsonObject
-import kotlinx.serialization.json.jsonPrimitive
-import newoasa.composeapp.generated.resources.Res
+import com.example.newoasa.theme.LineColors
 
 /**
- * Utility object to load and cache line information from line_info.json
+ * Utility object to provide line information
+ * Updated to use LineColors instead of loading from JSON
  */
 object LineInfoLoader {
     private var lineInfoCache: Map<String, LineColorInfo>? = null
@@ -24,85 +21,86 @@ object LineInfoLoader {
     )
     
     /**
-     * Load line information from line_info.json resource file
+     * Load line information
+     * Now generates info from LineColors instead of JSON
      */
     suspend fun loadLineInfo(): Map<String, LineColorInfo> {
         // Return cached data if already loaded
         lineInfoCache?.let { return it }
         
-        try {
-            val bytes = Res.readBytes("files/line_info.json")
-            val jsonString = bytes.decodeToString()
-            
-            val json = Json.parseToJsonElement(jsonString).jsonObject
-            val lineColors = json["lineColors"]?.jsonObject ?: throw Exception("lineColors not found")
-            
-            val infoMap = mutableMapOf<String, LineColorInfo>()
-            
-            // Process each category (metro, tram, suburban, etc.)
-            lineColors.forEach { (category, linesObj) ->
-                val lines = linesObj.jsonObject
-                lines.forEach { (lineKey, lineDataObj) ->
-                    val lineData = lineDataObj.jsonObject
-                    
-                    val ref = lineData["ref"]?.jsonPrimitive?.content ?: ""
-                    val name = lineData["name"]?.jsonPrimitive?.content ?: ""
-                    val nameEn = lineData["nameEn"]?.jsonPrimitive?.content
-                    val color = lineData["color"]?.jsonPrimitive?.content ?: "#666666"
-                    val route = lineData["route"]?.jsonPrimitive?.content ?: ""
-                    
-                    if (ref.isNotEmpty()) {
-                        infoMap[ref] = LineColorInfo(ref, name, nameEn, color, route)
-                        
-                        // Also add entry for the key (like "M1", "T6") if different from ref
-                        if (lineKey != ref) {
-                            infoMap[lineKey] = LineColorInfo(ref, name, nameEn, color, route)
-                        }
-                    }
-                }
+        // Generate line info map from LineColors
+        val infoMap = mutableMapOf<String, LineColorInfo>()
+        
+        // Metro lines
+        listOf("M1", "M2", "M3", "M4", "1", "2", "3", "4").forEach { ref ->
+            val color = LineColors.getHexColorForLine(ref)
+            val name = when (ref.replace("M", "")) {
+                "1" -> "Line 1 (Green)"
+                "2" -> "Line 2 (Red)"
+                "3" -> "Line 3 (Blue)"
+                "4" -> "Line 4 (Yellow)"
+                else -> "Metro $ref"
             }
-            
-            lineInfoCache = infoMap
-            return infoMap
-        } catch (e: Exception) {
-            println("Error loading line_info.json: ${e.message}")
-            e.printStackTrace()
-            return emptyMap()
+            infoMap[ref] = LineColorInfo(ref, name, name, color, "metro")
         }
+        
+        // Tram lines
+        listOf("T6", "T7", "6", "7").forEach { ref ->
+            val color = LineColors.getHexColorForLine(ref)
+            val name = "Tram ${ref.replace("T", "")}"
+            infoMap[ref] = LineColorInfo(ref, name, name, color, "tram")
+        }
+        
+        // Trolley lines (1-25)
+        (1..25).forEach { num ->
+            val ref = num.toString()
+            val paddedRef = num.toString().padStart(3, '0')
+            val color = LineColors.getHexColorForLine(ref)
+            val name = "Trolley $num"
+            infoMap[ref] = LineColorInfo(ref, name, name, color, "trolley")
+            if (paddedRef != ref) {
+                infoMap[paddedRef] = LineColorInfo(paddedRef, name, name, color, "trolley")
+            }
+        }
+        
+        // Express buses
+        listOf("X93", "X95", "X96", "X97", "X14", "Χ93", "Χ95", "Χ96", "Χ97", "Χ14").forEach { ref ->
+            val color = LineColors.getHexColorForLine(ref)
+            val name = "Express $ref"
+            infoMap[ref] = LineColorInfo(ref, name, name, color, "bus")
+        }
+        
+        // Airport buses
+        listOf("A1", "A2", "A3", "A5", "A7", "A8", "A10", "A11", "A13", "A15",
+               "B1", "B2", "B5", "B9", "B10", "B11", "B12", "B15").forEach { ref ->
+            val color = LineColors.getHexColorForLine(ref)
+            val name = "Airport $ref"
+            infoMap[ref] = LineColorInfo(ref, name, name, color, "bus")
+        }
+        
+        lineInfoCache = infoMap
+        return infoMap
     }
     
     /**
      * Get color for a specific line reference
      */
     suspend fun getColorForLine(lineRef: String): String? {
-        val info = loadLineInfo()
-        return info[lineRef]?.color
+        return LineColors.getHexColorForLine(lineRef)
     }
     
     /**
      * Convert a Station to StationInfo with full line information including colors
      */
     suspend fun toStationInfo(station: Station): StationInfo {
-        val lineInfoMap = loadLineInfo()
-        
-        val lineInfoList = station.lines.mapNotNull { lineRef ->
-            val info = lineInfoMap[lineRef]
-            if (info != null) {
-                LineInfo(
-                    ref = lineRef,
-                    colour = info.color,
-                    name = info.nameEn ?: info.name,
-                    route = info.route
-                )
-            } else {
-                // Fallback if line info not found
-                LineInfo(
-                    ref = lineRef,
-                    colour = "#666666", // Gray as fallback
-                    name = lineRef,
-                    route = null
-                )
-            }
+        val lineInfoList = station.lines.map { lineRef ->
+            val color = LineColors.getHexColorForLine(lineRef)
+            LineInfo(
+                ref = lineRef,
+                colour = color,
+                name = generateLineName(lineRef),
+                route = null
+            )
         }
         
         return StationInfo(
@@ -113,5 +111,19 @@ object LineInfoLoader {
             lines = lineInfoList,
             wheelchair = station.wheelchair
         )
+    }
+    
+    /**
+     * Generate a display name for a line reference
+     */
+    private fun generateLineName(lineRef: String): String {
+        return when {
+            lineRef.matches(Regex("^M?[1-4]$")) -> "Metro Line ${lineRef.replace("M", "")}"
+            lineRef.matches(Regex("^T?[67]$")) -> "Tram ${lineRef.replace("T", "")}"
+            lineRef.matches(Regex("^0?[1-9]$|^[12][0-5]$")) -> "Trolley $lineRef"
+            lineRef.matches(Regex("^[XΧ]\\d+$")) -> "Express $lineRef"
+            lineRef.matches(Regex("^[ABΑΒ]\\d+$")) -> "Airport $lineRef"
+            else -> "Bus $lineRef"
+        }
     }
 }
