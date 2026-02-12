@@ -10,34 +10,12 @@ plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.room)
     alias(libs.plugins.ktorfit)
-    // Add CocoaPods plugin for iOS dependency management
-    kotlin("native.cocoapods")
 }
 
 kotlin {
     androidTarget {
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_11)
-        }
-    }
-    
-    // Configure CocoaPods
-    cocoapods {
-        version = "1.0"
-        summary = "Compose App"
-        homepage = "https://github.com/Kranakis-Ianic/Newoasa"
-        
-        ios.deploymentTarget = "14.1"
-        
-        framework {
-            baseName = "ComposeApp"
-            isStatic = true
-        }
-        
-        // Add MapLibre pod dependency
-        pod("MapLibre") {
-            version = "6.17.1"
-            extraSpecAttributes["modular_headers"] = "true"
         }
     }
     
@@ -61,9 +39,6 @@ kotlin {
             implementation(libs.compose.uiToolingPreview)
             implementation(libs.androidx.activity.compose)
             
-            // Native MapLibre SDK for Android
-            implementation("org.maplibre.gl:android-sdk:11.5.0")
-            
             // Ktor client for Android
             implementation(libs.ktor.client.okhttp)
             
@@ -79,7 +54,6 @@ kotlin {
         commonMain.dependencies {
             implementation(libs.compose.runtime)
             implementation(libs.compose.foundation)
-            // Use compose.material3 plugin accessor for Compose 1.7.1
             implementation(compose.material3)
             implementation(libs.compose.ui)
             implementation(libs.compose.components.resources)
@@ -90,11 +64,11 @@ kotlin {
             implementation("org.jetbrains.androidx.navigation:navigation-compose:2.7.0-alpha07")
             implementation("org.jetbrains.compose.material:material-icons-extended:1.6.0")
             
-            // MapLibre Compose 0.11.1 - compatible with Kotlin 2.1.0
-            implementation("org.maplibre.compose:maplibre-compose:0.11.1")
-            
-            // GeoJSON parsing library for Kotlin Multiplatform (Spatial K)
-            implementation("org.maplibre.spatialk:geojson:0.6.1")
+            // MapLibre Compose - TEMPORARILY COMMENTED OUT
+            // Requires Kotlin 2.2.0, but we're using 2.1.0 for iOS stability
+            // TODO: Re-enable when MapLibre Compose releases Kotlin 2.1.0 compatible version
+            // implementation("org.maplibre.compose:maplibre-compose:0.11.1")
+            // implementation("org.maplibre.spatialk:geojson:0.6.1")
             
             // Coroutines
             implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")
@@ -189,7 +163,7 @@ dependencies {
     add("kspIosArm64", libs.room.compiler)
     add("kspIosSimulatorArm64", libs.room.compiler)
     
-    // Ktorfit KSP - Platform specific only (remove kspCommonMainMetadata)
+    // Ktorfit KSP - Platform specific only
     add("kspAndroid", libs.ktorfit.ksp)
     add("kspIosArm64", libs.ktorfit.ksp)
     add("kspIosSimulatorArm64", libs.ktorfit.ksp)
