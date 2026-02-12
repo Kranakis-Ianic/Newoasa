@@ -90,8 +90,8 @@ kotlin {
             implementation("org.jetbrains.androidx.navigation:navigation-compose:2.7.0-alpha07")
             implementation("org.jetbrains.compose.material:material-icons-extended:1.6.0")
             
-            // MapLibre Compose 0.12.1 - compatible with Kotlin 2.2.0
-            implementation("org.maplibre.compose:maplibre-compose:0.12.1")
+            // MapLibre Compose 0.11.1 - compatible with Kotlin 2.2.0 (ABI 2.2.0)
+            implementation("org.maplibre.compose:maplibre-compose:0.11.1")
             
             // GeoJSON parsing library for Kotlin Multiplatform (Spatial K)
             implementation("org.maplibre.spatialk:geojson:0.6.1")
