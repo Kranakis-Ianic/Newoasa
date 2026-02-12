@@ -492,6 +492,7 @@ private suspend fun loadAllStations(style: Style, isDark: Boolean) {
                         .withFilter(
                             eq(geometryType(), literal("Point"))
                         )
+                        .withMinZoom(12f) // Stations visible only at zoom 12+
                     style.addLayer(stationsLayer)
                     
                     Log.d("MapView", "Successfully loaded all stations")
