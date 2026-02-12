@@ -7,6 +7,7 @@ import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
+import newoasa.composeapp.generated.resources.Res
 
 /**
  * Utility object to load and cache line information from line_info.json
@@ -30,8 +31,8 @@ object LineInfoLoader {
         lineInfoCache?.let { return it }
         
         try {
-            val jsonString = ResourceLoader.loadResource("files/line_info.json")
-                ?: throw Exception("Could not load line_info.json")
+            val bytes = Res.readBytes("files/line_info.json")
+            val jsonString = bytes.decodeToString()
             
             val json = Json.parseToJsonElement(jsonString).jsonObject
             val lineColors = json["lineColors"]?.jsonObject ?: throw Exception("lineColors not found")
