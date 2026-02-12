@@ -9,11 +9,11 @@ androidx-core = "1.17.0"
 androidx-espresso = "3.7.0"
 androidx-lifecycle = "2.9.6"
 androidx-testExt = "1.3.0"
-# Downgrade Compose Multiplatform to 1.7.1 for Kotlin 2.1.0 compatibility
+# Compose Multiplatform 1.7.1 is stable with Kotlin 2.2.0
 composeMultiplatform = "1.7.1"
 junit = "4.13.2"
-# Downgrade Kotlin to 2.1.0 to fix KLIB resolver error (UIUtilities missing)
-kotlin = "2.1.0"
+# Upgrade Kotlin to 2.2.0 for compatibility with MapLibre Compose and modern libraries
+kotlin = "2.2.0"
 coroutines = "1.10.1"
 sqlite = "2.5.0-alpha01"
 coil = "3.1.0"
@@ -21,14 +21,14 @@ datastore = "1.1.2"
 
 # Ktor and related versions
 ktor = "3.3.3"
-# Downgrade Ktorfit to 2.4.0 (compatible with KSP 1.0.29 / Kotlin 2.1.0)
-ktorfit = "2.4.0"
-# kotlinx-serialization 1.7.3 is compatible with Kotlin 2.1.0
+# Upgrade Ktorfit to 2.4.1 for Kotlin 2.2.0 compatibility
+ktorfit = "2.4.1"
+# kotlinx-serialization 1.7.3 is compatible with Kotlin 2.2.0
 serialization = "1.7.3"
 koin = "4.1.1"
 room = "2.7.2"
-# KSP version matched to Kotlin 2.1.0
-ksp = "2.1.0-1.0.29"
+# KSP version matched to Kotlin 2.2.0
+ksp = "2.2.0-1.0.29"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
