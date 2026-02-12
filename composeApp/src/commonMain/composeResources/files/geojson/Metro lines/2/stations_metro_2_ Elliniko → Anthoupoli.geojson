@@ -1,0 +1,1197 @@
+{
+  "type": "FeatureCollection",
+  "generator": "merged-line-stations-script",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2393023588",
+        "int_name": "Ilioupoli",
+        "name": "Ηλιούπολη",
+        "name:el": "Ηλιούπολη",
+        "name:en": "Ilioupoli",
+        "name:fr": "Héliopolis",
+        "official_name": "Ηλιούπολη-Γρηγόρης Λαμπράκης",
+        "official_name:el": "Ηλιούπολη-Γρηγόρης Λαμπράκης",
+        "official_name:en": "lioupoli-Grigoris Lambrakis",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Ανθούπολη",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "3095900",
+            "reltags": {
+              "colour": "#DA291C",
+              "from": "Ελληνικό",
+              "name": "Μετρό Μ2: Ελληνικό → Ανθούπολη",
+              "name:ca": "Metro Μ2: Elliniko → Anthoupoli",
+              "name:de": "U-Bahn Μ2: Elliniko → Anthoupoli",
+              "name:el": "Μετρό Μ2: Ελληνικό → Ανθούπολη",
+              "name:en": "Metro Μ2: Elliniko → Anthoupoli",
+              "name:fr": "Métro Μ2: Elliniko → Anthoupoli",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ2",
+              "route": "subway",
+              "start_date": "2000-01-28",
+              "to": "Ανθούπολη",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q9295813",
+              "wikipedia": "el:Γραμμή 2 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7447982,
+          37.9298516
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2393048316",
+        "int_name": "Alimos",
+        "name": "Άλιμος",
+        "name:el": "Άλιμος",
+        "name:en": "Alimos",
+        "name:fr": "Alimos",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Ανθούπολη",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "3095900",
+            "reltags": {
+              "colour": "#DA291C",
+              "from": "Ελληνικό",
+              "name": "Μετρό Μ2: Ελληνικό → Ανθούπολη",
+              "name:ca": "Metro Μ2: Elliniko → Anthoupoli",
+              "name:de": "U-Bahn Μ2: Elliniko → Anthoupoli",
+              "name:el": "Μετρό Μ2: Ελληνικό → Ανθούπολη",
+              "name:en": "Metro Μ2: Elliniko → Anthoupoli",
+              "name:fr": "Métro Μ2: Elliniko → Anthoupoli",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ2",
+              "route": "subway",
+              "start_date": "2000-01-28",
+              "to": "Ανθούπολη",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q9295813",
+              "wikipedia": "el:Γραμμή 2 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7441161,
+          37.9189017
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2393075541",
+        "int_name": "Argyroupoli",
+        "name": "Αργυρούπολη",
+        "name:el": "Αργυρούπολη",
+        "name:en": "Argyroupoli",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Ανθούπολη",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "3095900",
+            "reltags": {
+              "colour": "#DA291C",
+              "from": "Ελληνικό",
+              "name": "Μετρό Μ2: Ελληνικό → Ανθούπολη",
+              "name:ca": "Metro Μ2: Elliniko → Anthoupoli",
+              "name:de": "U-Bahn Μ2: Elliniko → Anthoupoli",
+              "name:el": "Μετρό Μ2: Ελληνικό → Ανθούπολη",
+              "name:en": "Metro Μ2: Elliniko → Anthoupoli",
+              "name:fr": "Métro Μ2: Elliniko → Anthoupoli",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ2",
+              "route": "subway",
+              "start_date": "2000-01-28",
+              "to": "Ανθούπολη",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q9295813",
+              "wikipedia": "el:Γραμμή 2 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7454967,
+          37.9031671
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2393088500",
+        "alt_name:en": "Helliniko",
+        "int_name": "Elliniko",
+        "name": "Ελληνικό",
+        "name:el": "Ελληνικό",
+        "name:en": "Elliniko",
+        "name:fr": "Elliniko",
+        "name:ml": "ഹെല്ലിനിക്കോ",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Ανθούπολη",
+        "source:alt_name:en": "map",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "3095900",
+            "reltags": {
+              "colour": "#DA291C",
+              "from": "Ελληνικό",
+              "name": "Μετρό Μ2: Ελληνικό → Ανθούπολη",
+              "name:ca": "Metro Μ2: Elliniko → Anthoupoli",
+              "name:de": "U-Bahn Μ2: Elliniko → Anthoupoli",
+              "name:el": "Μετρό Μ2: Ελληνικό → Ανθούπολη",
+              "name:en": "Metro Μ2: Elliniko → Anthoupoli",
+              "name:fr": "Métro Μ2: Elliniko → Anthoupoli",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ2",
+              "route": "subway",
+              "start_date": "2000-01-28",
+              "to": "Ανθούπολη",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q9295813",
+              "wikipedia": "el:Γραμμή 2 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7471469,
+          37.8925978
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2482314349",
+        "int_name": "Dafni",
+        "name": "Δάφνη",
+        "name:el": "Δάφνη",
+        "name:en": "Dafni",
+        "name:fr": "Dafni",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Ανθούπολη",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "3095900",
+            "reltags": {
+              "colour": "#DA291C",
+              "from": "Ελληνικό",
+              "name": "Μετρό Μ2: Ελληνικό → Ανθούπολη",
+              "name:ca": "Metro Μ2: Elliniko → Anthoupoli",
+              "name:de": "U-Bahn Μ2: Elliniko → Anthoupoli",
+              "name:el": "Μετρό Μ2: Ελληνικό → Ανθούπολη",
+              "name:en": "Metro Μ2: Elliniko → Anthoupoli",
+              "name:fr": "Métro Μ2: Elliniko → Anthoupoli",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ2",
+              "route": "subway",
+              "start_date": "2000-01-28",
+              "to": "Ανθούπολη",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q9295813",
+              "wikipedia": "el:Γραμμή 2 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7372546,
+          37.9495556
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7480425195",
+        "int_name": "Neos Kosmos",
+        "name": "Νέος Κόσμος",
+        "name:el": "Νέος Κόσμος",
+        "name:en": "Neos Kosmos",
+        "name:ru": "Неос Космос",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Ανθούπολη",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "3095900",
+            "reltags": {
+              "colour": "#DA291C",
+              "from": "Ελληνικό",
+              "name": "Μετρό Μ2: Ελληνικό → Ανθούπολη",
+              "name:ca": "Metro Μ2: Elliniko → Anthoupoli",
+              "name:de": "U-Bahn Μ2: Elliniko → Anthoupoli",
+              "name:el": "Μετρό Μ2: Ελληνικό → Ανθούπολη",
+              "name:en": "Metro Μ2: Elliniko → Anthoupoli",
+              "name:fr": "Métro Μ2: Elliniko → Anthoupoli",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ2",
+              "route": "subway",
+              "start_date": "2000-01-28",
+              "to": "Ανθούπολη",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q9295813",
+              "wikipedia": "el:Γραμμή 2 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7283763,
+          37.9576859
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7480425217",
+        "alt_name:en": "Sygrou-Fix",
+        "int_name": "Syggrou-Fix",
+        "name": "Συγγρού-Φιξ",
+        "name:el": "Συγγρού-Φίξ",
+        "name:en": "Syngrou-Fix",
+        "name:fr": "Syngrou-Fix",
+        "name:ru": "Сингру-Фикс",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Ανθούπολη",
+        "source:alt_name:en": "sign",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "3095900",
+            "reltags": {
+              "colour": "#DA291C",
+              "from": "Ελληνικό",
+              "name": "Μετρό Μ2: Ελληνικό → Ανθούπολη",
+              "name:ca": "Metro Μ2: Elliniko → Anthoupoli",
+              "name:de": "U-Bahn Μ2: Elliniko → Anthoupoli",
+              "name:el": "Μετρό Μ2: Ελληνικό → Ανθούπολη",
+              "name:en": "Metro Μ2: Elliniko → Anthoupoli",
+              "name:fr": "Métro Μ2: Elliniko → Anthoupoli",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ2",
+              "route": "subway",
+              "start_date": "2000-01-28",
+              "to": "Ανθούπολη",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q9295813",
+              "wikipedia": "el:Γραμμή 2 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.726832,
+          37.9646144
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7480425227",
+        "alt_name:en": "Acropolis",
+        "int_name": "Akropoli",
+        "name": "Ακρόπολη",
+        "name:de": "Akropoli",
+        "name:el": "Ακρόπολη",
+        "name:en": "Akropoli",
+        "name:es": "Acrópolis",
+        "name:fr": "Acropole",
+        "name:ru": "Акрополи",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Ανθούπολη",
+        "source:alt_name:en": "map",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "3095900",
+            "reltags": {
+              "colour": "#DA291C",
+              "from": "Ελληνικό",
+              "name": "Μετρό Μ2: Ελληνικό → Ανθούπολη",
+              "name:ca": "Metro Μ2: Elliniko → Anthoupoli",
+              "name:de": "U-Bahn Μ2: Elliniko → Anthoupoli",
+              "name:el": "Μετρό Μ2: Ελληνικό → Ανθούπολη",
+              "name:en": "Metro Μ2: Elliniko → Anthoupoli",
+              "name:fr": "Métro Μ2: Elliniko → Anthoupoli",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ2",
+              "route": "subway",
+              "start_date": "2000-01-28",
+              "to": "Ανθούπολη",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q9295813",
+              "wikipedia": "el:Γραμμή 2 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7295927,
+          37.9688484
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7480425252",
+        "int_name": "Syntagma",
+        "name": "Σύνταγμα",
+        "name:ca": "Síndagma",
+        "name:de": "Syntagma",
+        "name:el": "Σύνταγμα",
+        "name:en": "Syntagma",
+        "name:fr": "Syntagma",
+        "name:ru": "Синтахма",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Ανθούπολη",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "3095900",
+            "reltags": {
+              "colour": "#DA291C",
+              "from": "Ελληνικό",
+              "name": "Μετρό Μ2: Ελληνικό → Ανθούπολη",
+              "name:ca": "Metro Μ2: Elliniko → Anthoupoli",
+              "name:de": "U-Bahn Μ2: Elliniko → Anthoupoli",
+              "name:el": "Μετρό Μ2: Ελληνικό → Ανθούπολη",
+              "name:en": "Metro Μ2: Elliniko → Anthoupoli",
+              "name:fr": "Métro Μ2: Elliniko → Anthoupoli",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ2",
+              "route": "subway",
+              "start_date": "2000-01-28",
+              "to": "Ανθούπολη",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q9295813",
+              "wikipedia": "el:Γραμμή 2 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7356868,
+          37.9754957
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7480425260",
+        "int_name": "Panepistimio",
+        "name": "Πανεπιστήμιο",
+        "name:el": "Πανεπιστήμιο",
+        "name:en": "Panepistimio",
+        "name:ru": "Панэпистимио",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Ανθούπολη",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "3095900",
+            "reltags": {
+              "colour": "#DA291C",
+              "from": "Ελληνικό",
+              "name": "Μετρό Μ2: Ελληνικό → Ανθούπολη",
+              "name:ca": "Metro Μ2: Elliniko → Anthoupoli",
+              "name:de": "U-Bahn Μ2: Elliniko → Anthoupoli",
+              "name:el": "Μετρό Μ2: Ελληνικό → Ανθούπολη",
+              "name:en": "Metro Μ2: Elliniko → Anthoupoli",
+              "name:fr": "Métro Μ2: Elliniko → Anthoupoli",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ2",
+              "route": "subway",
+              "start_date": "2000-01-28",
+              "to": "Ανθούπολη",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q9295813",
+              "wikipedia": "el:Γραμμή 2 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.733036,
+          37.9803647
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7480425272",
+        "int_name": "Omonoia",
+        "name": "Ομόνοια",
+        "name:de": "Omonia",
+        "name:el": "Ομόνοια",
+        "name:en": "Omonia",
+        "name:fr": "Omonia",
+        "name:ru": "Омония",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Ανθούπολη",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "3095900",
+            "reltags": {
+              "colour": "#DA291C",
+              "from": "Ελληνικό",
+              "name": "Μετρό Μ2: Ελληνικό → Ανθούπολη",
+              "name:ca": "Metro Μ2: Elliniko → Anthoupoli",
+              "name:de": "U-Bahn Μ2: Elliniko → Anthoupoli",
+              "name:el": "Μετρό Μ2: Ελληνικό → Ανθούπολη",
+              "name:en": "Metro Μ2: Elliniko → Anthoupoli",
+              "name:fr": "Métro Μ2: Elliniko → Anthoupoli",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ2",
+              "route": "subway",
+              "start_date": "2000-01-28",
+              "to": "Ανθούπολη",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q9295813",
+              "wikipedia": "el:Γραμμή 2 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7279892,
+          37.9840848
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7480425279",
+        "alt_name:en": "Metaxourghio",
+        "int_name": "Metaxourgeio",
+        "name": "Μεταξουργείο",
+        "name:de": "Metaxourgeio",
+        "name:el": "Μεταξουργείο",
+        "name:en": "Metaxourgeio",
+        "name:fr": "Metaxourgeio",
+        "name:ru": "Метаксурьио",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Ανθούπολη",
+        "source:alt_name:en": "sign",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "3095900",
+            "reltags": {
+              "colour": "#DA291C",
+              "from": "Ελληνικό",
+              "name": "Μετρό Μ2: Ελληνικό → Ανθούπολη",
+              "name:ca": "Metro Μ2: Elliniko → Anthoupoli",
+              "name:de": "U-Bahn Μ2: Elliniko → Anthoupoli",
+              "name:el": "Μετρό Μ2: Ελληνικό → Ανθούπολη",
+              "name:en": "Metro Μ2: Elliniko → Anthoupoli",
+              "name:fr": "Métro Μ2: Elliniko → Anthoupoli",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ2",
+              "route": "subway",
+              "start_date": "2000-01-28",
+              "to": "Ανθούπολη",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q9295813",
+              "wikipedia": "el:Γραμμή 2 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7213971,
+          37.98586
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7480425289",
+        "int_name": "Stathmos Larisis",
+        "name": "Σταθμός Λαρίσης",
+        "name:ru": "Статмос Ларисис",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Ανθούπολη",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "3095900",
+            "reltags": {
+              "colour": "#DA291C",
+              "from": "Ελληνικό",
+              "name": "Μετρό Μ2: Ελληνικό → Ανθούπολη",
+              "name:ca": "Metro Μ2: Elliniko → Anthoupoli",
+              "name:de": "U-Bahn Μ2: Elliniko → Anthoupoli",
+              "name:el": "Μετρό Μ2: Ελληνικό → Ανθούπολη",
+              "name:en": "Metro Μ2: Elliniko → Anthoupoli",
+              "name:fr": "Métro Μ2: Elliniko → Anthoupoli",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ2",
+              "route": "subway",
+              "start_date": "2000-01-28",
+              "to": "Ανθούπολη",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q9295813",
+              "wikipedia": "el:Γραμμή 2 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7207392,
+          37.9922783
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7480425300",
+        "int_name": "Attiki",
+        "name": "Αττική",
+        "name:de": "Attiki",
+        "name:el": "Αττική",
+        "name:en": "Attiki",
+        "name:fr": "Attiki",
+        "name:ru": "Аттики",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Ανθούπολη",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "3095900",
+            "reltags": {
+              "colour": "#DA291C",
+              "from": "Ελληνικό",
+              "name": "Μετρό Μ2: Ελληνικό → Ανθούπολη",
+              "name:ca": "Metro Μ2: Elliniko → Anthoupoli",
+              "name:de": "U-Bahn Μ2: Elliniko → Anthoupoli",
+              "name:el": "Μετρό Μ2: Ελληνικό → Ανθούπολη",
+              "name:en": "Metro Μ2: Elliniko → Anthoupoli",
+              "name:fr": "Métro Μ2: Elliniko → Anthoupoli",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ2",
+              "route": "subway",
+              "start_date": "2000-01-28",
+              "to": "Ανθούπολη",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q9295813",
+              "wikipedia": "el:Γραμμή 2 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7227317,
+          37.9995316
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7480425317",
+        "int_name": "Sepolia",
+        "name": "Σεπόλια",
+        "name:el": "Σεπόλια",
+        "name:en": "Sepolia",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Ανθούπολη",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "3095900",
+            "reltags": {
+              "colour": "#DA291C",
+              "from": "Ελληνικό",
+              "name": "Μετρό Μ2: Ελληνικό → Ανθούπολη",
+              "name:ca": "Metro Μ2: Elliniko → Anthoupoli",
+              "name:de": "U-Bahn Μ2: Elliniko → Anthoupoli",
+              "name:el": "Μετρό Μ2: Ελληνικό → Ανθούπολη",
+              "name:en": "Metro Μ2: Elliniko → Anthoupoli",
+              "name:fr": "Métro Μ2: Elliniko → Anthoupoli",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ2",
+              "route": "subway",
+              "start_date": "2000-01-28",
+              "to": "Ανθούπολη",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q9295813",
+              "wikipedia": "el:Γραμμή 2 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7140435,
+          38.0026256
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7480425349",
+        "int_name": "Peristeri",
+        "name": "Περιστέρι",
+        "name:de": "Peristeri",
+        "name:el": "Περιστέρι",
+        "name:en": "Peristeri",
+        "name:fr": "Peristéri",
+        "name:ru": "Перистери",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Ανθούπολη",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "3095900",
+            "reltags": {
+              "colour": "#DA291C",
+              "from": "Ελληνικό",
+              "name": "Μετρό Μ2: Ελληνικό → Ανθούπολη",
+              "name:ca": "Metro Μ2: Elliniko → Anthoupoli",
+              "name:de": "U-Bahn Μ2: Elliniko → Anthoupoli",
+              "name:el": "Μετρό Μ2: Ελληνικό → Ανθούπολη",
+              "name:en": "Metro Μ2: Elliniko → Anthoupoli",
+              "name:fr": "Métro Μ2: Elliniko → Anthoupoli",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ2",
+              "route": "subway",
+              "start_date": "2000-01-28",
+              "to": "Ανθούπολη",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q9295813",
+              "wikipedia": "el:Γραμμή 2 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6957923,
+          38.0129046
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7480425356",
+        "alt_name:en": "Aghios Ioannis",
+        "int_name": "Agios Ioannis",
+        "name": "Άγιος Ιωάννης",
+        "name:el": "Άγιος Ιωάννης",
+        "name:en": "Agios Ioannis",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Ανθούπολη",
+        "source:alt_name:en": "sign",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "3095900",
+            "reltags": {
+              "colour": "#DA291C",
+              "from": "Ελληνικό",
+              "name": "Μετρό Μ2: Ελληνικό → Ανθούπολη",
+              "name:ca": "Metro Μ2: Elliniko → Anthoupoli",
+              "name:de": "U-Bahn Μ2: Elliniko → Anthoupoli",
+              "name:el": "Μετρό Μ2: Ελληνικό → Ανθούπολη",
+              "name:en": "Metro Μ2: Elliniko → Anthoupoli",
+              "name:fr": "Métro Μ2: Elliniko → Anthoupoli",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ2",
+              "route": "subway",
+              "start_date": "2000-01-28",
+              "to": "Ανθούπολη",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q9295813",
+              "wikipedia": "el:Γραμμή 2 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7346938,
+          37.9564447
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7480425359",
+        "alt_name:en": "Aghios Antonios",
+        "int_name": "Agios Antonios",
+        "name": "Άγιος Αντώνιος",
+        "name:el": "Άγιος Αντώνιος",
+        "name:en": "Agios Antonios",
+        "name:fr": "Agios Antonios",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Ανθούπολη",
+        "source:alt_name:en": "sign",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "3095900",
+            "reltags": {
+              "colour": "#DA291C",
+              "from": "Ελληνικό",
+              "name": "Μετρό Μ2: Ελληνικό → Ανθούπολη",
+              "name:ca": "Metro Μ2: Elliniko → Anthoupoli",
+              "name:de": "U-Bahn Μ2: Elliniko → Anthoupoli",
+              "name:el": "Μετρό Μ2: Ελληνικό → Ανθούπολη",
+              "name:en": "Metro Μ2: Elliniko → Anthoupoli",
+              "name:fr": "Métro Μ2: Elliniko → Anthoupoli",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ2",
+              "route": "subway",
+              "start_date": "2000-01-28",
+              "to": "Ανθούπολη",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q9295813",
+              "wikipedia": "el:Γραμμή 2 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6997446,
+          38.0061148
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7480425360",
+        "int_name": "Anthoupoli",
+        "name": "Ανθούπολη",
+        "name:el": "Ανθούπολη",
+        "name:en": "Anthoupoli",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Ανθούπολη",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "3095900",
+            "reltags": {
+              "colour": "#DA291C",
+              "from": "Ελληνικό",
+              "name": "Μετρό Μ2: Ελληνικό → Ανθούπολη",
+              "name:ca": "Metro Μ2: Elliniko → Anthoupoli",
+              "name:de": "U-Bahn Μ2: Elliniko → Anthoupoli",
+              "name:el": "Μετρό Μ2: Ελληνικό → Ανθούπολη",
+              "name:en": "Metro Μ2: Elliniko → Anthoupoli",
+              "name:fr": "Métro Μ2: Elliniko → Anthoupoli",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ2",
+              "route": "subway",
+              "start_date": "2000-01-28",
+              "to": "Ανθούπολη",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q9295813",
+              "wikipedia": "el:Γραμμή 2 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6909236,
+          38.0171503
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/9581302640",
+        "alt_name:en": "Aghios Dimitrios",
+        "alt_official_name:en": "Aghios Dimitrios-Alexandros Panagoulis",
+        "int_name": "Agios Dimitrios",
+        "name": "Άγιος Δημήτριος",
+        "name:el": "Άγιος Δημήτριος",
+        "name:en": "Agios Dimitrios",
+        "official_int_name": "Agios Dimitrios-Alexandros Panagoulis",
+        "official_name": "Άγιος Δημήτριος-Αλέξανδρος Παναγούλης",
+        "official_name:el": "Άγιος Δημήτριος-Αλέξανδρος Παναγούλης",
+        "official_name:en": "Agios Dimitrios-Alexandros Panagoulis",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Ανθούπολη",
+        "source:alt_name:en": "sign",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "3095900",
+            "reltags": {
+              "colour": "#DA291C",
+              "from": "Ελληνικό",
+              "name": "Μετρό Μ2: Ελληνικό → Ανθούπολη",
+              "name:ca": "Metro Μ2: Elliniko → Anthoupoli",
+              "name:de": "U-Bahn Μ2: Elliniko → Anthoupoli",
+              "name:el": "Μετρό Μ2: Ελληνικό → Ανθούπολη",
+              "name:en": "Metro Μ2: Elliniko → Anthoupoli",
+              "name:fr": "Métro Μ2: Elliniko → Anthoupoli",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ2",
+              "route": "subway",
+              "start_date": "2000-01-28",
+              "to": "Ανθούπολη",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q9295813",
+              "wikipedia": "el:Γραμμή 2 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7405385,
+          37.9406979
+        ]
+      }
+    }
+  ]
+}

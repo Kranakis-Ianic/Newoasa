@@ -1,0 +1,1241 @@
+{
+  "type": "FeatureCollection",
+  "generator": "merged-line-stations-script",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/364338802",
+        "int_name": "Zappio",
+        "name": "Ζάππειο",
+        "name:el": "Ζάππειο",
+        "name:en": "Zappeion",
+        "name:fr": "Zappéion",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "ref": "060048",
+        "source:name": "sign",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "3648688",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Σύνταγμα",
+              "name": "Τραμ Τ6: Σύνταγμα → Πικροδάφνη",
+              "name:ca": "Tram Τ6: Síndagma → Pikrodafni",
+              "name:el": "Τραμ Τ6: Σύνταγμα → Πικροδάφνη",
+              "name:en": "Tram Τ6: Syntagma → Pikrodafni",
+              "name:fr": "Tram Τ6: Syntagma → Pikrodafni",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ5",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ6",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Πικροδάφνη",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535312",
+              "wikipedia": "el:Γραμμή 6 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7363994,
+          37.9693061
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/821499092",
+        "int_name": "Neos Kosmos",
+        "name": "Νέος Κόσμος",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "source": "Bing Aerial Imagery (2022-04-20)",
+        "source:name": "sign",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "3648688",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Σύνταγμα",
+              "name": "Τραμ Τ6: Σύνταγμα → Πικροδάφνη",
+              "name:ca": "Tram Τ6: Síndagma → Pikrodafni",
+              "name:el": "Τραμ Τ6: Σύνταγμα → Πικροδάφνη",
+              "name:en": "Tram Τ6: Syntagma → Pikrodafni",
+              "name:fr": "Tram Τ6: Syntagma → Pikrodafni",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ5",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ6",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Πικροδάφνη",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535312",
+              "wikipedia": "el:Γραμμή 6 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7270853,
+          37.9569955
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/925377298",
+        "int_name": "Achilleos",
+        "name": "Αχιλλέως",
+        "name:el": "Αχιλλέως",
+        "name:en": "Achilleos",
+        "name:fr": "Achille",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "source:name": "sign",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "wikidata": "Q112801515",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "3648688",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Σύνταγμα",
+              "name": "Τραμ Τ6: Σύνταγμα → Πικροδάφνη",
+              "name:ca": "Tram Τ6: Síndagma → Pikrodafni",
+              "name:el": "Τραμ Τ6: Σύνταγμα → Πικροδάφνη",
+              "name:en": "Tram Τ6: Syntagma → Pikrodafni",
+              "name:fr": "Tram Τ6: Syntagma → Pikrodafni",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ5",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ6",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Πικροδάφνη",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535312",
+              "wikipedia": "el:Γραμμή 6 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7098664,
+          37.9301057
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/939869073",
+        "int_name": "Baknana",
+        "name": "Μπακνανά",
+        "name:el": "Μπακνανά",
+        "name:en": "Baknana",
+        "name:fr": "Baknana",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "source:name": "sign",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "3648688",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Σύνταγμα",
+              "name": "Τραμ Τ6: Σύνταγμα → Πικροδάφνη",
+              "name:ca": "Tram Τ6: Síndagma → Pikrodafni",
+              "name:el": "Τραμ Τ6: Σύνταγμα → Πικροδάφνη",
+              "name:en": "Tram Τ6: Syntagma → Pikrodafni",
+              "name:fr": "Tram Τ6: Syntagma → Pikrodafni",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ5",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ6",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Πικροδάφνη",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535312",
+              "wikipedia": "el:Γραμμή 6 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7238777,
+          37.9546714
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/939869148",
+        "int_name": "Aghias Fotinis-Platia",
+        "name": "Αγίας Φωτεινής-Πλατεία",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "source:name": "sign",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "3648688",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Σύνταγμα",
+              "name": "Τραμ Τ6: Σύνταγμα → Πικροδάφνη",
+              "name:ca": "Tram Τ6: Síndagma → Pikrodafni",
+              "name:el": "Τραμ Τ6: Σύνταγμα → Πικροδάφνη",
+              "name:en": "Tram Τ6: Syntagma → Pikrodafni",
+              "name:fr": "Tram Τ6: Syntagma → Pikrodafni",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ5",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ6",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Πικροδάφνη",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535312",
+              "wikipedia": "el:Γραμμή 6 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7150445,
+          37.9467388
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/940327783",
+        "int_name": "Syntagma",
+        "name": "Σύνταγμα",
+        "name:ca": "Síndagma",
+        "name:de": "Syntagma",
+        "name:el": "Σύνταγμα",
+        "name:en": "Syntagma",
+        "name:fr": "Syntagma",
+        "network": "Τραμ Αθήνας",
+        "operator": "ΣΤΑΣΥ",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "source:name": "sign",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "@relations": [
+          {
+            "role": "stop_entry_only",
+            "rel": "3648688",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Σύνταγμα",
+              "name": "Τραμ Τ6: Σύνταγμα → Πικροδάφνη",
+              "name:ca": "Tram Τ6: Síndagma → Pikrodafni",
+              "name:el": "Τραμ Τ6: Σύνταγμα → Πικροδάφνη",
+              "name:en": "Tram Τ6: Syntagma → Pikrodafni",
+              "name:fr": "Tram Τ6: Syntagma → Pikrodafni",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ5",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ6",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Πικροδάφνη",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535312",
+              "wikipedia": "el:Γραμμή 6 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7353381,
+          37.9744347
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/6020438754",
+        "int_name": "Aegeou",
+        "name": "Αιγαίου",
+        "name:el": "Αιγαίου",
+        "name:en": "Aegeou",
+        "name:fr": "Aegeou",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "source:name": "sign",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "3648688",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Σύνταγμα",
+              "name": "Τραμ Τ6: Σύνταγμα → Πικροδάφνη",
+              "name:ca": "Tram Τ6: Síndagma → Pikrodafni",
+              "name:el": "Τραμ Τ6: Σύνταγμα → Πικροδάφνη",
+              "name:en": "Tram Τ6: Syntagma → Pikrodafni",
+              "name:fr": "Tram Τ6: Syntagma → Pikrodafni",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ5",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ6",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Πικροδάφνη",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535312",
+              "wikipedia": "el:Γραμμή 6 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7189049,
+          37.9501464
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/6021744935",
+        "int_name": "Evangeliki Scholi",
+        "name": "Ευαγγελική Σχολή",
+        "name:el": "Ευαγγελική Σχολή",
+        "name:en": "Evangeliki Scholi",
+        "name:fr": "École Évangélique",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "source:name": "sign",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "wikidata": "Q112801529",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "3648688",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Σύνταγμα",
+              "name": "Τραμ Τ6: Σύνταγμα → Πικροδάφνη",
+              "name:ca": "Tram Τ6: Síndagma → Pikrodafni",
+              "name:el": "Τραμ Τ6: Σύνταγμα → Πικροδάφνη",
+              "name:en": "Tram Τ6: Syntagma → Pikrodafni",
+              "name:fr": "Tram Τ6: Syntagma → Pikrodafni",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ5",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ6",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Πικροδάφνη",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535312",
+              "wikipedia": "el:Γραμμή 6 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7108485,
+          37.9333042
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/6021744937",
+        "int_name": "Mideas - Mykalis",
+        "name": "Μηδείας - Μυκάλης",
+        "name:el": "Μηδείας - Μυκάλης",
+        "name:en": "Medeas - Mykalis",
+        "name:fr": "Medeas - Mykalis",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "source:name": "sign",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "wikidata": "Q112801547",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "3648688",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Σύνταγμα",
+              "name": "Τραμ Τ6: Σύνταγμα → Πικροδάφνη",
+              "name:ca": "Tram Τ6: Síndagma → Pikrodafni",
+              "name:el": "Τραμ Τ6: Σύνταγμα → Πικροδάφνη",
+              "name:en": "Tram Τ6: Syntagma → Pikrodafni",
+              "name:fr": "Tram Τ6: Syntagma → Pikrodafni",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ5",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ6",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Πικροδάφνη",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535312",
+              "wikipedia": "el:Γραμμή 6 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7120552,
+          37.9371506
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/6021744944",
+        "int_name": "Megalou Alexandrou",
+        "name": "Μεγάλου Αλεξάνδρου",
+        "name:el": "Μεγάλου Αλεξάνδρου",
+        "name:en": "Alexander the Great",
+        "name:fr": "Alexandre le Grand",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "source:name": "sign",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "3648688",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Σύνταγμα",
+              "name": "Τραμ Τ6: Σύνταγμα → Πικροδάφνη",
+              "name:ca": "Tram Τ6: Síndagma → Pikrodafni",
+              "name:el": "Τραμ Τ6: Σύνταγμα → Πικροδάφνη",
+              "name:en": "Tram Τ6: Syntagma → Pikrodafni",
+              "name:fr": "Tram Τ6: Syntagma → Pikrodafni",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ5",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ6",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Πικροδάφνη",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535312",
+              "wikipedia": "el:Γραμμή 6 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7137932,
+          37.9427014
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/6021744958",
+        "int_name": "Vouliagmenis",
+        "name": "Βουλιαγμένης",
+        "name:el": "Βουλιαγμένης",
+        "name:en": "Vouliagmenis",
+        "name:fr": "Vouliagmenis",
+        "name:prefix": "Λεωφόρος",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "note": "ATTENTION: We don't use Λεωφόρος beside the name but only on tag name:prefix=Λεωφόρος | Δεν χρησιμοποιούμε το πρόθεμα ΛΕΩΦΟΡΟΣ πριν το όνομα παρά μόνο με το tag name:prefix=Λεωφόρος",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "source:name": "sign",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "wikipedia": "el:Λεωφόρος Βουλιαγμένης",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "3648688",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Σύνταγμα",
+              "name": "Τραμ Τ6: Σύνταγμα → Πικροδάφνη",
+              "name:ca": "Tram Τ6: Síndagma → Pikrodafni",
+              "name:el": "Τραμ Τ6: Σύνταγμα → Πικροδάφνη",
+              "name:en": "Tram Τ6: Syntagma → Pikrodafni",
+              "name:fr": "Tram Τ6: Syntagma → Pikrodafni",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ5",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ6",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Πικροδάφνη",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535312",
+              "wikipedia": "el:Γραμμή 6 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7317325,
+          37.9667197
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/6021744964",
+        "int_name": "Fix",
+        "name": "Φίξ",
+        "name:el": "Φίξ",
+        "name:en": "Fix",
+        "name:fr": "Fix",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "source:name": "sign",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "3648688",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Σύνταγμα",
+              "name": "Τραμ Τ6: Σύνταγμα → Πικροδάφνη",
+              "name:ca": "Tram Τ6: Síndagma → Pikrodafni",
+              "name:el": "Τραμ Τ6: Σύνταγμα → Πικροδάφνη",
+              "name:en": "Tram Τ6: Syntagma → Pikrodafni",
+              "name:fr": "Tram Τ6: Syntagma → Pikrodafni",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ5",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ6",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Πικροδάφνη",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535312",
+              "wikipedia": "el:Γραμμή 6 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7276122,
+          37.9648164
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/6021744996",
+        "int_name": "Kassomouli",
+        "name": "Κασομούλη",
+        "name:el": "Κασομούλη",
+        "name:en": "Kasomouli",
+        "name:fr": "Kasomouli",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "source:name": "sign",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "3648688",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Σύνταγμα",
+              "name": "Τραμ Τ6: Σύνταγμα → Πικροδάφνη",
+              "name:ca": "Tram Τ6: Síndagma → Pikrodafni",
+              "name:el": "Τραμ Τ6: Σύνταγμα → Πικροδάφνη",
+              "name:en": "Tram Τ6: Syntagma → Pikrodafni",
+              "name:fr": "Tram Τ6: Syntagma → Pikrodafni",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ5",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ6",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Πικροδάφνη",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535312",
+              "wikipedia": "el:Γραμμή 6 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7234816,
+          37.9604298
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7498860473",
+        "int_name": "Pikrodafni",
+        "name": "Πικροδάφνη",
+        "name:el": "Πικροδάφνη",
+        "name:en": "Pikrodafni",
+        "name:fr": "Pikrodafni",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "source:name": "sign",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "@relations": [
+          {
+            "role": "stop_exit_only",
+            "rel": "3648688",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Σύνταγμα",
+              "name": "Τραμ Τ6: Σύνταγμα → Πικροδάφνη",
+              "name:ca": "Tram Τ6: Síndagma → Pikrodafni",
+              "name:el": "Τραμ Τ6: Σύνταγμα → Πικροδάφνη",
+              "name:en": "Tram Τ6: Syntagma → Pikrodafni",
+              "name:fr": "Tram Τ6: Syntagma → Pikrodafni",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ5",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ6",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Πικροδάφνη",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535312",
+              "wikipedia": "el:Γραμμή 6 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7054737,
+          37.9159342
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7498860474",
+        "int_name": "Edem",
+        "name": "Έδεμ",
+        "name:el": "Έδεμ",
+        "name:en": "Edem",
+        "name:fr": "Edem",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "source:name": "sign",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "3648688",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Σύνταγμα",
+              "name": "Τραμ Τ6: Σύνταγμα → Πικροδάφνη",
+              "name:ca": "Tram Τ6: Síndagma → Pikrodafni",
+              "name:el": "Τραμ Τ6: Σύνταγμα → Πικροδάφνη",
+              "name:en": "Tram Τ6: Syntagma → Pikrodafni",
+              "name:fr": "Tram Τ6: Syntagma → Pikrodafni",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ5",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ6",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Πικροδάφνη",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535312",
+              "wikipedia": "el:Γραμμή 6 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7006817,
+          37.9187302
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/9661848150",
+        "int_name": "Aghia Paraskevi",
+        "name": "Αγία Παρασκευή",
+        "name:el": "Αγία Παρασκευή",
+        "name:en": "Aghia Paraskevi",
+        "name:fr": "Sainte-Parascève",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "source:name": "sign",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "wikidata": "Q112801573",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "3648688",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Σύνταγμα",
+              "name": "Τραμ Τ6: Σύνταγμα → Πικροδάφνη",
+              "name:ca": "Tram Τ6: Síndagma → Pikrodafni",
+              "name:el": "Τραμ Τ6: Σύνταγμα → Πικροδάφνη",
+              "name:en": "Tram Τ6: Syntagma → Pikrodafni",
+              "name:fr": "Tram Τ6: Syntagma → Pikrodafni",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ5",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ6",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Πικροδάφνη",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535312",
+              "wikipedia": "el:Γραμμή 6 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.713026,
+          37.9402146
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/9661865576",
+        "int_name": "Mousson",
+        "name": "Μουσών",
+        "name:el": "Μουσών",
+        "name:en": "Mousson",
+        "name:fr": "Mousson",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "source:name": "sign",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "3648688",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Σύνταγμα",
+              "name": "Τραμ Τ6: Σύνταγμα → Πικροδάφνη",
+              "name:ca": "Tram Τ6: Síndagma → Pikrodafni",
+              "name:el": "Τραμ Τ6: Σύνταγμα → Πικροδάφνη",
+              "name:en": "Tram Τ6: Syntagma → Pikrodafni",
+              "name:fr": "Tram Τ6: Syntagma → Pikrodafni",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ5",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ6",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Πικροδάφνη",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535312",
+              "wikipedia": "el:Γραμμή 6 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6997361,
+          37.9220022
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/9661865578",
+        "int_name": "Panaghitsa",
+        "name": "Παναγίτσα",
+        "name:el": "Παναγίτσα",
+        "name:en": "Panaghitsa",
+        "name:fr": "Panaghitsa",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "source:name": "sign",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "3648688",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Σύνταγμα",
+              "name": "Τραμ Τ6: Σύνταγμα → Πικροδάφνη",
+              "name:ca": "Tram Τ6: Síndagma → Pikrodafni",
+              "name:el": "Τραμ Τ6: Σύνταγμα → Πικροδάφνη",
+              "name:en": "Tram Τ6: Syntagma → Pikrodafni",
+              "name:fr": "Tram Τ6: Syntagma → Pikrodafni",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ5",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ6",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Πικροδάφνη",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535312",
+              "wikipedia": "el:Γραμμή 6 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7018664,
+          37.9252678
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/9661865581",
+        "int_name": "Amfitheas",
+        "name": "Αμφιθέας",
+        "name:el": "Αμφιθέας",
+        "name:en": "Amfitheas",
+        "name:fr": "Amfitheas",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "source:name": "sign",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "3648688",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Σύνταγμα",
+              "name": "Τραμ Τ6: Σύνταγμα → Πικροδάφνη",
+              "name:ca": "Tram Τ6: Síndagma → Pikrodafni",
+              "name:el": "Τραμ Τ6: Σύνταγμα → Πικροδάφνη",
+              "name:en": "Tram Τ6: Syntagma → Pikrodafni",
+              "name:fr": "Tram Τ6: Syntagma → Pikrodafni",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ5",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ6",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Πικροδάφνη",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535312",
+              "wikipedia": "el:Γραμμή 6 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7050355,
+          37.92814
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,1994 @@
+{
+  "type": "FeatureCollection",
+  "generator": "merged-line-stations-script",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/937378162",
+        "description": "Ο σταθμός του μετρό της Παλλήνης είναι κατασκευασμένος επί της Λεωφόρου Μαραθώνος στο μεσαίο διάζωμα της Αττικής Οδου. Εξυπηρετεί τις ευρήτερες περιοχές της Παλλήνης, του Γέρακα και της Ανθούσας.",
+        "int_name": "Pallini",
+        "name": "Παλλήνη",
+        "name:en": "Pallini",
+        "name:ru": "Паллини",
+        "network": "Γραμμή 3 Μετρό Αθήνας",
+        "operator": "ΣΤΑΣΥ",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "4 Προς Δημοτικό Θέατρο",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "2473157",
+            "reltags": {
+              "colour": "#10069F",
+              "from": "Αεροδρόμιο",
+              "name": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:ca": "Metro Μ3: Aeroport → Dimotiko Theatro",
+              "name:de": "U-Bahn Μ3: Flughafen → Dimotiko Theatro",
+              "name:el": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:en": "Metro Μ3: Airport → Dimotiko Theatro",
+              "name:fr": "Métro Μ3: Aéroport → Dimotiko Theatro",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ3",
+              "route": "subway",
+              "start_date": "2004-07-30",
+              "to": "Δημοτικό Θέατρο",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553119",
+              "wikipedia": "el:Γραμμή 3 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8700746,
+          38.0046071
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/937378270",
+        "int_name": "Pallini",
+        "name": "Παλλήνη",
+        "name:en": "Pallini",
+        "name:ru": "Паллини",
+        "network": "Προαστιακός σιδηρόδρομος Αττικής",
+        "operator": "ΟΣΕ, HELLENIC TRAIN",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "2",
+        "train": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8697588,
+          38.00551
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/937892944",
+        "int_name": "Peania-Kantza",
+        "name": "Παιανία-Κάντζα",
+        "name:en": "Peania-Kantza",
+        "name:ru": "Пеанья-Кантза",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Δημοτικό Θέατρο",
+        "short_int_name": "Kantza",
+        "short_name": "Κάντζα",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "2473157",
+            "reltags": {
+              "colour": "#10069F",
+              "from": "Αεροδρόμιο",
+              "name": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:ca": "Metro Μ3: Aeroport → Dimotiko Theatro",
+              "name:de": "U-Bahn Μ3: Flughafen → Dimotiko Theatro",
+              "name:el": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:en": "Metro Μ3: Airport → Dimotiko Theatro",
+              "name:fr": "Métro Μ3: Aéroport → Dimotiko Theatro",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ3",
+              "route": "subway",
+              "start_date": "2004-07-30",
+              "to": "Δημοτικό Θέατρο",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553119",
+              "wikipedia": "el:Γραμμή 3 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8702007,
+          37.9849186
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/939121389",
+        "int_name": "Koropi",
+        "name": "Κορωπί",
+        "name:en": "Koropi",
+        "name:ru": "Коропи",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "2",
+        "train": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.895645,
+          37.9133547
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/939169980",
+        "railway": "milestone",
+        "railway:milestone:catenary_mast": "no",
+        "railway:milestone:emergency_brake_override": "no",
+        "railway:position": "27",
+        "source": "estimate; survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.9178502,
+          37.9140778
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2115110438",
+        "int_name": "Agia Marina",
+        "level": "-2",
+        "name": "Αγία Μαρίνα",
+        "name:el": "Αγία Μαρίνα",
+        "name:en": "Agia Marina",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Δημοτικό Θέατρο",
+        "source": "Personal memory (2025-12-31)",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "2473157",
+            "reltags": {
+              "colour": "#10069F",
+              "from": "Αεροδρόμιο",
+              "name": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:ca": "Metro Μ3: Aeroport → Dimotiko Theatro",
+              "name:de": "U-Bahn Μ3: Flughafen → Dimotiko Theatro",
+              "name:el": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:en": "Metro Μ3: Airport → Dimotiko Theatro",
+              "name:fr": "Métro Μ3: Aéroport → Dimotiko Theatro",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ3",
+              "route": "subway",
+              "start_date": "2004-07-30",
+              "to": "Δημοτικό Θέατρο",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553119",
+              "wikipedia": "el:Γραμμή 3 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6664777,
+          37.9970039
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2539677991",
+        "noexit": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.9439366,
+          37.9360835
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2539677993",
+        "noexit": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.9455575,
+          37.9377851
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/5380078374",
+        "int_name": "Peania-Kantza",
+        "name": "Παιανία-Κάντζα",
+        "name:en": "Peania-Kantza",
+        "name:ru": "Пеанья-Кантза",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "2",
+        "short_int_name": "Kantza",
+        "short_name": "Κάντζα",
+        "train": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8699722,
+          37.9839677
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7478322246",
+        "alt_name:en": "Katehaki",
+        "int_name": "Katechaki",
+        "name": "Κατεχάκη",
+        "name:el": "Κατεχάκη",
+        "name:en": "Katechaki",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "source:alt_name:en": "sign",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "2473157",
+            "reltags": {
+              "colour": "#10069F",
+              "from": "Αεροδρόμιο",
+              "name": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:ca": "Metro Μ3: Aeroport → Dimotiko Theatro",
+              "name:de": "U-Bahn Μ3: Flughafen → Dimotiko Theatro",
+              "name:el": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:en": "Metro Μ3: Airport → Dimotiko Theatro",
+              "name:fr": "Métro Μ3: Aéroport → Dimotiko Theatro",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ3",
+              "route": "subway",
+              "start_date": "2004-07-30",
+              "to": "Δημοτικό Θέατρο",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553119",
+              "wikipedia": "el:Γραμμή 3 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7767343,
+          37.9937613
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7478322261",
+        "int_name": "Evangelismos",
+        "name": "Ευαγγελισμός",
+        "name:de": "Evangelismos",
+        "name:el": "Ευαγγελισμός",
+        "name:en": "Evangelismos",
+        "name:fr": "Evangelismos",
+        "name:ru": "Евангелисмос",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "2473157",
+            "reltags": {
+              "colour": "#10069F",
+              "from": "Αεροδρόμιο",
+              "name": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:ca": "Metro Μ3: Aeroport → Dimotiko Theatro",
+              "name:de": "U-Bahn Μ3: Flughafen → Dimotiko Theatro",
+              "name:el": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:en": "Metro Μ3: Airport → Dimotiko Theatro",
+              "name:fr": "Métro Μ3: Aéroport → Dimotiko Theatro",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ3",
+              "route": "subway",
+              "start_date": "2004-07-30",
+              "to": "Δημοτικό Θέατρο",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553119",
+              "wikipedia": "el:Γραμμή 3 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.747098,
+          37.9761409
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7478322271",
+        "alt_name:en": "Megaro Moussikis",
+        "int_name": "Megaro Mousikis",
+        "name": "Μέγαρο Μουσικής",
+        "name:de": "Megaro Mousikis",
+        "name:el": "Μέγαρο Μουσικής",
+        "name:en": "Megaro Mousikis",
+        "name:fr": "Megaro Mousikis",
+        "name:ru": "Мегаро Мусикис",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "source:alt_name:en": "sign",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "2473157",
+            "reltags": {
+              "colour": "#10069F",
+              "from": "Αεροδρόμιο",
+              "name": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:ca": "Metro Μ3: Aeroport → Dimotiko Theatro",
+              "name:de": "U-Bahn Μ3: Flughafen → Dimotiko Theatro",
+              "name:el": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:en": "Metro Μ3: Airport → Dimotiko Theatro",
+              "name:fr": "Métro Μ3: Aéroport → Dimotiko Theatro",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ3",
+              "route": "subway",
+              "start_date": "2004-07-30",
+              "to": "Δημοτικό Θέατρο",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553119",
+              "wikipedia": "el:Γραμμή 3 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.752994,
+          37.9790423
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7478372485",
+        "int_name": "Ampelokipoi",
+        "name": "Αμπελόκηποι",
+        "name:el": "Αμπελόκηποι",
+        "name:en": "Ambelokipi",
+        "name:fr": "Ambelokipi",
+        "name:ru": "Амбелокипи",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "2473157",
+            "reltags": {
+              "colour": "#10069F",
+              "from": "Αεροδρόμιο",
+              "name": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:ca": "Metro Μ3: Aeroport → Dimotiko Theatro",
+              "name:de": "U-Bahn Μ3: Flughafen → Dimotiko Theatro",
+              "name:el": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:en": "Metro Μ3: Airport → Dimotiko Theatro",
+              "name:fr": "Métro Μ3: Aéroport → Dimotiko Theatro",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ3",
+              "route": "subway",
+              "start_date": "2004-07-30",
+              "to": "Δημοτικό Θέατρο",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553119",
+              "wikipedia": "el:Γραμμή 3 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7576609,
+          37.9871972
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7478372502",
+        "int_name": "Panormou",
+        "name": "Πανόρμου",
+        "name:el": "Πανόρμου",
+        "name:en": "Panormou",
+        "name:fr": "Panormou",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "2473157",
+            "reltags": {
+              "colour": "#10069F",
+              "from": "Αεροδρόμιο",
+              "name": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:ca": "Metro Μ3: Aeroport → Dimotiko Theatro",
+              "name:de": "U-Bahn Μ3: Flughafen → Dimotiko Theatro",
+              "name:el": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:en": "Metro Μ3: Airport → Dimotiko Theatro",
+              "name:fr": "Métro Μ3: Aéroport → Dimotiko Theatro",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ3",
+              "route": "subway",
+              "start_date": "2004-07-30",
+              "to": "Δημοτικό Θέατρο",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553119",
+              "wikipedia": "el:Γραμμή 3 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7635722,
+          37.993227
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7478372510",
+        "button_operated": "no",
+        "crossing": "traffic_signals",
+        "highway": "traffic_signals",
+        "traffic_signals:sound": "no",
+        "traffic_signals:vibration": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7667752,
+          37.993129
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7478372529",
+        "int_name": "Monastiraki",
+        "name": "Μοναστηράκι",
+        "name:de": "Monastiraki",
+        "name:el": "Μοναστηράκι",
+        "name:en": "Monastiraki",
+        "name:fr": "Monastiraki",
+        "name:ko": "모나스티라키 역",
+        "name:ru": "Монастираки",
+        "old_int_name": "Monastirion",
+        "old_name": "Μοναστήριον",
+        "old_name:el": "Μοναστήριον",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Δημοτικό Θέατρο",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "2473157",
+            "reltags": {
+              "colour": "#10069F",
+              "from": "Αεροδρόμιο",
+              "name": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:ca": "Metro Μ3: Aeroport → Dimotiko Theatro",
+              "name:de": "U-Bahn Μ3: Flughafen → Dimotiko Theatro",
+              "name:el": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:en": "Metro Μ3: Airport → Dimotiko Theatro",
+              "name:fr": "Métro Μ3: Aéroport → Dimotiko Theatro",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ3",
+              "route": "subway",
+              "start_date": "2004-07-30",
+              "to": "Δημοτικό Θέατρο",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553119",
+              "wikipedia": "el:Γραμμή 3 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7250676,
+          37.9768731
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7478372541",
+        "int_name": "Syntagma",
+        "name": "Σύνταγμα",
+        "name:ca": "Síndagma",
+        "name:de": "Syntagma",
+        "name:el": "Σύνταγμα",
+        "name:en": "Syntagma",
+        "name:fr": "Syntagma",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Δημοτικό Θέατρο",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "2473157",
+            "reltags": {
+              "colour": "#10069F",
+              "from": "Αεροδρόμιο",
+              "name": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:ca": "Metro Μ3: Aeroport → Dimotiko Theatro",
+              "name:de": "U-Bahn Μ3: Flughafen → Dimotiko Theatro",
+              "name:el": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:en": "Metro Μ3: Airport → Dimotiko Theatro",
+              "name:fr": "Métro Μ3: Aéroport → Dimotiko Theatro",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ3",
+              "route": "subway",
+              "start_date": "2004-07-30",
+              "to": "Δημοτικό Θέατρο",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553119",
+              "wikipedia": "el:Γραμμή 3 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7357128,
+          37.9748836
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7484231767",
+        "int_name": "Kerameikos",
+        "name": "Κεραμεικός",
+        "name:el": "Κεραμεικός",
+        "name:en": "Kerameikos",
+        "name:ru": "Керамекос",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Δημοτικό Θέατρο",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "2473157",
+            "reltags": {
+              "colour": "#10069F",
+              "from": "Αεροδρόμιο",
+              "name": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:ca": "Metro Μ3: Aeroport → Dimotiko Theatro",
+              "name:de": "U-Bahn Μ3: Flughafen → Dimotiko Theatro",
+              "name:el": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:en": "Metro Μ3: Airport → Dimotiko Theatro",
+              "name:fr": "Métro Μ3: Aéroport → Dimotiko Theatro",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ3",
+              "route": "subway",
+              "start_date": "2004-07-30",
+              "to": "Δημοτικό Θέατρο",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553119",
+              "wikipedia": "el:Γραμμή 3 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7103826,
+          37.9789615
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7484233111",
+        "int_name": "Elaionas",
+        "level": "-2",
+        "name": "Ελαιώνας",
+        "name:el": "Ελαιώνας",
+        "name:en": "Eleonas",
+        "name:fr": "Eleonas",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Δημοτικό Θέατρο",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "2473157",
+            "reltags": {
+              "colour": "#10069F",
+              "from": "Αεροδρόμιο",
+              "name": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:ca": "Metro Μ3: Aeroport → Dimotiko Theatro",
+              "name:de": "U-Bahn Μ3: Flughafen → Dimotiko Theatro",
+              "name:el": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:en": "Metro Μ3: Airport → Dimotiko Theatro",
+              "name:fr": "Métro Μ3: Aéroport → Dimotiko Theatro",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ3",
+              "route": "subway",
+              "start_date": "2004-07-30",
+              "to": "Δημοτικό Θέατρο",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553119",
+              "wikipedia": "el:Γραμμή 3 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6933723,
+          37.9877789
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7484233112",
+        "int_name": "Aigaleo",
+        "level": "-2",
+        "name": "Αιγάλεω",
+        "name:el": "Αιγάλεω",
+        "name:en": "Egaleo",
+        "name:fr": "Egaleo",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Δημοτικό Θέατρο",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "2473157",
+            "reltags": {
+              "colour": "#10069F",
+              "from": "Αεροδρόμιο",
+              "name": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:ca": "Metro Μ3: Aeroport → Dimotiko Theatro",
+              "name:de": "U-Bahn Μ3: Flughafen → Dimotiko Theatro",
+              "name:el": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:en": "Metro Μ3: Airport → Dimotiko Theatro",
+              "name:fr": "Métro Μ3: Aéroport → Dimotiko Theatro",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ3",
+              "route": "subway",
+              "start_date": "2004-07-30",
+              "to": "Δημοτικό Θέατρο",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553119",
+              "wikipedia": "el:Γραμμή 3 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6818443,
+          37.9914947
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7484233294",
+        "int_name": "Ethniki Amyna",
+        "name": "Εθνική Άμυνα",
+        "name:el": "Εθνική Άμυνα",
+        "name:en": "Ethniki Amyna",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Αγία Μαρίνα",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "2473157",
+            "reltags": {
+              "colour": "#10069F",
+              "from": "Αεροδρόμιο",
+              "name": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:ca": "Metro Μ3: Aeroport → Dimotiko Theatro",
+              "name:de": "U-Bahn Μ3: Flughafen → Dimotiko Theatro",
+              "name:el": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:en": "Metro Μ3: Airport → Dimotiko Theatro",
+              "name:fr": "Métro Μ3: Aéroport → Dimotiko Theatro",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ3",
+              "route": "subway",
+              "start_date": "2004-07-30",
+              "to": "Δημοτικό Θέατρο",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553119",
+              "wikipedia": "el:Γραμμή 3 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7844608,
+          37.9991955
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7484233308",
+        "alt_name:en": "Holargos",
+        "int_name": "Cholargos",
+        "name": "Χολαργός",
+        "name:el": "Χολαργός",
+        "name:en": "Cholargos",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Αγία Μαρίνα",
+        "source:alt_name:en": "sign",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "2473157",
+            "reltags": {
+              "colour": "#10069F",
+              "from": "Αεροδρόμιο",
+              "name": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:ca": "Metro Μ3: Aeroport → Dimotiko Theatro",
+              "name:de": "U-Bahn Μ3: Flughafen → Dimotiko Theatro",
+              "name:el": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:en": "Metro Μ3: Airport → Dimotiko Theatro",
+              "name:fr": "Métro Μ3: Aéroport → Dimotiko Theatro",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ3",
+              "route": "subway",
+              "start_date": "2004-07-30",
+              "to": "Δημοτικό Θέατρο",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553119",
+              "wikipedia": "el:Γραμμή 3 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7946947,
+          38.0049212
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7484233324",
+        "int_name": "Nomismatokopeio",
+        "name": "Νομισματοκοπείο",
+        "name:el": "Νομισματοκοπείο",
+        "name:en": "Nomismatokopio",
+        "name:fr": "Nomismatokopio",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Αγία Μαρίνα",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "2473157",
+            "reltags": {
+              "colour": "#10069F",
+              "from": "Αεροδρόμιο",
+              "name": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:ca": "Metro Μ3: Aeroport → Dimotiko Theatro",
+              "name:de": "U-Bahn Μ3: Flughafen → Dimotiko Theatro",
+              "name:el": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:en": "Metro Μ3: Airport → Dimotiko Theatro",
+              "name:fr": "Métro Μ3: Aéroport → Dimotiko Theatro",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ3",
+              "route": "subway",
+              "start_date": "2004-07-30",
+              "to": "Δημοτικό Θέατρο",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553119",
+              "wikipedia": "el:Γραμμή 3 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8057653,
+          38.0091125
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7484233333",
+        "alt_name:en": "Aghia Paraskevi",
+        "int_name": "Agia Paraskevi",
+        "name": "Αγία Παρασκευή",
+        "name:el": "Αγία Παρασκευή",
+        "name:en": "Agia Paraskevi",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Αγία Μαρίνα",
+        "source:alt_name:en": "sign",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "2473157",
+            "reltags": {
+              "colour": "#10069F",
+              "from": "Αεροδρόμιο",
+              "name": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:ca": "Metro Μ3: Aeroport → Dimotiko Theatro",
+              "name:de": "U-Bahn Μ3: Flughafen → Dimotiko Theatro",
+              "name:el": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:en": "Metro Μ3: Airport → Dimotiko Theatro",
+              "name:fr": "Métro Μ3: Aéroport → Dimotiko Theatro",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ3",
+              "route": "subway",
+              "start_date": "2004-07-30",
+              "to": "Δημοτικό Θέατρο",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553119",
+              "wikipedia": "el:Γραμμή 3 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8124682,
+          38.0171389
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7484233345",
+        "alt_name:en": "Halandri",
+        "int_name": "Chalandri",
+        "name": "Χαλάνδρι",
+        "name:el": "Χαλάνδρι",
+        "name:en": "Chalandri",
+        "name:fr": "Chalandri",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Αγία Μαρίνα",
+        "source:alt_name:en": "sign",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "2473157",
+            "reltags": {
+              "colour": "#10069F",
+              "from": "Αεροδρόμιο",
+              "name": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:ca": "Metro Μ3: Aeroport → Dimotiko Theatro",
+              "name:de": "U-Bahn Μ3: Flughafen → Dimotiko Theatro",
+              "name:el": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:en": "Metro Μ3: Airport → Dimotiko Theatro",
+              "name:fr": "Métro Μ3: Aéroport → Dimotiko Theatro",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ3",
+              "route": "subway",
+              "start_date": "2004-07-30",
+              "to": "Δημοτικό Θέατρο",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553119",
+              "wikipedia": "el:Γραμμή 3 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8207503,
+          38.0217269
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7484233369",
+        "int_name": "Doukissis Plakentias",
+        "name": "Δουκίσσης Πλακεντίας",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Αγία Μαρίνα",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "2473157",
+            "reltags": {
+              "colour": "#10069F",
+              "from": "Αεροδρόμιο",
+              "name": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:ca": "Metro Μ3: Aeroport → Dimotiko Theatro",
+              "name:de": "U-Bahn Μ3: Flughafen → Dimotiko Theatro",
+              "name:el": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:en": "Metro Μ3: Airport → Dimotiko Theatro",
+              "name:fr": "Métro Μ3: Aéroport → Dimotiko Theatro",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ3",
+              "route": "subway",
+              "start_date": "2004-07-30",
+              "to": "Δημοτικό Θέατρο",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553119",
+              "wikipedia": "el:Γραμμή 3 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8325419,
+          38.0240065
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7485440574",
+        "int_name": "Dimotiko Theatro",
+        "level": "-3",
+        "name": "Δημοτικό Θέατρο",
+        "name:el": "Δημοτικό Θέατρο",
+        "name:en": "Dimotiko Theatro",
+        "name:fr": "Dimotiko Theatro",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Δημοτικό Θέατρο",
+        "subway": "yes",
+        "tactile_paving": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop_exit_only",
+            "rel": "2473157",
+            "reltags": {
+              "colour": "#10069F",
+              "from": "Αεροδρόμιο",
+              "name": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:ca": "Metro Μ3: Aeroport → Dimotiko Theatro",
+              "name:de": "U-Bahn Μ3: Flughafen → Dimotiko Theatro",
+              "name:el": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:en": "Metro Μ3: Airport → Dimotiko Theatro",
+              "name:fr": "Métro Μ3: Aéroport → Dimotiko Theatro",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ3",
+              "route": "subway",
+              "start_date": "2004-07-30",
+              "to": "Δημοτικό Θέατρο",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553119",
+              "wikipedia": "el:Γραμμή 3 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6475786,
+          37.9428879
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7485440593",
+        "indoor": "yes",
+        "int_name": "Piraeus",
+        "level": "-3",
+        "name": "Πειραιάς",
+        "name:ca": "el Pireu",
+        "name:de": "Piräus",
+        "name:el": "Πειραιάς",
+        "name:en": "Piraeus",
+        "name:fr": "Le Pirée",
+        "name:ml": "പിറേയസ്",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Δημοτικό Θέατρο",
+        "source:name": "sign",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "2473157",
+            "reltags": {
+              "colour": "#10069F",
+              "from": "Αεροδρόμιο",
+              "name": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:ca": "Metro Μ3: Aeroport → Dimotiko Theatro",
+              "name:de": "U-Bahn Μ3: Flughafen → Dimotiko Theatro",
+              "name:el": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:en": "Metro Μ3: Airport → Dimotiko Theatro",
+              "name:fr": "Métro Μ3: Aéroport → Dimotiko Theatro",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ3",
+              "route": "subway",
+              "start_date": "2004-07-30",
+              "to": "Δημοτικό Θέατρο",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553119",
+              "wikipedia": "el:Γραμμή 3 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6422857,
+          37.9476094
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7485440604",
+        "indoor": "yes",
+        "int_name": "Maniatika",
+        "level": "-3",
+        "name": "Μανιάτικα",
+        "name:el": "Μανιάτικα",
+        "name:en": "Maniatika",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Δημοτικό Θέατρο",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "2473157",
+            "reltags": {
+              "colour": "#10069F",
+              "from": "Αεροδρόμιο",
+              "name": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:ca": "Metro Μ3: Aeroport → Dimotiko Theatro",
+              "name:de": "U-Bahn Μ3: Flughafen → Dimotiko Theatro",
+              "name:el": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:en": "Metro Μ3: Airport → Dimotiko Theatro",
+              "name:fr": "Métro Μ3: Aéroport → Dimotiko Theatro",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ3",
+              "route": "subway",
+              "start_date": "2004-07-30",
+              "to": "Δημοτικό Θέατρο",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553119",
+              "wikipedia": "el:Γραμμή 3 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6397819,
+          37.9590476
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7485440618",
+        "alt_name:en": "Nikea",
+        "indoor": "yes",
+        "int_name": "Nikaia",
+        "level": "-3",
+        "name": "Νίκαια",
+        "name:el": "Νίκαια",
+        "name:en": "Nikaia",
+        "name:fr": "Nicée",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Δημοτικό Θέατρο",
+        "source:alt_name:en": "map",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "2473157",
+            "reltags": {
+              "colour": "#10069F",
+              "from": "Αεροδρόμιο",
+              "name": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:ca": "Metro Μ3: Aeroport → Dimotiko Theatro",
+              "name:de": "U-Bahn Μ3: Flughafen → Dimotiko Theatro",
+              "name:el": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:en": "Metro Μ3: Airport → Dimotiko Theatro",
+              "name:fr": "Métro Μ3: Aéroport → Dimotiko Theatro",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ3",
+              "route": "subway",
+              "start_date": "2004-07-30",
+              "to": "Δημοτικό Θέατρο",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553119",
+              "wikipedia": "el:Γραμμή 3 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6468393,
+          37.9654365
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7485440636",
+        "int_name": "Korydallos",
+        "level": "-2",
+        "name": "Κορυδαλλός",
+        "name:el": "Κορυδαλλός",
+        "name:en": "Korydallos",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Δημοτικό Θέατρο",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "2473157",
+            "reltags": {
+              "colour": "#10069F",
+              "from": "Αεροδρόμιο",
+              "name": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:ca": "Metro Μ3: Aeroport → Dimotiko Theatro",
+              "name:de": "U-Bahn Μ3: Flughafen → Dimotiko Theatro",
+              "name:el": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:en": "Metro Μ3: Airport → Dimotiko Theatro",
+              "name:fr": "Métro Μ3: Aéroport → Dimotiko Theatro",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ3",
+              "route": "subway",
+              "start_date": "2004-07-30",
+              "to": "Δημοτικό Θέατρο",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553119",
+              "wikipedia": "el:Γραμμή 3 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6503923,
+          37.9770597
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7485440648",
+        "int_name": "Agia Varvara",
+        "name": "Αγία Βαρβάρα",
+        "name:el": "Αγία Βαρβάρα",
+        "name:en": "Agia Varvara",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Δημοτικό Θέατρο",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "2473157",
+            "reltags": {
+              "colour": "#10069F",
+              "from": "Αεροδρόμιο",
+              "name": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:ca": "Metro Μ3: Aeroport → Dimotiko Theatro",
+              "name:de": "U-Bahn Μ3: Flughafen → Dimotiko Theatro",
+              "name:el": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:en": "Metro Μ3: Airport → Dimotiko Theatro",
+              "name:fr": "Métro Μ3: Aéroport → Dimotiko Theatro",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ3",
+              "route": "subway",
+              "start_date": "2004-07-30",
+              "to": "Δημοτικό Θέατρο",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553119",
+              "wikipedia": "el:Γραμμή 3 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6593134,
+          37.9899684
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7799596873",
+        "alt_name": "Διεθνής Αερολιμένας Αθηνών",
+        "int_name": "Athens Airport (AIA)",
+        "name": "Αεροδρόμιο",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "source:alt_name:en": "sign",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop_entry_only",
+            "rel": "2473157",
+            "reltags": {
+              "colour": "#10069F",
+              "from": "Αεροδρόμιο",
+              "name": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:ca": "Metro Μ3: Aeroport → Dimotiko Theatro",
+              "name:de": "U-Bahn Μ3: Flughafen → Dimotiko Theatro",
+              "name:el": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:en": "Metro Μ3: Airport → Dimotiko Theatro",
+              "name:fr": "Métro Μ3: Aéroport → Dimotiko Theatro",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ3",
+              "route": "subway",
+              "start_date": "2004-07-30",
+              "to": "Δημοτικό Θέατρο",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553119",
+              "wikipedia": "el:Γραμμή 3 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.9447336,
+          37.9368813
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/9872254563",
+        "railway": "owner_change"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8444244,
+          38.0225966
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/10687255201",
+        "noexit": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6397082,
+          37.9600559
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/10687255202",
+        "noexit": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6397447,
+          37.9590467
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/10687263506",
+        "noexit": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6422507,
+          37.9486155
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/10687263507",
+        "noexit": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6422472,
+          37.9476092
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/10700888554",
+        "noexit": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8703234,
+          37.9853916
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/10700888564",
+        "int_name": "Koropi",
+        "name": "Κορωπί",
+        "name:el": "Κορωπί",
+        "name:en": "Koropi",
+        "name:fr": "Koropi",
+        "name:ru": "Коропи",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Δημοτικό Θέατρο",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "2473157",
+            "reltags": {
+              "colour": "#10069F",
+              "from": "Αεροδρόμιο",
+              "name": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:ca": "Metro Μ3: Aeroport → Dimotiko Theatro",
+              "name:de": "U-Bahn Μ3: Flughafen → Dimotiko Theatro",
+              "name:el": "Μετρό Μ3: Αεροδρόμιο → Δημοτικό Θέατρο",
+              "name:en": "Metro Μ3: Airport → Dimotiko Theatro",
+              "name:fr": "Métro Μ3: Aéroport → Dimotiko Theatro",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ3",
+              "route": "subway",
+              "start_date": "2004-07-30",
+              "to": "Δημοτικό Θέατρο",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553119",
+              "wikipedia": "el:Γραμμή 3 (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8962247,
+          37.9126094
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/12479401562",
+        "railway": "milestone",
+        "railway:milestone:catenary_mast": "no",
+        "railway:milestone:emergency_brake_override": "no",
+        "railway:position": "30",
+        "source": "estimate; survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.9407333,
+          37.9327071
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/12479401563",
+        "railway": "milestone",
+        "railway:milestone:catenary_mast": "no",
+        "railway:milestone:emergency_brake_override": "no",
+        "railway:position": "29",
+        "source": "estimate; survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.9339139,
+          37.9255706
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/12479401564",
+        "railway": "milestone",
+        "railway:milestone:catenary_mast": "no",
+        "railway:milestone:emergency_brake_override": "no",
+        "railway:position": "28",
+        "source": "estimate; survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.9272449,
+          37.9185723
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/12479401565",
+        "railway": "milestone",
+        "railway:milestone:catenary_mast": "no",
+        "railway:milestone:emergency_brake_override": "no",
+        "railway:position": "24",
+        "source": "estimate; survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8924036,
+          37.9185868
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/12479401566",
+        "railway": "milestone",
+        "railway:milestone:catenary_mast": "no",
+        "railway:milestone:emergency_brake_override": "no",
+        "railway:position": "23",
+        "source": "estimate; survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8880569,
+          37.9267551
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/12479401567",
+        "railway": "milestone",
+        "railway:milestone:catenary_mast": "no",
+        "railway:milestone:emergency_brake_override": "no",
+        "railway:position": "22",
+        "source": "estimate; survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8863079,
+          37.9353789
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/12479401568",
+        "railway": "milestone",
+        "railway:milestone:catenary_mast": "no",
+        "railway:milestone:emergency_brake_override": "no",
+        "railway:position": "20",
+        "source": "estimate; survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8863076,
+          37.9537589
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/12796537855",
+        "noexit": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6824487,
+          37.9913323
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/12796537856",
+        "noexit": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6812298,
+          37.9916313
+        ]
+      }
+    }
+  ]
+}

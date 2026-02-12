@@ -1,0 +1,1017 @@
+{
+  "type": "FeatureCollection",
+  "generator": "merged-line-stations-script",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/155706004",
+        "int_name": "Kalochori-Pantichi",
+        "name": "Καλοχώρι-Παντείχι",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467442",
+            "reltags": {
+              "colour": "#78BE20",
+              "from": "Αθήνα",
+              "int_name": "Proastiakos A3: Athina → Chalkida",
+              "name": "Προαστιακός A3: Αθήνα → Χαλκίδα",
+              "name:ca": "Rodalies A3: Atenes → Calcis",
+              "name:el": "Προαστιακός A3: Αθήνα → Χαλκίδα",
+              "name:en": "Train A3: Athens → Chalkida",
+              "name:fr": "Train A3: Athènes → Chalcis",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "note": "Line 3 skips Pyrgos Vasilissis and Kato Acharnai.",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A3",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2017-07-30",
+              "to": "Χαλκίδα",
+              "type": "route",
+              "via": "ΣΚΑ",
+              "wikidata": "Q47477355",
+              "wikipedia": "el:Γραμμή 3 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5931559,
+          38.3893073
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/155708452",
+        "int_name": "Avlida",
+        "name": "Αυλίδα",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Χαλκίδα",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467442",
+            "reltags": {
+              "colour": "#78BE20",
+              "from": "Αθήνα",
+              "int_name": "Proastiakos A3: Athina → Chalkida",
+              "name": "Προαστιακός A3: Αθήνα → Χαλκίδα",
+              "name:ca": "Rodalies A3: Atenes → Calcis",
+              "name:el": "Προαστιακός A3: Αθήνα → Χαλκίδα",
+              "name:en": "Train A3: Athens → Chalkida",
+              "name:fr": "Train A3: Athènes → Chalcis",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "note": "Line 3 skips Pyrgos Vasilissis and Kato Acharnai.",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A3",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2017-07-30",
+              "to": "Χαλκίδα",
+              "type": "route",
+              "via": "ΣΚΑ",
+              "wikidata": "Q47477355",
+              "wikipedia": "el:Γραμμή 3 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6033835,
+          38.4044464
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/155891790",
+        "int_name": "Sfendali",
+        "name": "Σφενδάλη",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467442",
+            "reltags": {
+              "colour": "#78BE20",
+              "from": "Αθήνα",
+              "int_name": "Proastiakos A3: Athina → Chalkida",
+              "name": "Προαστιακός A3: Αθήνα → Χαλκίδα",
+              "name:ca": "Rodalies A3: Atenes → Calcis",
+              "name:el": "Προαστιακός A3: Αθήνα → Χαλκίδα",
+              "name:en": "Train A3: Athens → Chalkida",
+              "name:fr": "Train A3: Athènes → Chalcis",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "note": "Line 3 skips Pyrgos Vasilissis and Kato Acharnai.",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A3",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2017-07-30",
+              "to": "Χαλκίδα",
+              "type": "route",
+              "via": "ΣΚΑ",
+              "wikidata": "Q47477355",
+              "wikipedia": "el:Γραμμή 3 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7844141,
+          38.2354158
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/155927732",
+        "int_name": "Oinofyta",
+        "name": "Οινόφυτα",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467442",
+            "reltags": {
+              "colour": "#78BE20",
+              "from": "Αθήνα",
+              "int_name": "Proastiakos A3: Athina → Chalkida",
+              "name": "Προαστιακός A3: Αθήνα → Χαλκίδα",
+              "name:ca": "Rodalies A3: Atenes → Calcis",
+              "name:el": "Προαστιακός A3: Αθήνα → Χαλκίδα",
+              "name:en": "Train A3: Athens → Chalkida",
+              "name:fr": "Train A3: Athènes → Chalcis",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "note": "Line 3 skips Pyrgos Vasilissis and Kato Acharnai.",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A3",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2017-07-30",
+              "to": "Χαλκίδα",
+              "type": "route",
+              "via": "ΣΚΑ",
+              "wikidata": "Q47477355",
+              "wikipedia": "el:Γραμμή 3 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6338955,
+          38.3069654
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/155927790",
+        "int_name": "Oinoi",
+        "name": "Οινόη",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "train": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6098045,
+          38.321712
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/155927792",
+        "int_name": "Oinoi",
+        "name": "Οινόη",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467442",
+            "reltags": {
+              "colour": "#78BE20",
+              "from": "Αθήνα",
+              "int_name": "Proastiakos A3: Athina → Chalkida",
+              "name": "Προαστιακός A3: Αθήνα → Χαλκίδα",
+              "name:ca": "Rodalies A3: Atenes → Calcis",
+              "name:el": "Προαστιακός A3: Αθήνα → Χαλκίδα",
+              "name:en": "Train A3: Athens → Chalkida",
+              "name:fr": "Train A3: Athènes → Chalcis",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "note": "Line 3 skips Pyrgos Vasilissis and Kato Acharnai.",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A3",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2017-07-30",
+              "to": "Χαλκίδα",
+              "type": "route",
+              "via": "ΣΚΑ",
+              "wikidata": "Q47477355",
+              "wikipedia": "el:Γραμμή 3 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.609077,
+          38.3230172
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/364329621",
+        "int_name": "Agios Stefanos",
+        "name": "Άγιος Στέφανος",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467442",
+            "reltags": {
+              "colour": "#78BE20",
+              "from": "Αθήνα",
+              "int_name": "Proastiakos A3: Athina → Chalkida",
+              "name": "Προαστιακός A3: Αθήνα → Χαλκίδα",
+              "name:ca": "Rodalies A3: Atenes → Calcis",
+              "name:el": "Προαστιακός A3: Αθήνα → Χαλκίδα",
+              "name:en": "Train A3: Athens → Chalkida",
+              "name:fr": "Train A3: Athènes → Chalcis",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "note": "Line 3 skips Pyrgos Vasilissis and Kato Acharnai.",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A3",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2017-07-30",
+              "to": "Χαλκίδα",
+              "type": "route",
+              "via": "ΣΚΑ",
+              "wikidata": "Q47477355",
+              "wikipedia": "el:Γραμμή 3 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8591873,
+          38.1403696
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/368164861",
+        "int_name": "Avlonas",
+        "name": "Αυλώνας",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467442",
+            "reltags": {
+              "colour": "#78BE20",
+              "from": "Αθήνα",
+              "int_name": "Proastiakos A3: Athina → Chalkida",
+              "name": "Προαστιακός A3: Αθήνα → Χαλκίδα",
+              "name:ca": "Rodalies A3: Atenes → Calcis",
+              "name:el": "Προαστιακός A3: Αθήνα → Χαλκίδα",
+              "name:en": "Train A3: Athens → Chalkida",
+              "name:fr": "Train A3: Athènes → Chalcis",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "note": "Line 3 skips Pyrgos Vasilissis and Kato Acharnai.",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A3",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2017-07-30",
+              "to": "Χαλκίδα",
+              "type": "route",
+              "via": "ΣΚΑ",
+              "wikidata": "Q47477355",
+              "wikipedia": "el:Γραμμή 3 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6955986,
+          38.2504724
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/966702938",
+        "int_name": "Dekelia",
+        "name": "Δεκέλεια",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Θεσσαλονίκη-Χαλκίδα",
+        "train": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467442",
+            "reltags": {
+              "colour": "#78BE20",
+              "from": "Αθήνα",
+              "int_name": "Proastiakos A3: Athina → Chalkida",
+              "name": "Προαστιακός A3: Αθήνα → Χαλκίδα",
+              "name:ca": "Rodalies A3: Atenes → Calcis",
+              "name:el": "Προαστιακός A3: Αθήνα → Χαλκίδα",
+              "name:en": "Train A3: Athens → Chalkida",
+              "name:fr": "Train A3: Athènes → Chalcis",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "note": "Line 3 skips Pyrgos Vasilissis and Kato Acharnai.",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A3",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2017-07-30",
+              "to": "Χαλκίδα",
+              "type": "route",
+              "via": "ΣΚΑ",
+              "wikidata": "Q47477355",
+              "wikipedia": "el:Γραμμή 3 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7801125,
+          38.099754
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2291065001",
+        "int_name": "Dilesi",
+        "name": "Δήλεσι",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467442",
+            "reltags": {
+              "colour": "#78BE20",
+              "from": "Αθήνα",
+              "int_name": "Proastiakos A3: Athina → Chalkida",
+              "name": "Προαστιακός A3: Αθήνα → Χαλκίδα",
+              "name:ca": "Rodalies A3: Atenes → Calcis",
+              "name:el": "Προαστιακός A3: Αθήνα → Χαλκίδα",
+              "name:en": "Train A3: Athens → Chalkida",
+              "name:fr": "Train A3: Athènes → Chalcis",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "note": "Line 3 skips Pyrgos Vasilissis and Kato Acharnai.",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A3",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2017-07-30",
+              "to": "Χαλκίδα",
+              "type": "route",
+              "via": "ΣΚΑ",
+              "wikidata": "Q47477355",
+              "wikipedia": "el:Γραμμή 3 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6094499,
+          38.3376364
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2291066231",
+        "int_name": "Agios Georgios",
+        "name": "Άγιος Γεώργιος",
+        "network": "Προαστιακός Αθήνας",
+        "operator": "ΟΣΕ",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467442",
+            "reltags": {
+              "colour": "#78BE20",
+              "from": "Αθήνα",
+              "int_name": "Proastiakos A3: Athina → Chalkida",
+              "name": "Προαστιακός A3: Αθήνα → Χαλκίδα",
+              "name:ca": "Rodalies A3: Atenes → Calcis",
+              "name:el": "Προαστιακός A3: Αθήνα → Χαλκίδα",
+              "name:en": "Train A3: Athens → Chalkida",
+              "name:fr": "Train A3: Athènes → Chalcis",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "note": "Line 3 skips Pyrgos Vasilissis and Kato Acharnai.",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A3",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2017-07-30",
+              "to": "Χαλκίδα",
+              "type": "route",
+              "via": "ΣΚΑ",
+              "wikidata": "Q47477355",
+              "wikipedia": "el:Γραμμή 3 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6074074,
+          38.3548928
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2291068164",
+        "int_name": "Agios Thomas",
+        "name": "Άγιος Θωμάς",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467442",
+            "reltags": {
+              "colour": "#78BE20",
+              "from": "Αθήνα",
+              "int_name": "Proastiakos A3: Athina → Chalkida",
+              "name": "Προαστιακός A3: Αθήνα → Χαλκίδα",
+              "name:ca": "Rodalies A3: Atenes → Calcis",
+              "name:el": "Προαστιακός A3: Αθήνα → Χαλκίδα",
+              "name:en": "Train A3: Athens → Chalkida",
+              "name:fr": "Train A3: Athènes → Chalcis",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "note": "Line 3 skips Pyrgos Vasilissis and Kato Acharnai.",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A3",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2017-07-30",
+              "to": "Χαλκίδα",
+              "type": "route",
+              "via": "ΣΚΑ",
+              "wikidata": "Q47477355",
+              "wikipedia": "el:Γραμμή 3 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.667227,
+          38.281677
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2343647510",
+        "int_name": "Pyrgos Vasilissis",
+        "name": "Πύργος Βασιλίσσης",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "train": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7276759,
+          38.0400365
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2343670500",
+        "int_name": "Kato Acharnai",
+        "name": "Κάτω Αχαρναί",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "train": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7328066,
+          38.0547251
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2354629543",
+        "int_name": "Agioi Anargyroi",
+        "name": "Άγιοι Ανάργυροι",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467442",
+            "reltags": {
+              "colour": "#78BE20",
+              "from": "Αθήνα",
+              "int_name": "Proastiakos A3: Athina → Chalkida",
+              "name": "Προαστιακός A3: Αθήνα → Χαλκίδα",
+              "name:ca": "Rodalies A3: Atenes → Calcis",
+              "name:el": "Προαστιακός A3: Αθήνα → Χαλκίδα",
+              "name:en": "Train A3: Athens → Chalkida",
+              "name:fr": "Train A3: Athènes → Chalcis",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "note": "Line 3 skips Pyrgos Vasilissis and Kato Acharnai.",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A3",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2017-07-30",
+              "to": "Χαλκίδα",
+              "type": "route",
+              "via": "ΣΚΑ",
+              "wikidata": "Q47477355",
+              "wikipedia": "el:Γραμμή 3 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7186452,
+          38.0224583
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2354641739",
+        "int_name": "Sidirodromiko Kentro Acharnon",
+        "name": "Σιδηροδρομικό Κέντρο Αχαρνών",
+        "name:en": "Acharnai Railway Center",
+        "network": "Athens - Thessaloniki",
+        "operator": "ΟΣΕ",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "short_int_name": "S.K.A.",
+        "short_name": "Σ.Κ.Α.",
+        "source": "sign",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467442",
+            "reltags": {
+              "colour": "#78BE20",
+              "from": "Αθήνα",
+              "int_name": "Proastiakos A3: Athina → Chalkida",
+              "name": "Προαστιακός A3: Αθήνα → Χαλκίδα",
+              "name:ca": "Rodalies A3: Atenes → Calcis",
+              "name:el": "Προαστιακός A3: Αθήνα → Χαλκίδα",
+              "name:en": "Train A3: Athens → Chalkida",
+              "name:fr": "Train A3: Athènes → Chalcis",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "note": "Line 3 skips Pyrgos Vasilissis and Kato Acharnai.",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A3",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2017-07-30",
+              "to": "Χαλκίδα",
+              "type": "route",
+              "via": "ΣΚΑ",
+              "wikidata": "Q47477355",
+              "wikipedia": "el:Γραμμή 3 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.737821,
+          38.0686445
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2798912795",
+        "int_name": "Acharnes",
+        "name": "Αχαρνές",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467442",
+            "reltags": {
+              "colour": "#78BE20",
+              "from": "Αθήνα",
+              "int_name": "Proastiakos A3: Athina → Chalkida",
+              "name": "Προαστιακός A3: Αθήνα → Χαλκίδα",
+              "name:ca": "Rodalies A3: Atenes → Calcis",
+              "name:el": "Προαστιακός A3: Αθήνα → Χαλκίδα",
+              "name:en": "Train A3: Athens → Chalkida",
+              "name:fr": "Train A3: Athènes → Chalcis",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "note": "Line 3 skips Pyrgos Vasilissis and Kato Acharnai.",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A3",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2017-07-30",
+              "to": "Χαλκίδα",
+              "type": "route",
+              "via": "ΣΚΑ",
+              "wikidata": "Q47477355",
+              "wikipedia": "el:Γραμμή 3 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7440766,
+          38.0802534
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2872124552",
+        "int_name": "Athina",
+        "name": "Αθήνα",
+        "name:el": "Αθήνα",
+        "name:en": "Athens",
+        "name:fr": "Athènes",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "7",
+        "source:int_name": "sign",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop_entry_only",
+            "rel": "8467442",
+            "reltags": {
+              "colour": "#78BE20",
+              "from": "Αθήνα",
+              "int_name": "Proastiakos A3: Athina → Chalkida",
+              "name": "Προαστιακός A3: Αθήνα → Χαλκίδα",
+              "name:ca": "Rodalies A3: Atenes → Calcis",
+              "name:el": "Προαστιακός A3: Αθήνα → Χαλκίδα",
+              "name:en": "Train A3: Athens → Chalkida",
+              "name:fr": "Train A3: Athènes → Chalcis",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "note": "Line 3 skips Pyrgos Vasilissis and Kato Acharnai.",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A3",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2017-07-30",
+              "to": "Χαλκίδα",
+              "type": "route",
+              "via": "ΣΚΑ",
+              "wikidata": "Q47477355",
+              "wikipedia": "el:Γραμμή 3 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7202839,
+          37.9931275
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/4683332020",
+        "int_name": "Afidnes",
+        "name": "Αφίδνες",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Θεσσαλονίκη",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "8467442",
+            "reltags": {
+              "colour": "#78BE20",
+              "from": "Αθήνα",
+              "int_name": "Proastiakos A3: Athina → Chalkida",
+              "name": "Προαστιακός A3: Αθήνα → Χαλκίδα",
+              "name:ca": "Rodalies A3: Atenes → Calcis",
+              "name:el": "Προαστιακός A3: Αθήνα → Χαλκίδα",
+              "name:en": "Train A3: Athens → Chalkida",
+              "name:fr": "Train A3: Athènes → Chalcis",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "note": "Line 3 skips Pyrgos Vasilissis and Kato Acharnai.",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A3",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2017-07-30",
+              "to": "Χαλκίδα",
+              "type": "route",
+              "via": "ΣΚΑ",
+              "wikidata": "Q47477355",
+              "wikipedia": "el:Γραμμή 3 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8444658,
+          38.1883264
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/5777457447",
+        "int_name": "Chalkida",
+        "name": "Χαλκίδα",
+        "name:el": "Χαλκίδα",
+        "name:en": "Chalkida",
+        "name:fr": "Chalcis",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "train": "yes",
+        "@relations": [
+          {
+            "role": "stop_exit_only",
+            "rel": "8467442",
+            "reltags": {
+              "colour": "#78BE20",
+              "from": "Αθήνα",
+              "int_name": "Proastiakos A3: Athina → Chalkida",
+              "name": "Προαστιακός A3: Αθήνα → Χαλκίδα",
+              "name:ca": "Rodalies A3: Atenes → Calcis",
+              "name:el": "Προαστιακός A3: Αθήνα → Χαλκίδα",
+              "name:en": "Train A3: Athens → Chalkida",
+              "name:fr": "Train A3: Athènes → Chalcis",
+              "network": "Προαστιακός Αθήνας",
+              "network:el": "Προαστιακός Αθήνας",
+              "network:en": "Athens Suburban Railway",
+              "network:wikidata": "Q18176333",
+              "network:wikipedia": "el:Προαστιακός σιδηρόδρομος Αθήνας",
+              "note": "Line 3 skips Pyrgos Vasilissis and Kato Acharnai.",
+              "operator": "Hellenic Train",
+              "operator:wikidata": "Q7832852",
+              "operator:wikipedia": "el:Hellenic Train",
+              "public_transport:version": "2",
+              "ref": "A3",
+              "route": "train",
+              "service": "commuter",
+              "start_date": "2017-07-30",
+              "to": "Χαλκίδα",
+              "type": "route",
+              "via": "ΣΚΑ",
+              "wikidata": "Q47477355",
+              "wikipedia": "el:Γραμμή 3 (Προαστιακός Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5861659,
+          38.4625271
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/12374606744",
+        "railway": "signal",
+        "railway:signal:direction": "forward"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7460723,
+          38.0803092
+        ]
+      }
+    }
+  ]
+}

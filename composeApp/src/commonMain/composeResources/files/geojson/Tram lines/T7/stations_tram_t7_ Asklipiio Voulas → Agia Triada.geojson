@@ -1,0 +1,2471 @@
+{
+  "type": "FeatureCollection",
+  "generator": "merged-line-stations-script",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/987047011",
+        "int_name": "Agheiou Metaxa",
+        "name": "Άγγελου Μεταξά",
+        "name:el": "Άγγελου Μεταξά",
+        "name:en": "Agheiou Metaxa",
+        "name:fr": "Agheiou Metaxa",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "source:name": "sign",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "6792077",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Ασκληπιείο Βούλας",
+              "name": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:ca": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:el": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:en": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:fr": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ3",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ7",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Αγία Τριάδα",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535308",
+              "wikipedia": "el:Γραμμή 7 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.751444,
+          37.8627705
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/1579928179",
+        "int_name": "Kolymvitirio",
+        "name": "Κολυμβητήριο",
+        "name:el": "Κολυμβητήριο",
+        "name:en": "Kolymvitirio",
+        "name:fr": "Kolymvitirio",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "source:name": "sign",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "6792077",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Ασκληπιείο Βούλας",
+              "name": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:ca": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:el": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:en": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:fr": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ3",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ7",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Αγία Τριάδα",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535308",
+              "wikipedia": "el:Γραμμή 7 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7543119,
+          37.8560655
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/3994676193",
+        "name": "Ευαγγελίστρια",
+        "name:el": "Ευαγγελίστρια",
+        "name:en": "Evangelistria",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "start_date": "2021-12-06",
+        "tram": "yes",
+        "wikidata": "Q112801589",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "6792077",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Ασκληπιείο Βούλας",
+              "name": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:ca": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:el": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:en": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:fr": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ3",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ7",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Αγία Τριάδα",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535308",
+              "wikipedia": "el:Γραμμή 7 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6532456,
+          37.9446187
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/4000027120",
+        "noexit": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6844889,
+          37.9425868
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/4000027159",
+        "noexit": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6836481,
+          37.9428782
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/4001209803",
+        "note": "Seems to be a difference in imaginery alignment between Piraeus-Kallithea and Palaio Faliro-Alimos. Respecting both of them, these ways compensate for those differences under the Esplanade."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6914483,
+          37.9377119
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/4015870675",
+        "note": "temporary fix"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7190153,
+          37.9040743
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/6023128556",
+        "int_name": "Platia Vaso Katraki",
+        "name": "Πλατεία Βάσω Κατράκη",
+        "name:el": "Πλατεία Βάσω Κατράκη",
+        "name:en": "Platia Vaso Katraki",
+        "name:fr": "Platia Vaso Katraki",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "source:name": "sign",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "6792077",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Ασκληπιείο Βούλας",
+              "name": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:ca": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:el": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:en": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:fr": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ3",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ7",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Αγία Τριάδα",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535308",
+              "wikipedia": "el:Γραμμή 7 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7475038,
+          37.8634938
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7292595532",
+        "int_name": "Asklipiio Voulas",
+        "name": "Ασκληπιείο Βούλας",
+        "name:el": "Ασκληπιείο Βούλας",
+        "name:en": "Asklipiio Voulas",
+        "name:fr": "Asklipiio Voulas",
+        "network": "Τραμ Αθήνας",
+        "operator": "ΣΤΑΣΥ",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "source:name": "sign",
+        "start_date": "2007-11-15",
+        "tram": "yes",
+        "@relations": [
+          {
+            "role": "stop_entry_only",
+            "rel": "6792077",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Ασκληπιείο Βούλας",
+              "name": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:ca": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:el": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:en": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:fr": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ3",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ7",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Αγία Τριάδα",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535308",
+              "wikipedia": "el:Γραμμή 7 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7526673,
+          37.8496781
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7498860460",
+        "int_name": "Paleo Demarhio",
+        "name": "Παλαιό Δημαρχείο",
+        "name:el": "Παλαιό Δημαρχείο",
+        "name:en": "Paleo Demarhio",
+        "name:fr": "Paleo Demarhio",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "source:name": "sign",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "6792077",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Ασκληπιείο Βούλας",
+              "name": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:ca": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:el": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:en": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:fr": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ3",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ7",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Αγία Τριάδα",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535308",
+              "wikipedia": "el:Γραμμή 7 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7432044,
+          37.8646797
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7498860461",
+        "int_name": "Paralia Glyfadas",
+        "name": "Παραλία Γλυφάδας",
+        "name:el": "Παραλία Γλυφάδας",
+        "name:en": "Paralia Glyfadas",
+        "name:fr": "Paralia Glyfadas",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "source:name": "sign",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "6792077",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Ασκληπιείο Βούλας",
+              "name": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:ca": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:el": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:en": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:fr": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ3",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ7",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Αγία Τριάδα",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535308",
+              "wikipedia": "el:Γραμμή 7 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7383984,
+          37.8677699
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7498860462",
+        "int_name": "Platia Vergoti",
+        "name": "Πλατεία Βεργωτή",
+        "name:el": "Πλατεία Βεργωτή",
+        "name:en": "Platia Vergoti",
+        "name:fr": "Platia Vergoti",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "source:name": "sign",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "6792077",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Ασκληπιείο Βούλας",
+              "name": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:ca": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:el": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:en": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:fr": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ3",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ7",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Αγία Τριάδα",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535308",
+              "wikipedia": "el:Γραμμή 7 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7352243,
+          37.8714878
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7498860463",
+        "int_name": "Kentro Istioploias",
+        "name": "Κέντρο Ιστιοπλοΐας",
+        "name:el": "Κέντρο Ιστιοπλοΐας",
+        "name:en": "Kentro Istioploias",
+        "name:fr": "Kentro Istioploias",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "source:name": "sign",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "6792077",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Ασκληπιείο Βούλας",
+              "name": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:ca": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:el": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:en": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:fr": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ3",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ7",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Αγία Τριάδα",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535308",
+              "wikipedia": "el:Γραμμή 7 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7319015,
+          37.8758956
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7498860464",
+        "int_name": "Ellinon Olymbionikon",
+        "name": "Ελλήνων Ολυμπιονικών",
+        "name:el": "Ελλήνων Ολυμπιονικών",
+        "name:en": "Ellinon Olymbionikon",
+        "name:fr": "Ellinon Olymbionikon",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "source:name": "sign",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "6792077",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Ασκληπιείο Βούλας",
+              "name": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:ca": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:el": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:en": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:fr": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ3",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ7",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Αγία Τριάδα",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535308",
+              "wikipedia": "el:Γραμμή 7 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7294839,
+          37.8811682
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7498860465",
+        "int_name": "Aghios Alexandros",
+        "name": "Άγιος Αλέξανδρος",
+        "name:el": "Άγιος Αλέξανδρος",
+        "name:en": "Aghios Alexandros",
+        "name:fr": "Aghios Alexandros",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "source:name": "sign",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "6792077",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Ασκληπιείο Βούλας",
+              "name": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:ca": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:el": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:en": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:fr": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ3",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ7",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Αγία Τριάδα",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535308",
+              "wikipedia": "el:Γραμμή 7 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7269688,
+          37.8850599
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7498860466",
+        "int_name": "2nd Aghiou Kosma",
+        "name": "2η Αγίου Κοσμά",
+        "name:el": "2η Αγίου Κοσμά",
+        "name:en": "2nd Aghiou Kosma",
+        "name:fr": "2e Aghiou Kosma",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "source:name": "sign",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "6792077",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Ασκληπιείο Βούλας",
+              "name": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:ca": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:el": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:en": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:fr": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ3",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ7",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Αγία Τριάδα",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535308",
+              "wikipedia": "el:Γραμμή 7 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7232371,
+          37.8907954
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7498860467",
+        "int_name": "1st Aghiou Kosma",
+        "name": "1η Αγίου Κοσμά",
+        "name:el": "1η Αγίου Κοσμά",
+        "name:en": "1st Aghiou Kosma",
+        "name:fr": "1er Aghiou Kosma",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "source:name": "sign",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "6792077",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Ασκληπιείο Βούλας",
+              "name": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:ca": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:el": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:en": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:fr": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ3",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ7",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Αγία Τριάδα",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535308",
+              "wikipedia": "el:Γραμμή 7 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7212086,
+          37.8943001
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7498860468",
+        "int_name": "Elliniko",
+        "name": "Ελληνικό",
+        "name:el": "Ελληνικό",
+        "name:en": "Elliniko",
+        "name:fr": "Elliniko",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "source:name": "sign",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "6792077",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Ασκληπιείο Βούλας",
+              "name": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:ca": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:el": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:en": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:fr": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ3",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ7",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Αγία Τριάδα",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535308",
+              "wikipedia": "el:Γραμμή 7 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7202185,
+          37.897593
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7498860472",
+        "int_name": "Marina Alimou",
+        "name": "Μαρίνα Αλίμου",
+        "name:el": "Μαρίνα Αλίμου",
+        "name:en": "Marina Alimou",
+        "name:fr": "Marina Alimou",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "source:name": "sign",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "6792077",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Ασκληπιείο Βούλας",
+              "name": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:ca": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:el": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:en": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:fr": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ3",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ7",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Αγία Τριάδα",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535308",
+              "wikipedia": "el:Γραμμή 7 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7087588,
+          37.9130019
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7498860483",
+        "name": "Μοσχάτο",
+        "name:el": "Μοσχάτο",
+        "name:en": "Moschato",
+        "name:fr": "Moschato",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "6792077",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Ασκληπιείο Βούλας",
+              "name": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:ca": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:el": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:en": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:fr": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ3",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ7",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Αγία Τριάδα",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535308",
+              "wikipedia": "el:Γραμμή 7 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6779672,
+          37.9442948
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/7498860484",
+        "name": "Νέο Φάληρο",
+        "name:el": "Νέο Φάληρο",
+        "name:en": "Neo Faliro",
+        "name:fr": "Nouvelle Phalère",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "wikidata": "Q112801554",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "6792077",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Ασκληπιείο Βούλας",
+              "name": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:ca": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:el": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:en": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:fr": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ3",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ7",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Αγία Τριάδα",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535308",
+              "wikipedia": "el:Γραμμή 7 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6685509,
+          37.9446084
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/8446553862",
+        "noexit": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6927952,
+          37.9373264
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/8582839502",
+        "name": "Γήπεδο Καραϊσκάκη",
+        "name:el": "Γήπεδο Καραϊσκάκη",
+        "name:en": "Gipedo Karaiskaki",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "start_date": "2021-12-06",
+        "tram": "yes",
+        "wikidata": "Q112801587",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "6792077",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Ασκληπιείο Βούλας",
+              "name": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:ca": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:el": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:en": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:fr": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ3",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ7",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Αγία Τριάδα",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535308",
+              "wikipedia": "el:Γραμμή 7 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6648381,
+          37.9444227
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/8583339860",
+        "name": "Μικράς Ασίας",
+        "name:el": "Μικράς Ασίας",
+        "name:en": "Mikras Asias",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "start_date": "2021-12-06",
+        "tram": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "6792077",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Ασκληπιείο Βούλας",
+              "name": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:ca": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:el": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:en": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:fr": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ3",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ7",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Αγία Τριάδα",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535308",
+              "wikipedia": "el:Γραμμή 7 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6600426,
+          37.9459167
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/8583339869",
+        "name": "Λαμπράκη",
+        "name:el": "Λαμπράκη",
+        "name:en": "Lambraki",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "start_date": "2021-12-06",
+        "tram": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "6792077",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Ασκληπιείο Βούλας",
+              "name": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:ca": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:el": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:en": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:fr": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ3",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ7",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Αγία Τριάδα",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535308",
+              "wikipedia": "el:Γραμμή 7 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6560599,
+          37.9479423
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/8583339901",
+        "name": "Δημαρχείο",
+        "name:el": "Δημαρχείο",
+        "name:en": "Dimarcheio",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "start_date": "2021-12-06",
+        "tram": "yes",
+        "wikidata": "Q112801588",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "6792077",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Ασκληπιείο Βούλας",
+              "name": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:ca": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:el": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:en": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:fr": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ3",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ7",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Αγία Τριάδα",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535308",
+              "wikipedia": "el:Γραμμή 7 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6475015,
+          37.9426367
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/8583339904",
+        "name": "Αγία Τριάδα",
+        "name:el": "Αγία Τριάδα",
+        "name:en": "Agia Triada",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "start_date": "2021-12-06",
+        "tram": "yes",
+        "wikidata": "Q112801585",
+        "wikipedia": "en:Agia Triada tram stop",
+        "@relations": [
+          {
+            "role": "stop_exit_only",
+            "rel": "6792077",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Ασκληπιείο Βούλας",
+              "name": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:ca": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:el": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:en": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:fr": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ3",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ7",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Αγία Τριάδα",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535308",
+              "wikipedia": "el:Γραμμή 7 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6451956,
+          37.9449403
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/9661591686",
+        "int_name": "Pikrodafni",
+        "name": "Πικροδάφνη",
+        "name:el": "Πικροδάφνη",
+        "name:en": "Pikrodafni",
+        "name:fr": "Pikrodafni",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "source:name": "sign",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "6792077",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Ασκληπιείο Βούλας",
+              "name": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:ca": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:el": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:en": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:fr": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ3",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ7",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Αγία Τριάδα",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535308",
+              "wikipedia": "el:Γραμμή 7 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7055338,
+          37.9159801
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/9661591688",
+        "int_name": "Edem",
+        "name": "Έδεμ",
+        "name:el": "Έδεμ",
+        "name:en": "Edem",
+        "name:fr": "Edem",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "source:name": "sign",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "6792077",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Ασκληπιείο Βούλας",
+              "name": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:ca": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:el": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:en": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:fr": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ3",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ7",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Αγία Τριάδα",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535308",
+              "wikipedia": "el:Γραμμή 7 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7007245,
+          37.9187406
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/9661591689",
+        "int_name": "Batis",
+        "name": "Μπάτης",
+        "name:el": "Μπάτης",
+        "name:en": "Batis",
+        "name:fr": "Batis",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "source:name": "sign",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "6792077",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Ασκληπιείο Βούλας",
+              "name": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:ca": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:el": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:en": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:fr": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ3",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ7",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Αγία Τριάδα",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535308",
+              "wikipedia": "el:Γραμμή 7 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6964427,
+          37.9215586
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/9661591690",
+        "name": "Φλοίσβος",
+        "name:el": "Φλοίσβος",
+        "name:en": "Flisvos",
+        "name:fr": "Floisvos",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "source:name": "sign",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "6792077",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Ασκληπιείο Βούλας",
+              "name": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:ca": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:el": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:en": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:fr": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ3",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ7",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Αγία Τριάδα",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535308",
+              "wikipedia": "el:Γραμμή 7 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.692748,
+          37.9235855
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/9661591691",
+        "name": "Πάρκο Φλοίσβου",
+        "name:el": "Πάρκο Φλοίσβου",
+        "name:en": "Parko Flisvou",
+        "name:fr": "Parc de Floisvou",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "source:name": "sign",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "wikidata": "Q112801560",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "6792077",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Ασκληπιείο Βούλας",
+              "name": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:ca": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:el": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:en": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:fr": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ3",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ7",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Αγία Τριάδα",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535308",
+              "wikipedia": "el:Γραμμή 7 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6884569,
+          37.9278719
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/9661591692",
+        "name": "Τροκαντερό",
+        "name:el": "Τροκαντερό",
+        "name:en": "Trocadero",
+        "name:fr": "Trocadéro",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "source:name": "sign",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "wikidata": "Q112801577",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "6792077",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Ασκληπιείο Βούλας",
+              "name": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:ca": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:el": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:en": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:fr": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ3",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ7",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Αγία Τριάδα",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535308",
+              "wikipedia": "el:Γραμμή 7 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6872731,
+          37.9313816
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/9661591693",
+        "name": "Αγία Σκέπη",
+        "name:el": "Αγία Σκέπη",
+        "name:en": "Aghia Skepi",
+        "name:fr": "Aghia Skepi",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "source:name": "sign",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "6792077",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Ασκληπιείο Βούλας",
+              "name": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:ca": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:el": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:en": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:fr": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ3",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ7",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Αγία Τριάδα",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535308",
+              "wikipedia": "el:Γραμμή 7 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6939623,
+          37.9339982
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/9661591694",
+        "name": "Δέλτα Φαλήρου",
+        "name:el": "Δέλτα Φαλήρου",
+        "name:en": "Delta Falirou",
+        "name:fr": "Delta Falirou",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "6792077",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Ασκληπιείο Βούλας",
+              "name": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:ca": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:el": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:en": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:fr": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ3",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ7",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Αγία Τριάδα",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535308",
+              "wikipedia": "el:Γραμμή 7 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6923141,
+          37.9374697
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/9661591695",
+        "name": "Τζιτζιφιές",
+        "name:el": "Τζιτζιφιές",
+        "name:en": "Tzitzifies",
+        "name:fr": "Tzitzifies",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "wikidata": "Q112801578",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "6792077",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Ασκληπιείο Βούλας",
+              "name": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:ca": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:el": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:en": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:fr": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ3",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ7",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Αγία Τριάδα",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535308",
+              "wikipedia": "el:Γραμμή 7 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6880597,
+          37.9407543
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/9661591696",
+        "name": "Καλλιθέα",
+        "name:el": "Καλλιθέα",
+        "name:en": "Kallithea",
+        "name:fr": "Kallithéa",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "6792077",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Ασκληπιείο Βούλας",
+              "name": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:ca": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:el": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:en": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:fr": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ3",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ7",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Αγία Τριάδα",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535308",
+              "wikipedia": "el:Γραμμή 7 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.684035,
+          37.9427462
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/9664372883",
+        "int_name": "Platia Esperidon",
+        "name": "Πλατεία Εσπερίδων",
+        "name:el": "Πλατεία Εσπερίδων",
+        "name:en": "Platia Esperidon",
+        "name:fr": "Platia Esperidon",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "source:name": "sign",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "6792077",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Ασκληπιείο Βούλας",
+              "name": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:ca": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:el": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:en": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:fr": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ3",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ7",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Αγία Τριάδα",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535308",
+              "wikipedia": "el:Γραμμή 7 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7542756,
+          37.8601811
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/9664372891",
+        "int_name": "Loutra Alimou",
+        "name": "Λουτρά Αλίμου",
+        "name:el": "Λουτρά Αλίμου",
+        "name:en": "Loutra Alimou",
+        "name:fr": "Loutra Alimou",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "source:name": "sign",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "6792077",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Ασκληπιείο Βούλας",
+              "name": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:ca": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:el": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:en": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:fr": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ3",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ7",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Αγία Τριάδα",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535308",
+              "wikipedia": "el:Γραμμή 7 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7195751,
+          37.9022276
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/9664372892",
+        "int_name": "Zefyros",
+        "name": "Ζέφυρος",
+        "name:el": "Ζέφυρος",
+        "name:en": "Zefyros",
+        "name:fr": "Zefyros",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "source:name": "sign",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "6792077",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Ασκληπιείο Βούλας",
+              "name": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:ca": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:el": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:en": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:fr": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ3",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ7",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Αγία Τριάδα",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535308",
+              "wikipedia": "el:Γραμμή 7 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7170574,
+          37.9063911
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/9664372894",
+        "int_name": "Kalamaki",
+        "name": "Καλαμάκι",
+        "name:el": "Καλαμάκι",
+        "name:en": "Kalamaki",
+        "name:fr": "Kalamaki",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "source:name": "sign",
+        "start_date": "2004-07-19",
+        "tram": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "6792077",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Ασκληπιείο Βούλας",
+              "name": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:ca": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:el": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:en": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:fr": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ3",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ7",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Αγία Τριάδα",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535308",
+              "wikipedia": "el:Γραμμή 7 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7128837,
+          37.9097065
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/9706137963",
+        "name": "Πλατεία Δεληγιάννη",
+        "name:el": "Πλατεία Δεληγιάννη",
+        "name:en": "Plateia Deligianni",
+        "network": "Τραμ Αθήνας",
+        "network:el": "Τραμ Αθήνας",
+        "network:en": "Athens Tram",
+        "network:wikidata": "Q252135",
+        "operator": "Σταθερές Συγκοινωνίες",
+        "operator:short": "ΣΤΑΣΥ",
+        "operator:wikidata": "Q109331635",
+        "public_transport": "stop_position",
+        "railway": "tram_stop",
+        "start_date": "2021-12-06",
+        "tram": "yes",
+        "wikidata": "Q112801596",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "6792077",
+            "reltags": {
+              "colour": "#83B81A",
+              "from": "Ασκληπιείο Βούλας",
+              "name": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:ca": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:el": "Τραμ Τ7: Ασκληπιείο Βούλας → Αγία Τριάδα",
+              "name:en": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "name:fr": "Tram Τ7: Asklipiio Voulas → Agia Triada",
+              "network": "Τραμ Αθήνας",
+              "network:el": "Τραμ Αθήνας",
+              "network:en": "Athens Tram",
+              "network:wikidata": "Q252135",
+              "network:wikipedia": "el:Τραμ Αθήνας",
+              "old_ref": "Τ3",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Τ7",
+              "route": "tram",
+              "start_date": "2021-12-06",
+              "to": "Αγία Τριάδα",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q25535308",
+              "wikipedia": "el:Γραμμή 7 (Τραμ Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6503944,
+          37.9413445
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/13291088862",
+        "noexit": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6884016,
+          37.9405566
+        ]
+      }
+    }
+  ]
+}

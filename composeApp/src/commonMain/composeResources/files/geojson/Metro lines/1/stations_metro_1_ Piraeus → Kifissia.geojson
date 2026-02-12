@@ -1,0 +1,1626 @@
+{
+  "type": "FeatureCollection",
+  "generator": "merged-line-stations-script",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/939521334",
+        "int_name": "Nerantziotissa",
+        "name": "Νεραντζιώτισσα",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Κηφισιά",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "445858",
+            "reltags": {
+              "alt_name": "Ηλεκτρικός",
+              "alt_name:ca": "L'elèctric",
+              "alt_name:de": "Electrikos",
+              "alt_name:el": "Ηλεκτρικός",
+              "alt_name:en": "Electrikos",
+              "alt_name:fr": "L'électrique",
+              "colour": "#007A33",
+              "from": "Πειραιάς",
+              "name": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:ca": "Metro Μ1: El Pireu → Kifisia",
+              "name:de": "U-Bahn Μ1: Piräus → Kifisia",
+              "name:el": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:en": "Metro Μ1: Piraeus → Kifissia",
+              "name:fr": "Métro Μ1: Le Pirée → Céphisie",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "old_name": "ΗΣΑΠ",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ1",
+              "route": "subway",
+              "start_date": "1860-02-27",
+              "to": "Κηφισιά",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553095",
+              "wikipedia": "el:Γραμμή Ηλεκτρικού (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.793425,
+          38.0455338
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/960915823",
+        "alt_name:en": "Aghios Nikolaos",
+        "int_name": "Agios Nikolaos",
+        "name": "Άγιος Νικόλαος",
+        "name:de": "Agios Nikolaos",
+        "name:el": "Άγιος Νικόλαος",
+        "name:en": "Agios Nikolaos",
+        "name:fr": "Agios Nikolaos",
+        "name:ru": "Айос Николас",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Κηφισιά",
+        "source:alt_name:en": "sign",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "445858",
+            "reltags": {
+              "alt_name": "Ηλεκτρικός",
+              "alt_name:ca": "L'elèctric",
+              "alt_name:de": "Electrikos",
+              "alt_name:el": "Ηλεκτρικός",
+              "alt_name:en": "Electrikos",
+              "alt_name:fr": "L'électrique",
+              "colour": "#007A33",
+              "from": "Πειραιάς",
+              "name": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:ca": "Metro Μ1: El Pireu → Kifisia",
+              "name:de": "U-Bahn Μ1: Piräus → Kifisia",
+              "name:el": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:en": "Metro Μ1: Piraeus → Kifissia",
+              "name:fr": "Métro Μ1: Le Pirée → Céphisie",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "old_name": "ΗΣΑΠ",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ1",
+              "route": "subway",
+              "start_date": "1860-02-27",
+              "to": "Κηφισιά",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553095",
+              "wikipedia": "el:Γραμμή Ηλεκτρικού (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7277292,
+          38.0069859
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/1005304990",
+        "alt_name:en": "Thissio",
+        "int_name": "Thisseio",
+        "name": "Θησείο",
+        "name:de": "Thiseio",
+        "name:el": "Θησείο",
+        "name:en": "Thiseio",
+        "name:fr": "Thiseio",
+        "name:ru": "Тисио",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "source:alt_name:en": "sign",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "445858",
+            "reltags": {
+              "alt_name": "Ηλεκτρικός",
+              "alt_name:ca": "L'elèctric",
+              "alt_name:de": "Electrikos",
+              "alt_name:el": "Ηλεκτρικός",
+              "alt_name:en": "Electrikos",
+              "alt_name:fr": "L'électrique",
+              "colour": "#007A33",
+              "from": "Πειραιάς",
+              "name": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:ca": "Metro Μ1: El Pireu → Kifisia",
+              "name:de": "U-Bahn Μ1: Piräus → Kifisia",
+              "name:el": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:en": "Metro Μ1: Piraeus → Kifissia",
+              "name:fr": "Métro Μ1: Le Pirée → Céphisie",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "old_name": "ΗΣΑΠ",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ1",
+              "route": "subway",
+              "start_date": "1860-02-27",
+              "to": "Κηφισιά",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553095",
+              "wikipedia": "el:Γραμμή Ηλεκτρικού (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7205356,
+          37.9766852
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/1024902125",
+        "int_name": "Tavros-Eleftherios Venizelos",
+        "name": "Ταύρος-Ελευθέριος Βενιζέλος",
+        "name:de": "Tavros-Eleftherios Venizelos",
+        "name:el": "Ταύρος-Ελευθέριος Βενιζέλος",
+        "name:en": "Tavros-Eleftherios Venizelos",
+        "name:fr": "Tavros-Eleftherios Venizelos",
+        "name:ru": "Таврос-Элефтериос Винизелос",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "short_name": "Ταύρος",
+        "short_name:el": "Ταύρος",
+        "short_name:en": "Tavros",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "445858",
+            "reltags": {
+              "alt_name": "Ηλεκτρικός",
+              "alt_name:ca": "L'elèctric",
+              "alt_name:de": "Electrikos",
+              "alt_name:el": "Ηλεκτρικός",
+              "alt_name:en": "Electrikos",
+              "alt_name:fr": "L'électrique",
+              "colour": "#007A33",
+              "from": "Πειραιάς",
+              "name": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:ca": "Metro Μ1: El Pireu → Kifisia",
+              "name:de": "U-Bahn Μ1: Piräus → Kifisia",
+              "name:el": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:en": "Metro Μ1: Piraeus → Kifissia",
+              "name:fr": "Métro Μ1: Le Pirée → Céphisie",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "old_name": "ΗΣΑΠ",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ1",
+              "route": "subway",
+              "start_date": "1860-02-27",
+              "to": "Κηφισιά",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553095",
+              "wikipedia": "el:Γραμμή Ηλεκτρικού (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7037122,
+          37.9625102
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/1815728753",
+        "int_name": "Marousi",
+        "name": "Μαρούσι",
+        "name:bg": "Маруси",
+        "name:ca": "Marusi",
+        "name:el": "Μαρούσι",
+        "name:en": "Marousi",
+        "name:fr": "Maroussi",
+        "name:mk": "Маруси",
+        "name:ru": "Маруси",
+        "name:tr": "Marusi",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "445858",
+            "reltags": {
+              "alt_name": "Ηλεκτρικός",
+              "alt_name:ca": "L'elèctric",
+              "alt_name:de": "Electrikos",
+              "alt_name:el": "Ηλεκτρικός",
+              "alt_name:en": "Electrikos",
+              "alt_name:fr": "L'électrique",
+              "colour": "#007A33",
+              "from": "Πειραιάς",
+              "name": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:ca": "Metro Μ1: El Pireu → Kifisia",
+              "name:de": "U-Bahn Μ1: Piräus → Kifisia",
+              "name:el": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:en": "Metro Μ1: Piraeus → Kifissia",
+              "name:fr": "Métro Μ1: Le Pirée → Céphisie",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "old_name": "ΗΣΑΠ",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ1",
+              "route": "subway",
+              "start_date": "1860-02-27",
+              "to": "Κηφισιά",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553095",
+              "wikipedia": "el:Γραμμή Ηλεκτρικού (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8055114,
+          38.0565273
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2253053668",
+        "alt_int_name": "Neo Faliro",
+        "alt_name": "Νέο Φάληρο",
+        "alt_name:el": "Νέο Φάληρο",
+        "alt_name:en": "Neo Faliro",
+        "int_name": "Faliro",
+        "name": "Φάληρο",
+        "name:el": "Φάληρο",
+        "name:en": "Faliro",
+        "name:fr": "Phalère",
+        "name:ru": "Фалиро",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "source:alt_name:en": "sign",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "445858",
+            "reltags": {
+              "alt_name": "Ηλεκτρικός",
+              "alt_name:ca": "L'elèctric",
+              "alt_name:de": "Electrikos",
+              "alt_name:el": "Ηλεκτρικός",
+              "alt_name:en": "Electrikos",
+              "alt_name:fr": "L'électrique",
+              "colour": "#007A33",
+              "from": "Πειραιάς",
+              "name": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:ca": "Metro Μ1: El Pireu → Kifisia",
+              "name:de": "U-Bahn Μ1: Piräus → Kifisia",
+              "name:el": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:en": "Metro Μ1: Piraeus → Kifissia",
+              "name:fr": "Métro Μ1: Le Pirée → Céphisie",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "old_name": "ΗΣΑΠ",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ1",
+              "route": "subway",
+              "start_date": "1860-02-27",
+              "to": "Κηφισιά",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553095",
+              "wikipedia": "el:Γραμμή Ηλεκτρικού (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6652902,
+          37.9450255
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2264918304",
+        "int_name": "Moschato",
+        "name": "Μοσχάτο",
+        "name:el": "Μοσχάτο",
+        "name:en": "Moschato",
+        "name:ru": "Мосхато",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "445858",
+            "reltags": {
+              "alt_name": "Ηλεκτρικός",
+              "alt_name:ca": "L'elèctric",
+              "alt_name:de": "Electrikos",
+              "alt_name:el": "Ηλεκτρικός",
+              "alt_name:en": "Electrikos",
+              "alt_name:fr": "L'électrique",
+              "colour": "#007A33",
+              "from": "Πειραιάς",
+              "name": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:ca": "Metro Μ1: El Pireu → Kifisia",
+              "name:de": "U-Bahn Μ1: Piräus → Kifisia",
+              "name:el": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:en": "Metro Μ1: Piraeus → Kifissia",
+              "name:fr": "Métro Μ1: Le Pirée → Céphisie",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "old_name": "ΗΣΑΠ",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ1",
+              "route": "subway",
+              "start_date": "1860-02-27",
+              "to": "Κηφισιά",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553095",
+              "wikipedia": "el:Γραμμή Ηλεκτρικού (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6804874,
+          37.9552687
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2264918788",
+        "int_name": "Kallithea",
+        "name": "Καλλιθέα",
+        "name:de": "Kallithea",
+        "name:el": "Καλλιθέα",
+        "name:en": "Kallithea",
+        "name:fr": "Kallithea",
+        "name:ru": "Калитея",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "445858",
+            "reltags": {
+              "alt_name": "Ηλεκτρικός",
+              "alt_name:ca": "L'elèctric",
+              "alt_name:de": "Electrikos",
+              "alt_name:el": "Ηλεκτρικός",
+              "alt_name:en": "Electrikos",
+              "alt_name:fr": "L'électrique",
+              "colour": "#007A33",
+              "from": "Πειραιάς",
+              "name": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:ca": "Metro Μ1: El Pireu → Kifisia",
+              "name:de": "U-Bahn Μ1: Piräus → Kifisia",
+              "name:el": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:en": "Metro Μ1: Piraeus → Kifissia",
+              "name:fr": "Métro Μ1: Le Pirée → Céphisie",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "old_name": "ΗΣΑΠ",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ1",
+              "route": "subway",
+              "start_date": "1860-02-27",
+              "to": "Κηφισιά",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553095",
+              "wikipedia": "el:Γραμμή Ηλεκτρικού (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6974102,
+          37.9605389
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2278850037",
+        "int_name": "Petralona",
+        "name": "Πετράλωνα",
+        "name:de": "Petralona",
+        "name:el": "Πετράλωνα",
+        "name:en": "Petralona",
+        "name:fr": "Petralona",
+        "name:ru": "Петралона (станция метро)",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "445858",
+            "reltags": {
+              "alt_name": "Ηλεκτρικός",
+              "alt_name:ca": "L'elèctric",
+              "alt_name:de": "Electrikos",
+              "alt_name:el": "Ηλεκτρικός",
+              "alt_name:en": "Electrikos",
+              "alt_name:fr": "L'électrique",
+              "colour": "#007A33",
+              "from": "Πειραιάς",
+              "name": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:ca": "Metro Μ1: El Pireu → Kifisia",
+              "name:de": "U-Bahn Μ1: Piräus → Kifisia",
+              "name:el": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:en": "Metro Μ1: Piraeus → Kifissia",
+              "name:fr": "Métro Μ1: Le Pirée → Céphisie",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "old_name": "ΗΣΑΠ",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ1",
+              "route": "subway",
+              "start_date": "1860-02-27",
+              "to": "Κηφισιά",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553095",
+              "wikipedia": "el:Γραμμή Ηλεκτρικού (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.709409,
+          37.9689559
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2541933609",
+        "int_name": "KAT",
+        "name": "ΚΑΤ",
+        "name:el": "ΚΑΤ",
+        "name:en": "KAT",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "445858",
+            "reltags": {
+              "alt_name": "Ηλεκτρικός",
+              "alt_name:ca": "L'elèctric",
+              "alt_name:de": "Electrikos",
+              "alt_name:el": "Ηλεκτρικός",
+              "alt_name:en": "Electrikos",
+              "alt_name:fr": "L'électrique",
+              "colour": "#007A33",
+              "from": "Πειραιάς",
+              "name": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:ca": "Metro Μ1: El Pireu → Kifisia",
+              "name:de": "U-Bahn Μ1: Piräus → Kifisia",
+              "name:el": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:en": "Metro Μ1: Piraeus → Kifissia",
+              "name:fr": "Métro Μ1: Le Pirée → Céphisie",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "old_name": "ΗΣΑΠ",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ1",
+              "route": "subway",
+              "start_date": "1860-02-27",
+              "to": "Κηφισιά",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553095",
+              "wikipedia": "el:Γραμμή Ηλεκτρικού (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8042356,
+          38.0663647
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/2973313516",
+        "int_name": "Attiki",
+        "name": "Αττική",
+        "name:de": "Attiki",
+        "name:el": "Αττική",
+        "name:en": "Attiki",
+        "name:fr": "Attiki",
+        "name:ru": "Аттики",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "445858",
+            "reltags": {
+              "alt_name": "Ηλεκτρικός",
+              "alt_name:ca": "L'elèctric",
+              "alt_name:de": "Electrikos",
+              "alt_name:el": "Ηλεκτρικός",
+              "alt_name:en": "Electrikos",
+              "alt_name:fr": "L'électrique",
+              "colour": "#007A33",
+              "from": "Πειραιάς",
+              "name": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:ca": "Metro Μ1: El Pireu → Kifisia",
+              "name:de": "U-Bahn Μ1: Piräus → Kifisia",
+              "name:el": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:en": "Metro Μ1: Piraeus → Kifissia",
+              "name:fr": "Métro Μ1: Le Pirée → Céphisie",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "old_name": "ΗΣΑΠ",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ1",
+              "route": "subway",
+              "start_date": "1860-02-27",
+              "to": "Κηφισιά",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553095",
+              "wikipedia": "el:Γραμμή Ηλεκτρικού (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7228526,
+          37.9995276
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/3951242237",
+        "alt_name:en": "Iraklio",
+        "int_name": "Irakleio",
+        "name": "Ηράκλειο",
+        "name:ar": "هيراكليون",
+        "name:de": "Iraklio",
+        "name:el": "Ηράκλειο",
+        "name:en": "Irakleio",
+        "name:fr": "Iraklio",
+        "name:ru": "Ираклио",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Κηφισιά",
+        "source:alt_name:en": "sign",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "445858",
+            "reltags": {
+              "alt_name": "Ηλεκτρικός",
+              "alt_name:ca": "L'elèctric",
+              "alt_name:de": "Electrikos",
+              "alt_name:el": "Ηλεκτρικός",
+              "alt_name:en": "Electrikos",
+              "alt_name:fr": "L'électrique",
+              "colour": "#007A33",
+              "from": "Πειραιάς",
+              "name": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:ca": "Metro Μ1: El Pireu → Kifisia",
+              "name:de": "U-Bahn Μ1: Piräus → Kifisia",
+              "name:el": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:en": "Metro Μ1: Piraeus → Kifissia",
+              "name:fr": "Métro Μ1: Le Pirée → Céphisie",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "old_name": "ΗΣΑΠ",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ1",
+              "route": "subway",
+              "start_date": "1860-02-27",
+              "to": "Κηφισιά",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553095",
+              "wikipedia": "el:Γραμμή Ηλεκτρικού (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7665601,
+          38.0460142
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/3962223864",
+        "int_name": "Piraeus",
+        "name": "Πειραιάς",
+        "name:ca": "el Pireu",
+        "name:de": "Piräus",
+        "name:el": "Πειραιάς",
+        "name:en": "Piraeus",
+        "name:fr": "Le Pirée",
+        "name:ml": "പിറേയസ്",
+        "name:ru": "Пирей",
+        "old_int_name": "Peiraieus",
+        "old_name": "Πειραιεύς",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "source:name": "sign",
+        "source:old_name": "sign (in Line 1 station)",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop_entry_only",
+            "rel": "445858",
+            "reltags": {
+              "alt_name": "Ηλεκτρικός",
+              "alt_name:ca": "L'elèctric",
+              "alt_name:de": "Electrikos",
+              "alt_name:el": "Ηλεκτρικός",
+              "alt_name:en": "Electrikos",
+              "alt_name:fr": "L'électrique",
+              "colour": "#007A33",
+              "from": "Πειραιάς",
+              "name": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:ca": "Metro Μ1: El Pireu → Kifisia",
+              "name:de": "U-Bahn Μ1: Piräus → Kifisia",
+              "name:el": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:en": "Metro Μ1: Piraeus → Kifissia",
+              "name:fr": "Métro Μ1: Le Pirée → Céphisie",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "old_name": "ΗΣΑΠ",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ1",
+              "route": "subway",
+              "start_date": "1860-02-27",
+              "to": "Κηφισιά",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553095",
+              "wikipedia": "el:Γραμμή Ηλεκτρικού (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.6432467,
+          37.948023
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/4689709385",
+        "alt_name:en": "Irini",
+        "int_name": "Eirini",
+        "name": "Ειρήνη",
+        "name:el": "Ειρήνη",
+        "name:en": "Eirini",
+        "name:fr": "Irini",
+        "name:ru": "Ирини",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Κηφισιά",
+        "source": "Bing (2017-02-17)",
+        "source:alt_name:en": "sign",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "445858",
+            "reltags": {
+              "alt_name": "Ηλεκτρικός",
+              "alt_name:ca": "L'elèctric",
+              "alt_name:de": "Electrikos",
+              "alt_name:el": "Ηλεκτρικός",
+              "alt_name:en": "Electrikos",
+              "alt_name:fr": "L'électrique",
+              "colour": "#007A33",
+              "from": "Πειραιάς",
+              "name": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:ca": "Metro Μ1: El Pireu → Kifisia",
+              "name:de": "U-Bahn Μ1: Piräus → Kifisia",
+              "name:el": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:en": "Metro Μ1: Piraeus → Kifissia",
+              "name:fr": "Métro Μ1: Le Pirée → Céphisie",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "old_name": "ΗΣΑΠ",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ1",
+              "route": "subway",
+              "start_date": "1860-02-27",
+              "to": "Κηφισιά",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553095",
+              "wikipedia": "el:Γραμμή Ηλεκτρικού (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7837888,
+          38.0429902
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/5396738082",
+        "indoor": "yes",
+        "int_name": "Victoria",
+        "level": "-1",
+        "name": "Βικτώρια",
+        "name:de": "Viktoria",
+        "name:el": "Βικτώρια",
+        "name:en": "Victoria",
+        "name:fr": "Victoria",
+        "name:ru": "Виктория",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "445858",
+            "reltags": {
+              "alt_name": "Ηλεκτρικός",
+              "alt_name:ca": "L'elèctric",
+              "alt_name:de": "Electrikos",
+              "alt_name:el": "Ηλεκτρικός",
+              "alt_name:en": "Electrikos",
+              "alt_name:fr": "L'électrique",
+              "colour": "#007A33",
+              "from": "Πειραιάς",
+              "name": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:ca": "Metro Μ1: El Pireu → Kifisia",
+              "name:de": "U-Bahn Μ1: Piräus → Kifisia",
+              "name:el": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:en": "Metro Μ1: Piraeus → Kifissia",
+              "name:fr": "Métro Μ1: Le Pirée → Céphisie",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "old_name": "ΗΣΑΠ",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ1",
+              "route": "subway",
+              "start_date": "1860-02-27",
+              "to": "Κηφισιά",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553095",
+              "wikipedia": "el:Γραμμή Ηλεκτρικού (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.730395,
+          37.9934877
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/5396738090",
+        "int_name": "Omonoia",
+        "name": "Ομόνοια",
+        "name:de": "Omonia",
+        "name:el": "Ομόνοια",
+        "name:en": "Omonia",
+        "name:fr": "Omonia",
+        "name:ru": "Омония",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "445858",
+            "reltags": {
+              "alt_name": "Ηλεκτρικός",
+              "alt_name:ca": "L'elèctric",
+              "alt_name:de": "Electrikos",
+              "alt_name:el": "Ηλεκτρικός",
+              "alt_name:en": "Electrikos",
+              "alt_name:fr": "L'électrique",
+              "colour": "#007A33",
+              "from": "Πειραιάς",
+              "name": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:ca": "Metro Μ1: El Pireu → Kifisia",
+              "name:de": "U-Bahn Μ1: Piräus → Kifisia",
+              "name:el": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:en": "Metro Μ1: Piraeus → Kifissia",
+              "name:fr": "Métro Μ1: Le Pirée → Céphisie",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "old_name": "ΗΣΑΠ",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ1",
+              "route": "subway",
+              "start_date": "1860-02-27",
+              "to": "Κηφισιά",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553095",
+              "wikipedia": "el:Γραμμή Ηλεκτρικού (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7281773,
+          37.9844999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/9178426337",
+        "int_name": "Kifisia",
+        "name": "Κηφισιά",
+        "name:el": "Κηφισιά",
+        "name:en": "Kifissia",
+        "name:fr": "Kifissia",
+        "name:ru": "Кифисия",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "445858",
+            "reltags": {
+              "alt_name": "Ηλεκτρικός",
+              "alt_name:ca": "L'elèctric",
+              "alt_name:de": "Electrikos",
+              "alt_name:el": "Ηλεκτρικός",
+              "alt_name:en": "Electrikos",
+              "alt_name:fr": "L'électrique",
+              "colour": "#007A33",
+              "from": "Πειραιάς",
+              "name": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:ca": "Metro Μ1: El Pireu → Kifisia",
+              "name:de": "U-Bahn Μ1: Piräus → Kifisia",
+              "name:el": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:en": "Metro Μ1: Piraeus → Kifissia",
+              "name:fr": "Métro Μ1: Le Pirée → Céphisie",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "old_name": "ΗΣΑΠ",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ1",
+              "route": "subway",
+              "start_date": "1860-02-27",
+              "to": "Κηφισιά",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553095",
+              "wikipedia": "el:Γραμμή Ηλεκτρικού (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8082198,
+          38.0733951
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/9178426338",
+        "int_name": "Nea Ionia",
+        "name": "Νέα Ιωνία",
+        "name:de": "Nea Ionia",
+        "name:el": "Νέα Ιωνία",
+        "name:en": "Nea Ionia",
+        "name:fr": "Nea Ionia",
+        "name:ru": "Неа Иония",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Κηφισιά",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "445858",
+            "reltags": {
+              "alt_name": "Ηλεκτρικός",
+              "alt_name:ca": "L'elèctric",
+              "alt_name:de": "Electrikos",
+              "alt_name:el": "Ηλεκτρικός",
+              "alt_name:en": "Electrikos",
+              "alt_name:fr": "L'électrique",
+              "colour": "#007A33",
+              "from": "Πειραιάς",
+              "name": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:ca": "Metro Μ1: El Pireu → Kifisia",
+              "name:de": "U-Bahn Μ1: Piräus → Kifisia",
+              "name:el": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:en": "Metro Μ1: Piraeus → Kifissia",
+              "name:fr": "Métro Μ1: Le Pirée → Céphisie",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "old_name": "ΗΣΑΠ",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ1",
+              "route": "subway",
+              "start_date": "1860-02-27",
+              "to": "Κηφισιά",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553095",
+              "wikipedia": "el:Γραμμή Ηλεκτρικού (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7554095,
+          38.0416198
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/9178426339",
+        "int_name": "Pefkakia",
+        "name": "Πευκάκια",
+        "name:el": "Πευκάκια",
+        "name:en": "Pefkakia",
+        "name:ru": "Пэвкакья",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Κηφισιά",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "445858",
+            "reltags": {
+              "alt_name": "Ηλεκτρικός",
+              "alt_name:ca": "L'elèctric",
+              "alt_name:de": "Electrikos",
+              "alt_name:el": "Ηλεκτρικός",
+              "alt_name:en": "Electrikos",
+              "alt_name:fr": "L'électrique",
+              "colour": "#007A33",
+              "from": "Πειραιάς",
+              "name": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:ca": "Metro Μ1: El Pireu → Kifisia",
+              "name:de": "U-Bahn Μ1: Piräus → Kifisia",
+              "name:el": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:en": "Metro Μ1: Piraeus → Kifissia",
+              "name:fr": "Métro Μ1: Le Pirée → Céphisie",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "old_name": "ΗΣΑΠ",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ1",
+              "route": "subway",
+              "start_date": "1860-02-27",
+              "to": "Κηφισιά",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553095",
+              "wikipedia": "el:Γραμμή Ηλεκτρικού (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7505057,
+          38.0374108
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/9178426341",
+        "int_name": "Perissos",
+        "name": "Περισσός",
+        "name:de": "Perissos",
+        "name:el": "Περισσός",
+        "name:en": "Perissos",
+        "name:fr": "Perissos",
+        "name:ru": "Пэриссос",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Κηφισιά",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "445858",
+            "reltags": {
+              "alt_name": "Ηλεκτρικός",
+              "alt_name:ca": "L'elèctric",
+              "alt_name:de": "Electrikos",
+              "alt_name:el": "Ηλεκτρικός",
+              "alt_name:en": "Electrikos",
+              "alt_name:fr": "L'électrique",
+              "colour": "#007A33",
+              "from": "Πειραιάς",
+              "name": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:ca": "Metro Μ1: El Pireu → Kifisia",
+              "name:de": "U-Bahn Μ1: Piräus → Kifisia",
+              "name:el": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:en": "Metro Μ1: Piraeus → Kifissia",
+              "name:fr": "Métro Μ1: Le Pirée → Céphisie",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "old_name": "ΗΣΑΠ",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ1",
+              "route": "subway",
+              "start_date": "1860-02-27",
+              "to": "Κηφισιά",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553095",
+              "wikipedia": "el:Γραμμή Ηλεκτρικού (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.745068,
+          38.0332002
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/9178426343",
+        "alt_name:en": "Ano Patissia",
+        "int_name": "Ano Patisia",
+        "name": "Άνω Πατήσια",
+        "name:de": "Ano Patisia",
+        "name:el": "Άνω Πατήσια",
+        "name:en": "Ano Patisia",
+        "name:fr": "Ano Patisia",
+        "name:ru": "Ано Патысия",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Κηφισιά",
+        "source:alt_name:en": "sign",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "445858",
+            "reltags": {
+              "alt_name": "Ηλεκτρικός",
+              "alt_name:ca": "L'elèctric",
+              "alt_name:de": "Electrikos",
+              "alt_name:el": "Ηλεκτρικός",
+              "alt_name:en": "Electrikos",
+              "alt_name:fr": "L'électrique",
+              "colour": "#007A33",
+              "from": "Πειραιάς",
+              "name": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:ca": "Metro Μ1: El Pireu → Kifisia",
+              "name:de": "U-Bahn Μ1: Piräus → Kifisia",
+              "name:el": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:en": "Metro Μ1: Piraeus → Kifissia",
+              "name:fr": "Métro Μ1: Le Pirée → Céphisie",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "old_name": "ΗΣΑΠ",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ1",
+              "route": "subway",
+              "start_date": "1860-02-27",
+              "to": "Κηφισιά",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553095",
+              "wikipedia": "el:Γραμμή Ηλεκτρικού (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7365181,
+          38.0241359
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/9178426345",
+        "alt_name:en": "Aghios Eleftherios",
+        "alt_name:fr": "Saint-Éleuthère",
+        "int_name": "Agios Eleftherios",
+        "name": "Άγιος Ελευθέριος",
+        "name:de": "Agios Eleftherios",
+        "name:el": "Άγιος Ελευθέριος",
+        "name:en": "Agios Eleftherios",
+        "name:fr": "Agios Eleftherios",
+        "name:ru": "Айос Элефтэриос",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Κηφισιά",
+        "source:alt_name:en": "sign",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "445858",
+            "reltags": {
+              "alt_name": "Ηλεκτρικός",
+              "alt_name:ca": "L'elèctric",
+              "alt_name:de": "Electrikos",
+              "alt_name:el": "Ηλεκτρικός",
+              "alt_name:en": "Electrikos",
+              "alt_name:fr": "L'électrique",
+              "colour": "#007A33",
+              "from": "Πειραιάς",
+              "name": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:ca": "Metro Μ1: El Pireu → Kifisia",
+              "name:de": "U-Bahn Μ1: Piräus → Kifisia",
+              "name:el": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:en": "Metro Μ1: Piraeus → Kifissia",
+              "name:fr": "Métro Μ1: Le Pirée → Céphisie",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "old_name": "ΗΣΑΠ",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ1",
+              "route": "subway",
+              "start_date": "1860-02-27",
+              "to": "Κηφισιά",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553095",
+              "wikipedia": "el:Γραμμή Ηλεκτρικού (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7319353,
+          38.0203392
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/9178426348",
+        "alt_name:en": "Kato Patissia",
+        "int_name": "Kato Patisia",
+        "name": "Κάτω Πατήσια",
+        "name:de": "Kato Patisia",
+        "name:el": "Κάτω Πατήσια",
+        "name:en": "Kato Patisia",
+        "name:fr": "Kato Patisia",
+        "name:ru": "Каато Патысия",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Κηφισιά",
+        "source:alt_name:en": "sign",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "445858",
+            "reltags": {
+              "alt_name": "Ηλεκτρικός",
+              "alt_name:ca": "L'elèctric",
+              "alt_name:de": "Electrikos",
+              "alt_name:el": "Ηλεκτρικός",
+              "alt_name:en": "Electrikos",
+              "alt_name:fr": "L'électrique",
+              "colour": "#007A33",
+              "from": "Πειραιάς",
+              "name": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:ca": "Metro Μ1: El Pireu → Kifisia",
+              "name:de": "U-Bahn Μ1: Piräus → Kifisia",
+              "name:el": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:en": "Metro Μ1: Piraeus → Kifissia",
+              "name:fr": "Métro Μ1: Le Pirée → Céphisie",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "old_name": "ΗΣΑΠ",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ1",
+              "route": "subway",
+              "start_date": "1860-02-27",
+              "to": "Κηφισιά",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553095",
+              "wikipedia": "el:Γραμμή Ηλεκτρικού (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.728663,
+          38.0119208
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "Station",
+        "@id": "node/9666216520",
+        "int_name": "Monastiraki",
+        "name": "Μοναστηράκι",
+        "name:de": "Monastiraki",
+        "name:el": "Μοναστηράκι",
+        "name:en": "Monastiraki",
+        "name:fr": "Monastiraki",
+        "name:ko": "모나스티라키 역",
+        "name:ru": "Монастираки",
+        "old_int_name": "Monastirion",
+        "old_name": "Μοναστήριον",
+        "old_name:el": "Μοναστήριον",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "ref": "Κηφισιά",
+        "subway": "yes",
+        "wheelchair": "yes",
+        "@relations": [
+          {
+            "role": "stop",
+            "rel": "445858",
+            "reltags": {
+              "alt_name": "Ηλεκτρικός",
+              "alt_name:ca": "L'elèctric",
+              "alt_name:de": "Electrikos",
+              "alt_name:el": "Ηλεκτρικός",
+              "alt_name:en": "Electrikos",
+              "alt_name:fr": "L'électrique",
+              "colour": "#007A33",
+              "from": "Πειραιάς",
+              "name": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:ca": "Metro Μ1: El Pireu → Kifisia",
+              "name:de": "U-Bahn Μ1: Piräus → Kifisia",
+              "name:el": "Μετρό Μ1: Πειραιά → Κηφισιά",
+              "name:en": "Metro Μ1: Piraeus → Kifissia",
+              "name:fr": "Métro Μ1: Le Pirée → Céphisie",
+              "network": "Μετρό Αθήνας",
+              "network:el": "Μετρό Αθήνας",
+              "network:en": "Athens Metro",
+              "network:wikidata": "Q336488",
+              "network:wikipedia": "el:Μετρό Αθήνας",
+              "old_name": "ΗΣΑΠ",
+              "operator": "Σταθερές Συγκοινωνίες",
+              "operator:short": "ΣΤΑΣΥ",
+              "operator:wikidata": "Q109331635",
+              "operator:wikipedia": "el:Σταθερές Συγκοινωνίες",
+              "public_transport:version": "2",
+              "ref": "Μ1",
+              "route": "subway",
+              "start_date": "1860-02-27",
+              "to": "Κηφισιά",
+              "type": "route",
+              "wheelchair": "yes",
+              "wikidata": "Q6553095",
+              "wikipedia": "el:Γραμμή Ηλεκτρικού (Μετρό Αθήνας)"
+            }
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7258259,
+          37.976336
+        ]
+      }
+    }
+  ]
+}
