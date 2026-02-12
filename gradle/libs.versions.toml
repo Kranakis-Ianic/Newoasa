@@ -27,8 +27,8 @@ ktorfit = "2.4.1"
 serialization = "1.7.3"
 koin = "4.1.1"
 room = "2.7.2"
-# KSP version matched to Kotlin 2.2.0
-ksp = "2.2.0-1.0.29"
+# KSP version matched to Kotlin 2.2.0 (new versioning scheme)
+ksp = "2.2.0-2.0.2"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
