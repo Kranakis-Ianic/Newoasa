@@ -29,13 +29,14 @@ actual fun MapView(
         )
     }
 
+    // The library uses "MapLibre" composable
     MapLibre(
         modifier = modifier,
         style = styleUrl,
         cameraPositionState = cameraPositionState
     )
 
-    // Notify that map is ready (simplified, real readiness is handled by composable)
+    // Notify that map is ready
     LaunchedEffect(Unit) {
         onMapReady()
     }
