@@ -14,7 +14,6 @@ composeMultiplatform = "1.7.1"
 junit = "4.13.2"
 # Downgrade Kotlin to 2.1.0 to fix KLIB resolver error (UIUtilities missing)
 kotlin = "2.1.0"
-# Material3 version removed - will be auto-resolved by Compose plugin
 coroutines = "1.10.1"
 sqlite = "2.5.0-alpha01"
 coil = "3.1.0"
@@ -45,8 +44,7 @@ androidx-lifecycle-viewmodelCompose = { module = "org.jetbrains.androidx.lifecyc
 androidx-lifecycle-runtimeCompose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-runtime-compose", version.ref = "androidx-lifecycle" }
 compose-runtime = { module = "org.jetbrains.compose.runtime:runtime", version.ref = "composeMultiplatform" }
 compose-foundation = { module = "org.jetbrains.compose.foundation:foundation", version.ref = "composeMultiplatform" }
-# Material3 will be auto-resolved by Compose Multiplatform plugin - no explicit version
-compose-material3 = { module = "org.jetbrains.compose.material3:material3" }
+# material3 is provided by compose.material3 plugin accessor - no version catalog entry needed
 compose-ui = { module = "org.jetbrains.compose.ui:ui", version.ref = "composeMultiplatform" }
 compose-components-resources = { module = "org.jetbrains.compose.components:components-resources", version.ref = "composeMultiplatform" }
 # ui-tooling-preview will be auto-resolved by Compose Multiplatform plugin
