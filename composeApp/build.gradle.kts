@@ -63,10 +63,10 @@ kotlin {
             implementation(libs.androidx.lifecycle.viewmodelCompose)
             implementation(libs.androidx.lifecycle.runtimeCompose)
             
-            // MapLibre Compose - working in City_Transit
+            // MapLibre Compose
             implementation(libs.maplibre.compose)
-            // SpatialK GeoJSON - required for MapLibre Position types
-            implementation("org.maplibre.spatialk:geojson:0.6.1")
+            // SpatialK GeoJSON - MapLibre Compose 0.11.1 uses the old package
+            implementation("io.github.dellisd.spatialk:geojson:0.2.0")
             
             // Ktor - multiplatform
             implementation(libs.ktor.client.core)
