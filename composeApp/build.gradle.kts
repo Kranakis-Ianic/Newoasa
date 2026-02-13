@@ -70,6 +70,9 @@ kotlin {
         iosMain.dependencies {
             // Ktor client for iOS
             implementation(libs.ktor.client.darwin)
+            
+            // MapLibre Compose for iOS
+            implementation(libs.maplibre.compose)
         }
 
         commonMain.dependencies {
