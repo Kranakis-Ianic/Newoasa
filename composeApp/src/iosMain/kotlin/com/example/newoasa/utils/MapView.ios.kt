@@ -1,13 +1,15 @@
 package com.example.newoasa.utils
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.example.newoasa.data.TransitLine
-import org.maplibre.compose.MapLibreMap
-import org.maplibre.compose.camera.CameraPosition
-import org.maplibre.compose.camera.rememberCameraPositionState
-import org.maplibre.compose.geometry.LatLng
 
 @Composable
 actual fun MapView(
@@ -16,25 +18,19 @@ actual fun MapView(
     selectedLine: TransitLine?,
     onMapReady: () -> Unit
 ) {
-    val styleUrl = if (isDark) {
-        "https://tiles.openfreemap.org/styles/dark"
-    } else {
-        "https://tiles.openfreemap.org/styles/bright"
-    }
-
-    val cameraPositionState = rememberCameraPositionState {
-        position = CameraPosition(
-            target = LatLng(37.9838, 23.7275),
-            zoom = 11.0
+    // Temporary placeholder until MapLibre Compose iOS is properly configured
+    Box(
+        modifier = modifier
+            .fillMaxSize()
+            .background(if (isDark) MaterialTheme.colorScheme.surface else MaterialTheme.colorScheme.surfaceVariant),
+        contentAlignment = Alignment.Center
+    ) {
+        Text(
+            text = "Map View (iOS - Coming Soon)",
+            style = MaterialTheme.typography.bodyLarge,
+            color = MaterialTheme.colorScheme.onSurface
         )
     }
-
-    // 2. Fix Composable Name:
-    MapLibreMap(
-        modifier = modifier,
-        style = styleUrl,
-        cameraPositionState = cameraPositionState
-    )
 
     LaunchedEffect(Unit) {
         onMapReady()
