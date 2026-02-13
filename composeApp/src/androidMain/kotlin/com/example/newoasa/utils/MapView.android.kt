@@ -37,12 +37,11 @@ actual fun MapView(
         )
     }
 
-    // Trigger onMapReady callback
     remember(Unit) {
         onMapReady()
         null
     }
     
     // TODO: Add custom layers for transit lines when selectedLine != null
-    // Can reference previous implementation for full transit visualization
+    // Can reference previous native implementation for full transit visualization
 }
