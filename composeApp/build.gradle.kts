@@ -24,8 +24,17 @@ kotlin {
         }
     }
 
-    iosArm64()
-    iosSimulatorArm64()
+    val iosArm64Target = iosArm64()
+    val iosSimulatorArm64Target = iosSimulatorArm64()
+
+    // Configure cinterop for MapLibre (added via SPM in Xcode)
+    listOf(iosArm64Target, iosSimulatorArm64Target).forEach { target ->
+        target.compilations.getByName("main") {
+            cinterops.create("MapLibre") {
+                defFile(project.file("src/nativeInterop/cinterop/MapLibre.def"))
+            }
+        }
+    }
 
     cocoapods {
         version = "1.0"
@@ -73,7 +82,7 @@ kotlin {
             implementation(libs.ktor.client.darwin)
             
             // Note: MapLibre for iOS is added via SPM in Xcode
-            // Native integration, not using MapLibre Compose
+            // Native integration via cinterop, not using MapLibre Compose
         }
 
         commonMain.dependencies {
