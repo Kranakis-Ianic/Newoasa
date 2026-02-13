@@ -1,17 +1,21 @@
 package com.example.newoasa.utils
 
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import com.example.newoasa.data.TransitLine
-import org.maplibre.compose.camera.rememberCameraState
-import org.maplibre.compose.map.MaplibreMap
-import org.maplibre.compose.style.BaseStyle
-import org.maplibre.compose.style.rememberStyleState
+import org.maplibre.compose.MaplibreMap
+import org.maplibre.compose.ramani.MapLibre
+import org.maplibre.compose.rememberSaveableMapViewCameraState
 
 /**
- * Unified MapView for both Android and iOS platforms
- * Uses MapLibre Compose multiplatform library
+ * Transit Map View using MapLibre Compose
+ * 
+ * This view displays an interactive map for visualizing transit routes,
+ * stops, and other transit-related data.
+ * 
+ * Implementation based on City_Transit working pattern.
  */
 @Composable
 fun MapView(
@@ -20,33 +24,22 @@ fun MapView(
     selectedLine: TransitLine? = null,
     onMapReady: () -> Unit = {}
 ) {
-    val cameraState = rememberSaveableMapViewCameraState(
-        initialCenter = Point.fromLngLat(23.7275, 37.9838), // Athens, Greece
-        initialZoom = 11.0
-    )
-
-    val styleUrl = remember(isDark) {
-        if (isDark) {
-            "https://tiles.openfreemap.org/styles/dark"
-        } else {
-            "https://tiles.openfreemap.org/styles/bright"
-        }
-    }
-
+    val cameraState = rememberSaveableMapViewCameraState()
+    
     MapLibre {
         MaplibreMap(
-            modifier = modifier,
-            cameraState = cameraState,
-            styleUrl = styleUrl
+            modifier = modifier.fillMaxSize(),
+            cameraState = cameraState
         )
     }
-
-    remember(Unit) {
+    
+    LaunchedEffect(Unit) {
         onMapReady()
-        null
     }
     
+    // TODO: Add custom styling based on isDark parameter
     // TODO: Add custom layers for transit lines when selectedLine != null
     // TODO: Add markers for stops
     // TODO: Add route polylines
+    // TODO: Center camera on Athens (37.9838, 23.7275) with zoom 11
 }
