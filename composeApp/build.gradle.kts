@@ -96,6 +96,9 @@ kotlin {
 
             // DataStore
             implementation(libs.androidx.datastore.preferences)
+
+            //ixes KLIB resolver warning for iOS cinterop
+            implementation(libs.androidx.lifecycle.viewmodel.compose)
         }
         
         commonTest.dependencies {
