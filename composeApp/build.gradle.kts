@@ -72,9 +72,6 @@ kotlin {
             implementation(libs.androidx.datastore.preferences)
             // Ktorfit (Android/JVM-specific)
             implementation(libs.ktorfit.lib)
-            
-            // MapLibre Compose (Android only - works properly)
-            implementation(libs.maplibre.compose)
         }
 
         iosMain.dependencies {
@@ -93,6 +90,9 @@ kotlin {
             implementation(libs.compose.components.resources)
             implementation(libs.compose.uiToolingPreview)
             implementation(libs.compose.materialIconsExtended)
+
+            // MapLibre Compose (works on Android, iOS uses native SDK)
+            implementation(libs.maplibre.compose)
 
             // Ktor - multiplatform
             implementation(libs.ktor.client.core)
