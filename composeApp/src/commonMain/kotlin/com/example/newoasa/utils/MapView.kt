@@ -5,9 +5,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import com.example.newoasa.data.TransitLine
-import org.maplibre.compose.MaplibreMap
-import org.maplibre.compose.ramani.MapLibre
-import org.maplibre.compose.rememberSaveableMapViewCameraState
+import org.maplibre.compose.map.MaplibreMap
+import org.maplibre.compose.camera.rememberCameraState
 
 @Composable
 fun MapView(
@@ -16,15 +15,15 @@ fun MapView(
     selectedLine: TransitLine? = null,
     onMapReady: () -> Unit = {}
 ) {
-    val cameraState = rememberSaveableMapViewCameraState()
+    val cameraState = rememberCameraState()
 
     MaplibreMap(
         modifier = modifier.fillMaxSize(),
-        cameraState = cameraState
+        cameraState = cameraState,
+        baseStyle = "https://demotiles.maplibre.org/style.json"
     )
     
     LaunchedEffect(Unit) {
         onMapReady()
     }
-
 }
