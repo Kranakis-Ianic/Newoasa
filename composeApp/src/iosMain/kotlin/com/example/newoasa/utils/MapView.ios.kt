@@ -39,7 +39,7 @@ actual fun MapView(
             )
             
             setCenterCoordinate(
-                coordinate = athensCoordinate,
+                centerCoordinate = athensCoordinate,
                 zoomLevel = 11.0,
                 animated = false
             )
