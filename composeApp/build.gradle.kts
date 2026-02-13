@@ -3,7 +3,7 @@ import org.gradle.jvm.toolchain.JavaLanguageVersion
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
-    id("com.android.kotlin.multiplatform.library")
+    alias(libs.plugins.androidApplication)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.kotlinSerialization)
@@ -16,8 +16,8 @@ kotlin {
     // Use Java 17 toolchain for Kotlin/JVM compilations
     jvmToolchain(17)
 
-    // Configure Android target using the new Android KMP plugin DSL
-    android {
+    // Configure Android target
+    androidTarget {
         compilations.all {
             compilerOptions {
                 jvmTarget.set(JvmTarget.JVM_17)
@@ -27,17 +27,6 @@ kotlin {
 
     iosArm64()
     iosSimulatorArm64()
-
-    targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget>().configureEach {
-        compilations.getByName("main") {
-            cinterops.all {
-                // Make cinterop tasks depend on dependency resolution
-                tasks.named(interopProcessingTaskName).configure {
-                    dependsOn(":composeApp:transformCommonMainDependenciesMetadata")
-                }
-            }
-        }
-    }
 
     cocoapods {
         version = "1.0"
@@ -49,10 +38,6 @@ kotlin {
         framework {
             baseName = "ComposeApp"
             isStatic = true
-
-            // Export MapLibre and lifecycle dependencies
-            // Do not export Android-only MapLibre Compose artifact here; iOS uses the `pod("MapLibre")` declaration below.
-
         }
 
         // Define the native dependency required by MapLibre Compose
@@ -71,18 +56,16 @@ kotlin {
             implementation(libs.koin.android)
             implementation(libs.ktor.client.android)
             implementation(libs.ktor.client.okhttp)
-            // Lifecycle - Android-specific (moved from commonMain to avoid K/N resolution on iOS)
+            // Lifecycle - Android-specific
             implementation(libs.androidx.lifecycle.viewmodel.compose)
             implementation(libs.androidx.lifecycle.viewmodel.savedstate)
-            // MapLibre - Android artifact (keep out of commonMain)
-            implementation(libs.maplibre.compose)
             // Android-only UI libraries
             implementation(libs.koin.compose)
             implementation(libs.koin.compose.viewmodel)
             implementation(libs.coil.compose)
             implementation(libs.coil.network.ktor)
             implementation(libs.androidx.datastore.preferences)
-            // Ktorfit (Android/JVM-specific) moved from commonMain
+            // Ktorfit (Android/JVM-specific)
             implementation(libs.ktorfit.lib)
         }
 
@@ -100,13 +83,10 @@ kotlin {
             implementation(libs.compose.uiToolingPreview)
             implementation(libs.compose.materialIconsExtended)
 
-            // MapLibre
-            // NOTE: MapLibre Android artifact is added to androidMain. iOS uses the CocoaPods `MapLibre` pod.
-            // MapLibre Compose has multiplatform artifacts; add to commonMain so iosMain can reference the `maplibre` package.
+            // MapLibre - common artifact (platform-specific implementations provided)
             implementation(libs.maplibre.compose)
 
-            // Ktorfit
-            // NOTE: Ktorfit is Android/JVM-specific and was moved to androidMain. Use multiplatform-safe HTTP clients in commonMain.
+            // Ktor - multiplatform
             implementation(libs.ktor.client.core)
             implementation(libs.ktor.client.content.negotiation)
             implementation(libs.ktor.serialization.kotlinx.json)
@@ -117,10 +97,6 @@ kotlin {
             // Room (multiplatform/common artifacts) and bundled SQLite for native
             implementation(libs.room.runtime)
             implementation(libs.sqlite.bundled)
-
-            // NOTE: Coil and Android DataStore are Android-only and moved to androidMain
-
-            // NOTE: Lifecycle dependencies are Android-only and were moved to androidMain
         }
 
         commonTest.dependencies {
@@ -194,7 +170,6 @@ dependencies {
     add("kspIosSimulatorArm64", libs.room.compiler)
     add("kspCommonMainMetadata", libs.room.compiler)
 
-    // Ktorfit KSP - Platform specific only
+    // Ktorfit KSP - Platform specific only (Android)
     add("kspAndroid", libs.ktorfit.ksp)
-    // Note: do not register KSP for iOS for ktorfit to avoid loading its compiler plugin into Kotlin/Native.
 }
