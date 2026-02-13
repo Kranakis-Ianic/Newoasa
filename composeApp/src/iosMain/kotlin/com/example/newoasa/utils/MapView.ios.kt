@@ -55,7 +55,7 @@ actual fun MapView(
             selectedLine?.let { line ->
                 Spacer(modifier = Modifier.height(16.dp))
                 Text(
-                    text = "Selected: ${line.lineName}",
+                    text = "Selected: ${line.displayName}",
                     style = MaterialTheme.typography.bodyLarge,
                     color = MaterialTheme.colorScheme.primary
                 )
