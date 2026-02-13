@@ -1,21 +1,22 @@
 package com.example.newoasa.utils
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.ui.Alignment
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.interop.UIKitView
 import com.example.newoasa.data.TransitLine
+import kotlinx.cinterop.CValue
+import kotlinx.cinterop.ExperimentalForeignApi
+import platform.CoreLocation.CLLocationCoordinate2D
+import platform.CoreLocation.CLLocationCoordinate2DMake
+import platform.Foundation.NSURL
+import platform.MapLibre.MLNMapView
+import platform.UIKit.UIView
+import platform.darwin.NSObject
 
+@OptIn(ExperimentalForeignApi::class)
 @Composable
 actual fun MapView(
     modifier: Modifier,
@@ -23,45 +24,50 @@ actual fun MapView(
     selectedLine: TransitLine?,
     onMapReady: () -> Unit
 ) {
-    // MapLibre Compose iOS support is incomplete in v0.11.1
-    // Using placeholder until proper iOS implementation is available
-    Box(
-        modifier = modifier
-            .fillMaxSize()
-            .background(if (isDark) MaterialTheme.colorScheme.surface else MaterialTheme.colorScheme.surfaceVariant),
-        contentAlignment = Alignment.Center
-    ) {
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier.padding(24.dp)
-        ) {
-            Text(
-                text = "🗺️",
-                style = MaterialTheme.typography.displayLarge
-            )
-            Spacer(modifier = Modifier.height(16.dp))
-            Text(
-                text = "Map View",
-                style = MaterialTheme.typography.headlineMedium,
-                color = MaterialTheme.colorScheme.onSurface
-            )
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(
-                text = "iOS implementation coming soon",
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
-            )
-            
-            selectedLine?.let { line ->
-                Spacer(modifier = Modifier.height(16.dp))
-                Text(
-                    text = "Selected: ${line.displayName}",
-                    style = MaterialTheme.typography.bodyLarge,
-                    color = MaterialTheme.colorScheme.primary
-                )
-            }
+    val styleUrl = remember(isDark) {
+        if (isDark) {
+            "https://tiles.openfreemap.org/styles/dark"
+        } else {
+            "https://tiles.openfreemap.org/styles/bright"
         }
     }
+
+    UIKitView(
+        factory = {
+            MLNMapView().apply {
+                // Set map style
+                val url = NSURL.URLWithString(styleUrl)
+                if (url != null) {
+                    setStyleURL(url)
+                }
+
+                // Center on Athens, Greece
+                val athensCoordinate = CLLocationCoordinate2DMake(
+                    latitude = 37.9838,
+                    longitude = 23.7275
+                )
+                setCenterCoordinate(
+                    centerCoordinate = athensCoordinate,
+                    zoomLevel = 11.0,
+                    animated = false
+                )
+
+                // Enable user interaction
+                setZoomEnabled(true)
+                setScrollEnabled(true)
+                setRotateEnabled(true)
+                setPitchEnabled(false)
+            }
+        },
+        modifier = modifier,
+        update = { mapView ->
+            // Update style when theme changes
+            val url = NSURL.URLWithString(styleUrl)
+            if (url != null) {
+                mapView.setStyleURL(url)
+            }
+        }
+    )
 
     LaunchedEffect(Unit) {
         onMapReady()
