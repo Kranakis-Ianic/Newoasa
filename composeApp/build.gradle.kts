@@ -37,6 +37,9 @@ kotlin {
         framework {
             baseName = "ComposeApp"
             isStatic = true
+            
+            // Export MapLibre for iOS
+            export(libs.maplibre.compose)
         }
 
         // Define the native dependency required by MapLibre Compose
@@ -71,6 +74,9 @@ kotlin {
         iosMain.dependencies {
             // Ktor client for iOS
             implementation(libs.ktor.client.darwin)
+            
+            // MapLibre - expose as API for iOS
+            api(libs.maplibre.compose)
         }
 
         commonMain.dependencies {
@@ -83,7 +89,7 @@ kotlin {
             implementation(libs.compose.materialIconsExtended)
 
             // MapLibre - common artifact (platform-specific implementations provided)
-            implementation(libs.maplibre.compose)
+            api(libs.maplibre.compose)
 
             // Ktor - multiplatform
             implementation(libs.ktor.client.core)
