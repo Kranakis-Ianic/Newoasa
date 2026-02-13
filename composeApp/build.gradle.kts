@@ -16,12 +16,11 @@ kotlin {
     // Use Java 17 toolchain for Kotlin/JVM compilations
     jvmToolchain(17)
 
-    // Configure Android target
+    // Register Android target
     androidTarget {
-        compilations.all {
-            compilerOptions {
-                jvmTarget.set(JvmTarget.JVM_17)
-            }
+        @OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_17)
         }
     }
 
@@ -151,13 +150,6 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
-    }
-
-    // Configure Android Java toolchain so AGP uses Java 17 where supported
-    java {
-        toolchain {
-            languageVersion.set(JavaLanguageVersion.of(17))
-        }
     }
 }
 
