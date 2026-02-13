@@ -6,8 +6,10 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import com.example.newoasa.data.TransitLine
 import org.maplibre.compose.map.MaplibreMap
+import org.maplibre.compose.camera.CameraPosition
 import org.maplibre.compose.camera.rememberCameraState
 import org.maplibre.compose.style.BaseStyle
+import org.maplibre.spatialk.geojson.Position
 
 @Composable
 fun MapView(
@@ -16,7 +18,13 @@ fun MapView(
     selectedLine: TransitLine? = null,
     onMapReady: () -> Unit = {}
 ) {
-    val cameraState = rememberCameraState()
+    // Athens coordinates: 37.9838° N, 23.7275° E
+    val cameraState = rememberCameraState(
+        CameraPosition(
+            target = Position(latitude = 37.9838, longitude = 23.7275),
+            zoom = 11.0
+        )
+    )
     
     // Use OpenFreeMap with theme-appropriate style
     val styleUrl = if (isDark) {
