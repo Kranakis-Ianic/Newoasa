@@ -7,6 +7,7 @@ import androidx.compose.ui.Modifier
 import com.example.newoasa.data.TransitLine
 import org.maplibre.compose.map.MaplibreMap
 import org.maplibre.compose.camera.rememberCameraState
+import org.maplibre.compose.style.BaseStyle
 
 @Composable
 fun MapView(
@@ -20,7 +21,7 @@ fun MapView(
     MaplibreMap(
         modifier = modifier.fillMaxSize(),
         cameraState = cameraState,
-        baseStyle = "https://demotiles.maplibre.org/style.json"
+        baseStyle = BaseStyle.Uri("https://demotiles.maplibre.org/style.json")
     )
     
     LaunchedEffect(Unit) {
