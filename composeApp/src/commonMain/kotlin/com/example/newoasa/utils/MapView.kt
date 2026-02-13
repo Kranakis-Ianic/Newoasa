@@ -25,21 +25,14 @@ fun MapView(
     onMapReady: () -> Unit = {}
 ) {
     val cameraState = rememberSaveableMapViewCameraState()
-    
-    MapLibre {
-        MaplibreMap(
-            modifier = modifier.fillMaxSize(),
-            cameraState = cameraState
-        )
-    }
+
+    MaplibreMap(
+        modifier = modifier.fillMaxSize(),
+        cameraState = cameraState
+    )
     
     LaunchedEffect(Unit) {
         onMapReady()
     }
-    
-    // TODO: Add custom styling based on isDark parameter
-    // TODO: Add custom layers for transit lines when selectedLine != null
-    // TODO: Add markers for stops
-    // TODO: Add route polylines
-    // TODO: Center camera on Athens (37.9838, 23.7275) with zoom 11
+
 }

@@ -12,19 +12,22 @@ plugins {
 }
 
 kotlin {
-    // Use Java 17 toolchain for Kotlin/JVM compilations
-    jvmToolchain(17)
-
-    // Register Android target
     androidTarget {
-        @OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
         compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_17)
+            jvmTarget.set(JvmTarget.JVM_11)
         }
     }
 
-    iosArm64()
-    iosSimulatorArm64()
+    listOf(
+        iosArm64(),
+        iosSimulatorArm64()
+    ).forEach { iosTarget ->
+        iosTarget.binaries.framework {
+            baseName = "ComposeApp"
+            isStatic = true
+            binaryOption("bundleId", "com.example.newoasa.ComposeApp")
+        }
+    }
 
     sourceSets {
         androidMain.dependencies {
@@ -35,9 +38,6 @@ kotlin {
             implementation(libs.koin.android)
             implementation(libs.ktor.client.android)
             implementation(libs.ktor.client.okhttp)
-            // Lifecycle - Android-specific
-            implementation(libs.androidx.lifecycle.viewmodel.compose)
-            implementation(libs.androidx.lifecycle.viewmodel.savedstate)
             // Android-only UI libraries
             implementation(libs.koin.compose)
             implementation(libs.koin.compose.viewmodel)
@@ -61,10 +61,9 @@ kotlin {
             implementation(libs.compose.components.resources)
             implementation(libs.compose.uiToolingPreview)
             implementation(libs.compose.materialIconsExtended)
-
-            // MapLibre Compose (Multiplatform - works on both Android and iOS)
+            implementation(libs.androidx.lifecycle.viewmodelCompose)
+            implementation(libs.androidx.lifecycle.runtimeCompose)
             implementation(libs.maplibre.compose)
-
             // Ktor - multiplatform
             implementation(libs.ktor.client.core)
             implementation(libs.ktor.client.content.negotiation)
