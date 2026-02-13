@@ -3,7 +3,7 @@ import org.gradle.jvm.toolchain.JavaLanguageVersion
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
-    alias(libs.plugins.androidApplication)
+    id("com.android.kotlin.multiplatform.library")
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.kotlinSerialization)
@@ -16,9 +16,12 @@ kotlin {
     // Use Java 17 toolchain for Kotlin/JVM compilations
     jvmToolchain(17)
 
-    androidTarget {
-        compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_17)
+    // Configure Android target using the new Android KMP plugin DSL
+    android {
+        compilations.all {
+            compilerOptions {
+                jvmTarget.set(JvmTarget.JVM_17)
+            }
         }
     }
 
