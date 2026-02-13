@@ -33,6 +33,8 @@ fun getRoomDatabase(
         .build()
 }
 
-// Constructor expectation (Standard Room KMP boilerplate)
+// Constructor expectation - Remove the type constraint
 @Suppress("NO_ACTUAL_FOR_EXPECT")
-expect object TransitDatabaseConstructor : RoomDatabaseConstructor<TransitDatabase>
+expect object TransitDatabaseConstructor : RoomDatabaseConstructor<TransitDatabase> {
+    override fun initialize(): TransitDatabase
+}
