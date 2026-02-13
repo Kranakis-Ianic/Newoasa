@@ -8,6 +8,7 @@ plugins {
     alias(libs.plugins.kotlinSerialization)
     alias(libs.plugins.ksp)
     alias(libs.plugins.room)
+    alias(libs.plugins.kotlinCocoapods)
 }
 
 kotlin {
@@ -25,6 +26,23 @@ kotlin {
             baseName = "ComposeApp"
             isStatic = true
             binaryOption("bundleId", "com.example.newoasa.ComposeApp")
+        }
+    }
+    
+    cocoapods {
+        version = "1.0"
+        summary = "OASA Transit App Shared Module"
+        homepage = "https://github.com/Kranakis-Ianic/Newoasa"
+        ios.deploymentTarget = "14.0"
+        
+        framework {
+            baseName = "ComposeApp"
+            isStatic = true
+        }
+        
+        // MapLibre Native iOS SDK
+        pod("MapLibre") {
+            version = "~> 6.0"
         }
     }
 
