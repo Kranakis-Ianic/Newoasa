@@ -66,7 +66,7 @@ kotlin {
             // MapLibre Compose - working in City_Transit
             implementation(libs.maplibre.compose)
             // SpatialK GeoJSON - required for MapLibre Position types
-            implementation("org.maplibre:spatialk-geojson:0.2.0")
+            implementation("org.maplibre.spatialk:geojson:0.6.1")
             
             // Ktor - multiplatform
             implementation(libs.ktor.client.core)
