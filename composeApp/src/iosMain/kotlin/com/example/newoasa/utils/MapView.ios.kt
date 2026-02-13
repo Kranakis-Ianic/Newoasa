@@ -1,13 +1,20 @@
 package com.example.newoasa.utils
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import com.example.newoasa.data.TransitLine
-import org.maplibre.compose.MaplibreMap
-import org.maplibre.compose.rememberCameraState
-import org.maplibre.compose.settings.MapControls
-import org.maplibre.geojson.Point
 
 @Composable
 actual fun MapView(
@@ -16,27 +23,45 @@ actual fun MapView(
     selectedLine: TransitLine?,
     onMapReady: () -> Unit
 ) {
-    val cameraState = rememberCameraState(
-        initialCenter = Point.fromLngLat(23.7275, 37.9838), // Athens
-        initialZoom = 11.0
-    )
-
-    val styleUrl = if (isDark) {
-        "https://tiles.openfreemap.org/styles/dark"
-    } else {
-        "https://tiles.openfreemap.org/styles/bright"
+    // MapLibre Compose iOS support is incomplete in v0.11.1
+    // Using placeholder until proper iOS implementation is available
+    Box(
+        modifier = modifier
+            .fillMaxSize()
+            .background(if (isDark) MaterialTheme.colorScheme.surface else MaterialTheme.colorScheme.surfaceVariant),
+        contentAlignment = Alignment.Center
+    ) {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier.padding(24.dp)
+        ) {
+            Text(
+                text = "🗺️",
+                style = MaterialTheme.typography.displayLarge
+            )
+            Spacer(modifier = Modifier.height(16.dp))
+            Text(
+                text = "Map View",
+                style = MaterialTheme.typography.headlineMedium,
+                color = MaterialTheme.colorScheme.onSurface
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(
+                text = "iOS implementation coming soon",
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+            
+            selectedLine?.let { line ->
+                Spacer(modifier = Modifier.height(16.dp))
+                Text(
+                    text = "Selected: ${line.lineName}",
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = MaterialTheme.colorScheme.primary
+                )
+            }
+        }
     }
-
-    MaplibreMap(
-        modifier = modifier,
-        styleUrl = styleUrl,
-        cameraState = cameraState,
-        mapControls = MapControls(
-            isCompassEnabled = true,
-            isLogoEnabled = false,
-            isAttributionEnabled = true
-        )
-    )
 
     LaunchedEffect(Unit) {
         onMapReady()
