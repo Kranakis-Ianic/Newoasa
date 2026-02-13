@@ -72,9 +72,9 @@ kotlin {
             implementation(libs.compose.ui)
             implementation(libs.compose.components.resources)
             implementation(libs.compose.uiToolingPreview)
-            implementation(compose.materialIconsExtended)
+            implementation(libs.compose.materialIconsExtended)
 
-            implementation("org.maplibre.compose:maplibre-compose:0.11.1")
+            implementation(libs.maplibre.compose)
             implementation("org.maplibre.spatialk:geojson:0.6.1")
             implementation(libs.ktorfit.lib)
             implementation(libs.ktor.client.core)
