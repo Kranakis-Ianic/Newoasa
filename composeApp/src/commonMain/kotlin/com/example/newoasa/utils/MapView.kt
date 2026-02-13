@@ -9,7 +9,7 @@ import org.maplibre.compose.map.MaplibreMap
 import org.maplibre.compose.camera.CameraPosition
 import org.maplibre.compose.camera.rememberCameraState
 import org.maplibre.compose.style.BaseStyle
-import org.maplibre.spatialk.geojson.Position
+import io.github.dellisd.spatialk.geojson.Position
 
 @Composable
 fun MapView(
