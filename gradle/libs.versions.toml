@@ -29,8 +29,8 @@ room = "2.8.4"
 # KSP matched to Kotlin 2.3.10
 ksp = "2.3.2"
 
-# Native MapLibre SDKs
-maplibre-android = "11.7.1"
+# MapLibre Compose (official stable release)
+maplibre-compose = "0.11.1"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -89,8 +89,8 @@ room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
 room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
 sqlite-bundled = { module = "androidx.sqlite:sqlite-bundled", version.ref = "sqlite" }
 
-# Native MapLibre SDKs
-maplibre-android = { module = "org.maplibre.gl:android-sdk", version.ref = "maplibre-android" }
+# MapLibre Compose (Multiplatform)
+maplibre-compose = { module = "org.maplibre.compose:maplibre-compose", version.ref = "maplibre-compose" }
 
 compose-materialIconsExtended = { module = "org.jetbrains.compose.material:material-icons-extended", version.ref = "composeIcons" }
 
