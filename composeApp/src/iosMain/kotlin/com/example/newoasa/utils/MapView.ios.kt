@@ -1,16 +1,19 @@
 package com.example.newoasa.utils
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.ui.Alignment
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.interop.UIKitView
 import com.example.newoasa.data.TransitLine
+import kotlinx.cinterop.ExperimentalForeignApi
+import platform.CoreLocation.CLLocationCoordinate2DMake
+import platform.UIKit.UIView
+import cocoapods.MapLibre.MLNMapView
+import cocoapods.MapLibre.MLNMapViewDelegateProtocol
+import cocoapods.MapLibre.MLNStyle
+import platform.darwin.NSObject
 
+@OptIn(ExperimentalForeignApi::class)
 @Composable
 actual fun MapView(
     modifier: Modifier,
@@ -18,21 +21,41 @@ actual fun MapView(
     selectedLine: TransitLine?,
     onMapReady: () -> Unit
 ) {
-    // Temporary placeholder until MapLibre Compose iOS is properly configured
-    Box(
-        modifier = modifier
-            .fillMaxSize()
-            .background(if (isDark) MaterialTheme.colorScheme.surface else MaterialTheme.colorScheme.surfaceVariant),
-        contentAlignment = Alignment.Center
-    ) {
-        Text(
-            text = "Map View (iOS - Coming Soon)",
-            style = MaterialTheme.typography.bodyLarge,
-            color = MaterialTheme.colorScheme.onSurface
-        )
+    val mapView = remember {
+        MLNMapView().apply {
+            // Set style URL based on theme
+            val styleURL = if (isDark) {
+                "https://tiles.openfreemap.org/styles/dark"
+            } else {
+                "https://tiles.openfreemap.org/styles/bright"
+            }
+            
+            setStyleURL(platform.Foundation.NSURL.URLWithString(styleURL)!!)
+            
+            // Set initial camera position to Athens
+            val athensCoordinate = CLLocationCoordinate2DMake(
+                latitude = 37.9838,
+                longitude = 23.7275
+            )
+            
+            setCenterCoordinate(
+                coordinate = athensCoordinate,
+                zoomLevel = 11.0,
+                animated = false
+            )
+            
+            // Create and set delegate
+            val delegate = object : NSObject(), MLNMapViewDelegateProtocol {
+                override fun mapView(mapView: MLNMapView, didFinishLoadingStyle: MLNStyle) {
+                    onMapReady()
+                }
+            }
+            setDelegate(delegate)
+        }
     }
 
-    LaunchedEffect(Unit) {
-        onMapReady()
-    }
+    UIKitView(
+        factory = { mapView },
+        modifier = modifier
+    )
 }
