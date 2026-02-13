@@ -20,8 +20,19 @@ kotlin {
         }
     }
 
-    iosArm64()
-    iosSimulatorArm64()
+    listOf(
+        iosArm64(),
+        iosSimulatorArm64()
+    ).forEach { iosTarget ->
+        iosTarget.binaries.framework {
+            baseName = "composeApp"
+            isStatic = true
+
+            // Export lifecycle dependencies
+            export(libs.androidx.lifecycle.viewmodel)
+            export(libs.androidx.lifecycle.viewmodel.savedstate)
+        }
+    }
 
     cocoapods {
         version = "1.0"
@@ -33,16 +44,16 @@ kotlin {
         framework {
             baseName = "ComposeApp"
             isStatic = true
-            // This is crucial for distributing/linking
-            export(libs.maplibre.compose)
+            // Remove or comment out this line:
+            // export(libs.maplibre.compose)
         }
 
-        // Define the native dependency required by MapLibre Compose
         pod("MapLibre") {
             version = "6.17.1"
             extraOpts += listOf("-compiler-option", "-fmodules")
         }
     }
+
 
     // Suppress "expect/actual classes are in Beta" warning
     sourceSets.all {
@@ -61,8 +72,10 @@ kotlin {
         }
         
         iosMain.dependencies {
-            // Ktor client for iOS
+            implementation("org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.4")
+            implementation("org.jetbrains.androidx.savedstate:savedstate:1.2.1")
             implementation(libs.ktor.client.darwin)
+
         }
         
         commonMain.dependencies {
@@ -75,7 +88,6 @@ kotlin {
             implementation(libs.compose.materialIconsExtended)
 
             implementation(libs.maplibre.compose)
-            implementation("org.maplibre.spatialk:geojson:0.6.1")
             implementation(libs.ktorfit.lib)
             implementation(libs.ktor.client.core)
             implementation(libs.ktor.client.content.negotiation)
@@ -97,7 +109,8 @@ kotlin {
             // DataStore
             implementation(libs.androidx.datastore.preferences)
 
-            //ixes KLIB resolver warning for iOS cinterop
+            implementation(libs.androidx.lifecycle.viewmodel.compose)
+            implementation(libs.androidx.lifecycle.viewmodel.savedstate)
             implementation(libs.androidx.lifecycle.viewmodel.compose)
         }
         
