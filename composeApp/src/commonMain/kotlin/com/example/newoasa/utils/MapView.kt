@@ -9,14 +9,6 @@ import org.maplibre.compose.MaplibreMap
 import org.maplibre.compose.ramani.MapLibre
 import org.maplibre.compose.rememberSaveableMapViewCameraState
 
-/**
- * Transit Map View using MapLibre Compose
- * 
- * This view displays an interactive map for visualizing transit routes,
- * stops, and other transit-related data.
- * 
- * Implementation based on City_Transit working pattern.
- */
 @Composable
 fun MapView(
     modifier: Modifier = Modifier,
