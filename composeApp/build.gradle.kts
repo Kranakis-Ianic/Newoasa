@@ -38,6 +38,11 @@ kotlin {
             baseName = "ComposeApp"
             isStatic = true
         }
+
+        // MapLibre Native iOS SDK
+        pod("MapLibre") {
+            version = "6.7.1"
+        }
     }
 
     sourceSets {
@@ -60,6 +65,9 @@ kotlin {
             implementation(libs.androidx.datastore.preferences)
             // Ktorfit (Android/JVM-specific)
             implementation(libs.ktorfit.lib)
+            
+            // MapLibre Native Android SDK
+            implementation(libs.maplibre.android)
         }
 
         iosMain.dependencies {
@@ -75,9 +83,6 @@ kotlin {
             implementation(libs.compose.components.resources)
             implementation(libs.compose.uiToolingPreview)
             implementation(libs.compose.materialIconsExtended)
-
-            // MapLibre - common artifact (Android only for now)
-            implementation(libs.maplibre.compose)
 
             // Ktor - multiplatform
             implementation(libs.ktor.client.core)
