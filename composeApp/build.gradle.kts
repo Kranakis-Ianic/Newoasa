@@ -9,7 +9,6 @@ plugins {
     alias(libs.plugins.kotlinSerialization)
     alias(libs.plugins.ksp)
     alias(libs.plugins.room)
-    alias(libs.plugins.kotlinCocoapods)
 }
 
 kotlin {
@@ -24,33 +23,8 @@ kotlin {
         }
     }
 
-    val iosArm64Target = iosArm64()
-    val iosSimulatorArm64Target = iosSimulatorArm64()
-
-    // Configure cinterop for MapLibre (added via SPM in Xcode)
-    listOf(iosArm64Target, iosSimulatorArm64Target).forEach { target ->
-        target.compilations.getByName("main") {
-            cinterops.create("MapLibre") {
-                defFile(project.file("src/nativeInterop/cinterop/MapLibre.def"))
-            }
-        }
-    }
-
-    cocoapods {
-        version = "1.0"
-        summary = "Compose App"
-        homepage = "https://github.com/Kranakis-Ianic/Newoasa"
-
-        ios.deploymentTarget = "14.1"
-
-        framework {
-            baseName = "ComposeApp"
-            isStatic = true
-        }
-
-        // Note: MapLibre is added via Swift Package Manager in Xcode
-        // Not using CocoaPods for MapLibre
-    }
+    iosArm64()
+    iosSimulatorArm64()
 
     sourceSets {
         androidMain.dependencies {
@@ -77,9 +51,6 @@ kotlin {
         iosMain.dependencies {
             // Ktor client for iOS
             implementation(libs.ktor.client.darwin)
-            
-            // Note: MapLibre for iOS is added via SPM in Xcode
-            // Native integration via cinterop, not using MapLibre Compose
         }
 
         commonMain.dependencies {
@@ -91,7 +62,7 @@ kotlin {
             implementation(libs.compose.uiToolingPreview)
             implementation(libs.compose.materialIconsExtended)
 
-            // MapLibre Compose (works on Android, iOS uses native SDK)
+            // MapLibre Compose (Multiplatform - works on both Android and iOS)
             implementation(libs.maplibre.compose)
 
             // Ktor - multiplatform
