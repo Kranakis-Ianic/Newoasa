@@ -4,7 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import com.example.newoasa.data.TransitLine
-import org.maplibre.compose.MapLibre
+// Update Import: Use MapLibreMap instead of MapLibre
+import org.maplibre.compose.MapLibreMap
 import org.maplibre.compose.camera.CameraPosition
 import org.maplibre.compose.camera.rememberCameraPositionState
 import org.maplibre.compose.geometry.LatLng
@@ -29,8 +30,8 @@ actual fun MapView(
         )
     }
 
-    // The library uses "MapLibre" composable
-    MapLibre(
+    // Correct Composable Name: MapLibreMap
+    MapLibreMap(
         modifier = modifier,
         style = styleUrl,
         cameraPositionState = cameraPositionState

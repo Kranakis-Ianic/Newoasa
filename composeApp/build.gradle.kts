@@ -10,6 +10,7 @@ plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.room)
     alias(libs.plugins.ktorfit)
+    alias(libs.plugins.kotlinCocoapods)
 }
 
 kotlin {
@@ -19,14 +20,27 @@ kotlin {
         }
     }
 
-    listOf(
-        iosArm64(),
-        iosSimulatorArm64()
-    ).forEach { iosTarget ->
-        iosTarget.binaries.framework {
+    iosArm64()
+    iosSimulatorArm64()
+
+    cocoapods {
+        version = "1.0"
+        summary = "Compose App"
+        homepage = "https://github.com/Kranakis-Ianic/Newoasa"
+
+        ios.deploymentTarget = "14.1"
+
+        framework {
             baseName = "ComposeApp"
             isStatic = true
-            binaryOption("bundleId", "com.example.newoasa.ComposeApp")
+            // This is crucial for distributing/linking
+            export(libs.maplibre.compose)
+        }
+
+        // Define the native dependency required by MapLibre Compose
+        pod("MapLibre") {
+            version = "6.17.1"
+            extraOpts += listOf("-compiler-option", "-fmodules")
         }
     }
 
