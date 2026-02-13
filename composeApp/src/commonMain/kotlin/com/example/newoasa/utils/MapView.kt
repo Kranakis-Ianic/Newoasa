@@ -17,11 +17,18 @@ fun MapView(
     onMapReady: () -> Unit = {}
 ) {
     val cameraState = rememberCameraState()
+    
+    // Use OpenFreeMap with theme-appropriate style
+    val styleUrl = if (isDark) {
+        "https://tiles.openfreemap.org/styles/dark"
+    } else {
+        "https://tiles.openfreemap.org/styles/bright"
+    }
 
     MaplibreMap(
         modifier = modifier.fillMaxSize(),
         cameraState = cameraState,
-        baseStyle = BaseStyle.Uri("https://demotiles.maplibre.org/style.json")
+        baseStyle = BaseStyle.Uri(styleUrl)
     )
     
     LaunchedEffect(Unit) {
