@@ -1,22 +1,14 @@
 package com.example.newoasa.utils
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.DisposableEffect
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.interop.UIKitView
 import com.example.newoasa.data.TransitLine
-import kotlinx.cinterop.CValue
-import kotlinx.cinterop.ExperimentalForeignApi
-import platform.CoreLocation.CLLocationCoordinate2D
-import platform.CoreLocation.CLLocationCoordinate2DMake
-import platform.Foundation.NSURL
-import platform.MapLibre.MLNMapView
-import platform.UIKit.UIView
-import platform.darwin.NSObject
+import org.maplibre.compose.MaplibreMap
+import org.maplibre.compose.ramani.MapLibre
+import org.maplibre.compose.rememberSaveableMapViewCameraState
+import org.maplibre.geojson.Point
 
-@OptIn(ExperimentalForeignApi::class)
 @Composable
 actual fun MapView(
     modifier: Modifier,
@@ -24,6 +16,11 @@ actual fun MapView(
     selectedLine: TransitLine?,
     onMapReady: () -> Unit
 ) {
+    val cameraState = rememberSaveableMapViewCameraState(
+        initialCenter = Point.fromLngLat(23.7275, 37.9838), // Athens
+        initialZoom = 11.0
+    )
+
     val styleUrl = remember(isDark) {
         if (isDark) {
             "https://tiles.openfreemap.org/styles/dark"
@@ -32,44 +29,17 @@ actual fun MapView(
         }
     }
 
-    UIKitView(
-        factory = {
-            MLNMapView().apply {
-                // Set map style
-                val url = NSURL.URLWithString(styleUrl)
-                if (url != null) {
-                    setStyleURL(url)
-                }
+    MapLibre {
+        MaplibreMap(
+            modifier = modifier,
+            cameraState = cameraState,
+            styleUrl = styleUrl
+        )
+    }
 
-                // Center on Athens, Greece
-                val athensCoordinate = CLLocationCoordinate2DMake(
-                    latitude = 37.9838,
-                    longitude = 23.7275
-                )
-                setCenterCoordinate(
-                    centerCoordinate = athensCoordinate,
-                    zoomLevel = 11.0,
-                    animated = false
-                )
-
-                // Enable user interaction
-                setZoomEnabled(true)
-                setScrollEnabled(true)
-                setRotateEnabled(true)
-                setPitchEnabled(false)
-            }
-        },
-        modifier = modifier,
-        update = { mapView ->
-            // Update style when theme changes
-            val url = NSURL.URLWithString(styleUrl)
-            if (url != null) {
-                mapView.setStyleURL(url)
-            }
-        }
-    )
-
-    LaunchedEffect(Unit) {
+    // Trigger onMapReady callback
+    remember(Unit) {
         onMapReady()
+        null
     }
 }
