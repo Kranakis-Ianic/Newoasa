@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		18B026AF2F3F614100D00917 /* MapLibre in Frameworks */ = {isa = PBXBuildFile; productRef = 18B026AE2F3F614100D00917 /* MapLibre */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		51B77E249845708B04E0649A /* Newoasa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Newoasa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -41,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18B026AF2F3F614100D00917 /* MapLibre in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,8 +89,6 @@
 				A22F6B5DF0B146290595CAA3 /* iosApp */,
 			);
 			name = iosApp;
-			packageProductDependencies = (
-			);
 			productName = iosApp;
 			productReference = 51B77E249845708B04E0649A /* Newoasa.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +117,9 @@
 			);
 			mainGroup = 42C592A31E99C3A7896538B8;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				18B026AD2F3F614100D00917 /* XCRemoteSwiftPackageReference "maplibre-gl-native-distribution" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 0706B5D691D03912F096E3E4 /* Products */;
 			projectDirPath = "";
@@ -370,6 +376,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		18B026AD2F3F614100D00917 /* XCRemoteSwiftPackageReference "maplibre-gl-native-distribution" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/maplibre/maplibre-gl-native-distribution";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.23.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		18B026AE2F3F614100D00917 /* MapLibre */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 18B026AD2F3F614100D00917 /* XCRemoteSwiftPackageReference "maplibre-gl-native-distribution" */;
+			productName = MapLibre;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5948DDF872379D5F2034E9A5 /* Project object */;
 }
