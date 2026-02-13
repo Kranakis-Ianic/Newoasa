@@ -38,12 +38,6 @@ kotlin {
             baseName = "ComposeApp"
             isStatic = true
         }
-
-        // Define the native dependency required by MapLibre Compose
-        pod("MapLibre") {
-            version = "6.17.1"
-            extraOpts += listOf("-compiler-option", "-fmodules")
-        }
     }
 
     sourceSets {
