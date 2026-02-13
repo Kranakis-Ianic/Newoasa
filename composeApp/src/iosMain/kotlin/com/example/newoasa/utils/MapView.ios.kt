@@ -1,19 +1,14 @@
 package com.example.newoasa.utils
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.interop.UIKitView
 import com.example.newoasa.data.TransitLine
-import kotlinx.cinterop.ExperimentalForeignApi
-import platform.CoreLocation.CLLocationCoordinate2DMake
-import platform.UIKit.UIView
-import cocoapods.MapLibre.MLNMapView
-import cocoapods.MapLibre.MLNMapViewDelegateProtocol
-import cocoapods.MapLibre.MLNStyle
-import platform.darwin.NSObject
+import org.maplibre.compose.MaplibreMap
+import org.maplibre.compose.rememberCameraState
+import org.maplibre.compose.settings.MapControls
+import org.maplibre.geojson.Point
 
-@OptIn(ExperimentalForeignApi::class)
 @Composable
 actual fun MapView(
     modifier: Modifier,
@@ -21,41 +16,29 @@ actual fun MapView(
     selectedLine: TransitLine?,
     onMapReady: () -> Unit
 ) {
-    val mapView = remember {
-        MLNMapView().apply {
-            // Set style URL based on theme
-            val styleURL = if (isDark) {
-                "https://tiles.openfreemap.org/styles/dark"
-            } else {
-                "https://tiles.openfreemap.org/styles/bright"
-            }
-            
-            setStyleURL(platform.Foundation.NSURL.URLWithString(styleURL)!!)
-            
-            // Set initial camera position to Athens
-            val athensCoordinate = CLLocationCoordinate2DMake(
-                latitude = 37.9838,
-                longitude = 23.7275
-            )
-            
-            setCenterCoordinate(
-                centerCoordinate = athensCoordinate,
-                zoomLevel = 11.0,
-                animated = false
-            )
-            
-            // Create and set delegate
-            val delegate = object : NSObject(), MLNMapViewDelegateProtocol {
-                override fun mapView(mapView: MLNMapView, didFinishLoadingStyle: MLNStyle) {
-                    onMapReady()
-                }
-            }
-            setDelegate(delegate)
-        }
+    val cameraState = rememberCameraState(
+        initialCenter = Point.fromLngLat(23.7275, 37.9838), // Athens
+        initialZoom = 11.0
+    )
+
+    val styleUrl = if (isDark) {
+        "https://tiles.openfreemap.org/styles/dark"
+    } else {
+        "https://tiles.openfreemap.org/styles/bright"
     }
 
-    UIKitView(
-        factory = { mapView },
-        modifier = modifier
+    MaplibreMap(
+        modifier = modifier,
+        styleUrl = styleUrl,
+        cameraState = cameraState,
+        mapControls = MapControls(
+            isCompassEnabled = true,
+            isLogoEnabled = false,
+            isAttributionEnabled = true
+        )
     )
+
+    LaunchedEffect(Unit) {
+        onMapReady()
+    }
 }
